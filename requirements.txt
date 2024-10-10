@@ -1,1 +1,6 @@
+jupyter-book
+matplotlib
+sidrapy
 pandas
+seaborn
+scikit-learn

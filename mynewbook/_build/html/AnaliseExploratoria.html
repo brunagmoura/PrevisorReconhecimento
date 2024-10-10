@@ -1,0 +1,2776 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Análise exploratória dos dados &#8212; Previsor de reconhecimento</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AnaliseExploratoria';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pré processamento dos dados" href="Pr%C3%A9%20processamento.html" />
+    <link rel="prev" title="O projeto" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Previsor de reconhecimento</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    O projeto
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Análise exploratória dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pr%C3%A9%20processamento.html">Pré processamento dos dados</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/brunagmoura/PrevisorReconhecimento/blob/main/AnaliseExploratoria.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/AnaliseExploratoria.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análise exploratória dos dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-preliminar-dos-dados">Análise preliminar dos dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todos-as-variaveis">Todos as variáveis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-independentes-features">Variáveis independentes (features)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variavel-dependente-target">Variável dependente (target)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-ausentes">Dados ausentes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-ausentes-em-relacao-a-renda-do-municipio">Dados ausentes em relação à renda do município</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pib-x-status">PIB x Status</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="analise-exploratoria-dos-dados">
+<h1>Análise exploratória dos dados<a class="headerlink" href="#analise-exploratoria-dos-dados" title="Link to this heading">#</a></h1>
+<style>
+    table.dataframe {
+        font-size: 10px;
+    }
+</style><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;warnings&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>              
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>          
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;deep&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;talk&quot;</span><span class="p">,</span><span class="n">font_scale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">object_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Protocolo_S2iD&#39;</span><span class="p">,</span> <span class="s1">&#39;Nome_Municipio&#39;</span><span class="p">,</span> <span class="s1">&#39;Sigla_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;regiao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Setores Censitários&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Descricao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;DA_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;DA_Polui/cont da água&#39;</span><span class="p">,</span> <span class="s1">&#39;DA_Polui/cont do ar&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;DA_Polui/cont do solo&#39;</span><span class="p">,</span> <span class="s1">&#39;DA_Dimi/exauri hídrico&#39;</span><span class="p">,</span>
+                  <span class="s2">&quot;DA_Incêndi parques/APA&#39;s/APP&#39;s&quot;</span><span class="p">,</span> <span class="s1">&#39;PEPL_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPR_Descricao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Categoria&#39;</span><span class="p">,</span> <span class="s1">&#39;Grupo&#39;</span><span class="p">,</span> <span class="s1">&#39;Subgrupo&#39;</span><span class="p">,</span> <span class="s1">&#39;Tipo&#39;</span><span class="p">,</span> <span class="s1">&#39;Subtipo&#39;</span><span class="p">]</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">object_columns</span><span class="p">}</span>
+
+<span class="n">df_eventos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/brunagmoura/PrevisorReconhecimento/refs/heads/main/df_eventos_desastres_rec_nrec.csv&quot;</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="n">df_eventos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>Protocolo_S2iD</th>
+      <th>Nome_Municipio</th>
+      <th>Sigla_UF</th>
+      <th>regiao</th>
+      <th>Data_Registro</th>
+      <th>Data_Evento</th>
+      <th>codigo_ibge</th>
+      <th>Setores Censitários</th>
+      <th>Status</th>
+      <th>DH_Descricao</th>
+      <th>DH_MORTOS</th>
+      <th>DH_FERIDOS</th>
+      <th>DH_ENFERMOS</th>
+      <th>DH_DESABRIGADOS</th>
+      <th>DH_DESALOJADOS</th>
+      <th>DH_DESAPARECIDOS</th>
+      <th>DH_OUTROS AFETADOS</th>
+      <th>DH_total_danos_humanos</th>
+      <th>DM_Descricao</th>
+      <th>DM_Uni Habita Danificadas</th>
+      <th>DM_Uni Habita Destruidas</th>
+      <th>DM_Uni Habita Valor</th>
+      <th>DM_Inst Saúde Danificadas</th>
+      <th>DM_Inst Saúde Destruidas</th>
+      <th>DM_Inst Saúde Valor</th>
+      <th>DM_Inst Ensino Danificadas</th>
+      <th>DM_Inst Ensino Destruidas</th>
+      <th>DM_Inst Ensino Valor</th>
+      <th>DM_Inst Serviços Danificadas</th>
+      <th>DM_Inst Serviços Destruidas</th>
+      <th>DM_Inst Serviços Valor</th>
+      <th>DM_Inst Comuni Danificadas</th>
+      <th>DM_Inst Comuni Destruidas</th>
+      <th>DM_Inst Comuni Valor</th>
+      <th>DM_Obras de Infra Danificadas</th>
+      <th>DM_Obras de Infra Destruidas</th>
+      <th>DM_Obras de Infra Valor</th>
+      <th>DM_total_danos_materiais</th>
+      <th>DA_Descricao</th>
+      <th>DA_Polui/cont da água</th>
+      <th>DA_Polui/cont do ar</th>
+      <th>DA_Polui/cont do solo</th>
+      <th>DA_Dimi/exauri hídrico</th>
+      <th>DA_Incêndi parques/APA's/APP's</th>
+      <th>PEPL_Descricao</th>
+      <th>PEPL_Assis_méd e emergên(R$)</th>
+      <th>PEPL_Abast de água pot(R$)</th>
+      <th>PEPL_sist de esgotos sanit(R$)</th>
+      <th>PEPL_Sis limp e rec lixo (R$)</th>
+      <th>PEPL_Sis cont pragas (R$)</th>
+      <th>PEPL_distrib energia (R$)</th>
+      <th>PEPL_Telecomunicações (R$)</th>
+      <th>PEPL_Tran loc/reg/l_curso (R$)</th>
+      <th>PEPL_Distrib combustíveis(R$)</th>
+      <th>PEPL_Segurança pública (R$)</th>
+      <th>PEPL_Ensino (R$)</th>
+      <th>PEPL_total_publico</th>
+      <th>PEPR_Descricao</th>
+      <th>PEPR_Agricultura (R$)</th>
+      <th>PEPR_Pecuária (R$)</th>
+      <th>PEPR_Indústria (R$)</th>
+      <th>PEPR_Comércio (R$)</th>
+      <th>PEPR_Serviços (R$)</th>
+      <th>PEPR_total_privado</th>
+      <th>PE_PLePR</th>
+      <th>Empenhado</th>
+      <th>DensidadePop</th>
+      <th>Hab</th>
+      <th>Area</th>
+      <th>Ano</th>
+      <th>PIB</th>
+      <th>Categoria</th>
+      <th>Grupo</th>
+      <th>Subgrupo</th>
+      <th>Tipo</th>
+      <th>Subtipo</th>
+      <th>COBRADE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SC-F-4200903-12200-20141226</td>
+      <td>Angelina</td>
+      <td>SC</td>
+      <td>Sul</td>
+      <td>2015-01-02 00:00:00</td>
+      <td>2015-01-02</td>
+      <td>4200903</td>
+      <td>NaN</td>
+      <td>Reconhecido</td>
+      <td>Moradores da comunidade que ficarem desprovidos de locomoção, trafegabilidade e acessos.</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1500</td>
+      <td>1500</td>
+      <td>Os danos são representados pelas avarias/destruições acentuadas resultantes nas estradas/pontes vicinais do município, em virtude das enxurradas, que resultaram na erosão/deslocamento acentuado do saibro alocado nas estradas, bem como em sérios danos aos sistemas de drenagens/pontes de madeira/concreto, em que algumas foram arrancadas em sua totalidade, além da queda de barreiras e do estreitamento das pistas de rolamento das estradas vicinais, devido ao avanço do leito do rio.\n\nAdemais, houve danos às residências localizadas no entorno do rio, bem como à unidade de saúde/escola/galpão comunitário da Comunidade do Rio Novo, principalmente devido à interrupção do acesso e dos serviços ofertados.</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>No caso exposto, os prejuízos públicos são representados pelo aumento de demandas na área de saúde, resultantes da disponibilização de equipes de saúde e implantação de plantões, para atendimento à população, além do fornecimento de medicamentes, bem como a realização de ação/campanha de combate a leptospirose. \n\nAdemais, são necessários dispêndios acentuados para limpeza de vias públicas e rios, visando à retirada de entulhos, bem como para restabelecimentos dos sistemas de comunicação/energia.</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>Quebra/perda da produção agrícola/pecuária, ocasionada pelo não escoamento da produção, em virtude da interrupção do trafego de veículos, devido ao alagamento de vias públicas.</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>10.72</td>
+      <td>5,358.00</td>
+      <td>500.00</td>
+      <td>2,015.00</td>
+      <td>103,375.00</td>
+      <td>Natural</td>
+      <td>Hidrológico</td>
+      <td>Enxurradas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12200</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MS-F-5000708-12200-20141222</td>
+      <td>Anastácio</td>
+      <td>MS</td>
+      <td>Centro-oeste</td>
+      <td>2015-01-05 00:00:00</td>
+      <td>2015-01-05</td>
+      <td>5000708</td>
+      <td>NaN</td>
+      <td>Reconhecido</td>
+      <td>Ficaram prejudicados um total de 800 famílias que encontram-se em situação de isolamento total sem condições de escoarem seus produtos diversos  da agricultura familiar e sem condições de locomoção.</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3200</td>
+      <td>3200</td>
+      <td>Foram danificadas tum total de 8 pontes que interligam esses locais através destas estradas, 05  (cinco) foram danificadas e 03 (três) totalmente destruídas e  vários trechos das estradas vicinais e entornos.</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>6,271,293.52</td>
+      <td>6,271,293.52</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Foram danificadas tum total de 8 pontes que interligam esses locais através destas estradas, 05  (cinco) foram danificadas e 03 (três) totalmente destruídas, com intensos danos às estradas vicinais em um total de 200,8 Km, intransitáveis impedindo o deslocamentos dos moradores e escoamento dos produtos da agricultura familiar . A Prefeitura Municipal de Anastácio vem desenvolvendo ações e medidas para amenizar os danos sofridos com contratação de serviços de terceiros, ações da Secretaria Municipal de Obras para cascalhamento das estradas vicinais em um total de 200,8 km incluindo passagem dágua com tubos e bocas de bueiros, recuperação de pontilhões, recuperação de cabeceiras de ponte danificadas e reconstrução de pontes conforme relatório anexo, totalizando um prejuízo de R$ 1.287.185,37.</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2,332,356.82</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2,332,356.82</td>
+      <td>Produtores da Agricultura Familiar, produtores de leite e pecuaristas estão sem escoamento de sua produção hortifrutigranjeiros, leite e seus derivados até o mometo com prejuízo estimado em R$ 1.080.000,00.</td>
+      <td>326,156.77</td>
+      <td>1,630,783.87</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1,956,940.64</td>
+      <td>4,289,297.46</td>
+      <td>NaN</td>
+      <td>8.28</td>
+      <td>24,114.00</td>
+      <td>2,913.18</td>
+      <td>2,015.00</td>
+      <td>394,893.00</td>
+      <td>Natural</td>
+      <td>Hidrológico</td>
+      <td>Enxurradas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12200</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RS-F-4301925-12200-20150101</td>
+      <td>Barra do Rio Azul</td>
+      <td>RS</td>
+      <td>Sul</td>
+      <td>2015-01-06 00:00:00</td>
+      <td>2015-01-06</td>
+      <td>4301925</td>
+      <td>NaN</td>
+      <td>Não reconhecido</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Danos e destruição de 35 Bueiros e danos em 15Km de estradas vicinais nas seguintes localidades( Linhas:Paloma, Palometa,caçador, Jubaré, Campo Alegre,Poço Escuro, Não facelite, Remanso do Tigre, Pinhão, Rio Brasil, Rio Pinheiro, Rio Bonito e Bela Vista.</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>54,435.57</td>
+      <td>30.00</td>
+      <td>5.00</td>
+      <td>1,041,889.69</td>
+      <td>1,096,325.26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>11.54</td>
+      <td>1,696.00</td>
+      <td>147.00</td>
+      <td>2,015.00</td>
+      <td>42,201.00</td>
+      <td>Natural</td>
+      <td>Hidrológico</td>
+      <td>Enxurradas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12200</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>RS-F-4311601-12200-20141231</td>
+      <td>Liberato Salzano</td>
+      <td>RS</td>
+      <td>Sul</td>
+      <td>2015-01-07 00:00:00</td>
+      <td>2015-01-07</td>
+      <td>4311601</td>
+      <td>NaN</td>
+      <td>Reconhecido</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Devido a alta precipitação pluviométrica e concentrada num pequeno período, ocasionou a elevação rápida dos córregos , rios e riachos, ocasionando a destruição de bueiros e pontes sendo que muitos deles foram arrastados junto com a correnteza. O Município de Liberato Salzano por possuir parte de sua área localizada em regiões montanhosas, a infiltração de água no solo é bem menor que em regiões plana, portanto a enxurrada ocorrida provocou a retirada de praticamente todo o material que protege a camada superior das estradas tais como cascalho e pedregulho abrindo em alguns locais verdadeiras crateras que necessitam de inúmeros cargas de materiais para resolver a situação provocada.</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Destruição das vias de acesso do Município, com queda de barreiras, destruição de  pontes pontilhes e bueiros, deixando as estradas intransitáveis, e a população residente no interior do Município sem acesso de saída de suas localidades.</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1,740,983.83</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1,740,983.83</td>
+      <td>Devido as fortes precipitações ocorridas ocorrem percas significativas na cultura de feijão, milho safra, milho , fumo, soja, uva melão e produção de leite conforme laudos emitidos pelo Escritório da EMATER/RS , Posto de Liberato Salzano, em anexo.</td>
+      <td>9,718,266.89</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>9,718,266.89</td>
+      <td>11,459,250.72</td>
+      <td>NaN</td>
+      <td>19.46</td>
+      <td>4,781.00</td>
+      <td>245.63</td>
+      <td>2,015.00</td>
+      <td>116,822.00</td>
+      <td>Natural</td>
+      <td>Hidrológico</td>
+      <td>Enxurradas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12200</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BA-F-2931608-12200-20141216</td>
+      <td>Teolândia</td>
+      <td>BA</td>
+      <td>Nordeste</td>
+      <td>2015-01-07 00:00:00</td>
+      <td>2015-01-07</td>
+      <td>2931608</td>
+      <td>NaN</td>
+      <td>Reconhecido</td>
+      <td>05 pessoas deram entrada no hospital municipal para atendimento medico com ferimentos leves\n\ndas quais duas ficaram em observação devido o aumento da pressão arterial até o momento 150\n\npessoa estão desabrigadas e 25 tiveram que sair das suas casa que tem risco de desabamento e\n\ndeslizamento de terra duas casa tiveram que ser completamente demolidas por risco de caírem\n\nsobre outras casas na entrada do bairro José teles e bairro Zacarias Borges.</td>
+      <td>0</td>
+      <td>5</td>
+      <td>2</td>
+      <td>150</td>
+      <td>25</td>
+      <td>0</td>
+      <td>0</td>
+      <td>182</td>
+      <td>Parte do cais que sustenta a toda a rua que da acesso ao posto de saúde do centro da cidade\n\nfoi completamente destruída impedindo assim a passagem de carros, a Escolas João Benedito\n\nFernandes teve danos significativos em suas estruturas e em todo o material didático e permanente nela encontrado e somados a  perca de banco de dados de matriculas, cerca de 40 casa foram comprometidas com paredes telhados e estrutura\n\ndanificadas, sendo que algumas foram completamente destruídas,  deixando pessoas desalojadas, a pavimentação foi comprometida em vários locais assim como o deslizamento de massa de terra foi intenso como pode ser visto no relatório\n\nfotográfico e nas fotos em anexo, pontes e quase todas as estradas que dão acesso ao município foram afetadas algumas estão intransitáveis.</td>
+      <td>7</td>
+      <td>30</td>
+      <td>3,315,927.20</td>
+      <td>1.00</td>
+      <td>0</td>
+      <td>1,087,189.25</td>
+      <td>1.00</td>
+      <td>0</td>
+      <td>90,599.10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>8.00</td>
+      <td>0.00</td>
+      <td>7,791,522.93</td>
+      <td>12,285,238.47</td>
+      <td>comprometimento no abastecimento de água da população, o que afetou diretamente cerca de 4.000 pessoas residentes na área urbana ocasionada por rompimento de tubulação e contaminação com esgotos danificados, o abastecimento ficou suspenso por prazo indeterminado.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Diante deste evento adverso, houve danos no sistema de esgotamento sanitário, bueiros,\n\nencostas, vias de drenagens pluviais, alagamentos e vários pontos da cidade,  danos a pavimentação de ruas destruição de estradas vicinais na zona rural, sistema de abastecimento de\n\nágua comprometido,  prejuízos em escolas, o cais foi completamente comprometido sendo que cerca de 80% da sua estrutura desabou sobre o rio preto, a quantidade de lama nas ruas foi acima da media registrada em outros eventos, foi organizada\n\numa junta de trabalho  para retirar todo entulho e lama arrastados pela enxurrada, que deve durar cerca de 2 meses até a conclusão dos serviços.</td>
+      <td>90,599.10</td>
+      <td>45,299.55</td>
+      <td>3,823,282.18</td>
+      <td>217,437.85</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>4,167,558.77</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>90,599.10</td>
+      <td>8,434,776.56</td>
+      <td>Os prejuízos da agricultura estão ligados aos danos causados pelas fortes chuvas, em virtude dos danos causados nas\n\nestradas vicinais que dão acesso a sede do município impossibilitando assim o escoamento de\n\ntoda a produção comprometendo boa parte dos serviços, principalmente da cultura da banana maior fonte de riqueza do Município e pro se tratar de um produto altamente perecível causando grandes prejuízos financeiros.</td>
+      <td>905,991.04</td>
+      <td>54,359.46</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>108,718.92</td>
+      <td>1,069,069.42</td>
+      <td>9,503,845.99</td>
+      <td>NaN</td>
+      <td>52.91</td>
+      <td>15,332.00</td>
+      <td>289.78</td>
+      <td>2,015.00</td>
+      <td>112,279.00</td>
+      <td>Natural</td>
+      <td>Hidrológico</td>
+      <td>Enxurradas</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12200</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="analise-preliminar-dos-dados">
+<h2>Análise preliminar dos dados<a class="headerlink" href="#analise-preliminar-dos-dados" title="Link to this heading">#</a></h2>
+<section id="todos-as-variaveis">
+<h3>Todos as variáveis<a class="headerlink" href="#todos-as-variaveis" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eventos</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;.dtype&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;Variável&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>Variável</th>
+      <th>.dtype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Protocolo_S2iD</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Nome_Municipio</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sigla_UF</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>regiao</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Data_Registro</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Data_Evento</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>codigo_ibge</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Setores Censitários</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Status</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>DH_Descricao</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>DH_MORTOS</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>DH_FERIDOS</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>DH_ENFERMOS</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>DH_DESABRIGADOS</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>DH_DESALOJADOS</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>DH_DESAPARECIDOS</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>DH_OUTROS AFETADOS</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>DH_total_danos_humanos</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>DM_Descricao</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>DM_Uni Habita Danificadas</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>DM_Uni Habita Destruidas</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>DM_Uni Habita Valor</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>DM_Inst Saúde Danificadas</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>DM_Inst Saúde Destruidas</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>DM_Inst Saúde Valor</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>DM_Inst Ensino Danificadas</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>DM_Inst Ensino Destruidas</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>DM_Inst Ensino Valor</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>DM_Inst Serviços Danificadas</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>DM_Inst Serviços Destruidas</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>DM_Inst Serviços Valor</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>DM_Inst Comuni Danificadas</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>DM_Inst Comuni Destruidas</td>
+      <td>int64</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>DM_Inst Comuni Valor</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>DM_Obras de Infra Danificadas</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>DM_Obras de Infra Destruidas</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>DM_Obras de Infra Valor</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>DM_total_danos_materiais</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>DA_Descricao</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>DA_Polui/cont da água</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>DA_Polui/cont do ar</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>DA_Polui/cont do solo</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>DA_Dimi/exauri hídrico</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>DA_Incêndi parques/APA's/APP's</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>PEPL_Descricao</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>PEPL_Assis_méd e emergên(R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>PEPL_Abast de água pot(R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>PEPL_sist de esgotos sanit(R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>PEPL_Sis limp e rec lixo (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>PEPL_Sis cont pragas (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>PEPL_distrib energia (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>PEPL_Telecomunicações (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>PEPL_Tran loc/reg/l_curso (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>PEPL_Distrib combustíveis(R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>PEPL_Segurança pública (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>PEPL_Ensino (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>PEPL_total_publico</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>PEPR_Descricao</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>PEPR_Agricultura (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>PEPR_Pecuária (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>PEPR_Indústria (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>PEPR_Comércio (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>PEPR_Serviços (R$)</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>PEPR_total_privado</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>PE_PLePR</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Empenhado</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>DensidadePop</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Hab</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Area</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>Ano</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>PIB</td>
+      <td>float64</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Categoria</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Grupo</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>Subgrupo</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Tipo</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>Subtipo</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>COBRADE</td>
+      <td>int64</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">df_eventos</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>codigo_ibge</th>
+      <th>DH_MORTOS</th>
+      <th>DH_FERIDOS</th>
+      <th>DH_ENFERMOS</th>
+      <th>DH_DESABRIGADOS</th>
+      <th>DH_DESALOJADOS</th>
+      <th>DH_DESAPARECIDOS</th>
+      <th>DH_OUTROS AFETADOS</th>
+      <th>DH_total_danos_humanos</th>
+      <th>DM_Uni Habita Danificadas</th>
+      <th>DM_Uni Habita Destruidas</th>
+      <th>DM_Uni Habita Valor</th>
+      <th>DM_Inst Saúde Danificadas</th>
+      <th>DM_Inst Saúde Destruidas</th>
+      <th>DM_Inst Saúde Valor</th>
+      <th>DM_Inst Ensino Danificadas</th>
+      <th>DM_Inst Ensino Destruidas</th>
+      <th>DM_Inst Ensino Valor</th>
+      <th>DM_Inst Serviços Danificadas</th>
+      <th>DM_Inst Serviços Destruidas</th>
+      <th>DM_Inst Serviços Valor</th>
+      <th>DM_Inst Comuni Danificadas</th>
+      <th>DM_Inst Comuni Destruidas</th>
+      <th>DM_Inst Comuni Valor</th>
+      <th>DM_Obras de Infra Danificadas</th>
+      <th>DM_Obras de Infra Destruidas</th>
+      <th>DM_Obras de Infra Valor</th>
+      <th>DM_total_danos_materiais</th>
+      <th>PEPL_Assis_méd e emergên(R$)</th>
+      <th>PEPL_Abast de água pot(R$)</th>
+      <th>PEPL_sist de esgotos sanit(R$)</th>
+      <th>PEPL_Sis limp e rec lixo (R$)</th>
+      <th>PEPL_Sis cont pragas (R$)</th>
+      <th>PEPL_distrib energia (R$)</th>
+      <th>PEPL_Telecomunicações (R$)</th>
+      <th>PEPL_Tran loc/reg/l_curso (R$)</th>
+      <th>PEPL_Distrib combustíveis(R$)</th>
+      <th>PEPL_Segurança pública (R$)</th>
+      <th>PEPL_Ensino (R$)</th>
+      <th>PEPL_total_publico</th>
+      <th>PEPR_Agricultura (R$)</th>
+      <th>PEPR_Pecuária (R$)</th>
+      <th>PEPR_Indústria (R$)</th>
+      <th>PEPR_Comércio (R$)</th>
+      <th>PEPR_Serviços (R$)</th>
+      <th>PEPR_total_privado</th>
+      <th>PE_PLePR</th>
+      <th>Empenhado</th>
+      <th>DensidadePop</th>
+      <th>Hab</th>
+      <th>Area</th>
+      <th>Ano</th>
+      <th>PIB</th>
+      <th>COBRADE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>3,874.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>18,346.00</td>
+      <td>12,531.00</td>
+      <td>12,531.00</td>
+      <td>18,346.00</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3,151,875.46</td>
+      <td>0.06</td>
+      <td>2.05</td>
+      <td>35.36</td>
+      <td>28.71</td>
+      <td>150.91</td>
+      <td>0.05</td>
+      <td>7,876.58</td>
+      <td>8,093.71</td>
+      <td>67.53</td>
+      <td>13.96</td>
+      <td>1,328,044.81</td>
+      <td>0.59</td>
+      <td>14.91</td>
+      <td>37,172.42</td>
+      <td>0.55</td>
+      <td>0.16</td>
+      <td>70,568.17</td>
+      <td>0.07</td>
+      <td>0.13</td>
+      <td>18,226.66</td>
+      <td>0.33</td>
+      <td>0.28</td>
+      <td>31,173.09</td>
+      <td>1,064.26</td>
+      <td>45.91</td>
+      <td>1,184,294.23</td>
+      <td>2,669,479.37</td>
+      <td>55,199.78</td>
+      <td>858,374.57</td>
+      <td>93,775.29</td>
+      <td>44,001.55</td>
+      <td>6,631.16</td>
+      <td>11,938.63</td>
+      <td>2,716.15</td>
+      <td>294,856.19</td>
+      <td>6,493.67</td>
+      <td>8,654.46</td>
+      <td>39,976.85</td>
+      <td>1,422,618.29</td>
+      <td>9,520,349.25</td>
+      <td>2,885,995.59</td>
+      <td>270,632.25</td>
+      <td>2,823,718.94</td>
+      <td>257,060.75</td>
+      <td>15,757,756.77</td>
+      <td>17,180,375.06</td>
+      <td>1,430,746.18</td>
+      <td>78.76</td>
+      <td>32,119.27</td>
+      <td>1,955.60</td>
+      <td>2,018.22</td>
+      <td>956,980.26</td>
+      <td>13,664.66</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>919,072.67</td>
+      <td>1.05</td>
+      <td>49.68</td>
+      <td>462.83</td>
+      <td>341.13</td>
+      <td>1,139.68</td>
+      <td>3.06</td>
+      <td>31,693.55</td>
+      <td>31,860.91</td>
+      <td>781.60</td>
+      <td>405.96</td>
+      <td>54,128,508.58</td>
+      <td>12.23</td>
+      <td>223.66</td>
+      <td>660,906.46</td>
+      <td>3.88</td>
+      <td>1.78</td>
+      <td>1,166,653.94</td>
+      <td>0.90</td>
+      <td>1.46</td>
+      <td>697,616.64</td>
+      <td>8.01</td>
+      <td>15.81</td>
+      <td>529,455.23</td>
+      <td>137,895.78</td>
+      <td>4,268.42</td>
+      <td>11,318,959.74</td>
+      <td>58,584,307.69</td>
+      <td>642,085.22</td>
+      <td>9,240,067.62</td>
+      <td>1,758,398.69</td>
+      <td>451,622.96</td>
+      <td>239,266.38</td>
+      <td>212,395.35</td>
+      <td>84,174.10</td>
+      <td>3,869,242.11</td>
+      <td>187,676.55</td>
+      <td>447,759.86</td>
+      <td>468,539.50</td>
+      <td>10,724,790.94</td>
+      <td>44,531,673.82</td>
+      <td>12,550,669.24</td>
+      <td>5,920,759.90</td>
+      <td>109,799,346.91</td>
+      <td>7,121,982.47</td>
+      <td>124,550,166.98</td>
+      <td>125,625,744.93</td>
+      <td>5,109,620.26</td>
+      <td>403.39</td>
+      <td>158,346.38</td>
+      <td>7,011.80</td>
+      <td>2.01</td>
+      <td>10,877,228.71</td>
+      <td>972.87</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1,100,015.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.15</td>
+      <td>1,010.00</td>
+      <td>3.56</td>
+      <td>2,015.00</td>
+      <td>14,761.00</td>
+      <td>11,110.00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2,506,905.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>620.00</td>
+      <td>814.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>138,162.18</td>
+      <td>129,783.74</td>
+      <td>11.14</td>
+      <td>5,812.00</td>
+      <td>218.59</td>
+      <td>2,017.00</td>
+      <td>77,437.50</td>
+      <td>13,214.00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2,929,800.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>3,071.00</td>
+      <td>3,252.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>3,389.85</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>100,000.00</td>
+      <td>651,954.15</td>
+      <td>83,083.17</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1,830,779.90</td>
+      <td>2,892,670.31</td>
+      <td>364,817.70</td>
+      <td>22.51</td>
+      <td>12,004.00</td>
+      <td>479.81</td>
+      <td>2,018.00</td>
+      <td>165,416.00</td>
+      <td>14,110.00</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4,202,875.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2.00</td>
+      <td>0.00</td>
+      <td>7,800.00</td>
+      <td>8,000.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>576.34</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>107,936.69</td>
+      <td>554,948.68</td>
+      <td>0.00</td>
+      <td>191,265.75</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>735,347.29</td>
+      <td>4,769,428.21</td>
+      <td>2,028,933.59</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>9,254,560.76</td>
+      <td>11,680,211.87</td>
+      <td>1,050,094.56</td>
+      <td>48.33</td>
+      <td>24,626.00</td>
+      <td>1,244.40</td>
+      <td>2,020.00</td>
+      <td>411,622.00</td>
+      <td>14,110.00</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5,300,108.00</td>
+      <td>78.00</td>
+      <td>5,586.00</td>
+      <td>25,219.00</td>
+      <td>28,490.00</td>
+      <td>98,644.00</td>
+      <td>352.00</td>
+      <td>2,100,000.00</td>
+      <td>2,100,000.00</td>
+      <td>35,000.00</td>
+      <td>36,000.00</td>
+      <td>6,804,960,546.23</td>
+      <td>1,500.00</td>
+      <td>14,182.00</td>
+      <td>47,428,630.84</td>
+      <td>237.00</td>
+      <td>95.00</td>
+      <td>132,040,088.23</td>
+      <td>72.00</td>
+      <td>76.00</td>
+      <td>67,316,006.41</td>
+      <td>750.00</td>
+      <td>2,000.00</td>
+      <td>61,549,344.64</td>
+      <td>18,674,069.00</td>
+      <td>571,400.00</td>
+      <td>1,121,763,282.06</td>
+      <td>7,247,022,779.68</td>
+      <td>37,647,343.60</td>
+      <td>1,101,782,377.22</td>
+      <td>169,055,632.61</td>
+      <td>35,441,641.50</td>
+      <td>27,217,956.85</td>
+      <td>16,143,579.15</td>
+      <td>6,395,054.69</td>
+      <td>367,963,683.60</td>
+      <td>23,076,820.01</td>
+      <td>56,362,273.62</td>
+      <td>30,000,000.00</td>
+      <td>1,101,782,377.22</td>
+      <td>1,810,404,316.26</td>
+      <td>756,705,503.72</td>
+      <td>475,345,247.51</td>
+      <td>9,206,496,414.56</td>
+      <td>679,064,639.27</td>
+      <td>9,747,193,840.17</td>
+      <td>9,748,021,348.02</td>
+      <td>101,056,111.91</td>
+      <td>13,416.81</td>
+      <td>11,451,999.00</td>
+      <td>159,533.31</td>
+      <td>2,021.00</td>
+      <td>763,597,808.00</td>
+      <td>25,500.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="variaveis-independentes-features">
+<h3>Variáveis independentes (features)<a class="headerlink" href="#variaveis-independentes-features" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Verificar se há protocolos duplicados</span>
+
+<span class="n">df_eventos</span><span class="p">[</span><span class="s2">&quot;Protocolo_S2iD&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Não há protocolos duplicados</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correlação entre as variáveis independentes</span>
+
+<span class="n">variaveisnum_todas</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;DH_MORTOS&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_FERIDOS&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_ENFERMOS&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_DESABRIGADOS&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_DESALOJADOS&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_DESAPARECIDOS&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_OUTROS AFETADOS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DM_Uni Habita Danificadas&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Uni Habita Destruidas&#39;</span><span class="p">,</span>  
+    <span class="s1">&#39;DM_Inst Saúde Danificadas&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Inst Saúde Destruidas&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;DM_Inst Ensino Danificadas&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Inst Ensino Destruidas&#39;</span><span class="p">,</span>  
+    <span class="s1">&#39;DM_Inst Serviços Danificadas&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Inst Serviços Destruidas&#39;</span><span class="p">,</span>  
+    <span class="s1">&#39;DM_Inst Comuni Danificadas&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Inst Comuni Destruidas&#39;</span><span class="p">,</span>  
+    <span class="s1">&#39;DM_Obras de Infra Danificadas&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Obras de Infra Destruidas&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;PEPL_Assis_méd e emergên(R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPL_Abast de água pot(R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPL_sist de esgotos sanit(R$)&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;PEPL_Sis limp e rec lixo (R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPL_Sis cont pragas (R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPL_distrib energia (R$)&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;PEPL_Telecomunicações (R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPL_Tran loc/reg/l_curso (R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPL_Distrib combustíveis(R$)&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;PEPL_Segurança pública (R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPL_Ensino (R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPR_Agricultura (R$)&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;PEPR_Pecuária (R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPR_Indústria (R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPR_Comércio (R$)&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPR_Serviços (R$)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Empenhado&#39;</span><span class="p">,</span> <span class="s1">&#39;DensidadePop&#39;</span><span class="p">,</span> <span class="s1">&#39;PIB&#39;</span>
+<span class="p">]</span>
+
+<span class="n">df_corr_todas</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="p">[</span><span class="n">variaveisnum_todas</span><span class="p">]</span>
+
+<span class="n">correlacao_todas</span> <span class="o">=</span> <span class="n">df_corr_todas</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">heatmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">correlacao_todas</span><span class="p">,</span> 
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span> 
+    <span class="n">annot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> 
+    <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+    <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s2">&quot;aspect&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+    <span class="n">square</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Matriz de Correlação&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1ac746d7708fb1a5e6b7bd7014d2e250d1a1ab07346fb490399bff377bec6d72.png" src="_images/1ac746d7708fb1a5e6b7bd7014d2e250d1a1ab07346fb490399bff377bec6d72.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variaveisnum_selecionadas</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;DH_total_danos_humanos&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_total_danos_materiais&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPL_total_publico&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPR_total_privado&#39;</span><span class="p">,</span> <span class="s1">&#39;Empenhado&#39;</span><span class="p">,</span> <span class="s1">&#39;DensidadePop&#39;</span><span class="p">,</span> <span class="s1">&#39;PIB&#39;</span>
+<span class="p">]</span>
+
+<span class="n">df_corr_selecionadas</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="p">[</span><span class="n">variaveisnum_selecionadas</span><span class="p">]</span>
+
+<span class="n">correlacao_selecionadas</span> <span class="o">=</span> <span class="n">df_corr_selecionadas</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">heatmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">correlacao_selecionadas</span><span class="p">,</span> 
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span> 
+    <span class="n">annot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> 
+    <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+    <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s2">&quot;aspect&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+    <span class="n">square</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Matriz de Correlação&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6806cf1b35c7789354cc1ab14a4709c0091e206416567413f341fded6ea8fd4b.png" src="_images/6806cf1b35c7789354cc1ab14a4709c0091e206416567413f341fded6ea8fd4b.png" />
+</div>
+</div>
+</section>
+<section id="variavel-dependente-target">
+<h3>Variável dependente (target)<a class="headerlink" href="#variavel-dependente-target" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">status_counts</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distribuição da variável &#39;Status&#39;:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">status_counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distribuição da variável &#39;Status&#39;:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Status
+Reconhecido        16483
+Não reconhecido     1863
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Há desbalanceamento entre o status “Reconhecido” e “Não reconhecido”, o qual deverá ser tratado na etapa de pré-processamento dos dados.</p>
+</section>
+</section>
+<section id="dados-ausentes">
+<h2>Dados ausentes<a class="headerlink" href="#dados-ausentes" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_na_counts</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Qtde. dados ausentes&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;Variável&#39;</span><span class="p">})</span>
+<span class="n">df_na_counts</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e dados ausentes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_na_counts</span><span class="p">[</span><span class="s1">&#39;Qtde. dados ausentes&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_eventos</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">df_na_counts</span><span class="p">[</span><span class="s1">&#39;Qtde. dados ausentes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_na_counts</span><span class="p">[</span><span class="s1">&#39;Qtde. dados ausentes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df_na_counts</span> <span class="o">=</span> <span class="n">df_na_counts</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e dados ausentes&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_na_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>Variável</th>
+      <th>Qtde. dados ausentes</th>
+      <th>% de dados ausentes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>40</th>
+      <td>DA_Polui/cont do ar</td>
+      <td>18213</td>
+      <td>99.28</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>DA_Polui/cont do solo</td>
+      <td>17991</td>
+      <td>98.06</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>DA_Polui/cont da água</td>
+      <td>17371</td>
+      <td>94.69</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>DA_Incêndi parques/APA's/APP's</td>
+      <td>17009</td>
+      <td>92.71</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>DA_Dimi/exauri hídrico</td>
+      <td>16668</td>
+      <td>90.85</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Empenhado</td>
+      <td>14472</td>
+      <td>78.88</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>Subtipo</td>
+      <td>13031</td>
+      <td>71.03</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>DM_Descricao</td>
+      <td>6451</td>
+      <td>35.16</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>PIB</td>
+      <td>5815</td>
+      <td>31.70</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>Ano</td>
+      <td>5815</td>
+      <td>31.70</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Setores Censitários</td>
+      <td>4717</td>
+      <td>25.71</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>DA_Descricao</td>
+      <td>4234</td>
+      <td>23.08</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>PEPL_Descricao</td>
+      <td>2645</td>
+      <td>14.42</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>PEPR_Descricao</td>
+      <td>2281</td>
+      <td>12.43</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Tipo</td>
+      <td>2224</td>
+      <td>12.12</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>DH_Descricao</td>
+      <td>1222</td>
+      <td>6.66</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>Subgrupo</td>
+      <td>30</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Hab</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>PEPL_Tran loc/reg/l_curso (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Grupo</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>PEPL_Assis_méd e emergên(R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>PEPL_Abast de água pot(R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>PEPL_sist de esgotos sanit(R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>PEPL_Sis limp e rec lixo (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>PEPL_Sis cont pragas (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>PEPL_distrib energia (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>PEPL_Telecomunicações (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>PEPL_Segurança pública (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>PEPL_Distrib combustíveis(R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>DensidadePop</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>PEPL_Ensino (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>PEPL_total_publico</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>PEPR_Agricultura (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>PEPR_Pecuária (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Categoria</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>PEPR_Comércio (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>PEPR_Serviços (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>PEPR_total_privado</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>PE_PLePR</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Area</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>PEPR_Indústria (R$)</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Protocolo_S2iD</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Nome_Municipio</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>DH_FERIDOS</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>DH_total_danos_humanos</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>DH_OUTROS AFETADOS</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>DH_DESAPARECIDOS</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>DH_DESALOJADOS</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>DH_DESABRIGADOS</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>DH_ENFERMOS</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>DH_MORTOS</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>DM_Uni Habita Destruidas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Status</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>codigo_ibge</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Data_Evento</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Data_Registro</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>regiao</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sigla_UF</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>DM_Uni Habita Danificadas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>DM_Uni Habita Valor</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>DM_total_danos_materiais</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>DM_Inst Serviços Valor</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>DM_Obras de Infra Valor</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>DM_Obras de Infra Destruidas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>DM_Obras de Infra Danificadas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>DM_Inst Comuni Valor</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>DM_Inst Comuni Destruidas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>DM_Inst Comuni Danificadas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>DM_Inst Serviços Destruidas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>DM_Inst Saúde Danificadas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>DM_Inst Serviços Danificadas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>DM_Inst Ensino Valor</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>DM_Inst Ensino Destruidas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>DM_Inst Ensino Danificadas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>DM_Inst Saúde Valor</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>DM_Inst Saúde Destruidas</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>COBRADE</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Existem variáveis com quantidade de dados ausentes superior a 5%. Essas variáveis serão tratadas no pré-processamento.</p>
+<section id="dados-ausentes-em-relacao-a-renda-do-municipio">
+<h3>Dados ausentes em relação à renda do município<a class="headerlink" href="#dados-ausentes-em-relacao-a-renda-do-municipio" title="Link to this heading">#</a></h3>
+<p>Foi levantada a preocupação pelo grupo de que municípios de menor capacidade econômica poderiam ter mais dificuldade em acessar o sistema e preencher todas as informações solicitadas. Por esse motivo, foi realizada análise sobre o perfil econômico dos municípios que não preencheram todas as informações.</p>
+<p>A análise a seguir considera as relação da ausência de informação nas variáveis DA_Polui/con do ar; DA_Polui/cont do solo; DA_Polui/cont da água; DA_Incênd parques APA’s/APP’s; DA_Dimi/exauri hídrico; DM_Descricao; DA_Descricao; PEPL_Descricao; PEPR_Descricao; DH_Descricao e o PIB do município.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colunas</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;DA_Polui/cont do ar&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;DA_Polui/cont do solo&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;DA_Polui/cont da água&#39;</span><span class="p">,</span> 
+    <span class="s2">&quot;DA_Incêndi parques/APA&#39;s/APP&#39;s&quot;</span><span class="p">,</span> 
+    <span class="s1">&#39;DA_Dimi/exauri hídrico&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;DM_Descricao&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;DA_Descricao&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;PEPL_Descricao&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;PEPR_Descricao&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;DH_Descricao&#39;</span>
+<span class="p">]</span>
+
+<span class="n">df_eventos_missing</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_eventos_missing</span> <span class="o">=</span> <span class="n">df_eventos_missing</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PIB&#39;</span><span class="p">])</span>
+<span class="c1">#Existem dados para o PIB apenas até 2022.</span>
+
+<span class="n">df_eventos_missing</span><span class="p">[</span><span class="s1">&#39;Total_Missing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_eventos_missing</span><span class="p">[</span><span class="n">colunas</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_eventos_missing</span><span class="p">[</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_eventos_missing</span><span class="p">[</span><span class="s1">&#39;PIB&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_eventos_missing</span><span class="p">[</span><span class="s1">&#39;Hab&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Total_Missing&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_eventos_missing</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;deep&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relação entre renda per capita e dados ausentes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PIB per capita&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Total de Valores Ausentes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9b5a9ab9aa1a363bb484686550b6d585baa2cf947a5644a85de9693c8d12623b.png" src="_images/9b5a9ab9aa1a363bb484686550b6d585baa2cf947a5644a85de9693c8d12623b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">correlation</span> <span class="o">=</span> <span class="n">df_eventos_missing</span><span class="p">[</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df_eventos_missing</span><span class="p">[</span><span class="s1">&#39;Total_Missing&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Correlação entre renda per capita e total de valores ausentes: </span><span class="si">{</span><span class="n">correlation</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlação entre renda per capita e total de valores ausentes: 0.11
+</pre></div>
+</div>
+</div>
+</div>
+<p>Correlação baixa entre os valores ausentes nas variáveis DA_Polui/con do ar; DA_Polui/cont do solo; DA_Polui/cont da água; DA_Incênd parques APA’s/APP’s; DA_Dimi/exauri hídrico; DM_Descricao; DA_Descricao; PEPL_Descricao; PEPR_Descricao; DH_Descricao e a renda per capita do município.</p>
+</section>
+</section>
+<section id="pib-x-status">
+<h2>PIB x Status<a class="headerlink" href="#pib-x-status" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eventos_apos2022</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_eventos_apos2022</span> <span class="o">=</span> <span class="n">df_eventos_apos2022</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PIB&#39;</span><span class="p">])</span>
+<span class="c1">#Existem dados para o PIB apenas até 2022.</span>
+
+<span class="n">df_eventos_apos2022</span><span class="p">[</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_eventos_apos2022</span><span class="p">[</span><span class="s1">&#39;PIB&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_eventos_apos2022</span><span class="p">[</span><span class="s1">&#39;Hab&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_eventos_apos2022</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;deep&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">status_counts</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribuição da renda per capita por status de reconhecimento&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Renda per capita&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cabd994ff79a7fd9f6f9af45a18ca6eab45cb5c3126ae3a35fb46c114922ae4b.png" src="_images/cabd994ff79a7fd9f6f9af45a18ca6eab45cb5c3126ae3a35fb46c114922ae4b.png" />
+</div>
+</div>
+<p>Grande quantidade de outliers tanto nos protocolos reconhecimentos como estado de calamidade pública ou situação de emergência.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Eliminando-se os outliers abaixo de 1% e acima de 99% para enxergar melhor a distribuição</span>
+
+<span class="n">q1</span> <span class="o">=</span> <span class="n">df_eventos_apos2022</span><span class="p">[</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">q99</span> <span class="o">=</span> <span class="n">df_eventos_apos2022</span><span class="p">[</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">)</span>
+
+<span class="n">df_eventos_filtrado</span> <span class="o">=</span> <span class="n">df_eventos_apos2022</span><span class="p">[(</span><span class="n">df_eventos_apos2022</span><span class="p">[</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">q1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_eventos_apos2022</span><span class="p">[</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">q99</span><span class="p">)]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PIB_per_capita&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_eventos_filtrado</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;deep&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">status_counts</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribuição da renda per capita (sem outliers) por status de reconhecimento&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Renda per capita&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7812bc867b1377ff91d3864638ca23783c23604dccee0ed80d4f75ac3b65ec95.png" src="_images/7812bc867b1377ff91d3864638ca23783c23604dccee0ed80d4f75ac3b65ec95.png" />
+</div>
+</div>
+<p>Os municípios de maior renda per capita pertencem a não receber o reconhecimento do estado de calamidade pública ou situação de emergência.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">O projeto</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Pr%C3%A9%20processamento.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pré processamento dos dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-preliminar-dos-dados">Análise preliminar dos dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todos-as-variaveis">Todos as variáveis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-independentes-features">Variáveis independentes (features)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variavel-dependente-target">Variável dependente (target)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-ausentes">Dados ausentes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dados-ausentes-em-relacao-a-renda-do-municipio">Dados ausentes em relação à renda do município</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pib-x-status">PIB x Status</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
