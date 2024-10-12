@@ -178,6 +178,8 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Análise exploratória dos dados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Pr%C3%A9%20processamento.html">Pré processamento dos dados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Regress%C3%A3o%20Log%C3%ADstica.html">Regressão logística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Classifica%C3%A7%C3%A3o%20de%20textos.html">Classificação de textos</a></li>
+
 </ul>
 
     </div>
@@ -359,10 +361,14 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas">Bibliotecas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-de-dados">Base de dados</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-preliminar-dos-dados">Análise preliminar dos dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-preliminar">Análise preliminar</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todos-as-variaveis">Todos as variáveis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-independentes-features">Variáveis independentes (features)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-protocolos-duplicados">Há protocolos duplicados?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipo">Tipo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estatisticas-descritivas">Estatísticas descritivas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-independentes-features">Variáveis independentes (features)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-protocolos-duplicados">Há protocolos duplicados?</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-correlacao">Matriz de correlação</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todas-as-variaveis">Todas as variáveis</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-selecionadas">Variáveis selecionadas</a></li>
@@ -1027,10 +1033,13 @@ toda a produção comprometendo boa parte dos serviços, principalmente da cultu
 </div></div>
 </div>
 </section>
-<section id="analise-preliminar-dos-dados">
-<h2>Análise preliminar dos dados<a class="headerlink" href="#analise-preliminar-dos-dados" title="Link to this heading">#</a></h2>
+<section id="analise-preliminar">
+<h2>Análise preliminar<a class="headerlink" href="#analise-preliminar" title="Link to this heading">#</a></h2>
 <section id="todos-as-variaveis">
 <h3>Todos as variáveis<a class="headerlink" href="#todos-as-variaveis" title="Link to this heading">#</a></h3>
+</section>
+<section id="tipo">
+<h3>Tipo<a class="headerlink" href="#tipo" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1483,6 +1492,9 @@ toda a produção comprometendo boa parte dos serviços, principalmente da cultu
 </table>
 </div></div>
 </div>
+</section>
+<section id="estatisticas-descritivas">
+<h3>Estatísticas descritivas<a class="headerlink" href="#estatisticas-descritivas" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -2060,9 +2072,8 @@ toda a produção comprometendo boa parte dos serviços, principalmente da cultu
 </section>
 <section id="variaveis-independentes-features">
 <h3>Variáveis independentes (features)<a class="headerlink" href="#variaveis-independentes-features" title="Link to this heading">#</a></h3>
-</section>
 <section id="ha-protocolos-duplicados">
-<h3>Há protocolos duplicados?<a class="headerlink" href="#ha-protocolos-duplicados" title="Link to this heading">#</a></h3>
+<h4>Há protocolos duplicados?<a class="headerlink" href="#ha-protocolos-duplicados" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eventos</span><span class="p">[</span><span class="s2">&quot;Protocolo_S2iD&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -2076,6 +2087,7 @@ toda a produção comprometendo boa parte dos serviços, principalmente da cultu
 </div>
 </div>
 <p>Não há protocolos duplicados</p>
+</section>
 </section>
 <section id="matriz-de-correlacao">
 <h3>Matriz de correlação<a class="headerlink" href="#matriz-de-correlacao" title="Link to this heading">#</a></h3>
@@ -2945,10 +2957,14 @@ Name: count, dtype: int64
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas">Bibliotecas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-de-dados">Base de dados</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-preliminar-dos-dados">Análise preliminar dos dados</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-preliminar">Análise preliminar</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todos-as-variaveis">Todos as variáveis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-independentes-features">Variáveis independentes (features)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-protocolos-duplicados">Há protocolos duplicados?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipo">Tipo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estatisticas-descritivas">Estatísticas descritivas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-independentes-features">Variáveis independentes (features)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-protocolos-duplicados">Há protocolos duplicados?</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-correlacao">Matriz de correlação</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todas-as-variaveis">Todas as variáveis</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-selecionadas">Variáveis selecionadas</a></li>
