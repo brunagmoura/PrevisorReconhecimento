@@ -61,6 +61,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Regressão logística" href="Regress%C3%A3o%20Log%C3%ADstica.html" />
     <link rel="prev" title="Análise exploratória dos dados" href="AnaliseExploratoria.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -176,6 +177,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="AnaliseExploratoria.html">Análise exploratória dos dados</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Pré processamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regress%C3%A3o%20Log%C3%ADstica.html">Regressão logística</a></li>
 </ul>
 
     </div>
@@ -358,6 +360,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas-e-base-de-dados">Bibliotecas e base de dados</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exclusao-de-variaveis">Exclusão de variáveis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-das-variaveis-categoricas">Encoding das variáveis categóricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shuffle-das-variaveis-para-evitar-a-ordenacao-no-treino">Shuffle das variáveis para evitar a ordenação no treino</a></li>
 </ul>
             </nav>
         </div>
@@ -950,6 +953,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Excluir colunas que tenham mais do que 5% de dados ausentes</span>
+<span class="n">df_na_counts</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Qtde. dados ausentes&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;Variável&#39;</span><span class="p">})</span>
+<span class="n">df_na_counts</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e dados ausentes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_na_counts</span><span class="p">[</span><span class="s1">&#39;Qtde. dados ausentes&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_eventos</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
 <span class="n">colunas_mantidas</span> <span class="o">=</span> <span class="n">df_na_counts</span><span class="p">[</span><span class="n">df_na_counts</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e dados ausentes&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">][</span><span class="s1">&#39;Variável&#39;</span><span class="p">]</span>
 <span class="n">df_eventos</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="p">[</span><span class="n">colunas_mantidas</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_eventos</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -957,15 +962,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Excluir colunas que tenham mais do que 5% de dados ausentes</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">colunas_mantidas</span> <span class="o">=</span> <span class="n">df_na_counts</span><span class="p">[</span><span class="n">df_na_counts</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e dados ausentes&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">][</span><span class="s1">&#39;Variável&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df_eventos</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="p">[</span><span class="n">colunas_mantidas</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">df_eventos</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;df_na_counts&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Status&#39;, &#39;DH_MORTOS&#39;, &#39;DH_FERIDOS&#39;, &#39;DH_ENFERMOS&#39;, &#39;DH_DESABRIGADOS&#39;, &#39;DH_DESALOJADOS&#39;, &#39;DH_DESAPARECIDOS&#39;, &#39;DH_OUTROS AFETADOS&#39;, &#39;DH_total_danos_humanos&#39;, &#39;DM_Uni Habita Danificadas&#39;, &#39;DM_Uni Habita Destruidas&#39;, &#39;DM_Uni Habita Valor&#39;, &#39;DM_Inst Saúde Danificadas&#39;, &#39;DM_Inst Saúde Destruidas&#39;, &#39;DM_Inst Saúde Valor&#39;, &#39;DM_Inst Ensino Danificadas&#39;, &#39;DM_Inst Ensino Destruidas&#39;, &#39;DM_Inst Ensino Valor&#39;, &#39;DM_Inst Serviços Danificadas&#39;, &#39;DM_Inst Serviços Destruidas&#39;, &#39;DM_Inst Serviços Valor&#39;, &#39;DM_Inst Comuni Danificadas&#39;, &#39;DM_Inst Comuni Destruidas&#39;, &#39;DM_Inst Comuni Valor&#39;, &#39;DM_Obras de Infra Danificadas&#39;, &#39;DM_Obras de Infra Destruidas&#39;, &#39;DM_Obras de Infra Valor&#39;, &#39;DM_total_danos_materiais&#39;, &#39;PEPL_Assis_méd e emergên(R$)&#39;, &#39;PEPL_Abast de água pot(R$)&#39;, &#39;PEPL_sist de esgotos sanit(R$)&#39;, &#39;PEPL_Sis limp e rec lixo (R$)&#39;, &#39;PEPL_Sis cont pragas (R$)&#39;, &#39;PEPL_distrib energia (R$)&#39;, &#39;PEPL_Telecomunicações (R$)&#39;, &#39;PEPL_Tran loc/reg/l_curso (R$)&#39;, &#39;PEPL_Distrib combustíveis(R$)&#39;,
+       &#39;PEPL_Segurança pública (R$)&#39;, &#39;PEPL_Ensino (R$)&#39;, &#39;PEPL_total_publico&#39;, &#39;PEPR_Agricultura (R$)&#39;, &#39;PEPR_Pecuária (R$)&#39;, &#39;PEPR_Indústria (R$)&#39;, &#39;PEPR_Comércio (R$)&#39;, &#39;PEPR_Serviços (R$)&#39;, &#39;PEPR_total_privado&#39;, &#39;PE_PLePR&#39;, &#39;DensidadePop&#39;, &#39;Hab&#39;, &#39;Area&#39;, &#39;Categoria&#39;, &#39;Grupo&#39;, &#39;Subgrupo&#39;],
+      dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -1006,31 +1005,14 @@ document.write(`
   <thead>
     <tr style="text-align: left;">
       <th></th>
-      <th>PEPL_Distrib combustíveis(R$)</th>
-      <th>PEPL_total_publico</th>
-      <th>PEPL_Ensino (R$)</th>
-      <th>PEPL_Segurança pública (R$)</th>
-      <th>DH_DESAPARECIDOS</th>
-      <th>PEPL_Tran loc/reg/l_curso (R$)</th>
-      <th>PEPR_Agricultura (R$)</th>
-      <th>PEPL_distrib energia (R$)</th>
-      <th>PEPL_Sis cont pragas (R$)</th>
-      <th>PEPL_Telecomunicações (R$)</th>
-      <th>PEPR_Indústria (R$)</th>
-      <th>PEPR_Pecuária (R$)</th>
-      <th>PEPL_sist de esgotos sanit(R$)</th>
-      <th>PEPR_Comércio (R$)</th>
-      <th>PEPR_Serviços (R$)</th>
-      <th>PEPR_total_privado</th>
-      <th>PE_PLePR</th>
+      <th>Status</th>
       <th>DH_MORTOS</th>
-      <th>DensidadePop</th>
-      <th>Hab</th>
-      <th>Area</th>
-      <th>PEPL_Sis limp e rec lixo (R$)</th>
-      <th>PEPL_Assis_méd e emergên(R$)</th>
-      <th>PEPL_Abast de água pot(R$)</th>
-      <th>DM_Inst Serviços Destruidas</th>
+      <th>DH_FERIDOS</th>
+      <th>DH_ENFERMOS</th>
+      <th>DH_DESABRIGADOS</th>
+      <th>DH_DESALOJADOS</th>
+      <th>DH_DESAPARECIDOS</th>
+      <th>DH_OUTROS AFETADOS</th>
       <th>DH_total_danos_humanos</th>
       <th>DM_Uni Habita Danificadas</th>
       <th>DM_Uni Habita Destruidas</th>
@@ -1042,8 +1024,8 @@ document.write(`
       <th>DM_Inst Ensino Destruidas</th>
       <th>DM_Inst Ensino Valor</th>
       <th>DM_Inst Serviços Danificadas</th>
+      <th>DM_Inst Serviços Destruidas</th>
       <th>DM_Inst Serviços Valor</th>
-      <th>DH_OUTROS AFETADOS</th>
       <th>DM_Inst Comuni Danificadas</th>
       <th>DM_Inst Comuni Destruidas</th>
       <th>DM_Inst Comuni Valor</th>
@@ -1051,11 +1033,28 @@ document.write(`
       <th>DM_Obras de Infra Destruidas</th>
       <th>DM_Obras de Infra Valor</th>
       <th>DM_total_danos_materiais</th>
-      <th>DH_DESALOJADOS</th>
-      <th>DH_DESABRIGADOS</th>
-      <th>DH_ENFERMOS</th>
-      <th>DH_FERIDOS</th>
-      <th>Status</th>
+      <th>PEPL_Assis_méd e emergên(R$)</th>
+      <th>PEPL_Abast de água pot(R$)</th>
+      <th>PEPL_sist de esgotos sanit(R$)</th>
+      <th>PEPL_Sis limp e rec lixo (R$)</th>
+      <th>PEPL_Sis cont pragas (R$)</th>
+      <th>PEPL_distrib energia (R$)</th>
+      <th>PEPL_Telecomunicações (R$)</th>
+      <th>PEPL_Tran loc/reg/l_curso (R$)</th>
+      <th>PEPL_Distrib combustíveis(R$)</th>
+      <th>PEPL_Segurança pública (R$)</th>
+      <th>PEPL_Ensino (R$)</th>
+      <th>PEPL_total_publico</th>
+      <th>PEPR_Agricultura (R$)</th>
+      <th>PEPR_Pecuária (R$)</th>
+      <th>PEPR_Indústria (R$)</th>
+      <th>PEPR_Comércio (R$)</th>
+      <th>PEPR_Serviços (R$)</th>
+      <th>PEPR_total_privado</th>
+      <th>PE_PLePR</th>
+      <th>DensidadePop</th>
+      <th>Hab</th>
+      <th>Area</th>
       <th>Subgrupo_Alagamentos</th>
       <th>Subgrupo_Colapso de edificações</th>
       <th>Subgrupo_Desastres relacionados à contaminação da água</th>
@@ -1091,10 +1090,28 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
+      <td>Reconhecido</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1500</td>
+      <td>1500</td>
+      <td>0</td>
+      <td>0</td>
       <td>0.00</td>
       <td>0.00</td>
+      <td>0</td>
       <td>0.00</td>
       <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
       <td>0</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -1108,39 +1125,21 @@ document.write(`
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
       <td>10.72</td>
       <td>5,358.00</td>
       <td>500.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>1500</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>1500</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Reconhecido</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -1174,56 +1173,56 @@ document.write(`
     </tr>
     <tr>
       <th>1</th>
-      <td>0.00</td>
-      <td>2,332,356.82</td>
+      <td>Reconhecido</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3200</td>
+      <td>3200</td>
+      <td>0</td>
+      <td>0</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>6,271,293.52</td>
+      <td>6,271,293.52</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2,332,356.82</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
       <td>2,332,356.82</td>
       <td>326,156.77</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>1,630,783.87</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>1,956,940.64</td>
       <td>4,289,297.46</td>
-      <td>0</td>
       <td>8.28</td>
       <td>24,114.00</td>
       <td>2,913.18</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>3200</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>3200</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>6,271,293.52</td>
-      <td>6,271,293.52</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Reconhecido</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -1257,30 +1256,13 @@ document.write(`
     </tr>
     <tr>
       <th>2</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
+      <td>Não reconhecido</td>
       <td>0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0</td>
-      <td>11.54</td>
-      <td>1,696.00</td>
-      <td>147.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1293,8 +1275,8 @@ document.write(`
       <td>0</td>
       <td>0.00</td>
       <td>0</td>
-      <td>0.00</td>
       <td>0</td>
+      <td>0.00</td>
       <td>0</td>
       <td>0</td>
       <td>54,435.57</td>
@@ -1302,11 +1284,28 @@ document.write(`
       <td>5.00</td>
       <td>1,041,889.69</td>
       <td>1,096,325.26</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Não reconhecido</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>11.54</td>
+      <td>1,696.00</td>
+      <td>147.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -1341,6 +1340,394 @@ document.write(`
   </tbody>
 </table>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eventos</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;Reconhecido&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Não reconhecido&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eventos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>Status</th>
+      <th>DH_MORTOS</th>
+      <th>DH_FERIDOS</th>
+      <th>DH_ENFERMOS</th>
+      <th>DH_DESABRIGADOS</th>
+      <th>DH_DESALOJADOS</th>
+      <th>DH_DESAPARECIDOS</th>
+      <th>DH_OUTROS AFETADOS</th>
+      <th>DH_total_danos_humanos</th>
+      <th>DM_Uni Habita Danificadas</th>
+      <th>DM_Uni Habita Destruidas</th>
+      <th>DM_Uni Habita Valor</th>
+      <th>DM_Inst Saúde Danificadas</th>
+      <th>DM_Inst Saúde Destruidas</th>
+      <th>DM_Inst Saúde Valor</th>
+      <th>DM_Inst Ensino Danificadas</th>
+      <th>DM_Inst Ensino Destruidas</th>
+      <th>DM_Inst Ensino Valor</th>
+      <th>DM_Inst Serviços Danificadas</th>
+      <th>DM_Inst Serviços Destruidas</th>
+      <th>DM_Inst Serviços Valor</th>
+      <th>DM_Inst Comuni Danificadas</th>
+      <th>DM_Inst Comuni Destruidas</th>
+      <th>DM_Inst Comuni Valor</th>
+      <th>DM_Obras de Infra Danificadas</th>
+      <th>DM_Obras de Infra Destruidas</th>
+      <th>DM_Obras de Infra Valor</th>
+      <th>DM_total_danos_materiais</th>
+      <th>PEPL_Assis_méd e emergên(R$)</th>
+      <th>PEPL_Abast de água pot(R$)</th>
+      <th>PEPL_sist de esgotos sanit(R$)</th>
+      <th>PEPL_Sis limp e rec lixo (R$)</th>
+      <th>PEPL_Sis cont pragas (R$)</th>
+      <th>PEPL_distrib energia (R$)</th>
+      <th>PEPL_Telecomunicações (R$)</th>
+      <th>PEPL_Tran loc/reg/l_curso (R$)</th>
+      <th>PEPL_Distrib combustíveis(R$)</th>
+      <th>PEPL_Segurança pública (R$)</th>
+      <th>PEPL_Ensino (R$)</th>
+      <th>PEPL_total_publico</th>
+      <th>PEPR_Agricultura (R$)</th>
+      <th>PEPR_Pecuária (R$)</th>
+      <th>PEPR_Indústria (R$)</th>
+      <th>PEPR_Comércio (R$)</th>
+      <th>PEPR_Serviços (R$)</th>
+      <th>PEPR_total_privado</th>
+      <th>PE_PLePR</th>
+      <th>DensidadePop</th>
+      <th>Hab</th>
+      <th>Area</th>
+      <th>Subgrupo_Alagamentos</th>
+      <th>Subgrupo_Colapso de edificações</th>
+      <th>Subgrupo_Desastres relacionados à contaminação da água</th>
+      <th>Subgrupo_Enxurradas</th>
+      <th>Subgrupo_Epidemias</th>
+      <th>Subgrupo_Erosão</th>
+      <th>Subgrupo_Incêndios urbanos</th>
+      <th>Subgrupo_Infestações/Pragas</th>
+      <th>Subgrupo_Inundações</th>
+      <th>Subgrupo_Movimento de massa</th>
+      <th>Subgrupo_Rompimento/colapso de barragens</th>
+      <th>Subgrupo_Seca</th>
+      <th>Subgrupo_Sistemas de Grande Escala/Escala Regional</th>
+      <th>Subgrupo_Temperaturas Extremas</th>
+      <th>Subgrupo_Tempestades</th>
+      <th>Subgrupo_Terremoto</th>
+      <th>Subgrupo_Transporte aquaviário</th>
+      <th>Subgrupo_Transporte rodoviário</th>
+      <th>Subgrupo_nan</th>
+      <th>Categoria_Natural</th>
+      <th>Categoria_Tecnológico</th>
+      <th>Grupo_Biológico</th>
+      <th>Grupo_Climatológico</th>
+      <th>Grupo_Desastres Relacionados a Incêndios Urbanos</th>
+      <th>Grupo_Desastres Relacionados a Produtos Perigosos</th>
+      <th>Grupo_Desastres relacionados a obras civis</th>
+      <th>Grupo_Desastres relacionados a transporte de passageiros e cargas não perigosas</th>
+      <th>Grupo_Geológico</th>
+      <th>Grupo_Hidrológico</th>
+      <th>Grupo_Meteorológico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1500</td>
+      <td>1500</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>10.72</td>
+      <td>5,358.00</td>
+      <td>500.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3200</td>
+      <td>3200</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>6,271,293.52</td>
+      <td>6,271,293.52</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2,332,356.82</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2,332,356.82</td>
+      <td>326,156.77</td>
+      <td>1,630,783.87</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1,956,940.64</td>
+      <td>4,289,297.46</td>
+      <td>8.28</td>
+      <td>24,114.00</td>
+      <td>2,913.18</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>54,435.57</td>
+      <td>30.00</td>
+      <td>5.00</td>
+      <td>1,041,889.69</td>
+      <td>1,096,325.26</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>11.54</td>
+      <td>1,696.00</td>
+      <td>147.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="shuffle-das-variaveis-para-evitar-a-ordenacao-no-treino">
+<h2>Shuffle das variáveis para evitar a ordenação no treino<a class="headerlink" href="#shuffle-das-variaveis-para-evitar-a-ordenacao-no-treino" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eventos</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eventos</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;df_eventos_preprocessado.csv&#39;</span><span class="p">,</span>
+                        <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span>
+                        <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -1384,6 +1771,15 @@ document.write(`
         <p class="prev-next-title">Análise exploratória dos dados</p>
       </div>
     </a>
+    <a class="right-next"
+       href="Regress%C3%A3o%20Log%C3%ADstica.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Regressão logística</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1403,6 +1799,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas-e-base-de-dados">Bibliotecas e base de dados</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exclusao-de-variaveis">Exclusão de variáveis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-das-variaveis-categoricas">Encoding das variáveis categóricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shuffle-das-variaveis-para-evitar-a-ordenacao-no-treino">Shuffle das variáveis para evitar a ordenação no treino</a></li>
 </ul>
   </nav></div>
 

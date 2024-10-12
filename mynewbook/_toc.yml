@@ -6,3 +6,5 @@ root: intro
 chapters:
 - file: AnaliseExploratoria
 - file: Pré processamento
+- file: Regressão Logística
+- file: Classificação de textos
