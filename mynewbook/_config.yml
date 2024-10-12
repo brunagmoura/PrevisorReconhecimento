@@ -2,14 +2,13 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Previsor de reconhecimento
-subtitle: Previsão de reconhecimento de calamidade pública ou emergência nos municípios brasileiros
+logo: ./figures/Previsor_logo.png
 #author: Autor
-#logo: smith_lovelace.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 #execute:
-#  execute_notebooks: force
+execute_notebooks: force
 execute:
   execute_notebooks: cache
   allow_errors: false
