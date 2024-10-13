@@ -15,60 +15,66 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-X_train_humanos[0]
+#Bibliotecas
+import pandas as pd
+import numpy as np
+from sklearn import metrics
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.linear_model import SGDClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import f1_score
+from imblearn.under_sampling import RandomUnderSampler
+from imblearn.over_sampling import RandomOverSampler
+from collections import Counter
+import warnings
+
+#Estilizar conteúdo
+warnings.filterwarnings('ignore')
+
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+
+def estilo_tabelas(df, max_altura='300px', casas_decimais=3):
+    def cor_linhas(row):
+        if row.name % 2 == 0:
+            return ['background-color: #ffffff'] * len(row)
+        else:
+            return ['background-color: #f9f9f9'] * len(row)
+    
+    return (
+        df.style.apply(cor_linhas, axis=1)  # Aplica cor alternada às linhas
+        .set_table_styles(
+            [
+                {'selector': 'thead th', 'props': [('font-size', '12px'), ('text-align', 'center'), ('border-bottom', '2px solid #007BFF')]},  # Azul abaixo do nome das colunas
+                {'selector': 'td', 'props': [('font-size', '10px'), ('text-align', 'center'), ('max-height', '40px'), ('white-space', 'nowrap'), ('text-overflow', 'ellipsis'), ('overflow', 'hidden'), ('max-width', '300px')]},
+                {'selector': 'table', 'props': [('width', '90%'), ('margin-left', 'auto'), ('margin-right', 'auto'), ('border-collapse', 'collapse')]},
+                {'selector': 'td, th', 'props': [('border', '1px solid #666')]},
+            ]
+        )
+        .set_properties(
+            **{'border-color': 'darkgray', 'border-style': 'solid', 'border-width': '1px'}
+        )
+        .set_table_attributes(
+            f'style="height:auto; overflow:auto; max-height:{max_altura}; display:block;"'  
+        )
+        .format(
+            precision=casas_decimais  
+        )
+    )
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mKeyError[0m                                  Traceback (most recent call last)
-File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/indexes/base.py:3805[0m, in [0;36mIndex.get_loc[0;34m(self, key)[0m
-[1;32m   3804[0m [38;5;28;01mtry[39;00m:
-[0;32m-> 3805[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_engine[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mcasted_key[49m[43m)[49m
-[1;32m   3806[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 12[0m
+[1;32m     10[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodel_selection[39;00m [38;5;28;01mimport[39;00m train_test_split
+[1;32m     11[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmetrics[39;00m [38;5;28;01mimport[39;00m f1_score
+[0;32m---> 12[0m [38;5;28;01mfrom[39;00m [38;5;21;01mimblearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01munder_sampling[39;00m [38;5;28;01mimport[39;00m RandomUnderSampler
+[1;32m     13[0m [38;5;28;01mfrom[39;00m [38;5;21;01mimblearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mover_sampling[39;00m [38;5;28;01mimport[39;00m RandomOverSampler
+[1;32m     14[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcollections[39;00m [38;5;28;01mimport[39;00m Counter
 
-File [0;32mindex.pyx:167[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
-
-File [0;32mindex.pyx:196[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
-
-File [0;32mpandas/_libs/hashtable_class_helper.pxi:2606[0m, in [0;36mpandas._libs.hashtable.Int64HashTable.get_item[0;34m()[0m
-
-File [0;32mpandas/_libs/hashtable_class_helper.pxi:2630[0m, in [0;36mpandas._libs.hashtable.Int64HashTable.get_item[0;34m()[0m
-
-[0;31mKeyError[0m: 0
-
-The above exception was the direct cause of the following exception:
-
-[0;31mKeyError[0m                                  Traceback (most recent call last)
-Cell [0;32mIn[9], line 1[0m
-[0;32m----> 1[0m [43mX_train_humanos[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m
-
-File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/series.py:1121[0m, in [0;36mSeries.__getitem__[0;34m(self, key)[0m
-[1;32m   1118[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_values[key]
-[1;32m   1120[0m [38;5;28;01melif[39;00m key_is_scalar:
-[0;32m-> 1121[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_get_value[49m[43m([49m[43mkey[49m[43m)[49m
-[1;32m   1123[0m [38;5;66;03m# Convert generator to list before going through hashable part[39;00m
-[1;32m   1124[0m [38;5;66;03m# (We will iterate through the generator there to check for slices)[39;00m
-[1;32m   1125[0m [38;5;28;01mif[39;00m is_iterator(key):
-
-File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/series.py:1237[0m, in [0;36mSeries._get_value[0;34m(self, label, takeable)[0m
-[1;32m   1234[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_values[label]
-[1;32m   1236[0m [38;5;66;03m# Similar to Index.get_value, but we do not fall back to positional[39;00m
-[0;32m-> 1237[0m loc [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mindex[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mlabel[49m[43m)[49m
-[1;32m   1239[0m [38;5;28;01mif[39;00m is_integer(loc):
-[1;32m   1240[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_values[loc]
-
-File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/indexes/base.py:3812[0m, in [0;36mIndex.get_loc[0;34m(self, key)[0m
-[1;32m   3807[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(casted_key, [38;5;28mslice[39m) [38;5;129;01mor[39;00m (
-[1;32m   3808[0m         [38;5;28misinstance[39m(casted_key, abc[38;5;241m.[39mIterable)
-[1;32m   3809[0m         [38;5;129;01mand[39;00m [38;5;28many[39m([38;5;28misinstance[39m(x, [38;5;28mslice[39m) [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m casted_key)
-[1;32m   3810[0m     ):
-[1;32m   3811[0m         [38;5;28;01mraise[39;00m InvalidIndexError(key)
-[0;32m-> 3812[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
-[1;32m   3813[0m [38;5;28;01mexcept[39;00m [38;5;167;01mTypeError[39;00m:
-[1;32m   3814[0m     [38;5;66;03m# If we have a listlike key, _check_indexing_error will raise[39;00m
-[1;32m   3815[0m     [38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise[39;00m
-[1;32m   3816[0m     [38;5;66;03m#  the TypeError.[39;00m
-[1;32m   3817[0m     [38;5;28mself[39m[38;5;241m.[39m_check_indexing_error(key)
-
-[0;31mKeyError[0m: 0
+[0;31mModuleNotFoundError[0m: No module named 'imblearn'
 
