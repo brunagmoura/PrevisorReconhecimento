@@ -4,7 +4,12 @@
 format: jb-book
 root: intro
 chapters:
-- file: AnaliseExploratoria
-- file: Pré processamento
-- file: Regressão Logística
-- file: Classificação de textos
+  - file: AnaliseExploratoria
+  - file: Pré processamento
+  - file: Regressão Logística
+  - file: Classificação de textos
+    sections:
+      - file: "Classificação de textos - balanced RandomUnderSampler"
+      - file: "Classificação de textos - balanced RandomOverSampler"
+      - file: "Classificação de textos - análise"
+

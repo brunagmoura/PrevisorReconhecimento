@@ -4,3 +4,4 @@ sidrapy
 pandas
 seaborn
 scikit-learn
+imblearn
