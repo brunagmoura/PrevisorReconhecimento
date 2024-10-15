@@ -15,41 +15,141 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-colunas_excluir_modelo2 = ['DM_total_danos_materiais', 'PEPL_total_publico', 'PEPR_total_privado']
+colunas_modelo1 = [
+    'Status',
+    'DH_total_danos_humanos',
+    'DM_total_danos_materiais',
+    'PEPL_total_publico',
+    'PEPR_total_privado',
+    'regiao_Centro-oeste',
+    'regiao_Nordeste',
+    'regiao_Norte',
+    'regiao_Sudeste',
+    'regiao_Sul',
+    'COBRADE_11110',
+    'COBRADE_11120',
+    'COBRADE_11311',
+    'COBRADE_11312',
+    'COBRADE_11313',
+    'COBRADE_11321',
+    'COBRADE_11331',
+    'COBRADE_11332',
+    'COBRADE_11340',
+    'COBRADE_11410',
+    'COBRADE_11420',
+    'COBRADE_11431',
+    'COBRADE_11432',
+    'COBRADE_11433',
+    'COBRADE_12100',
+    'COBRADE_12200',
+    'COBRADE_12300',
+    'COBRADE_13111',
+    'COBRADE_13112',
+    'COBRADE_13120',
+    'COBRADE_13211',
+    'COBRADE_13212',
+    'COBRADE_13213',
+    'COBRADE_13214',
+    'COBRADE_13215',
+    'COBRADE_13310',
+    'COBRADE_13321',
+    'COBRADE_13322',
+    'COBRADE_14110',
+    'COBRADE_14120',
+    'COBRADE_14131',
+    'COBRADE_14132',
+    'COBRADE_14140',
+    'COBRADE_15110',
+    'COBRADE_15120',
+    'COBRADE_15130',
+    'COBRADE_15210',
+    'COBRADE_15230',
+    'COBRADE_22210',
+    'COBRADE_22220',
+    'COBRADE_23120',
+    'COBRADE_24100',
+    'COBRADE_24200',
+    'COBRADE_25100',
+    'COBRADE_25500'
+]
 
-colunas_modelo2 = [col for col in df_eventos_2010_2017.columns if not col.startswith('regiao_') and col not in colunas_excluir_modelo2]
+colunas_CadUnico = [
+    'DOMICILIO_AREARURAL',
+    'PDEFAGUA',
+    'PDEFESGOTO',
+    'PDEFLIXO',
+    'PDEFSAN',
+    'QTDE_FAMILIAS_ATUALIZADAS'
+]
 
-df_eventos_2010_2017_modelo2 = df_eventos_2010_2017[colunas_modelo2]
-df_eventos_2018_2024_modelo2 = df_eventos_2018_2024[colunas_modelo2]
+colunas_Renda = [
+    'Rendapercapita'
+]
+
+df_eventos_2010_2017_modelo1 = df_eventos_2010_2017[colunas_modelo1 + colunas_Renda]
+df_eventos_2010_2017_modelo1 = df_eventos_2010_2017_modelo1.drop('Ano_Evento')
+
+df_eventos_2018_2024_modelo1 = df_eventos_2018_2024[colunas_modelo1 + colunas_CadUnico]
+df_eventos_2018_2024_modelo1 = df_eventos_2018_2024_modelo1.drop('Ano_Evento')
+
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mKeyError[0m                                  Traceback (most recent call last)
-Cell [0;32mIn[13], line 6[0m
-[1;32m      3[0m colunas_modelo2 [38;5;241m=[39m [col [38;5;28;01mfor[39;00m col [38;5;129;01min[39;00m df_eventos_2010_2017[38;5;241m.[39mcolumns [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m col[38;5;241m.[39mstartswith([38;5;124m'[39m[38;5;124mregiao_[39m[38;5;124m'[39m) [38;5;129;01mand[39;00m col [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m colunas_excluir_modelo2]
-[1;32m      5[0m df_eventos_2010_2017_modelo2 [38;5;241m=[39m df_eventos_2010_2017[colunas_modelo2]
-[0;32m----> 6[0m df_eventos_2018_2024_modelo2 [38;5;241m=[39m [43mdf_eventos_2018_2024[49m[43m[[49m[43mcolunas_modelo2[49m[43m][49m
+Cell [0;32mIn[11], line 73[0m
+[1;32m     68[0m colunas_Renda [38;5;241m=[39m [
+[1;32m     69[0m     [38;5;124m'[39m[38;5;124mRendapercapita[39m[38;5;124m'[39m
+[1;32m     70[0m ]
+[1;32m     72[0m df_eventos_2010_2017_modelo1 [38;5;241m=[39m df_eventos_2010_2017[colunas_modelo1 [38;5;241m+[39m colunas_Renda]
+[0;32m---> 73[0m df_eventos_2010_2017_modelo1 [38;5;241m=[39m [43mdf_eventos_2010_2017_modelo1[49m[38;5;241;43m.[39;49m[43mdrop[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mAno_Evento[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m     75[0m df_eventos_2018_2024_modelo1 [38;5;241m=[39m df_eventos_2018_2024[colunas_modelo1 [38;5;241m+[39m colunas_CadUnico]
+[1;32m     76[0m df_eventos_2018_2024_modelo1 [38;5;241m=[39m df_eventos_2018_2024_modelo1[38;5;241m.[39mdrop([38;5;124m'[39m[38;5;124mAno_Evento[39m[38;5;124m'[39m)
 
-File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/frame.py:4108[0m, in [0;36mDataFrame.__getitem__[0;34m(self, key)[0m
-[1;32m   4106[0m     [38;5;28;01mif[39;00m is_iterator(key):
-[1;32m   4107[0m         key [38;5;241m=[39m [38;5;28mlist[39m(key)
-[0;32m-> 4108[0m     indexer [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcolumns[49m[38;5;241;43m.[39;49m[43m_get_indexer_strict[49m[43m([49m[43mkey[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mcolumns[39;49m[38;5;124;43m"[39;49m[43m)[49m[[38;5;241m1[39m]
-[1;32m   4110[0m [38;5;66;03m# take() does not accept boolean indexers[39;00m
-[1;32m   4111[0m [38;5;28;01mif[39;00m [38;5;28mgetattr[39m(indexer, [38;5;124m"[39m[38;5;124mdtype[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m) [38;5;241m==[39m [38;5;28mbool[39m:
+File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/frame.py:5581[0m, in [0;36mDataFrame.drop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
+[1;32m   5433[0m [38;5;28;01mdef[39;00m [38;5;21mdrop[39m(
+[1;32m   5434[0m     [38;5;28mself[39m,
+[1;32m   5435[0m     labels: IndexLabel [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m,
+[0;32m   (...)[0m
+[1;32m   5442[0m     errors: IgnoreRaise [38;5;241m=[39m [38;5;124m"[39m[38;5;124mraise[39m[38;5;124m"[39m,
+[1;32m   5443[0m ) [38;5;241m-[39m[38;5;241m>[39m DataFrame [38;5;241m|[39m [38;5;28;01mNone[39;00m:
+[1;32m   5444[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m   5445[0m [38;5;124;03m    Drop specified labels from rows or columns.[39;00m
+[1;32m   5446[0m 
+[0;32m   (...)[0m
+[1;32m   5579[0m [38;5;124;03m            weight  1.0     0.8[39;00m
+[1;32m   5580[0m [38;5;124;03m    """[39;00m
+[0;32m-> 5581[0m     [38;5;28;01mreturn[39;00m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mdrop[49m[43m([49m
+[1;32m   5582[0m [43m        [49m[43mlabels[49m[38;5;241;43m=[39;49m[43mlabels[49m[43m,[49m
+[1;32m   5583[0m [43m        [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m,[49m
+[1;32m   5584[0m [43m        [49m[43mindex[49m[38;5;241;43m=[39;49m[43mindex[49m[43m,[49m
+[1;32m   5585[0m [43m        [49m[43mcolumns[49m[38;5;241;43m=[39;49m[43mcolumns[49m[43m,[49m
+[1;32m   5586[0m [43m        [49m[43mlevel[49m[38;5;241;43m=[39;49m[43mlevel[49m[43m,[49m
+[1;32m   5587[0m [43m        [49m[43minplace[49m[38;5;241;43m=[39;49m[43minplace[49m[43m,[49m
+[1;32m   5588[0m [43m        [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
+[1;32m   5589[0m [43m    [49m[43m)[49m
 
-File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/indexes/base.py:6200[0m, in [0;36mIndex._get_indexer_strict[0;34m(self, key, axis_name)[0m
-[1;32m   6197[0m [38;5;28;01melse[39;00m:
-[1;32m   6198[0m     keyarr, indexer, new_indexer [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_reindex_non_unique(keyarr)
-[0;32m-> 6200[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_raise_if_missing[49m[43m([49m[43mkeyarr[49m[43m,[49m[43m [49m[43mindexer[49m[43m,[49m[43m [49m[43maxis_name[49m[43m)[49m
-[1;32m   6202[0m keyarr [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mtake(indexer)
-[1;32m   6203[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(key, Index):
-[1;32m   6204[0m     [38;5;66;03m# GH 42790 - Preserve name from an Index[39;00m
+File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/generic.py:4788[0m, in [0;36mNDFrame.drop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
+[1;32m   4786[0m [38;5;28;01mfor[39;00m axis, labels [38;5;129;01min[39;00m axes[38;5;241m.[39mitems():
+[1;32m   4787[0m     [38;5;28;01mif[39;00m labels [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m-> 4788[0m         obj [38;5;241m=[39m [43mobj[49m[38;5;241;43m.[39;49m[43m_drop_axis[49m[43m([49m[43mlabels[49m[43m,[49m[43m [49m[43maxis[49m[43m,[49m[43m [49m[43mlevel[49m[38;5;241;43m=[39;49m[43mlevel[49m[43m,[49m[43m [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m)[49m
+[1;32m   4790[0m [38;5;28;01mif[39;00m inplace:
+[1;32m   4791[0m     [38;5;28mself[39m[38;5;241m.[39m_update_inplace(obj)
 
-File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/indexes/base.py:6252[0m, in [0;36mIndex._raise_if_missing[0;34m(self, key, indexer, axis_name)[0m
-[1;32m   6249[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mNone of [[39m[38;5;132;01m{[39;00mkey[38;5;132;01m}[39;00m[38;5;124m] are in the [[39m[38;5;132;01m{[39;00maxis_name[38;5;132;01m}[39;00m[38;5;124m][39m[38;5;124m"[39m)
-[1;32m   6251[0m not_found [38;5;241m=[39m [38;5;28mlist[39m(ensure_index(key)[missing_mask[38;5;241m.[39mnonzero()[[38;5;241m0[39m]][38;5;241m.[39munique())
-[0;32m-> 6252[0m [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mnot_found[38;5;132;01m}[39;00m[38;5;124m not in index[39m[38;5;124m"[39m)
+File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/generic.py:4830[0m, in [0;36mNDFrame._drop_axis[0;34m(self, labels, axis, level, errors, only_slice)[0m
+[1;32m   4828[0m         new_axis [38;5;241m=[39m axis[38;5;241m.[39mdrop(labels, level[38;5;241m=[39mlevel, errors[38;5;241m=[39merrors)
+[1;32m   4829[0m     [38;5;28;01melse[39;00m:
+[0;32m-> 4830[0m         new_axis [38;5;241m=[39m [43maxis[49m[38;5;241;43m.[39;49m[43mdrop[49m[43m([49m[43mlabels[49m[43m,[49m[43m [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m)[49m
+[1;32m   4831[0m     indexer [38;5;241m=[39m axis[38;5;241m.[39mget_indexer(new_axis)
+[1;32m   4833[0m [38;5;66;03m# Case for non-unique axis[39;00m
+[1;32m   4834[0m [38;5;28;01melse[39;00m:
 
-[0;31mKeyError[0m: "['Rendapercapita'] not in index"
+File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.9/site-packages/pandas/core/indexes/base.py:7070[0m, in [0;36mIndex.drop[0;34m(self, labels, errors)[0m
+[1;32m   7068[0m [38;5;28;01mif[39;00m mask[38;5;241m.[39many():
+[1;32m   7069[0m     [38;5;28;01mif[39;00m errors [38;5;241m!=[39m [38;5;124m"[39m[38;5;124mignore[39m[38;5;124m"[39m:
+[0;32m-> 7070[0m         [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mlabels[mask][38;5;241m.[39mtolist()[38;5;132;01m}[39;00m[38;5;124m not found in axis[39m[38;5;124m"[39m)
+[1;32m   7071[0m     indexer [38;5;241m=[39m indexer[[38;5;241m~[39mmask]
+[1;32m   7072[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mdelete(indexer)
+
+[0;31mKeyError[0m: "['Ano_Evento'] not found in axis"
 
