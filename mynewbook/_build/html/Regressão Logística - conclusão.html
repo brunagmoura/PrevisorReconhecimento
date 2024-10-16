@@ -1,0 +1,832 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Resultados da regressão logística &#8212; Previsor de reconhecimento</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Regressão Logística - conclusão';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Classificação de textos" href="Classifica%C3%A7%C3%A3o%20de%20textos.html" />
+    <link rel="prev" title="Regressão logística - Variáveis agregadas (2018 a 2024)" href="Regress%C3%A3o%20Log%C3%ADstica%20-%20Modelo%202%202018%20a%202024.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Previsor_logo.png" class="logo__image only-light" alt="Previsor de reconhecimento - Home"/>
+    <script>document.write(`<img src="_static/Previsor_logo.png" class="logo__image only-dark" alt="Previsor de reconhecimento - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Sobre o projeto
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AnaliseExploratoria.html">Análise exploratória dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pr%C3%A9%20processamento.html">Pré processamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regress%C3%A3o%20Log%C3%ADstica%20-%20introdu%C3%A7%C3%A3o.html">Resultados da regressão logística</a></li>
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="Classifica%C3%A7%C3%A3o%20de%20textos.html">Classificação de textos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Classifica%C3%A7%C3%A3o%20de%20textos%20-%20balanced%20RandomUnderSampler.html">Classificação de textos com balanceamento “Random Under Sampler”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Classifica%C3%A7%C3%A3o%20de%20textos%20-%20balanced%20RandomOverSampler.html">Classificação de textos com balanceamento “Random Under Sampler”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Classifica%C3%A7%C3%A3o%20de%20textos%20-%20an%C3%A1lise.html">Classificação de textos</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Regressão Logística - conclusão.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Resultados da regressão logística</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Resultados da regressão logística</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-ocorridos-entre-2010-e-2017">Eventos ocorridos entre 2010 e 2017</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-precisao">Precision (Precisão)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-sensibilidade-ou-revocacao">Recall (Sensibilidade ou Revocação)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">F1-Score</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-suporte">Support (Suporte)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-acuracia">Accuracy (Acurácia)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-avg-media-macro">Macro Avg (Média Macro)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weighted-avg-media-ponderada">Weighted Avg (Média Ponderada)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-ocorridos-entre-2018-e-2024">Eventos ocorridos entre 2018 e 2024</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusao">Conclusão</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="resultados-da-regressao-logistica">
+<h1>Resultados da regressão logística<a class="headerlink" href="#resultados-da-regressao-logistica" title="Link to this heading">#</a></h1>
+<p>Tendo em vista as especificidades identificadas na base de dados, foram realizados testes para quatro bases de dados diferentes:</p>
+<ol class="arabic simple">
+<li><p>Features agregadas com eventos ocorridos entre 2010 e 2017;</p></li>
+<li><p>Features agregadas com eventos ocorridos entre 2018 e 2024;</p></li>
+<li><p>Features desagregadas com eventos ocorridos entre 2010 e 2017;</p></li>
+<li><p>Features desagregadas com eventos ocorridos entre 2018 e 2024.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mais detalhes sobre o pré-processamento dos dados podem ser verificados no capítulo “Pré processamento”.</p>
+</div>
+</section>
+<section id="eventos-ocorridos-entre-2010-e-2017">
+<h1>Eventos ocorridos entre 2010 e 2017<a class="headerlink" href="#eventos-ocorridos-entre-2010-e-2017" title="Link to this heading">#</a></h1>
+<p>Nos testes dos eventos ocorridos entre 2010 e 2017 observou-se os seguintes resultados em relação às métricas de avaliação dos modelos:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Variáveis agregadas</p></th>
+<th class="head"><p>Variáveis agregadas c/ SMOTE</p></th>
+<th class="head"><p>Variáveis desagregadas</p></th>
+<th class="head"><p>Variáveis desagregadas c/ SMOTE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Reconhecido</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Precision</p></td>
+<td><p>0.913793</p></td>
+<td><p><strong>0.947808</strong></p></td>
+<td><p>0.915284</p></td>
+<td><p>0.951181</p></td>
+</tr>
+<tr class="row-even"><td><p>Recall</p></td>
+<td><p>0.986881</p></td>
+<td><p>0.768515</p></td>
+<td><p>0.987220</p></td>
+<td><p>0.771885</p></td>
+</tr>
+<tr class="row-odd"><td><p>F1-Score</p></td>
+<td><p>0.948932</p></td>
+<td><p>0.848796</p></td>
+<td><p>0.949892</p></td>
+<td><p>0.852205</p></td>
+</tr>
+<tr class="row-even"><td><p>Support</p></td>
+<td><p>2363</p></td>
+<td><p>2363</p></td>
+<td><p>1565</p></td>
+<td><p>1565</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Não reconhecido</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Precision</p></td>
+<td><p><strong>0.465517</strong></p></td>
+<td><p>0.211816</p></td>
+<td><p>0.375000</p></td>
+<td><p>0.206667</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recall</p></td>
+<td><p>0.109312</p></td>
+<td><p>0.595142</p></td>
+<td><p>0.077419</p></td>
+<td><p>0.600000</p></td>
+</tr>
+<tr class="row-even"><td><p>F1-Score</p></td>
+<td><p>0.177049</p></td>
+<td><p>0.312434</p></td>
+<td><p>0.128342</p></td>
+<td><p>0.307438</p></td>
+</tr>
+<tr class="row-odd"><td><p>Support</p></td>
+<td><p>247</p></td>
+<td><p>247</p></td>
+<td><p>155</p></td>
+<td><p>155</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Métricas gerais</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Accuracy</p></td>
+<td><p><strong>0.903831</strong></p></td>
+<td><p>0.752107</p></td>
+<td><p>0.905233</p></td>
+<td><p>0.756395</p></td>
+</tr>
+<tr class="row-even"><td><p>Macro Avg Precision</p></td>
+<td><p>0.689655</p></td>
+<td><p>0.579812</p></td>
+<td><p>0.645142</p></td>
+<td><p>0.578924</p></td>
+</tr>
+<tr class="row-odd"><td><p>Macro Avg Recall</p></td>
+<td><p>0.548096</p></td>
+<td><p>0.681828</p></td>
+<td><p>0.532320</p></td>
+<td><p>0.685942</p></td>
+</tr>
+<tr class="row-even"><td><p>Macro Avg F1-Score</p></td>
+<td><p>0.562991</p></td>
+<td><p>0.580615</p></td>
+<td><p>0.539117</p></td>
+<td><p>0.579821</p></td>
+</tr>
+<tr class="row-odd"><td><p>Weighted Avg Precision</p></td>
+<td><p>0.871370</p></td>
+<td><p>0.878157</p></td>
+<td><p>0.866596</p></td>
+<td><p>0.884088</p></td>
+</tr>
+<tr class="row-even"><td><p>Weighted Avg Recall</p></td>
+<td><p>0.903831</p></td>
+<td><p>0.752107</p></td>
+<td><p><strong>0.905233</strong></p></td>
+<td><p>0.756395</p></td>
+</tr>
+<tr class="row-odd"><td><p>Weighted Avg F1-Score</p></td>
+<td><p><strong>0.875884</strong></p></td>
+<td><p>0.798037</p></td>
+<td><p><strong>0.875857</strong></p></td>
+<td><p>0.803112</p></td>
+</tr>
+<tr class="row-even"><td><p>Total Support</p></td>
+<td><p>2610</p></td>
+<td><p>2610</p></td>
+<td><p>1720</p></td>
+<td><p>1720</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="precision-precisao">
+<h2>Precision (Precisão)<a class="headerlink" href="#precision-precisao" title="Link to this heading">#</a></h2>
+<p><em>Definição</em>: A precisão mede a proporção de previsões positivas que estão corretas. Ou seja, quantos dos exemplos classificados como “positivos” realmente pertencem à classe positiva.</p>
+<p><em>Interpretação</em>:</p>
+<p>Para a classe Reconhecido, a precisão é consistentemente alta em todos os cenários. Isso significa que quando o modelo prevê que um evento será reconhecido, ele geralmente está correto.
+Para a classe Não reconhecido, a precisão é muito menor. Isso sugere que quando o modelo prevê que um evento não será reconhecido, ele erra mais frequentemente, o que é esperado considerando a natureza desequilibrada dos dados.</p>
+</section>
+<section id="recall-sensibilidade-ou-revocacao">
+<h2>Recall (Sensibilidade ou Revocação)<a class="headerlink" href="#recall-sensibilidade-ou-revocacao" title="Link to this heading">#</a></h2>
+<p><em>Definição</em>: O recall mede a proporção de exemplos verdadeiramente positivos que foram corretamente identificados. Em outras palavras, o quanto o modelo consegue capturar todos os exemplos positivos.</p>
+<p><em>Interpretação</em>:
+Reconhecido: O recall é muito alto para a classe “Reconhecido”, principalmente nos cenários sem SMOTE (0.986881 no primeiro cenário e 0.987220 no modelo 2). Isso significa que o modelo é capaz de identificar quase todos os eventos que deveriam ser reconhecidos.
+Não reconhecido: O recall para “Não reconhecido” é extremamente baixo nos cenários sem SMOTE (0.109312 e 0.077419), indicando que o modelo raramente identifica corretamente essa classe. No entanto, após aplicar SMOTE, o recall melhora drasticamente (0.595142 e 0.600000). Isso mostra que o SMOTE está ajudando o modelo a capturar mais exemplos da classe minoritária.</p>
+</section>
+<section id="f1-score">
+<h2>F1-Score<a class="headerlink" href="#f1-score" title="Link to this heading">#</a></h2>
+<p><em>Definição</em>: O F1-Score é a média harmônica da precisão e do recall. Ele equilibra os dois aspectos e é especialmente útil quando se trabalha com dados desbalanceados.</p>
+<p><em>Interpretação</em>:
+Reconhecido: O F1-Score para a classe “Reconhecido” é sempre muito alto (acima de 0.84), refletindo o bom desempenho do modelo para essa classe majoritária.
+Não reconhecido: O F1-Score para “Não reconhecido” é muito baixo sem SMOTE (0.177049 e 0.128342), mas melhora com SMOTE (0.312434 e 0.307438). Isso ocorre porque o SMOTE ajuda a balancear os dados, melhorando a identificação de exemplos dessa classe.</p>
+</section>
+<section id="support-suporte">
+<h2>Support (Suporte)<a class="headerlink" href="#support-suporte" title="Link to this heading">#</a></h2>
+<p><em>Definição</em>: O suporte é o número de ocorrências reais de cada classe nos dados. Ele mostra a distribuição do número de exemplos entre as classes.</p>
+<p><em>Interpretação</em>:
+Reconhecido: A classe “Reconhecido” tem muito mais suporte (2363 no primeiro cenário e 1565 no modelo 2). Isso confirma que os dados estão desbalanceados, com muito mais exemplos de eventos reconhecidos do que não reconhecidos.
+Não reconhecido: A classe “Não reconhecido” tem muito menos suporte (247 no primeiro cenário e 155 no modelo 2), o que faz com que os modelos tenham mais dificuldade em prever essa classe corretamente.</p>
+</section>
+<section id="accuracy-acuracia">
+<h2>Accuracy (Acurácia)<a class="headerlink" href="#accuracy-acuracia" title="Link to this heading">#</a></h2>
+<p><em>Definição</em>: A acurácia é a proporção de previsões corretas em relação ao total de exemplos.</p>
+<p><em>Interpretação</em>:
+A acurácia é alta nos cenários sem SMOTE (acima de 0.90), indicando que o modelo está correto na maioria das previsões. No entanto, como os dados estão desbalanceados, a alta acurácia pode estar inflada pela boa performance na classe majoritária (Reconhecido).
+Após aplicar SMOTE, a acurácia diminui para cerca de 0.75. Isso acontece porque o modelo passa a focar mais na classe minoritária (Não reconhecido), mas ainda não consegue identificar perfeitamente os dois grupos.</p>
+</section>
+<section id="macro-avg-media-macro">
+<h2>Macro Avg (Média Macro)<a class="headerlink" href="#macro-avg-media-macro" title="Link to this heading">#</a></h2>
+<p><em>Definição</em>: A média macro calcula a média simples das métricas para todas as classes, tratando cada classe igualmente, independentemente do número de exemplos.</p>
+<p><em>Interpretação</em>:
+A média macro de precisão e F1-score é consistentemente menor com SMOTE, o que indica que o SMOTE melhora o recall da classe minoritária às custas da precisão geral do modelo.
+Sem SMOTE, o modelo favorece a classe “Reconhecido”, o que leva a médias macro mais baixas, especialmente para o recall.</p>
+</section>
+<section id="weighted-avg-media-ponderada">
+<h2>Weighted Avg (Média Ponderada)<a class="headerlink" href="#weighted-avg-media-ponderada" title="Link to this heading">#</a></h2>
+<p><em>Definição</em>: A média ponderada calcula a média das métricas levando em conta o suporte (número de exemplos) de cada classe.</p>
+<p><em>Interpretação</em>
+A média ponderada de precisão e F1-score é alta nos quatro cenários, mas cai ligeiramente após o uso de SMOTE. Isso ocorre porque, embora o modelo melhore o desempenho para a classe minoritária, ele ainda tem dificuldade em prever corretamente essa classe, o que afeta o desempenho geral.</p>
+</section>
+</section>
+<section id="eventos-ocorridos-entre-2018-e-2024">
+<h1>Eventos ocorridos entre 2018 e 2024<a class="headerlink" href="#eventos-ocorridos-entre-2018-e-2024" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Variáveis agregadas</p></th>
+<th class="head"><p>Variáveis agregadas c/ SMOTE</p></th>
+<th class="head"><p>Variáveis desagregadas</p></th>
+<th class="head"><p>Variáveis desagregadas c/ SMOTE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Reconhecido</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Precision</p></td>
+<td><p>0.924403</p></td>
+<td><p>0.947368</p></td>
+<td><p>0.933333</p></td>
+<td><p><strong>0.965458</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Recall</p></td>
+<td><p>0.981697</p></td>
+<td><p>0.726290</p></td>
+<td><p>0.992053</p></td>
+<td><p>0.740397</p></td>
+</tr>
+<tr class="row-odd"><td><p>F1-Score</p></td>
+<td><p>0.952189</p></td>
+<td><p>0.822227</p></td>
+<td><p>0.961798</p></td>
+<td><p>0.838081</p></td>
+</tr>
+<tr class="row-even"><td><p>Support</p></td>
+<td><p>2404</p></td>
+<td><p>2404</p></td>
+<td><p>1510</p></td>
+<td><p>1510</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Não reconhecido</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Precision</p></td>
+<td><p>0.456790</p></td>
+<td><p>0.168142</p></td>
+<td><p><strong>0.760000</strong></p></td>
+<td><p>0.211268</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recall</p></td>
+<td><p>0.160870</p></td>
+<td><p>0.578261</p></td>
+<td><p>0.262069</p></td>
+<td><p>0.724138</p></td>
+</tr>
+<tr class="row-even"><td><p>F1-Score</p></td>
+<td><p>0.237942</p></td>
+<td><p>0.260529</p></td>
+<td><p>0.389744</p></td>
+<td><p>0.327103</p></td>
+</tr>
+<tr class="row-odd"><td><p>Support</p></td>
+<td><p>230</p></td>
+<td><p>230</p></td>
+<td><p>145</p></td>
+<td><p>145</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Métricas gerais</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Accuracy</p></td>
+<td><p>0.910023</p></td>
+<td><p>0.713364</p></td>
+<td><p>0.928097</p></td>
+<td><p>0.738973</p></td>
+</tr>
+<tr class="row-even"><td><p>Macro Avg Precision</p></td>
+<td><p>0.690596</p></td>
+<td><p>0.557755</p></td>
+<td><p>0.846667</p></td>
+<td><p>0.588363</p></td>
+</tr>
+<tr class="row-odd"><td><p>Macro Avg Recall</p></td>
+<td><p>0.571283</p></td>
+<td><p>0.652275</p></td>
+<td><p>0.627061</p></td>
+<td><p>0.732268</p></td>
+</tr>
+<tr class="row-even"><td><p>Macro Avg F1-Score</p></td>
+<td><p>0.595065</p></td>
+<td><p>0.541378</p></td>
+<td><p>0.675771</p></td>
+<td><p>0.582592</p></td>
+</tr>
+<tr class="row-odd"><td><p>Weighted Avg Precision</p></td>
+<td><p>0.883571</p></td>
+<td><p>0.879327</p></td>
+<td><p>0.918147</p></td>
+<td><p>0.899381</p></td>
+</tr>
+<tr class="row-even"><td><p>Weighted Avg Recall</p></td>
+<td><p>0.910023</p></td>
+<td><p>0.713364</p></td>
+<td><p><strong>0.928097</strong></p></td>
+<td><p>0.738973</p></td>
+</tr>
+<tr class="row-odd"><td><p>Weighted Avg F1-Score</p></td>
+<td><p>0.889821</p></td>
+<td><p>0.773180</p></td>
+<td><p><strong>0.911678</strong></p></td>
+<td><p>0.793312</p></td>
+</tr>
+<tr class="row-even"><td><p>Total Support</p></td>
+<td><p>2634</p></td>
+<td><p>2634</p></td>
+<td><p>1655</p></td>
+<td><p>1655</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="conclusao">
+<h1>Conclusão<a class="headerlink" href="#conclusao" title="Link to this heading">#</a></h1>
+<p>Modelos sem SMOTE têm uma excelente performance para a classe “Reconhecido”, mas sofrem ao prever a classe “Não reconhecido”.</p>
+<p>Modelos com SMOTE melhoram significativamente o recall para a classe “Não reconhecido”, mas isso vem à custa de uma redução na precisão e acurácia geral.</p>
+<p>O Modelo com variáveis desagregadas (2018-2024) sem SMOTE apresenta o melhor desempenho geral, com uma boa acurácia e um bom equilíbrio entre precisão e recall.</p>
+<p>No entanto, se o objetivo é melhorar o recall da classe “Não reconhecido”, o uso de SMOTE no modelo com variáveis desagregadas se destaca, embora com uma leve queda na acurácia.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Regress%C3%A3o%20Log%C3%ADstica%20-%20Modelo%202%202018%20a%202024.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Regressão logística - Variáveis agregadas (2018 a 2024)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Classifica%C3%A7%C3%A3o%20de%20textos.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Classificação de textos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Resultados da regressão logística</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-ocorridos-entre-2010-e-2017">Eventos ocorridos entre 2010 e 2017</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-precisao">Precision (Precisão)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-sensibilidade-ou-revocacao">Recall (Sensibilidade ou Revocação)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">F1-Score</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-suporte">Support (Suporte)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-acuracia">Accuracy (Acurácia)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-avg-media-macro">Macro Avg (Média Macro)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weighted-avg-media-ponderada">Weighted Avg (Média Ponderada)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-ocorridos-entre-2018-e-2024">Eventos ocorridos entre 2018 e 2024</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusao">Conclusão</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

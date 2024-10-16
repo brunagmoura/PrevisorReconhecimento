@@ -1,0 +1,1569 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Regressão logística - Variáveis agregadas (2018 a 2024) &#8212; Previsor de reconhecimento</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Regressão Logística - Modelo 2 2018 a 2024';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Resultados da regressão logística" href="Regress%C3%A3o%20Log%C3%ADstica%20-%20conclus%C3%A3o.html" />
+    <link rel="prev" title="Regressão logística - Variáveis desagregadas (2010 a 2017)" href="Regress%C3%A3o%20Log%C3%ADstica%20-%20Modelo%202%202010%20a%202017.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Previsor_logo.png" class="logo__image only-light" alt="Previsor de reconhecimento - Home"/>
+    <script>document.write(`<img src="_static/Previsor_logo.png" class="logo__image only-dark" alt="Previsor de reconhecimento - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Sobre o projeto
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="AnaliseExploratoria.html">Análise exploratória dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pr%C3%A9%20processamento.html">Pré processamento dos dados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regress%C3%A3o%20Log%C3%ADstica%20-%20introdu%C3%A7%C3%A3o.html">Resultados da regressão logística</a></li>
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="Classifica%C3%A7%C3%A3o%20de%20textos.html">Classificação de textos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Classifica%C3%A7%C3%A3o%20de%20textos%20-%20balanced%20RandomUnderSampler.html">Classificação de textos com balanceamento “Random Under Sampler”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Classifica%C3%A7%C3%A3o%20de%20textos%20-%20balanced%20RandomOverSampler.html">Classificação de textos com balanceamento “Random Under Sampler”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Classifica%C3%A7%C3%A3o%20de%20textos%20-%20an%C3%A1lise.html">Classificação de textos</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/brunagmoura/PrevisorReconhecimento/blob/main/Regressão Logística - Modelo 2 2018 a 2024.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Regressão Logística - Modelo 2 2018 a 2024.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Regressão logística - Variáveis agregadas (2018 a 2024)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas-e-bases-de-dados">Bibliotecas e bases de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajustes-da-base-de-dados">Ajustes da base de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treino-e-teste">Treino e teste</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-sem-balanceamento">Resultados - sem balanceamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-com-balanceamento-smote">Resultados - com balanceamento SMOTE</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="regressao-logistica-variaveis-agregadas-2018-a-2024">
+<h1>Regressão logística - Variáveis agregadas (2018 a 2024)<a class="headerlink" href="#regressao-logistica-variaveis-agregadas-2018-a-2024" title="Link to this heading">#</a></h1>
+<section id="bibliotecas-e-bases-de-dados">
+<h2>Bibliotecas e bases de dados<a class="headerlink" href="#bibliotecas-e-bases-de-dados" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
+<span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="kn">from</span> <span class="nn">imblearn.under_sampling</span> <span class="kn">import</span> <span class="n">RandomUnderSampler</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.exceptions</span> <span class="kn">import</span> <span class="n">ConvergenceWarning</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
+
+<span class="c1">#Estilizar conteúdo</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">estilo_tabelas</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">max_altura</span><span class="o">=</span><span class="s1">&#39;300px&#39;</span><span class="p">,</span> <span class="n">casas_decimais</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">cor_linhas</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">name</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;background-color: #ffffff&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;background-color: #f9f9f9&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cor_linhas</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+        <span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;thead th&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="s1">&#39;12px&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;text-align&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;border-bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;2px solid #007BFF&#39;</span><span class="p">)]},</span>  <span class="c1"># Azul abaixo do nome das colunas</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="s1">&#39;10px&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;text-align&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;max-height&#39;</span><span class="p">,</span> <span class="s1">&#39;40px&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;white-space&#39;</span><span class="p">,</span> <span class="s1">&#39;nowrap&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;text-overflow&#39;</span><span class="p">,</span> <span class="s1">&#39;ellipsis&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;overflow&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;max-width&#39;</span><span class="p">,</span> <span class="s1">&#39;300px&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;90%&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;margin-left&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;margin-right&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;border-collapse&#39;</span><span class="p">,</span> <span class="s1">&#39;collapse&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;td, th&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;border&#39;</span><span class="p">,</span> <span class="s1">&#39;1px solid #666&#39;</span><span class="p">)]},</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">set_properties</span><span class="p">(</span>
+            <span class="o">**</span><span class="p">{</span><span class="s1">&#39;border-color&#39;</span><span class="p">:</span> <span class="s1">&#39;darkgray&#39;</span><span class="p">,</span> <span class="s1">&#39;border-style&#39;</span><span class="p">:</span> <span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="s1">&#39;border-width&#39;</span><span class="p">:</span> <span class="s1">&#39;1px&#39;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;style=&quot;height:auto; overflow:auto; max-height:</span><span class="si">{</span><span class="n">max_altura</span><span class="si">}</span><span class="s1">; display:block;&quot;&#39;</span>  
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">precision</span><span class="o">=</span><span class="n">casas_decimais</span>  
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="c1"># Base de dados</span>
+
+<span class="n">df_eventos_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/brunagmoura/PrevisorReconhecimento/refs/heads/main/df_eventos_2018_2024_modelo2.csv&quot;</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="ajustes-da-base-de-dados">
+<h2>Ajustes da base de dados<a class="headerlink" href="#ajustes-da-base-de-dados" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remover linhas com dados ausentes</span>
+
+<span class="n">df_eventos_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">df_eventos_2018_2024_modelo2</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">estilo_tabelas</span><span class="p">(</span><span class="n">df_eventos_2018_2024_modelo2</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_7f6fc thead th {
+  font-size: 12px;
+  text-align: center;
+  border-bottom: 2px solid #007BFF;
+}
+#T_7f6fc td {
+  font-size: 10px;
+  text-align: center;
+  max-height: 40px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 300px;
+}
+#T_7f6fc table {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+#T_7f6fc td {
+  border: 1px solid #666;
+}
+#T_7f6fc  th {
+  border: 1px solid #666;
+}
+#T_7f6fc_row0_col0, #T_7f6fc_row0_col1, #T_7f6fc_row0_col2, #T_7f6fc_row0_col3, #T_7f6fc_row0_col4, #T_7f6fc_row0_col5, #T_7f6fc_row0_col6, #T_7f6fc_row0_col7, #T_7f6fc_row0_col8, #T_7f6fc_row0_col9, #T_7f6fc_row0_col10, #T_7f6fc_row0_col11, #T_7f6fc_row0_col12, #T_7f6fc_row0_col13, #T_7f6fc_row0_col14, #T_7f6fc_row0_col15, #T_7f6fc_row0_col16, #T_7f6fc_row0_col17, #T_7f6fc_row0_col18, #T_7f6fc_row0_col19, #T_7f6fc_row0_col20, #T_7f6fc_row0_col21, #T_7f6fc_row0_col22, #T_7f6fc_row0_col23, #T_7f6fc_row0_col24, #T_7f6fc_row0_col25, #T_7f6fc_row0_col26, #T_7f6fc_row0_col27, #T_7f6fc_row0_col28, #T_7f6fc_row0_col29, #T_7f6fc_row0_col30, #T_7f6fc_row0_col31, #T_7f6fc_row0_col32, #T_7f6fc_row0_col33, #T_7f6fc_row0_col34, #T_7f6fc_row0_col35, #T_7f6fc_row0_col36, #T_7f6fc_row0_col37, #T_7f6fc_row0_col38, #T_7f6fc_row0_col39, #T_7f6fc_row0_col40, #T_7f6fc_row0_col41, #T_7f6fc_row0_col42, #T_7f6fc_row0_col43, #T_7f6fc_row0_col44, #T_7f6fc_row0_col45, #T_7f6fc_row0_col46, #T_7f6fc_row0_col47, #T_7f6fc_row0_col48, #T_7f6fc_row0_col49, #T_7f6fc_row0_col50, #T_7f6fc_row0_col51, #T_7f6fc_row0_col52, #T_7f6fc_row0_col53, #T_7f6fc_row0_col54, #T_7f6fc_row0_col55, #T_7f6fc_row0_col56, #T_7f6fc_row0_col57, #T_7f6fc_row0_col58, #T_7f6fc_row0_col59, #T_7f6fc_row0_col60, #T_7f6fc_row0_col61, #T_7f6fc_row0_col62, #T_7f6fc_row0_col63, #T_7f6fc_row0_col64, #T_7f6fc_row0_col65, #T_7f6fc_row0_col66, #T_7f6fc_row0_col67, #T_7f6fc_row0_col68, #T_7f6fc_row0_col69, #T_7f6fc_row0_col70, #T_7f6fc_row0_col71, #T_7f6fc_row0_col72, #T_7f6fc_row0_col73, #T_7f6fc_row0_col74, #T_7f6fc_row0_col75, #T_7f6fc_row0_col76, #T_7f6fc_row0_col77, #T_7f6fc_row0_col78, #T_7f6fc_row0_col79, #T_7f6fc_row0_col80, #T_7f6fc_row0_col81, #T_7f6fc_row0_col82, #T_7f6fc_row0_col83, #T_7f6fc_row0_col84, #T_7f6fc_row0_col85, #T_7f6fc_row0_col86, #T_7f6fc_row0_col87, #T_7f6fc_row0_col88, #T_7f6fc_row0_col89, #T_7f6fc_row0_col90, #T_7f6fc_row0_col91, #T_7f6fc_row0_col92, #T_7f6fc_row0_col93, #T_7f6fc_row0_col94, #T_7f6fc_row0_col95, #T_7f6fc_row0_col96, #T_7f6fc_row0_col97, #T_7f6fc_row0_col98, #T_7f6fc_row0_col99, #T_7f6fc_row0_col100, #T_7f6fc_row0_col101, #T_7f6fc_row0_col102, #T_7f6fc_row0_col103, #T_7f6fc_row0_col104, #T_7f6fc_row0_col105, #T_7f6fc_row0_col106, #T_7f6fc_row0_col107, #T_7f6fc_row0_col108, #T_7f6fc_row0_col109, #T_7f6fc_row0_col110, #T_7f6fc_row0_col111, #T_7f6fc_row0_col112, #T_7f6fc_row0_col113, #T_7f6fc_row0_col114, #T_7f6fc_row0_col115, #T_7f6fc_row0_col116, #T_7f6fc_row0_col117, #T_7f6fc_row0_col118, #T_7f6fc_row0_col119, #T_7f6fc_row0_col120, #T_7f6fc_row0_col121, #T_7f6fc_row2_col0, #T_7f6fc_row2_col1, #T_7f6fc_row2_col2, #T_7f6fc_row2_col3, #T_7f6fc_row2_col4, #T_7f6fc_row2_col5, #T_7f6fc_row2_col6, #T_7f6fc_row2_col7, #T_7f6fc_row2_col8, #T_7f6fc_row2_col9, #T_7f6fc_row2_col10, #T_7f6fc_row2_col11, #T_7f6fc_row2_col12, #T_7f6fc_row2_col13, #T_7f6fc_row2_col14, #T_7f6fc_row2_col15, #T_7f6fc_row2_col16, #T_7f6fc_row2_col17, #T_7f6fc_row2_col18, #T_7f6fc_row2_col19, #T_7f6fc_row2_col20, #T_7f6fc_row2_col21, #T_7f6fc_row2_col22, #T_7f6fc_row2_col23, #T_7f6fc_row2_col24, #T_7f6fc_row2_col25, #T_7f6fc_row2_col26, #T_7f6fc_row2_col27, #T_7f6fc_row2_col28, #T_7f6fc_row2_col29, #T_7f6fc_row2_col30, #T_7f6fc_row2_col31, #T_7f6fc_row2_col32, #T_7f6fc_row2_col33, #T_7f6fc_row2_col34, #T_7f6fc_row2_col35, #T_7f6fc_row2_col36, #T_7f6fc_row2_col37, #T_7f6fc_row2_col38, #T_7f6fc_row2_col39, #T_7f6fc_row2_col40, #T_7f6fc_row2_col41, #T_7f6fc_row2_col42, #T_7f6fc_row2_col43, #T_7f6fc_row2_col44, #T_7f6fc_row2_col45, #T_7f6fc_row2_col46, #T_7f6fc_row2_col47, #T_7f6fc_row2_col48, #T_7f6fc_row2_col49, #T_7f6fc_row2_col50, #T_7f6fc_row2_col51, #T_7f6fc_row2_col52, #T_7f6fc_row2_col53, #T_7f6fc_row2_col54, #T_7f6fc_row2_col55, #T_7f6fc_row2_col56, #T_7f6fc_row2_col57, #T_7f6fc_row2_col58, #T_7f6fc_row2_col59, #T_7f6fc_row2_col60, #T_7f6fc_row2_col61, #T_7f6fc_row2_col62, #T_7f6fc_row2_col63, #T_7f6fc_row2_col64, #T_7f6fc_row2_col65, #T_7f6fc_row2_col66, #T_7f6fc_row2_col67, #T_7f6fc_row2_col68, #T_7f6fc_row2_col69, #T_7f6fc_row2_col70, #T_7f6fc_row2_col71, #T_7f6fc_row2_col72, #T_7f6fc_row2_col73, #T_7f6fc_row2_col74, #T_7f6fc_row2_col75, #T_7f6fc_row2_col76, #T_7f6fc_row2_col77, #T_7f6fc_row2_col78, #T_7f6fc_row2_col79, #T_7f6fc_row2_col80, #T_7f6fc_row2_col81, #T_7f6fc_row2_col82, #T_7f6fc_row2_col83, #T_7f6fc_row2_col84, #T_7f6fc_row2_col85, #T_7f6fc_row2_col86, #T_7f6fc_row2_col87, #T_7f6fc_row2_col88, #T_7f6fc_row2_col89, #T_7f6fc_row2_col90, #T_7f6fc_row2_col91, #T_7f6fc_row2_col92, #T_7f6fc_row2_col93, #T_7f6fc_row2_col94, #T_7f6fc_row2_col95, #T_7f6fc_row2_col96, #T_7f6fc_row2_col97, #T_7f6fc_row2_col98, #T_7f6fc_row2_col99, #T_7f6fc_row2_col100, #T_7f6fc_row2_col101, #T_7f6fc_row2_col102, #T_7f6fc_row2_col103, #T_7f6fc_row2_col104, #T_7f6fc_row2_col105, #T_7f6fc_row2_col106, #T_7f6fc_row2_col107, #T_7f6fc_row2_col108, #T_7f6fc_row2_col109, #T_7f6fc_row2_col110, #T_7f6fc_row2_col111, #T_7f6fc_row2_col112, #T_7f6fc_row2_col113, #T_7f6fc_row2_col114, #T_7f6fc_row2_col115, #T_7f6fc_row2_col116, #T_7f6fc_row2_col117, #T_7f6fc_row2_col118, #T_7f6fc_row2_col119, #T_7f6fc_row2_col120, #T_7f6fc_row2_col121 {
+  background-color: #ffffff;
+  border-color: darkgray;
+  border-style: solid;
+  border-width: 1px;
+}
+#T_7f6fc_row1_col0, #T_7f6fc_row1_col1, #T_7f6fc_row1_col2, #T_7f6fc_row1_col3, #T_7f6fc_row1_col4, #T_7f6fc_row1_col5, #T_7f6fc_row1_col6, #T_7f6fc_row1_col7, #T_7f6fc_row1_col8, #T_7f6fc_row1_col9, #T_7f6fc_row1_col10, #T_7f6fc_row1_col11, #T_7f6fc_row1_col12, #T_7f6fc_row1_col13, #T_7f6fc_row1_col14, #T_7f6fc_row1_col15, #T_7f6fc_row1_col16, #T_7f6fc_row1_col17, #T_7f6fc_row1_col18, #T_7f6fc_row1_col19, #T_7f6fc_row1_col20, #T_7f6fc_row1_col21, #T_7f6fc_row1_col22, #T_7f6fc_row1_col23, #T_7f6fc_row1_col24, #T_7f6fc_row1_col25, #T_7f6fc_row1_col26, #T_7f6fc_row1_col27, #T_7f6fc_row1_col28, #T_7f6fc_row1_col29, #T_7f6fc_row1_col30, #T_7f6fc_row1_col31, #T_7f6fc_row1_col32, #T_7f6fc_row1_col33, #T_7f6fc_row1_col34, #T_7f6fc_row1_col35, #T_7f6fc_row1_col36, #T_7f6fc_row1_col37, #T_7f6fc_row1_col38, #T_7f6fc_row1_col39, #T_7f6fc_row1_col40, #T_7f6fc_row1_col41, #T_7f6fc_row1_col42, #T_7f6fc_row1_col43, #T_7f6fc_row1_col44, #T_7f6fc_row1_col45, #T_7f6fc_row1_col46, #T_7f6fc_row1_col47, #T_7f6fc_row1_col48, #T_7f6fc_row1_col49, #T_7f6fc_row1_col50, #T_7f6fc_row1_col51, #T_7f6fc_row1_col52, #T_7f6fc_row1_col53, #T_7f6fc_row1_col54, #T_7f6fc_row1_col55, #T_7f6fc_row1_col56, #T_7f6fc_row1_col57, #T_7f6fc_row1_col58, #T_7f6fc_row1_col59, #T_7f6fc_row1_col60, #T_7f6fc_row1_col61, #T_7f6fc_row1_col62, #T_7f6fc_row1_col63, #T_7f6fc_row1_col64, #T_7f6fc_row1_col65, #T_7f6fc_row1_col66, #T_7f6fc_row1_col67, #T_7f6fc_row1_col68, #T_7f6fc_row1_col69, #T_7f6fc_row1_col70, #T_7f6fc_row1_col71, #T_7f6fc_row1_col72, #T_7f6fc_row1_col73, #T_7f6fc_row1_col74, #T_7f6fc_row1_col75, #T_7f6fc_row1_col76, #T_7f6fc_row1_col77, #T_7f6fc_row1_col78, #T_7f6fc_row1_col79, #T_7f6fc_row1_col80, #T_7f6fc_row1_col81, #T_7f6fc_row1_col82, #T_7f6fc_row1_col83, #T_7f6fc_row1_col84, #T_7f6fc_row1_col85, #T_7f6fc_row1_col86, #T_7f6fc_row1_col87, #T_7f6fc_row1_col88, #T_7f6fc_row1_col89, #T_7f6fc_row1_col90, #T_7f6fc_row1_col91, #T_7f6fc_row1_col92, #T_7f6fc_row1_col93, #T_7f6fc_row1_col94, #T_7f6fc_row1_col95, #T_7f6fc_row1_col96, #T_7f6fc_row1_col97, #T_7f6fc_row1_col98, #T_7f6fc_row1_col99, #T_7f6fc_row1_col100, #T_7f6fc_row1_col101, #T_7f6fc_row1_col102, #T_7f6fc_row1_col103, #T_7f6fc_row1_col104, #T_7f6fc_row1_col105, #T_7f6fc_row1_col106, #T_7f6fc_row1_col107, #T_7f6fc_row1_col108, #T_7f6fc_row1_col109, #T_7f6fc_row1_col110, #T_7f6fc_row1_col111, #T_7f6fc_row1_col112, #T_7f6fc_row1_col113, #T_7f6fc_row1_col114, #T_7f6fc_row1_col115, #T_7f6fc_row1_col116, #T_7f6fc_row1_col117, #T_7f6fc_row1_col118, #T_7f6fc_row1_col119, #T_7f6fc_row1_col120, #T_7f6fc_row1_col121, #T_7f6fc_row3_col0, #T_7f6fc_row3_col1, #T_7f6fc_row3_col2, #T_7f6fc_row3_col3, #T_7f6fc_row3_col4, #T_7f6fc_row3_col5, #T_7f6fc_row3_col6, #T_7f6fc_row3_col7, #T_7f6fc_row3_col8, #T_7f6fc_row3_col9, #T_7f6fc_row3_col10, #T_7f6fc_row3_col11, #T_7f6fc_row3_col12, #T_7f6fc_row3_col13, #T_7f6fc_row3_col14, #T_7f6fc_row3_col15, #T_7f6fc_row3_col16, #T_7f6fc_row3_col17, #T_7f6fc_row3_col18, #T_7f6fc_row3_col19, #T_7f6fc_row3_col20, #T_7f6fc_row3_col21, #T_7f6fc_row3_col22, #T_7f6fc_row3_col23, #T_7f6fc_row3_col24, #T_7f6fc_row3_col25, #T_7f6fc_row3_col26, #T_7f6fc_row3_col27, #T_7f6fc_row3_col28, #T_7f6fc_row3_col29, #T_7f6fc_row3_col30, #T_7f6fc_row3_col31, #T_7f6fc_row3_col32, #T_7f6fc_row3_col33, #T_7f6fc_row3_col34, #T_7f6fc_row3_col35, #T_7f6fc_row3_col36, #T_7f6fc_row3_col37, #T_7f6fc_row3_col38, #T_7f6fc_row3_col39, #T_7f6fc_row3_col40, #T_7f6fc_row3_col41, #T_7f6fc_row3_col42, #T_7f6fc_row3_col43, #T_7f6fc_row3_col44, #T_7f6fc_row3_col45, #T_7f6fc_row3_col46, #T_7f6fc_row3_col47, #T_7f6fc_row3_col48, #T_7f6fc_row3_col49, #T_7f6fc_row3_col50, #T_7f6fc_row3_col51, #T_7f6fc_row3_col52, #T_7f6fc_row3_col53, #T_7f6fc_row3_col54, #T_7f6fc_row3_col55, #T_7f6fc_row3_col56, #T_7f6fc_row3_col57, #T_7f6fc_row3_col58, #T_7f6fc_row3_col59, #T_7f6fc_row3_col60, #T_7f6fc_row3_col61, #T_7f6fc_row3_col62, #T_7f6fc_row3_col63, #T_7f6fc_row3_col64, #T_7f6fc_row3_col65, #T_7f6fc_row3_col66, #T_7f6fc_row3_col67, #T_7f6fc_row3_col68, #T_7f6fc_row3_col69, #T_7f6fc_row3_col70, #T_7f6fc_row3_col71, #T_7f6fc_row3_col72, #T_7f6fc_row3_col73, #T_7f6fc_row3_col74, #T_7f6fc_row3_col75, #T_7f6fc_row3_col76, #T_7f6fc_row3_col77, #T_7f6fc_row3_col78, #T_7f6fc_row3_col79, #T_7f6fc_row3_col80, #T_7f6fc_row3_col81, #T_7f6fc_row3_col82, #T_7f6fc_row3_col83, #T_7f6fc_row3_col84, #T_7f6fc_row3_col85, #T_7f6fc_row3_col86, #T_7f6fc_row3_col87, #T_7f6fc_row3_col88, #T_7f6fc_row3_col89, #T_7f6fc_row3_col90, #T_7f6fc_row3_col91, #T_7f6fc_row3_col92, #T_7f6fc_row3_col93, #T_7f6fc_row3_col94, #T_7f6fc_row3_col95, #T_7f6fc_row3_col96, #T_7f6fc_row3_col97, #T_7f6fc_row3_col98, #T_7f6fc_row3_col99, #T_7f6fc_row3_col100, #T_7f6fc_row3_col101, #T_7f6fc_row3_col102, #T_7f6fc_row3_col103, #T_7f6fc_row3_col104, #T_7f6fc_row3_col105, #T_7f6fc_row3_col106, #T_7f6fc_row3_col107, #T_7f6fc_row3_col108, #T_7f6fc_row3_col109, #T_7f6fc_row3_col110, #T_7f6fc_row3_col111, #T_7f6fc_row3_col112, #T_7f6fc_row3_col113, #T_7f6fc_row3_col114, #T_7f6fc_row3_col115, #T_7f6fc_row3_col116, #T_7f6fc_row3_col117, #T_7f6fc_row3_col118, #T_7f6fc_row3_col119, #T_7f6fc_row3_col120, #T_7f6fc_row3_col121, #T_7f6fc_row4_col0, #T_7f6fc_row4_col1, #T_7f6fc_row4_col2, #T_7f6fc_row4_col3, #T_7f6fc_row4_col4, #T_7f6fc_row4_col5, #T_7f6fc_row4_col6, #T_7f6fc_row4_col7, #T_7f6fc_row4_col8, #T_7f6fc_row4_col9, #T_7f6fc_row4_col10, #T_7f6fc_row4_col11, #T_7f6fc_row4_col12, #T_7f6fc_row4_col13, #T_7f6fc_row4_col14, #T_7f6fc_row4_col15, #T_7f6fc_row4_col16, #T_7f6fc_row4_col17, #T_7f6fc_row4_col18, #T_7f6fc_row4_col19, #T_7f6fc_row4_col20, #T_7f6fc_row4_col21, #T_7f6fc_row4_col22, #T_7f6fc_row4_col23, #T_7f6fc_row4_col24, #T_7f6fc_row4_col25, #T_7f6fc_row4_col26, #T_7f6fc_row4_col27, #T_7f6fc_row4_col28, #T_7f6fc_row4_col29, #T_7f6fc_row4_col30, #T_7f6fc_row4_col31, #T_7f6fc_row4_col32, #T_7f6fc_row4_col33, #T_7f6fc_row4_col34, #T_7f6fc_row4_col35, #T_7f6fc_row4_col36, #T_7f6fc_row4_col37, #T_7f6fc_row4_col38, #T_7f6fc_row4_col39, #T_7f6fc_row4_col40, #T_7f6fc_row4_col41, #T_7f6fc_row4_col42, #T_7f6fc_row4_col43, #T_7f6fc_row4_col44, #T_7f6fc_row4_col45, #T_7f6fc_row4_col46, #T_7f6fc_row4_col47, #T_7f6fc_row4_col48, #T_7f6fc_row4_col49, #T_7f6fc_row4_col50, #T_7f6fc_row4_col51, #T_7f6fc_row4_col52, #T_7f6fc_row4_col53, #T_7f6fc_row4_col54, #T_7f6fc_row4_col55, #T_7f6fc_row4_col56, #T_7f6fc_row4_col57, #T_7f6fc_row4_col58, #T_7f6fc_row4_col59, #T_7f6fc_row4_col60, #T_7f6fc_row4_col61, #T_7f6fc_row4_col62, #T_7f6fc_row4_col63, #T_7f6fc_row4_col64, #T_7f6fc_row4_col65, #T_7f6fc_row4_col66, #T_7f6fc_row4_col67, #T_7f6fc_row4_col68, #T_7f6fc_row4_col69, #T_7f6fc_row4_col70, #T_7f6fc_row4_col71, #T_7f6fc_row4_col72, #T_7f6fc_row4_col73, #T_7f6fc_row4_col74, #T_7f6fc_row4_col75, #T_7f6fc_row4_col76, #T_7f6fc_row4_col77, #T_7f6fc_row4_col78, #T_7f6fc_row4_col79, #T_7f6fc_row4_col80, #T_7f6fc_row4_col81, #T_7f6fc_row4_col82, #T_7f6fc_row4_col83, #T_7f6fc_row4_col84, #T_7f6fc_row4_col85, #T_7f6fc_row4_col86, #T_7f6fc_row4_col87, #T_7f6fc_row4_col88, #T_7f6fc_row4_col89, #T_7f6fc_row4_col90, #T_7f6fc_row4_col91, #T_7f6fc_row4_col92, #T_7f6fc_row4_col93, #T_7f6fc_row4_col94, #T_7f6fc_row4_col95, #T_7f6fc_row4_col96, #T_7f6fc_row4_col97, #T_7f6fc_row4_col98, #T_7f6fc_row4_col99, #T_7f6fc_row4_col100, #T_7f6fc_row4_col101, #T_7f6fc_row4_col102, #T_7f6fc_row4_col103, #T_7f6fc_row4_col104, #T_7f6fc_row4_col105, #T_7f6fc_row4_col106, #T_7f6fc_row4_col107, #T_7f6fc_row4_col108, #T_7f6fc_row4_col109, #T_7f6fc_row4_col110, #T_7f6fc_row4_col111, #T_7f6fc_row4_col112, #T_7f6fc_row4_col113, #T_7f6fc_row4_col114, #T_7f6fc_row4_col115, #T_7f6fc_row4_col116, #T_7f6fc_row4_col117, #T_7f6fc_row4_col118, #T_7f6fc_row4_col119, #T_7f6fc_row4_col120, #T_7f6fc_row4_col121 {
+  background-color: #f9f9f9;
+  border-color: darkgray;
+  border-style: solid;
+  border-width: 1px;
+}
+</style>
+<table id="T_7f6fc" style="height:auto; overflow:auto; max-height:300px; display:block;">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_7f6fc_level0_col0" class="col_heading level0 col0" >Status</th>
+      <th id="T_7f6fc_level0_col1" class="col_heading level0 col1" >DH_MORTOS</th>
+      <th id="T_7f6fc_level0_col2" class="col_heading level0 col2" >DH_FERIDOS</th>
+      <th id="T_7f6fc_level0_col3" class="col_heading level0 col3" >DH_ENFERMOS</th>
+      <th id="T_7f6fc_level0_col4" class="col_heading level0 col4" >DH_DESABRIGADOS</th>
+      <th id="T_7f6fc_level0_col5" class="col_heading level0 col5" >DH_DESALOJADOS</th>
+      <th id="T_7f6fc_level0_col6" class="col_heading level0 col6" >DH_DESAPARECIDOS</th>
+      <th id="T_7f6fc_level0_col7" class="col_heading level0 col7" >DH_OUTROS AFETADOS</th>
+      <th id="T_7f6fc_level0_col8" class="col_heading level0 col8" >DM_Uni Habita Danificadas</th>
+      <th id="T_7f6fc_level0_col9" class="col_heading level0 col9" >DM_Uni Habita Destruidas</th>
+      <th id="T_7f6fc_level0_col10" class="col_heading level0 col10" >DM_Uni Habita Valor</th>
+      <th id="T_7f6fc_level0_col11" class="col_heading level0 col11" >DM_Inst Saúde Danificadas</th>
+      <th id="T_7f6fc_level0_col12" class="col_heading level0 col12" >DM_Inst Saúde Destruidas</th>
+      <th id="T_7f6fc_level0_col13" class="col_heading level0 col13" >DM_Inst Saúde Valor</th>
+      <th id="T_7f6fc_level0_col14" class="col_heading level0 col14" >DM_Inst Ensino Danificadas</th>
+      <th id="T_7f6fc_level0_col15" class="col_heading level0 col15" >DM_Inst Ensino Destruidas</th>
+      <th id="T_7f6fc_level0_col16" class="col_heading level0 col16" >DM_Inst Ensino Valor</th>
+      <th id="T_7f6fc_level0_col17" class="col_heading level0 col17" >DM_Inst Serviços Danificadas</th>
+      <th id="T_7f6fc_level0_col18" class="col_heading level0 col18" >DM_Inst Serviços Destruidas</th>
+      <th id="T_7f6fc_level0_col19" class="col_heading level0 col19" >DM_Inst Serviços Valor</th>
+      <th id="T_7f6fc_level0_col20" class="col_heading level0 col20" >DM_Inst Comuni Danificadas</th>
+      <th id="T_7f6fc_level0_col21" class="col_heading level0 col21" >DM_Inst Comuni Destruidas</th>
+      <th id="T_7f6fc_level0_col22" class="col_heading level0 col22" >DM_Inst Comuni Valor</th>
+      <th id="T_7f6fc_level0_col23" class="col_heading level0 col23" >DM_Obras de Infra Danificadas</th>
+      <th id="T_7f6fc_level0_col24" class="col_heading level0 col24" >DM_Obras de Infra Destruidas</th>
+      <th id="T_7f6fc_level0_col25" class="col_heading level0 col25" >DM_Obras de Infra Valor</th>
+      <th id="T_7f6fc_level0_col26" class="col_heading level0 col26" >PEPL_Assis_méd e emergên(R$)</th>
+      <th id="T_7f6fc_level0_col27" class="col_heading level0 col27" >PEPL_Abast de água pot(R$)</th>
+      <th id="T_7f6fc_level0_col28" class="col_heading level0 col28" >PEPL_sist de esgotos sanit(R$)</th>
+      <th id="T_7f6fc_level0_col29" class="col_heading level0 col29" >PEPL_Sis limp e rec lixo (R$)</th>
+      <th id="T_7f6fc_level0_col30" class="col_heading level0 col30" >PEPL_Sis cont pragas (R$)</th>
+      <th id="T_7f6fc_level0_col31" class="col_heading level0 col31" >PEPL_distrib energia (R$)</th>
+      <th id="T_7f6fc_level0_col32" class="col_heading level0 col32" >PEPL_Telecomunicações (R$)</th>
+      <th id="T_7f6fc_level0_col33" class="col_heading level0 col33" >PEPL_Tran loc/reg/l_curso (R$)</th>
+      <th id="T_7f6fc_level0_col34" class="col_heading level0 col34" >PEPL_Distrib combustíveis(R$)</th>
+      <th id="T_7f6fc_level0_col35" class="col_heading level0 col35" >PEPL_Segurança pública (R$)</th>
+      <th id="T_7f6fc_level0_col36" class="col_heading level0 col36" >PEPL_Ensino (R$)</th>
+      <th id="T_7f6fc_level0_col37" class="col_heading level0 col37" >PEPR_Agricultura (R$)</th>
+      <th id="T_7f6fc_level0_col38" class="col_heading level0 col38" >PEPR_Pecuária (R$)</th>
+      <th id="T_7f6fc_level0_col39" class="col_heading level0 col39" >PEPR_Indústria (R$)</th>
+      <th id="T_7f6fc_level0_col40" class="col_heading level0 col40" >PEPR_Comércio (R$)</th>
+      <th id="T_7f6fc_level0_col41" class="col_heading level0 col41" >PEPR_Serviços (R$)</th>
+      <th id="T_7f6fc_level0_col42" class="col_heading level0 col42" >DensidadePop</th>
+      <th id="T_7f6fc_level0_col43" class="col_heading level0 col43" >DOMICILIO_AREARURAL</th>
+      <th id="T_7f6fc_level0_col44" class="col_heading level0 col44" >PDEFAGUA</th>
+      <th id="T_7f6fc_level0_col45" class="col_heading level0 col45" >PDEFESGOTO</th>
+      <th id="T_7f6fc_level0_col46" class="col_heading level0 col46" >PDEFLIXO</th>
+      <th id="T_7f6fc_level0_col47" class="col_heading level0 col47" >PDEFSAN</th>
+      <th id="T_7f6fc_level0_col48" class="col_heading level0 col48" >QTDE_FAMILIAS_ATUALIZADAS</th>
+      <th id="T_7f6fc_level0_col49" class="col_heading level0 col49" >Sigla_UF_AC</th>
+      <th id="T_7f6fc_level0_col50" class="col_heading level0 col50" >Sigla_UF_AL</th>
+      <th id="T_7f6fc_level0_col51" class="col_heading level0 col51" >Sigla_UF_AM</th>
+      <th id="T_7f6fc_level0_col52" class="col_heading level0 col52" >Sigla_UF_AP</th>
+      <th id="T_7f6fc_level0_col53" class="col_heading level0 col53" >Sigla_UF_BA</th>
+      <th id="T_7f6fc_level0_col54" class="col_heading level0 col54" >Sigla_UF_CE</th>
+      <th id="T_7f6fc_level0_col55" class="col_heading level0 col55" >Sigla_UF_DF</th>
+      <th id="T_7f6fc_level0_col56" class="col_heading level0 col56" >Sigla_UF_ES</th>
+      <th id="T_7f6fc_level0_col57" class="col_heading level0 col57" >Sigla_UF_GO</th>
+      <th id="T_7f6fc_level0_col58" class="col_heading level0 col58" >Sigla_UF_MA</th>
+      <th id="T_7f6fc_level0_col59" class="col_heading level0 col59" >Sigla_UF_MG</th>
+      <th id="T_7f6fc_level0_col60" class="col_heading level0 col60" >Sigla_UF_MS</th>
+      <th id="T_7f6fc_level0_col61" class="col_heading level0 col61" >Sigla_UF_MT</th>
+      <th id="T_7f6fc_level0_col62" class="col_heading level0 col62" >Sigla_UF_PA</th>
+      <th id="T_7f6fc_level0_col63" class="col_heading level0 col63" >Sigla_UF_PB</th>
+      <th id="T_7f6fc_level0_col64" class="col_heading level0 col64" >Sigla_UF_PE</th>
+      <th id="T_7f6fc_level0_col65" class="col_heading level0 col65" >Sigla_UF_PI</th>
+      <th id="T_7f6fc_level0_col66" class="col_heading level0 col66" >Sigla_UF_PR</th>
+      <th id="T_7f6fc_level0_col67" class="col_heading level0 col67" >Sigla_UF_RJ</th>
+      <th id="T_7f6fc_level0_col68" class="col_heading level0 col68" >Sigla_UF_RN</th>
+      <th id="T_7f6fc_level0_col69" class="col_heading level0 col69" >Sigla_UF_RO</th>
+      <th id="T_7f6fc_level0_col70" class="col_heading level0 col70" >Sigla_UF_RR</th>
+      <th id="T_7f6fc_level0_col71" class="col_heading level0 col71" >Sigla_UF_RS</th>
+      <th id="T_7f6fc_level0_col72" class="col_heading level0 col72" >Sigla_UF_SC</th>
+      <th id="T_7f6fc_level0_col73" class="col_heading level0 col73" >Sigla_UF_SE</th>
+      <th id="T_7f6fc_level0_col74" class="col_heading level0 col74" >Sigla_UF_SP</th>
+      <th id="T_7f6fc_level0_col75" class="col_heading level0 col75" >Sigla_UF_TO</th>
+      <th id="T_7f6fc_level0_col76" class="col_heading level0 col76" >Sigla_UF_pa</th>
+      <th id="T_7f6fc_level0_col77" class="col_heading level0 col77" >COBRADE_11110</th>
+      <th id="T_7f6fc_level0_col78" class="col_heading level0 col78" >COBRADE_11120</th>
+      <th id="T_7f6fc_level0_col79" class="col_heading level0 col79" >COBRADE_11311</th>
+      <th id="T_7f6fc_level0_col80" class="col_heading level0 col80" >COBRADE_11312</th>
+      <th id="T_7f6fc_level0_col81" class="col_heading level0 col81" >COBRADE_11313</th>
+      <th id="T_7f6fc_level0_col82" class="col_heading level0 col82" >COBRADE_11321</th>
+      <th id="T_7f6fc_level0_col83" class="col_heading level0 col83" >COBRADE_11331</th>
+      <th id="T_7f6fc_level0_col84" class="col_heading level0 col84" >COBRADE_11332</th>
+      <th id="T_7f6fc_level0_col85" class="col_heading level0 col85" >COBRADE_11340</th>
+      <th id="T_7f6fc_level0_col86" class="col_heading level0 col86" >COBRADE_11410</th>
+      <th id="T_7f6fc_level0_col87" class="col_heading level0 col87" >COBRADE_11420</th>
+      <th id="T_7f6fc_level0_col88" class="col_heading level0 col88" >COBRADE_11431</th>
+      <th id="T_7f6fc_level0_col89" class="col_heading level0 col89" >COBRADE_11432</th>
+      <th id="T_7f6fc_level0_col90" class="col_heading level0 col90" >COBRADE_11433</th>
+      <th id="T_7f6fc_level0_col91" class="col_heading level0 col91" >COBRADE_12100</th>
+      <th id="T_7f6fc_level0_col92" class="col_heading level0 col92" >COBRADE_12200</th>
+      <th id="T_7f6fc_level0_col93" class="col_heading level0 col93" >COBRADE_12300</th>
+      <th id="T_7f6fc_level0_col94" class="col_heading level0 col94" >COBRADE_13111</th>
+      <th id="T_7f6fc_level0_col95" class="col_heading level0 col95" >COBRADE_13112</th>
+      <th id="T_7f6fc_level0_col96" class="col_heading level0 col96" >COBRADE_13120</th>
+      <th id="T_7f6fc_level0_col97" class="col_heading level0 col97" >COBRADE_13211</th>
+      <th id="T_7f6fc_level0_col98" class="col_heading level0 col98" >COBRADE_13212</th>
+      <th id="T_7f6fc_level0_col99" class="col_heading level0 col99" >COBRADE_13213</th>
+      <th id="T_7f6fc_level0_col100" class="col_heading level0 col100" >COBRADE_13214</th>
+      <th id="T_7f6fc_level0_col101" class="col_heading level0 col101" >COBRADE_13215</th>
+      <th id="T_7f6fc_level0_col102" class="col_heading level0 col102" >COBRADE_13310</th>
+      <th id="T_7f6fc_level0_col103" class="col_heading level0 col103" >COBRADE_13321</th>
+      <th id="T_7f6fc_level0_col104" class="col_heading level0 col104" >COBRADE_13322</th>
+      <th id="T_7f6fc_level0_col105" class="col_heading level0 col105" >COBRADE_14110</th>
+      <th id="T_7f6fc_level0_col106" class="col_heading level0 col106" >COBRADE_14120</th>
+      <th id="T_7f6fc_level0_col107" class="col_heading level0 col107" >COBRADE_14131</th>
+      <th id="T_7f6fc_level0_col108" class="col_heading level0 col108" >COBRADE_14132</th>
+      <th id="T_7f6fc_level0_col109" class="col_heading level0 col109" >COBRADE_14140</th>
+      <th id="T_7f6fc_level0_col110" class="col_heading level0 col110" >COBRADE_15110</th>
+      <th id="T_7f6fc_level0_col111" class="col_heading level0 col111" >COBRADE_15120</th>
+      <th id="T_7f6fc_level0_col112" class="col_heading level0 col112" >COBRADE_15130</th>
+      <th id="T_7f6fc_level0_col113" class="col_heading level0 col113" >COBRADE_15210</th>
+      <th id="T_7f6fc_level0_col114" class="col_heading level0 col114" >COBRADE_15230</th>
+      <th id="T_7f6fc_level0_col115" class="col_heading level0 col115" >COBRADE_22210</th>
+      <th id="T_7f6fc_level0_col116" class="col_heading level0 col116" >COBRADE_22220</th>
+      <th id="T_7f6fc_level0_col117" class="col_heading level0 col117" >COBRADE_23120</th>
+      <th id="T_7f6fc_level0_col118" class="col_heading level0 col118" >COBRADE_24100</th>
+      <th id="T_7f6fc_level0_col119" class="col_heading level0 col119" >COBRADE_24200</th>
+      <th id="T_7f6fc_level0_col120" class="col_heading level0 col120" >COBRADE_25100</th>
+      <th id="T_7f6fc_level0_col121" class="col_heading level0 col121" >COBRADE_25500</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_7f6fc_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_7f6fc_row0_col0" class="data row0 col0" >0</td>
+      <td id="T_7f6fc_row0_col1" class="data row0 col1" >0</td>
+      <td id="T_7f6fc_row0_col2" class="data row0 col2" >0</td>
+      <td id="T_7f6fc_row0_col3" class="data row0 col3" >0</td>
+      <td id="T_7f6fc_row0_col4" class="data row0 col4" >0</td>
+      <td id="T_7f6fc_row0_col5" class="data row0 col5" >0</td>
+      <td id="T_7f6fc_row0_col6" class="data row0 col6" >0</td>
+      <td id="T_7f6fc_row0_col7" class="data row0 col7" >11650</td>
+      <td id="T_7f6fc_row0_col8" class="data row0 col8" >0</td>
+      <td id="T_7f6fc_row0_col9" class="data row0 col9" >0</td>
+      <td id="T_7f6fc_row0_col10" class="data row0 col10" >0.000</td>
+      <td id="T_7f6fc_row0_col11" class="data row0 col11" >0.000</td>
+      <td id="T_7f6fc_row0_col12" class="data row0 col12" >0</td>
+      <td id="T_7f6fc_row0_col13" class="data row0 col13" >0.000</td>
+      <td id="T_7f6fc_row0_col14" class="data row0 col14" >0.000</td>
+      <td id="T_7f6fc_row0_col15" class="data row0 col15" >0</td>
+      <td id="T_7f6fc_row0_col16" class="data row0 col16" >0.000</td>
+      <td id="T_7f6fc_row0_col17" class="data row0 col17" >0</td>
+      <td id="T_7f6fc_row0_col18" class="data row0 col18" >0</td>
+      <td id="T_7f6fc_row0_col19" class="data row0 col19" >0.000</td>
+      <td id="T_7f6fc_row0_col20" class="data row0 col20" >0</td>
+      <td id="T_7f6fc_row0_col21" class="data row0 col21" >0</td>
+      <td id="T_7f6fc_row0_col22" class="data row0 col22" >0.000</td>
+      <td id="T_7f6fc_row0_col23" class="data row0 col23" >0.000</td>
+      <td id="T_7f6fc_row0_col24" class="data row0 col24" >0.000</td>
+      <td id="T_7f6fc_row0_col25" class="data row0 col25" >0.000</td>
+      <td id="T_7f6fc_row0_col26" class="data row0 col26" >0.000</td>
+      <td id="T_7f6fc_row0_col27" class="data row0 col27" >132466.926</td>
+      <td id="T_7f6fc_row0_col28" class="data row0 col28" >0.000</td>
+      <td id="T_7f6fc_row0_col29" class="data row0 col29" >0.000</td>
+      <td id="T_7f6fc_row0_col30" class="data row0 col30" >0.000</td>
+      <td id="T_7f6fc_row0_col31" class="data row0 col31" >0.000</td>
+      <td id="T_7f6fc_row0_col32" class="data row0 col32" >0.000</td>
+      <td id="T_7f6fc_row0_col33" class="data row0 col33" >0.000</td>
+      <td id="T_7f6fc_row0_col34" class="data row0 col34" >0.000</td>
+      <td id="T_7f6fc_row0_col35" class="data row0 col35" >0.000</td>
+      <td id="T_7f6fc_row0_col36" class="data row0 col36" >0.000</td>
+      <td id="T_7f6fc_row0_col37" class="data row0 col37" >264933.852</td>
+      <td id="T_7f6fc_row0_col38" class="data row0 col38" >309089.494</td>
+      <td id="T_7f6fc_row0_col39" class="data row0 col39" >58874.189</td>
+      <td id="T_7f6fc_row0_col40" class="data row0 col40" >228137.484</td>
+      <td id="T_7f6fc_row0_col41" class="data row0 col41" >0.000</td>
+      <td id="T_7f6fc_row0_col42" class="data row0 col42" >134.493</td>
+      <td id="T_7f6fc_row0_col43" class="data row0 col43" >0.305</td>
+      <td id="T_7f6fc_row0_col44" class="data row0 col44" >0.191</td>
+      <td id="T_7f6fc_row0_col45" class="data row0 col45" >0.559</td>
+      <td id="T_7f6fc_row0_col46" class="data row0 col46" >0.167</td>
+      <td id="T_7f6fc_row0_col47" class="data row0 col47" >0.091</td>
+      <td id="T_7f6fc_row0_col48" class="data row0 col48" >383.000</td>
+      <td id="T_7f6fc_row0_col49" class="data row0 col49" >0.000</td>
+      <td id="T_7f6fc_row0_col50" class="data row0 col50" >0.000</td>
+      <td id="T_7f6fc_row0_col51" class="data row0 col51" >0.000</td>
+      <td id="T_7f6fc_row0_col52" class="data row0 col52" >0.000</td>
+      <td id="T_7f6fc_row0_col53" class="data row0 col53" >0.000</td>
+      <td id="T_7f6fc_row0_col54" class="data row0 col54" >0.000</td>
+      <td id="T_7f6fc_row0_col55" class="data row0 col55" >0.000</td>
+      <td id="T_7f6fc_row0_col56" class="data row0 col56" >0.000</td>
+      <td id="T_7f6fc_row0_col57" class="data row0 col57" >0.000</td>
+      <td id="T_7f6fc_row0_col58" class="data row0 col58" >0.000</td>
+      <td id="T_7f6fc_row0_col59" class="data row0 col59" >0.000</td>
+      <td id="T_7f6fc_row0_col60" class="data row0 col60" >0.000</td>
+      <td id="T_7f6fc_row0_col61" class="data row0 col61" >0.000</td>
+      <td id="T_7f6fc_row0_col62" class="data row0 col62" >0.000</td>
+      <td id="T_7f6fc_row0_col63" class="data row0 col63" >0.000</td>
+      <td id="T_7f6fc_row0_col64" class="data row0 col64" >0.000</td>
+      <td id="T_7f6fc_row0_col65" class="data row0 col65" >0.000</td>
+      <td id="T_7f6fc_row0_col66" class="data row0 col66" >0.000</td>
+      <td id="T_7f6fc_row0_col67" class="data row0 col67" >0.000</td>
+      <td id="T_7f6fc_row0_col68" class="data row0 col68" >1.000</td>
+      <td id="T_7f6fc_row0_col69" class="data row0 col69" >0.000</td>
+      <td id="T_7f6fc_row0_col70" class="data row0 col70" >0.000</td>
+      <td id="T_7f6fc_row0_col71" class="data row0 col71" >0.000</td>
+      <td id="T_7f6fc_row0_col72" class="data row0 col72" >0.000</td>
+      <td id="T_7f6fc_row0_col73" class="data row0 col73" >0.000</td>
+      <td id="T_7f6fc_row0_col74" class="data row0 col74" >0.000</td>
+      <td id="T_7f6fc_row0_col75" class="data row0 col75" >0.000</td>
+      <td id="T_7f6fc_row0_col76" class="data row0 col76" >0.000</td>
+      <td id="T_7f6fc_row0_col77" class="data row0 col77" >0.000</td>
+      <td id="T_7f6fc_row0_col78" class="data row0 col78" >0.000</td>
+      <td id="T_7f6fc_row0_col79" class="data row0 col79" >0.000</td>
+      <td id="T_7f6fc_row0_col80" class="data row0 col80" >0.000</td>
+      <td id="T_7f6fc_row0_col81" class="data row0 col81" >0.000</td>
+      <td id="T_7f6fc_row0_col82" class="data row0 col82" >0.000</td>
+      <td id="T_7f6fc_row0_col83" class="data row0 col83" >0.000</td>
+      <td id="T_7f6fc_row0_col84" class="data row0 col84" >0.000</td>
+      <td id="T_7f6fc_row0_col85" class="data row0 col85" >0.000</td>
+      <td id="T_7f6fc_row0_col86" class="data row0 col86" >0.000</td>
+      <td id="T_7f6fc_row0_col87" class="data row0 col87" >0.000</td>
+      <td id="T_7f6fc_row0_col88" class="data row0 col88" >0.000</td>
+      <td id="T_7f6fc_row0_col89" class="data row0 col89" >0.000</td>
+      <td id="T_7f6fc_row0_col90" class="data row0 col90" >0.000</td>
+      <td id="T_7f6fc_row0_col91" class="data row0 col91" >0.000</td>
+      <td id="T_7f6fc_row0_col92" class="data row0 col92" >0.000</td>
+      <td id="T_7f6fc_row0_col93" class="data row0 col93" >0.000</td>
+      <td id="T_7f6fc_row0_col94" class="data row0 col94" >0.000</td>
+      <td id="T_7f6fc_row0_col95" class="data row0 col95" >0.000</td>
+      <td id="T_7f6fc_row0_col96" class="data row0 col96" >0.000</td>
+      <td id="T_7f6fc_row0_col97" class="data row0 col97" >0.000</td>
+      <td id="T_7f6fc_row0_col98" class="data row0 col98" >0.000</td>
+      <td id="T_7f6fc_row0_col99" class="data row0 col99" >0.000</td>
+      <td id="T_7f6fc_row0_col100" class="data row0 col100" >0.000</td>
+      <td id="T_7f6fc_row0_col101" class="data row0 col101" >0.000</td>
+      <td id="T_7f6fc_row0_col102" class="data row0 col102" >0.000</td>
+      <td id="T_7f6fc_row0_col103" class="data row0 col103" >0.000</td>
+      <td id="T_7f6fc_row0_col104" class="data row0 col104" >0.000</td>
+      <td id="T_7f6fc_row0_col105" class="data row0 col105" >0.000</td>
+      <td id="T_7f6fc_row0_col106" class="data row0 col106" >1.000</td>
+      <td id="T_7f6fc_row0_col107" class="data row0 col107" >0.000</td>
+      <td id="T_7f6fc_row0_col108" class="data row0 col108" >0.000</td>
+      <td id="T_7f6fc_row0_col109" class="data row0 col109" >0.000</td>
+      <td id="T_7f6fc_row0_col110" class="data row0 col110" >0.000</td>
+      <td id="T_7f6fc_row0_col111" class="data row0 col111" >0.000</td>
+      <td id="T_7f6fc_row0_col112" class="data row0 col112" >0.000</td>
+      <td id="T_7f6fc_row0_col113" class="data row0 col113" >0.000</td>
+      <td id="T_7f6fc_row0_col114" class="data row0 col114" >0.000</td>
+      <td id="T_7f6fc_row0_col115" class="data row0 col115" >0.000</td>
+      <td id="T_7f6fc_row0_col116" class="data row0 col116" >0.000</td>
+      <td id="T_7f6fc_row0_col117" class="data row0 col117" >0.000</td>
+      <td id="T_7f6fc_row0_col118" class="data row0 col118" >0.000</td>
+      <td id="T_7f6fc_row0_col119" class="data row0 col119" >0.000</td>
+      <td id="T_7f6fc_row0_col120" class="data row0 col120" >0.000</td>
+      <td id="T_7f6fc_row0_col121" class="data row0 col121" >0.000</td>
+    </tr>
+    <tr>
+      <th id="T_7f6fc_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_7f6fc_row1_col0" class="data row1 col0" >0</td>
+      <td id="T_7f6fc_row1_col1" class="data row1 col1" >0</td>
+      <td id="T_7f6fc_row1_col2" class="data row1 col2" >0</td>
+      <td id="T_7f6fc_row1_col3" class="data row1 col3" >0</td>
+      <td id="T_7f6fc_row1_col4" class="data row1 col4" >0</td>
+      <td id="T_7f6fc_row1_col5" class="data row1 col5" >0</td>
+      <td id="T_7f6fc_row1_col6" class="data row1 col6" >0</td>
+      <td id="T_7f6fc_row1_col7" class="data row1 col7" >2548</td>
+      <td id="T_7f6fc_row1_col8" class="data row1 col8" >0</td>
+      <td id="T_7f6fc_row1_col9" class="data row1 col9" >0</td>
+      <td id="T_7f6fc_row1_col10" class="data row1 col10" >0.000</td>
+      <td id="T_7f6fc_row1_col11" class="data row1 col11" >0.000</td>
+      <td id="T_7f6fc_row1_col12" class="data row1 col12" >0</td>
+      <td id="T_7f6fc_row1_col13" class="data row1 col13" >0.000</td>
+      <td id="T_7f6fc_row1_col14" class="data row1 col14" >0.000</td>
+      <td id="T_7f6fc_row1_col15" class="data row1 col15" >0</td>
+      <td id="T_7f6fc_row1_col16" class="data row1 col16" >0.000</td>
+      <td id="T_7f6fc_row1_col17" class="data row1 col17" >0</td>
+      <td id="T_7f6fc_row1_col18" class="data row1 col18" >0</td>
+      <td id="T_7f6fc_row1_col19" class="data row1 col19" >0.000</td>
+      <td id="T_7f6fc_row1_col20" class="data row1 col20" >0</td>
+      <td id="T_7f6fc_row1_col21" class="data row1 col21" >0</td>
+      <td id="T_7f6fc_row1_col22" class="data row1 col22" >0.000</td>
+      <td id="T_7f6fc_row1_col23" class="data row1 col23" >0.000</td>
+      <td id="T_7f6fc_row1_col24" class="data row1 col24" >0.000</td>
+      <td id="T_7f6fc_row1_col25" class="data row1 col25" >0.000</td>
+      <td id="T_7f6fc_row1_col26" class="data row1 col26" >0.000</td>
+      <td id="T_7f6fc_row1_col27" class="data row1 col27" >103709.315</td>
+      <td id="T_7f6fc_row1_col28" class="data row1 col28" >0.000</td>
+      <td id="T_7f6fc_row1_col29" class="data row1 col29" >0.000</td>
+      <td id="T_7f6fc_row1_col30" class="data row1 col30" >0.000</td>
+      <td id="T_7f6fc_row1_col31" class="data row1 col31" >0.000</td>
+      <td id="T_7f6fc_row1_col32" class="data row1 col32" >0.000</td>
+      <td id="T_7f6fc_row1_col33" class="data row1 col33" >0.000</td>
+      <td id="T_7f6fc_row1_col34" class="data row1 col34" >0.000</td>
+      <td id="T_7f6fc_row1_col35" class="data row1 col35" >0.000</td>
+      <td id="T_7f6fc_row1_col36" class="data row1 col36" >0.000</td>
+      <td id="T_7f6fc_row1_col37" class="data row1 col37" >5905738.840</td>
+      <td id="T_7f6fc_row1_col38" class="data row1 col38" >603420.207</td>
+      <td id="T_7f6fc_row1_col39" class="data row1 col39" >0.000</td>
+      <td id="T_7f6fc_row1_col40" class="data row1 col40" >0.000</td>
+      <td id="T_7f6fc_row1_col41" class="data row1 col41" >0.000</td>
+      <td id="T_7f6fc_row1_col42" class="data row1 col42" >10.669</td>
+      <td id="T_7f6fc_row1_col43" class="data row1 col43" >0.632</td>
+      <td id="T_7f6fc_row1_col44" class="data row1 col44" >0.246</td>
+      <td id="T_7f6fc_row1_col45" class="data row1 col45" >0.456</td>
+      <td id="T_7f6fc_row1_col46" class="data row1 col46" >0.175</td>
+      <td id="T_7f6fc_row1_col47" class="data row1 col47" >0.070</td>
+      <td id="T_7f6fc_row1_col48" class="data row1 col48" >57.000</td>
+      <td id="T_7f6fc_row1_col49" class="data row1 col49" >0.000</td>
+      <td id="T_7f6fc_row1_col50" class="data row1 col50" >0.000</td>
+      <td id="T_7f6fc_row1_col51" class="data row1 col51" >0.000</td>
+      <td id="T_7f6fc_row1_col52" class="data row1 col52" >0.000</td>
+      <td id="T_7f6fc_row1_col53" class="data row1 col53" >0.000</td>
+      <td id="T_7f6fc_row1_col54" class="data row1 col54" >0.000</td>
+      <td id="T_7f6fc_row1_col55" class="data row1 col55" >0.000</td>
+      <td id="T_7f6fc_row1_col56" class="data row1 col56" >0.000</td>
+      <td id="T_7f6fc_row1_col57" class="data row1 col57" >0.000</td>
+      <td id="T_7f6fc_row1_col58" class="data row1 col58" >0.000</td>
+      <td id="T_7f6fc_row1_col59" class="data row1 col59" >0.000</td>
+      <td id="T_7f6fc_row1_col60" class="data row1 col60" >0.000</td>
+      <td id="T_7f6fc_row1_col61" class="data row1 col61" >0.000</td>
+      <td id="T_7f6fc_row1_col62" class="data row1 col62" >0.000</td>
+      <td id="T_7f6fc_row1_col63" class="data row1 col63" >0.000</td>
+      <td id="T_7f6fc_row1_col64" class="data row1 col64" >0.000</td>
+      <td id="T_7f6fc_row1_col65" class="data row1 col65" >0.000</td>
+      <td id="T_7f6fc_row1_col66" class="data row1 col66" >0.000</td>
+      <td id="T_7f6fc_row1_col67" class="data row1 col67" >0.000</td>
+      <td id="T_7f6fc_row1_col68" class="data row1 col68" >0.000</td>
+      <td id="T_7f6fc_row1_col69" class="data row1 col69" >0.000</td>
+      <td id="T_7f6fc_row1_col70" class="data row1 col70" >0.000</td>
+      <td id="T_7f6fc_row1_col71" class="data row1 col71" >0.000</td>
+      <td id="T_7f6fc_row1_col72" class="data row1 col72" >1.000</td>
+      <td id="T_7f6fc_row1_col73" class="data row1 col73" >0.000</td>
+      <td id="T_7f6fc_row1_col74" class="data row1 col74" >0.000</td>
+      <td id="T_7f6fc_row1_col75" class="data row1 col75" >0.000</td>
+      <td id="T_7f6fc_row1_col76" class="data row1 col76" >0.000</td>
+      <td id="T_7f6fc_row1_col77" class="data row1 col77" >0.000</td>
+      <td id="T_7f6fc_row1_col78" class="data row1 col78" >0.000</td>
+      <td id="T_7f6fc_row1_col79" class="data row1 col79" >0.000</td>
+      <td id="T_7f6fc_row1_col80" class="data row1 col80" >0.000</td>
+      <td id="T_7f6fc_row1_col81" class="data row1 col81" >0.000</td>
+      <td id="T_7f6fc_row1_col82" class="data row1 col82" >0.000</td>
+      <td id="T_7f6fc_row1_col83" class="data row1 col83" >0.000</td>
+      <td id="T_7f6fc_row1_col84" class="data row1 col84" >0.000</td>
+      <td id="T_7f6fc_row1_col85" class="data row1 col85" >0.000</td>
+      <td id="T_7f6fc_row1_col86" class="data row1 col86" >0.000</td>
+      <td id="T_7f6fc_row1_col87" class="data row1 col87" >0.000</td>
+      <td id="T_7f6fc_row1_col88" class="data row1 col88" >0.000</td>
+      <td id="T_7f6fc_row1_col89" class="data row1 col89" >0.000</td>
+      <td id="T_7f6fc_row1_col90" class="data row1 col90" >0.000</td>
+      <td id="T_7f6fc_row1_col91" class="data row1 col91" >0.000</td>
+      <td id="T_7f6fc_row1_col92" class="data row1 col92" >0.000</td>
+      <td id="T_7f6fc_row1_col93" class="data row1 col93" >0.000</td>
+      <td id="T_7f6fc_row1_col94" class="data row1 col94" >0.000</td>
+      <td id="T_7f6fc_row1_col95" class="data row1 col95" >0.000</td>
+      <td id="T_7f6fc_row1_col96" class="data row1 col96" >0.000</td>
+      <td id="T_7f6fc_row1_col97" class="data row1 col97" >0.000</td>
+      <td id="T_7f6fc_row1_col98" class="data row1 col98" >0.000</td>
+      <td id="T_7f6fc_row1_col99" class="data row1 col99" >0.000</td>
+      <td id="T_7f6fc_row1_col100" class="data row1 col100" >0.000</td>
+      <td id="T_7f6fc_row1_col101" class="data row1 col101" >0.000</td>
+      <td id="T_7f6fc_row1_col102" class="data row1 col102" >0.000</td>
+      <td id="T_7f6fc_row1_col103" class="data row1 col103" >0.000</td>
+      <td id="T_7f6fc_row1_col104" class="data row1 col104" >0.000</td>
+      <td id="T_7f6fc_row1_col105" class="data row1 col105" >1.000</td>
+      <td id="T_7f6fc_row1_col106" class="data row1 col106" >0.000</td>
+      <td id="T_7f6fc_row1_col107" class="data row1 col107" >0.000</td>
+      <td id="T_7f6fc_row1_col108" class="data row1 col108" >0.000</td>
+      <td id="T_7f6fc_row1_col109" class="data row1 col109" >0.000</td>
+      <td id="T_7f6fc_row1_col110" class="data row1 col110" >0.000</td>
+      <td id="T_7f6fc_row1_col111" class="data row1 col111" >0.000</td>
+      <td id="T_7f6fc_row1_col112" class="data row1 col112" >0.000</td>
+      <td id="T_7f6fc_row1_col113" class="data row1 col113" >0.000</td>
+      <td id="T_7f6fc_row1_col114" class="data row1 col114" >0.000</td>
+      <td id="T_7f6fc_row1_col115" class="data row1 col115" >0.000</td>
+      <td id="T_7f6fc_row1_col116" class="data row1 col116" >0.000</td>
+      <td id="T_7f6fc_row1_col117" class="data row1 col117" >0.000</td>
+      <td id="T_7f6fc_row1_col118" class="data row1 col118" >0.000</td>
+      <td id="T_7f6fc_row1_col119" class="data row1 col119" >0.000</td>
+      <td id="T_7f6fc_row1_col120" class="data row1 col120" >0.000</td>
+      <td id="T_7f6fc_row1_col121" class="data row1 col121" >0.000</td>
+    </tr>
+    <tr>
+      <th id="T_7f6fc_level0_row2" class="row_heading level0 row2" >4</th>
+      <td id="T_7f6fc_row2_col0" class="data row2 col0" >0</td>
+      <td id="T_7f6fc_row2_col1" class="data row2 col1" >0</td>
+      <td id="T_7f6fc_row2_col2" class="data row2 col2" >0</td>
+      <td id="T_7f6fc_row2_col3" class="data row2 col3" >0</td>
+      <td id="T_7f6fc_row2_col4" class="data row2 col4" >0</td>
+      <td id="T_7f6fc_row2_col5" class="data row2 col5" >0</td>
+      <td id="T_7f6fc_row2_col6" class="data row2 col6" >0</td>
+      <td id="T_7f6fc_row2_col7" class="data row2 col7" >13245</td>
+      <td id="T_7f6fc_row2_col8" class="data row2 col8" >0</td>
+      <td id="T_7f6fc_row2_col9" class="data row2 col9" >0</td>
+      <td id="T_7f6fc_row2_col10" class="data row2 col10" >0.000</td>
+      <td id="T_7f6fc_row2_col11" class="data row2 col11" >0.000</td>
+      <td id="T_7f6fc_row2_col12" class="data row2 col12" >0</td>
+      <td id="T_7f6fc_row2_col13" class="data row2 col13" >0.000</td>
+      <td id="T_7f6fc_row2_col14" class="data row2 col14" >0.000</td>
+      <td id="T_7f6fc_row2_col15" class="data row2 col15" >0</td>
+      <td id="T_7f6fc_row2_col16" class="data row2 col16" >0.000</td>
+      <td id="T_7f6fc_row2_col17" class="data row2 col17" >0</td>
+      <td id="T_7f6fc_row2_col18" class="data row2 col18" >0</td>
+      <td id="T_7f6fc_row2_col19" class="data row2 col19" >0.000</td>
+      <td id="T_7f6fc_row2_col20" class="data row2 col20" >0</td>
+      <td id="T_7f6fc_row2_col21" class="data row2 col21" >0</td>
+      <td id="T_7f6fc_row2_col22" class="data row2 col22" >0.000</td>
+      <td id="T_7f6fc_row2_col23" class="data row2 col23" >0.000</td>
+      <td id="T_7f6fc_row2_col24" class="data row2 col24" >0.000</td>
+      <td id="T_7f6fc_row2_col25" class="data row2 col25" >0.000</td>
+      <td id="T_7f6fc_row2_col26" class="data row2 col26" >0.000</td>
+      <td id="T_7f6fc_row2_col27" class="data row2 col27" >286229.997</td>
+      <td id="T_7f6fc_row2_col28" class="data row2 col28" >0.000</td>
+      <td id="T_7f6fc_row2_col29" class="data row2 col29" >0.000</td>
+      <td id="T_7f6fc_row2_col30" class="data row2 col30" >0.000</td>
+      <td id="T_7f6fc_row2_col31" class="data row2 col31" >0.000</td>
+      <td id="T_7f6fc_row2_col32" class="data row2 col32" >0.000</td>
+      <td id="T_7f6fc_row2_col33" class="data row2 col33" >0.000</td>
+      <td id="T_7f6fc_row2_col34" class="data row2 col34" >0.000</td>
+      <td id="T_7f6fc_row2_col35" class="data row2 col35" >0.000</td>
+      <td id="T_7f6fc_row2_col36" class="data row2 col36" >0.000</td>
+      <td id="T_7f6fc_row2_col37" class="data row2 col37" >1353851.954</td>
+      <td id="T_7f6fc_row2_col38" class="data row2 col38" >0.000</td>
+      <td id="T_7f6fc_row2_col39" class="data row2 col39" >0.000</td>
+      <td id="T_7f6fc_row2_col40" class="data row2 col40" >0.000</td>
+      <td id="T_7f6fc_row2_col41" class="data row2 col41" >0.000</td>
+      <td id="T_7f6fc_row2_col42" class="data row2 col42" >81.646</td>
+      <td id="T_7f6fc_row2_col43" class="data row2 col43" >0.242</td>
+      <td id="T_7f6fc_row2_col44" class="data row2 col44" >0.157</td>
+      <td id="T_7f6fc_row2_col45" class="data row2 col45" >0.187</td>
+      <td id="T_7f6fc_row2_col46" class="data row2 col46" >0.063</td>
+      <td id="T_7f6fc_row2_col47" class="data row2 col47" >0.028</td>
+      <td id="T_7f6fc_row2_col48" class="data row2 col48" >2231.000</td>
+      <td id="T_7f6fc_row2_col49" class="data row2 col49" >0.000</td>
+      <td id="T_7f6fc_row2_col50" class="data row2 col50" >1.000</td>
+      <td id="T_7f6fc_row2_col51" class="data row2 col51" >0.000</td>
+      <td id="T_7f6fc_row2_col52" class="data row2 col52" >0.000</td>
+      <td id="T_7f6fc_row2_col53" class="data row2 col53" >0.000</td>
+      <td id="T_7f6fc_row2_col54" class="data row2 col54" >0.000</td>
+      <td id="T_7f6fc_row2_col55" class="data row2 col55" >0.000</td>
+      <td id="T_7f6fc_row2_col56" class="data row2 col56" >0.000</td>
+      <td id="T_7f6fc_row2_col57" class="data row2 col57" >0.000</td>
+      <td id="T_7f6fc_row2_col58" class="data row2 col58" >0.000</td>
+      <td id="T_7f6fc_row2_col59" class="data row2 col59" >0.000</td>
+      <td id="T_7f6fc_row2_col60" class="data row2 col60" >0.000</td>
+      <td id="T_7f6fc_row2_col61" class="data row2 col61" >0.000</td>
+      <td id="T_7f6fc_row2_col62" class="data row2 col62" >0.000</td>
+      <td id="T_7f6fc_row2_col63" class="data row2 col63" >0.000</td>
+      <td id="T_7f6fc_row2_col64" class="data row2 col64" >0.000</td>
+      <td id="T_7f6fc_row2_col65" class="data row2 col65" >0.000</td>
+      <td id="T_7f6fc_row2_col66" class="data row2 col66" >0.000</td>
+      <td id="T_7f6fc_row2_col67" class="data row2 col67" >0.000</td>
+      <td id="T_7f6fc_row2_col68" class="data row2 col68" >0.000</td>
+      <td id="T_7f6fc_row2_col69" class="data row2 col69" >0.000</td>
+      <td id="T_7f6fc_row2_col70" class="data row2 col70" >0.000</td>
+      <td id="T_7f6fc_row2_col71" class="data row2 col71" >0.000</td>
+      <td id="T_7f6fc_row2_col72" class="data row2 col72" >0.000</td>
+      <td id="T_7f6fc_row2_col73" class="data row2 col73" >0.000</td>
+      <td id="T_7f6fc_row2_col74" class="data row2 col74" >0.000</td>
+      <td id="T_7f6fc_row2_col75" class="data row2 col75" >0.000</td>
+      <td id="T_7f6fc_row2_col76" class="data row2 col76" >0.000</td>
+      <td id="T_7f6fc_row2_col77" class="data row2 col77" >0.000</td>
+      <td id="T_7f6fc_row2_col78" class="data row2 col78" >0.000</td>
+      <td id="T_7f6fc_row2_col79" class="data row2 col79" >0.000</td>
+      <td id="T_7f6fc_row2_col80" class="data row2 col80" >0.000</td>
+      <td id="T_7f6fc_row2_col81" class="data row2 col81" >0.000</td>
+      <td id="T_7f6fc_row2_col82" class="data row2 col82" >0.000</td>
+      <td id="T_7f6fc_row2_col83" class="data row2 col83" >0.000</td>
+      <td id="T_7f6fc_row2_col84" class="data row2 col84" >0.000</td>
+      <td id="T_7f6fc_row2_col85" class="data row2 col85" >0.000</td>
+      <td id="T_7f6fc_row2_col86" class="data row2 col86" >0.000</td>
+      <td id="T_7f6fc_row2_col87" class="data row2 col87" >0.000</td>
+      <td id="T_7f6fc_row2_col88" class="data row2 col88" >0.000</td>
+      <td id="T_7f6fc_row2_col89" class="data row2 col89" >0.000</td>
+      <td id="T_7f6fc_row2_col90" class="data row2 col90" >0.000</td>
+      <td id="T_7f6fc_row2_col91" class="data row2 col91" >0.000</td>
+      <td id="T_7f6fc_row2_col92" class="data row2 col92" >0.000</td>
+      <td id="T_7f6fc_row2_col93" class="data row2 col93" >0.000</td>
+      <td id="T_7f6fc_row2_col94" class="data row2 col94" >0.000</td>
+      <td id="T_7f6fc_row2_col95" class="data row2 col95" >0.000</td>
+      <td id="T_7f6fc_row2_col96" class="data row2 col96" >0.000</td>
+      <td id="T_7f6fc_row2_col97" class="data row2 col97" >0.000</td>
+      <td id="T_7f6fc_row2_col98" class="data row2 col98" >0.000</td>
+      <td id="T_7f6fc_row2_col99" class="data row2 col99" >0.000</td>
+      <td id="T_7f6fc_row2_col100" class="data row2 col100" >0.000</td>
+      <td id="T_7f6fc_row2_col101" class="data row2 col101" >0.000</td>
+      <td id="T_7f6fc_row2_col102" class="data row2 col102" >0.000</td>
+      <td id="T_7f6fc_row2_col103" class="data row2 col103" >0.000</td>
+      <td id="T_7f6fc_row2_col104" class="data row2 col104" >0.000</td>
+      <td id="T_7f6fc_row2_col105" class="data row2 col105" >1.000</td>
+      <td id="T_7f6fc_row2_col106" class="data row2 col106" >0.000</td>
+      <td id="T_7f6fc_row2_col107" class="data row2 col107" >0.000</td>
+      <td id="T_7f6fc_row2_col108" class="data row2 col108" >0.000</td>
+      <td id="T_7f6fc_row2_col109" class="data row2 col109" >0.000</td>
+      <td id="T_7f6fc_row2_col110" class="data row2 col110" >0.000</td>
+      <td id="T_7f6fc_row2_col111" class="data row2 col111" >0.000</td>
+      <td id="T_7f6fc_row2_col112" class="data row2 col112" >0.000</td>
+      <td id="T_7f6fc_row2_col113" class="data row2 col113" >0.000</td>
+      <td id="T_7f6fc_row2_col114" class="data row2 col114" >0.000</td>
+      <td id="T_7f6fc_row2_col115" class="data row2 col115" >0.000</td>
+      <td id="T_7f6fc_row2_col116" class="data row2 col116" >0.000</td>
+      <td id="T_7f6fc_row2_col117" class="data row2 col117" >0.000</td>
+      <td id="T_7f6fc_row2_col118" class="data row2 col118" >0.000</td>
+      <td id="T_7f6fc_row2_col119" class="data row2 col119" >0.000</td>
+      <td id="T_7f6fc_row2_col120" class="data row2 col120" >0.000</td>
+      <td id="T_7f6fc_row2_col121" class="data row2 col121" >0.000</td>
+    </tr>
+    <tr>
+      <th id="T_7f6fc_level0_row3" class="row_heading level0 row3" >5</th>
+      <td id="T_7f6fc_row3_col0" class="data row3 col0" >0</td>
+      <td id="T_7f6fc_row3_col1" class="data row3 col1" >0</td>
+      <td id="T_7f6fc_row3_col2" class="data row3 col2" >0</td>
+      <td id="T_7f6fc_row3_col3" class="data row3 col3" >0</td>
+      <td id="T_7f6fc_row3_col4" class="data row3 col4" >0</td>
+      <td id="T_7f6fc_row3_col5" class="data row3 col5" >0</td>
+      <td id="T_7f6fc_row3_col6" class="data row3 col6" >0</td>
+      <td id="T_7f6fc_row3_col7" class="data row3 col7" >26689</td>
+      <td id="T_7f6fc_row3_col8" class="data row3 col8" >0</td>
+      <td id="T_7f6fc_row3_col9" class="data row3 col9" >0</td>
+      <td id="T_7f6fc_row3_col10" class="data row3 col10" >0.000</td>
+      <td id="T_7f6fc_row3_col11" class="data row3 col11" >0.000</td>
+      <td id="T_7f6fc_row3_col12" class="data row3 col12" >0</td>
+      <td id="T_7f6fc_row3_col13" class="data row3 col13" >0.000</td>
+      <td id="T_7f6fc_row3_col14" class="data row3 col14" >0.000</td>
+      <td id="T_7f6fc_row3_col15" class="data row3 col15" >0</td>
+      <td id="T_7f6fc_row3_col16" class="data row3 col16" >0.000</td>
+      <td id="T_7f6fc_row3_col17" class="data row3 col17" >0</td>
+      <td id="T_7f6fc_row3_col18" class="data row3 col18" >0</td>
+      <td id="T_7f6fc_row3_col19" class="data row3 col19" >0.000</td>
+      <td id="T_7f6fc_row3_col20" class="data row3 col20" >0</td>
+      <td id="T_7f6fc_row3_col21" class="data row3 col21" >0</td>
+      <td id="T_7f6fc_row3_col22" class="data row3 col22" >0.000</td>
+      <td id="T_7f6fc_row3_col23" class="data row3 col23" >0.000</td>
+      <td id="T_7f6fc_row3_col24" class="data row3 col24" >0.000</td>
+      <td id="T_7f6fc_row3_col25" class="data row3 col25" >0.000</td>
+      <td id="T_7f6fc_row3_col26" class="data row3 col26" >0.000</td>
+      <td id="T_7f6fc_row3_col27" class="data row3 col27" >13237734.486</td>
+      <td id="T_7f6fc_row3_col28" class="data row3 col28" >0.000</td>
+      <td id="T_7f6fc_row3_col29" class="data row3 col29" >0.000</td>
+      <td id="T_7f6fc_row3_col30" class="data row3 col30" >0.000</td>
+      <td id="T_7f6fc_row3_col31" class="data row3 col31" >0.000</td>
+      <td id="T_7f6fc_row3_col32" class="data row3 col32" >0.000</td>
+      <td id="T_7f6fc_row3_col33" class="data row3 col33" >0.000</td>
+      <td id="T_7f6fc_row3_col34" class="data row3 col34" >0.000</td>
+      <td id="T_7f6fc_row3_col35" class="data row3 col35" >0.000</td>
+      <td id="T_7f6fc_row3_col36" class="data row3 col36" >0.000</td>
+      <td id="T_7f6fc_row3_col37" class="data row3 col37" >1446406.869</td>
+      <td id="T_7f6fc_row3_col38" class="data row3 col38" >7612972.241</td>
+      <td id="T_7f6fc_row3_col39" class="data row3 col39" >0.000</td>
+      <td id="T_7f6fc_row3_col40" class="data row3 col40" >0.000</td>
+      <td id="T_7f6fc_row3_col41" class="data row3 col41" >0.000</td>
+      <td id="T_7f6fc_row3_col42" class="data row3 col42" >114.108</td>
+      <td id="T_7f6fc_row3_col43" class="data row3 col43" >0.294</td>
+      <td id="T_7f6fc_row3_col44" class="data row3 col44" >0.368</td>
+      <td id="T_7f6fc_row3_col45" class="data row3 col45" >0.816</td>
+      <td id="T_7f6fc_row3_col46" class="data row3 col46" >0.233</td>
+      <td id="T_7f6fc_row3_col47" class="data row3 col47" >0.209</td>
+      <td id="T_7f6fc_row3_col48" class="data row3 col48" >163.000</td>
+      <td id="T_7f6fc_row3_col49" class="data row3 col49" >0.000</td>
+      <td id="T_7f6fc_row3_col50" class="data row3 col50" >0.000</td>
+      <td id="T_7f6fc_row3_col51" class="data row3 col51" >0.000</td>
+      <td id="T_7f6fc_row3_col52" class="data row3 col52" >0.000</td>
+      <td id="T_7f6fc_row3_col53" class="data row3 col53" >0.000</td>
+      <td id="T_7f6fc_row3_col54" class="data row3 col54" >0.000</td>
+      <td id="T_7f6fc_row3_col55" class="data row3 col55" >0.000</td>
+      <td id="T_7f6fc_row3_col56" class="data row3 col56" >0.000</td>
+      <td id="T_7f6fc_row3_col57" class="data row3 col57" >0.000</td>
+      <td id="T_7f6fc_row3_col58" class="data row3 col58" >0.000</td>
+      <td id="T_7f6fc_row3_col59" class="data row3 col59" >0.000</td>
+      <td id="T_7f6fc_row3_col60" class="data row3 col60" >0.000</td>
+      <td id="T_7f6fc_row3_col61" class="data row3 col61" >0.000</td>
+      <td id="T_7f6fc_row3_col62" class="data row3 col62" >0.000</td>
+      <td id="T_7f6fc_row3_col63" class="data row3 col63" >1.000</td>
+      <td id="T_7f6fc_row3_col64" class="data row3 col64" >0.000</td>
+      <td id="T_7f6fc_row3_col65" class="data row3 col65" >0.000</td>
+      <td id="T_7f6fc_row3_col66" class="data row3 col66" >0.000</td>
+      <td id="T_7f6fc_row3_col67" class="data row3 col67" >0.000</td>
+      <td id="T_7f6fc_row3_col68" class="data row3 col68" >0.000</td>
+      <td id="T_7f6fc_row3_col69" class="data row3 col69" >0.000</td>
+      <td id="T_7f6fc_row3_col70" class="data row3 col70" >0.000</td>
+      <td id="T_7f6fc_row3_col71" class="data row3 col71" >0.000</td>
+      <td id="T_7f6fc_row3_col72" class="data row3 col72" >0.000</td>
+      <td id="T_7f6fc_row3_col73" class="data row3 col73" >0.000</td>
+      <td id="T_7f6fc_row3_col74" class="data row3 col74" >0.000</td>
+      <td id="T_7f6fc_row3_col75" class="data row3 col75" >0.000</td>
+      <td id="T_7f6fc_row3_col76" class="data row3 col76" >0.000</td>
+      <td id="T_7f6fc_row3_col77" class="data row3 col77" >0.000</td>
+      <td id="T_7f6fc_row3_col78" class="data row3 col78" >0.000</td>
+      <td id="T_7f6fc_row3_col79" class="data row3 col79" >0.000</td>
+      <td id="T_7f6fc_row3_col80" class="data row3 col80" >0.000</td>
+      <td id="T_7f6fc_row3_col81" class="data row3 col81" >0.000</td>
+      <td id="T_7f6fc_row3_col82" class="data row3 col82" >0.000</td>
+      <td id="T_7f6fc_row3_col83" class="data row3 col83" >0.000</td>
+      <td id="T_7f6fc_row3_col84" class="data row3 col84" >0.000</td>
+      <td id="T_7f6fc_row3_col85" class="data row3 col85" >0.000</td>
+      <td id="T_7f6fc_row3_col86" class="data row3 col86" >0.000</td>
+      <td id="T_7f6fc_row3_col87" class="data row3 col87" >0.000</td>
+      <td id="T_7f6fc_row3_col88" class="data row3 col88" >0.000</td>
+      <td id="T_7f6fc_row3_col89" class="data row3 col89" >0.000</td>
+      <td id="T_7f6fc_row3_col90" class="data row3 col90" >0.000</td>
+      <td id="T_7f6fc_row3_col91" class="data row3 col91" >0.000</td>
+      <td id="T_7f6fc_row3_col92" class="data row3 col92" >0.000</td>
+      <td id="T_7f6fc_row3_col93" class="data row3 col93" >0.000</td>
+      <td id="T_7f6fc_row3_col94" class="data row3 col94" >0.000</td>
+      <td id="T_7f6fc_row3_col95" class="data row3 col95" >0.000</td>
+      <td id="T_7f6fc_row3_col96" class="data row3 col96" >0.000</td>
+      <td id="T_7f6fc_row3_col97" class="data row3 col97" >0.000</td>
+      <td id="T_7f6fc_row3_col98" class="data row3 col98" >0.000</td>
+      <td id="T_7f6fc_row3_col99" class="data row3 col99" >0.000</td>
+      <td id="T_7f6fc_row3_col100" class="data row3 col100" >0.000</td>
+      <td id="T_7f6fc_row3_col101" class="data row3 col101" >0.000</td>
+      <td id="T_7f6fc_row3_col102" class="data row3 col102" >0.000</td>
+      <td id="T_7f6fc_row3_col103" class="data row3 col103" >0.000</td>
+      <td id="T_7f6fc_row3_col104" class="data row3 col104" >0.000</td>
+      <td id="T_7f6fc_row3_col105" class="data row3 col105" >1.000</td>
+      <td id="T_7f6fc_row3_col106" class="data row3 col106" >0.000</td>
+      <td id="T_7f6fc_row3_col107" class="data row3 col107" >0.000</td>
+      <td id="T_7f6fc_row3_col108" class="data row3 col108" >0.000</td>
+      <td id="T_7f6fc_row3_col109" class="data row3 col109" >0.000</td>
+      <td id="T_7f6fc_row3_col110" class="data row3 col110" >0.000</td>
+      <td id="T_7f6fc_row3_col111" class="data row3 col111" >0.000</td>
+      <td id="T_7f6fc_row3_col112" class="data row3 col112" >0.000</td>
+      <td id="T_7f6fc_row3_col113" class="data row3 col113" >0.000</td>
+      <td id="T_7f6fc_row3_col114" class="data row3 col114" >0.000</td>
+      <td id="T_7f6fc_row3_col115" class="data row3 col115" >0.000</td>
+      <td id="T_7f6fc_row3_col116" class="data row3 col116" >0.000</td>
+      <td id="T_7f6fc_row3_col117" class="data row3 col117" >0.000</td>
+      <td id="T_7f6fc_row3_col118" class="data row3 col118" >0.000</td>
+      <td id="T_7f6fc_row3_col119" class="data row3 col119" >0.000</td>
+      <td id="T_7f6fc_row3_col120" class="data row3 col120" >0.000</td>
+      <td id="T_7f6fc_row3_col121" class="data row3 col121" >0.000</td>
+    </tr>
+    <tr>
+      <th id="T_7f6fc_level0_row4" class="row_heading level0 row4" >7</th>
+      <td id="T_7f6fc_row4_col0" class="data row4 col0" >0</td>
+      <td id="T_7f6fc_row4_col1" class="data row4 col1" >0</td>
+      <td id="T_7f6fc_row4_col2" class="data row4 col2" >0</td>
+      <td id="T_7f6fc_row4_col3" class="data row4 col3" >0</td>
+      <td id="T_7f6fc_row4_col4" class="data row4 col4" >0</td>
+      <td id="T_7f6fc_row4_col5" class="data row4 col5" >0</td>
+      <td id="T_7f6fc_row4_col6" class="data row4 col6" >0</td>
+      <td id="T_7f6fc_row4_col7" class="data row4 col7" >3088</td>
+      <td id="T_7f6fc_row4_col8" class="data row4 col8" >0</td>
+      <td id="T_7f6fc_row4_col9" class="data row4 col9" >0</td>
+      <td id="T_7f6fc_row4_col10" class="data row4 col10" >0.000</td>
+      <td id="T_7f6fc_row4_col11" class="data row4 col11" >0.000</td>
+      <td id="T_7f6fc_row4_col12" class="data row4 col12" >0</td>
+      <td id="T_7f6fc_row4_col13" class="data row4 col13" >0.000</td>
+      <td id="T_7f6fc_row4_col14" class="data row4 col14" >0.000</td>
+      <td id="T_7f6fc_row4_col15" class="data row4 col15" >0</td>
+      <td id="T_7f6fc_row4_col16" class="data row4 col16" >0.000</td>
+      <td id="T_7f6fc_row4_col17" class="data row4 col17" >0</td>
+      <td id="T_7f6fc_row4_col18" class="data row4 col18" >0</td>
+      <td id="T_7f6fc_row4_col19" class="data row4 col19" >0.000</td>
+      <td id="T_7f6fc_row4_col20" class="data row4 col20" >0</td>
+      <td id="T_7f6fc_row4_col21" class="data row4 col21" >0</td>
+      <td id="T_7f6fc_row4_col22" class="data row4 col22" >0.000</td>
+      <td id="T_7f6fc_row4_col23" class="data row4 col23" >0.000</td>
+      <td id="T_7f6fc_row4_col24" class="data row4 col24" >0.000</td>
+      <td id="T_7f6fc_row4_col25" class="data row4 col25" >0.000</td>
+      <td id="T_7f6fc_row4_col26" class="data row4 col26" >0.000</td>
+      <td id="T_7f6fc_row4_col27" class="data row4 col27" >238709.242</td>
+      <td id="T_7f6fc_row4_col28" class="data row4 col28" >0.000</td>
+      <td id="T_7f6fc_row4_col29" class="data row4 col29" >0.000</td>
+      <td id="T_7f6fc_row4_col30" class="data row4 col30" >0.000</td>
+      <td id="T_7f6fc_row4_col31" class="data row4 col31" >0.000</td>
+      <td id="T_7f6fc_row4_col32" class="data row4 col32" >0.000</td>
+      <td id="T_7f6fc_row4_col33" class="data row4 col33" >0.000</td>
+      <td id="T_7f6fc_row4_col34" class="data row4 col34" >0.000</td>
+      <td id="T_7f6fc_row4_col35" class="data row4 col35" >0.000</td>
+      <td id="T_7f6fc_row4_col36" class="data row4 col36" >0.000</td>
+      <td id="T_7f6fc_row4_col37" class="data row4 col37" >36148899.586</td>
+      <td id="T_7f6fc_row4_col38" class="data row4 col38" >5504781.443</td>
+      <td id="T_7f6fc_row4_col39" class="data row4 col39" >0.000</td>
+      <td id="T_7f6fc_row4_col40" class="data row4 col40" >0.000</td>
+      <td id="T_7f6fc_row4_col41" class="data row4 col41" >0.000</td>
+      <td id="T_7f6fc_row4_col42" class="data row4 col42" >12.718</td>
+      <td id="T_7f6fc_row4_col43" class="data row4 col43" >0.147</td>
+      <td id="T_7f6fc_row4_col44" class="data row4 col44" >0.016</td>
+      <td id="T_7f6fc_row4_col45" class="data row4 col45" >0.443</td>
+      <td id="T_7f6fc_row4_col46" class="data row4 col46" >0.115</td>
+      <td id="T_7f6fc_row4_col47" class="data row4 col47" >0.016</td>
+      <td id="T_7f6fc_row4_col48" class="data row4 col48" >61.000</td>
+      <td id="T_7f6fc_row4_col49" class="data row4 col49" >0.000</td>
+      <td id="T_7f6fc_row4_col50" class="data row4 col50" >0.000</td>
+      <td id="T_7f6fc_row4_col51" class="data row4 col51" >0.000</td>
+      <td id="T_7f6fc_row4_col52" class="data row4 col52" >0.000</td>
+      <td id="T_7f6fc_row4_col53" class="data row4 col53" >0.000</td>
+      <td id="T_7f6fc_row4_col54" class="data row4 col54" >0.000</td>
+      <td id="T_7f6fc_row4_col55" class="data row4 col55" >0.000</td>
+      <td id="T_7f6fc_row4_col56" class="data row4 col56" >0.000</td>
+      <td id="T_7f6fc_row4_col57" class="data row4 col57" >0.000</td>
+      <td id="T_7f6fc_row4_col58" class="data row4 col58" >0.000</td>
+      <td id="T_7f6fc_row4_col59" class="data row4 col59" >0.000</td>
+      <td id="T_7f6fc_row4_col60" class="data row4 col60" >0.000</td>
+      <td id="T_7f6fc_row4_col61" class="data row4 col61" >0.000</td>
+      <td id="T_7f6fc_row4_col62" class="data row4 col62" >0.000</td>
+      <td id="T_7f6fc_row4_col63" class="data row4 col63" >0.000</td>
+      <td id="T_7f6fc_row4_col64" class="data row4 col64" >0.000</td>
+      <td id="T_7f6fc_row4_col65" class="data row4 col65" >0.000</td>
+      <td id="T_7f6fc_row4_col66" class="data row4 col66" >0.000</td>
+      <td id="T_7f6fc_row4_col67" class="data row4 col67" >0.000</td>
+      <td id="T_7f6fc_row4_col68" class="data row4 col68" >0.000</td>
+      <td id="T_7f6fc_row4_col69" class="data row4 col69" >0.000</td>
+      <td id="T_7f6fc_row4_col70" class="data row4 col70" >0.000</td>
+      <td id="T_7f6fc_row4_col71" class="data row4 col71" >1.000</td>
+      <td id="T_7f6fc_row4_col72" class="data row4 col72" >0.000</td>
+      <td id="T_7f6fc_row4_col73" class="data row4 col73" >0.000</td>
+      <td id="T_7f6fc_row4_col74" class="data row4 col74" >0.000</td>
+      <td id="T_7f6fc_row4_col75" class="data row4 col75" >0.000</td>
+      <td id="T_7f6fc_row4_col76" class="data row4 col76" >0.000</td>
+      <td id="T_7f6fc_row4_col77" class="data row4 col77" >0.000</td>
+      <td id="T_7f6fc_row4_col78" class="data row4 col78" >0.000</td>
+      <td id="T_7f6fc_row4_col79" class="data row4 col79" >0.000</td>
+      <td id="T_7f6fc_row4_col80" class="data row4 col80" >0.000</td>
+      <td id="T_7f6fc_row4_col81" class="data row4 col81" >0.000</td>
+      <td id="T_7f6fc_row4_col82" class="data row4 col82" >0.000</td>
+      <td id="T_7f6fc_row4_col83" class="data row4 col83" >0.000</td>
+      <td id="T_7f6fc_row4_col84" class="data row4 col84" >0.000</td>
+      <td id="T_7f6fc_row4_col85" class="data row4 col85" >0.000</td>
+      <td id="T_7f6fc_row4_col86" class="data row4 col86" >0.000</td>
+      <td id="T_7f6fc_row4_col87" class="data row4 col87" >0.000</td>
+      <td id="T_7f6fc_row4_col88" class="data row4 col88" >0.000</td>
+      <td id="T_7f6fc_row4_col89" class="data row4 col89" >0.000</td>
+      <td id="T_7f6fc_row4_col90" class="data row4 col90" >0.000</td>
+      <td id="T_7f6fc_row4_col91" class="data row4 col91" >0.000</td>
+      <td id="T_7f6fc_row4_col92" class="data row4 col92" >0.000</td>
+      <td id="T_7f6fc_row4_col93" class="data row4 col93" >0.000</td>
+      <td id="T_7f6fc_row4_col94" class="data row4 col94" >0.000</td>
+      <td id="T_7f6fc_row4_col95" class="data row4 col95" >0.000</td>
+      <td id="T_7f6fc_row4_col96" class="data row4 col96" >0.000</td>
+      <td id="T_7f6fc_row4_col97" class="data row4 col97" >0.000</td>
+      <td id="T_7f6fc_row4_col98" class="data row4 col98" >0.000</td>
+      <td id="T_7f6fc_row4_col99" class="data row4 col99" >0.000</td>
+      <td id="T_7f6fc_row4_col100" class="data row4 col100" >0.000</td>
+      <td id="T_7f6fc_row4_col101" class="data row4 col101" >0.000</td>
+      <td id="T_7f6fc_row4_col102" class="data row4 col102" >0.000</td>
+      <td id="T_7f6fc_row4_col103" class="data row4 col103" >0.000</td>
+      <td id="T_7f6fc_row4_col104" class="data row4 col104" >0.000</td>
+      <td id="T_7f6fc_row4_col105" class="data row4 col105" >1.000</td>
+      <td id="T_7f6fc_row4_col106" class="data row4 col106" >0.000</td>
+      <td id="T_7f6fc_row4_col107" class="data row4 col107" >0.000</td>
+      <td id="T_7f6fc_row4_col108" class="data row4 col108" >0.000</td>
+      <td id="T_7f6fc_row4_col109" class="data row4 col109" >0.000</td>
+      <td id="T_7f6fc_row4_col110" class="data row4 col110" >0.000</td>
+      <td id="T_7f6fc_row4_col111" class="data row4 col111" >0.000</td>
+      <td id="T_7f6fc_row4_col112" class="data row4 col112" >0.000</td>
+      <td id="T_7f6fc_row4_col113" class="data row4 col113" >0.000</td>
+      <td id="T_7f6fc_row4_col114" class="data row4 col114" >0.000</td>
+      <td id="T_7f6fc_row4_col115" class="data row4 col115" >0.000</td>
+      <td id="T_7f6fc_row4_col116" class="data row4 col116" >0.000</td>
+      <td id="T_7f6fc_row4_col117" class="data row4 col117" >0.000</td>
+      <td id="T_7f6fc_row4_col118" class="data row4 col118" >0.000</td>
+      <td id="T_7f6fc_row4_col119" class="data row4 col119" >0.000</td>
+      <td id="T_7f6fc_row4_col120" class="data row4 col120" >0.000</td>
+      <td id="T_7f6fc_row4_col121" class="data row4 col121" >0.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="treino-e-teste">
+<h2>Treino e teste<a class="headerlink" href="#treino-e-teste" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">df_eventos_2018_2024_modelo2</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">y_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">df_eventos_2018_2024_modelo2</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span>
+
+<span class="n">X_train_2018_2024_modelo2</span><span class="p">,</span> <span class="n">X_test_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_train_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_test_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_2018_2024_modelo2</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_2018_2024_modelo2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="resultados-sem-balanceamento">
+<h2>Resultados - sem balanceamento<a class="headerlink" href="#resultados-sem-balanceamento" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Criar pipeline com normalização e modelo de Regressão Logística</span>
+<span class="n">pipeline_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s1">&#39;logreg&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">))</span>
+<span class="p">])</span>
+
+<span class="c1"># Definir hiperparâmetros para o Grid Search</span>
+<span class="n">param_grid_2018_2024_modelo2</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;logreg__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>  <span class="c1"># Regularização</span>
+    <span class="s1">&#39;logreg__max_iter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">],</span>  <span class="c1"># Número máximo de iterações</span>
+    <span class="s1">&#39;logreg__fit_intercept&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>  <span class="c1"># Se deve ajustar o intercepto</span>
+    <span class="s1">&#39;logreg__tol&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">],</span>  <span class="c1"># Tolerância para convergência</span>
+    <span class="s1">&#39;logreg__penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">],</span>  <span class="c1"># Tipos de penalidade</span>
+<span class="p">}</span>
+
+<span class="c1"># Grid Search com validação cruzada</span>
+<span class="n">grid_search_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipeline_2018_2024_modelo2</span><span class="p">,</span> <span class="n">param_grid_2018_2024_modelo2</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;f1_weighted&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">grid_search_2018_2024_modelo2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_train_2018_2024_modelo2</span><span class="p">)</span>
+
+<span class="c1"># Melhor modelo encontrado</span>
+<span class="n">logreg_best_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">grid_search_2018_2024_modelo2</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Melhores hiperparâmetros: </span><span class="si">{</span><span class="n">grid_search_2018_2024_modelo2</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># F1 score no conjunto de teste</span>
+<span class="n">y_pred_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">logreg_best_2018_2024_modelo2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_2018_2024_modelo2</span><span class="p">)</span>
+
+<span class="n">f1_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_pred_2018_2024_modelo2</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F1 Score: </span><span class="si">{</span><span class="n">f1_2018_2024_modelo2</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">classification_report_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_pred_2018_2024_modelo2</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Não reconhecido&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Classification report para modelo 2 (2018 - 2024): </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report_2018_2024_modelo2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melhores hiperparâmetros: {&#39;logreg__C&#39;: 10, &#39;logreg__fit_intercept&#39;: False, &#39;logreg__max_iter&#39;: 1000, &#39;logreg__penalty&#39;: &#39;l2&#39;, &#39;logreg__tol&#39;: 0.001}
+F1 Score: 0.911678
+Classification report para modelo 2 (2018 - 2024): 
+
+                 precision    recall  f1-score   support
+
+    Reconhecido   0.933333  0.992053  0.961798      1510
+Não reconhecido   0.760000  0.262069  0.389744       145
+
+       accuracy                       0.928097      1655
+      macro avg   0.846667  0.627061  0.675771      1655
+   weighted avg   0.918147  0.928097  0.911678      1655
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">grid_search_2018_2024_modelo2</span><span class="p">,</span> <span class="n">X_test_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_test_2018_2024_modelo2</span><span class="p">,</span> 
+                                      <span class="n">values_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Não reconhecido&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x136998a60&gt;
+</pre></div>
+</div>
+<img alt="_images/cd6d5c3fba2654ef7c4bc6fd5c6d0a9c534f8bdeedb322034cf805a00110096d.png" src="_images/cd6d5c3fba2654ef7c4bc6fd5c6d0a9c534f8bdeedb322034cf805a00110096d.png" />
+</div>
+</div>
+</section>
+<section id="resultados-com-balanceamento-smote">
+<h2>Resultados - com balanceamento SMOTE<a class="headerlink" href="#resultados-com-balanceamento-smote" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train_smote_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_train_smote_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_train_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_train_2018_2024_modelo2</span><span class="p">)</span>
+
+<span class="n">pipeline_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> 
+    <span class="p">(</span><span class="s1">&#39;logreg&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">))</span>  
+<span class="p">])</span>
+
+<span class="c1"># Definir hiperparâmetros para o Grid Search</span>
+<span class="n">param_grid_2018_2024_modelo2</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;logreg__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>  
+    <span class="s1">&#39;logreg__max_iter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">],</span>  
+    <span class="s1">&#39;logreg__fit_intercept&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+    <span class="s1">&#39;logreg__tol&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">],</span>
+    <span class="s1">&#39;logreg__penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># Grid Search com validação cruzada</span>
+<span class="n">grid_search_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipeline_2018_2024_modelo2</span><span class="p">,</span> <span class="n">param_grid_2018_2024_modelo2</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;f1_weighted&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Treinar o pipeline com Grid Search</span>
+<span class="n">grid_search_2018_2024_modelo2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_smote_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_train_smote_2018_2024_modelo2</span><span class="p">)</span>
+
+<span class="c1"># Melhor modelo encontrado</span>
+<span class="n">logreg_best_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">grid_search_2018_2024_modelo2</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Melhores hiperparâmetros: </span><span class="si">{</span><span class="n">grid_search_2018_2024_modelo2</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># F1 score no conjunto de teste</span>
+<span class="n">y_pred_2018_2024_modelo2_smote</span> <span class="o">=</span> <span class="n">logreg_best_2018_2024_modelo2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_2018_2024_modelo2</span><span class="p">)</span>
+
+<span class="n">f1_smote_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_pred_2018_2024_modelo2_smote</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F1 Score: </span><span class="si">{</span><span class="n">f1_smote_2018_2024_modelo2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">classification_report_smote_2018_2024_modelo2</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_2018_2024_modelo2</span><span class="p">,</span> <span class="n">y_pred_2018_2024_modelo2_smote</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Não reconhecido&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Classification report para modelo 2 com smote (2018 - 2024): </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report_smote_2018_2024_modelo2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melhores hiperparâmetros: {&#39;logreg__C&#39;: 10, &#39;logreg__fit_intercept&#39;: True, &#39;logreg__max_iter&#39;: 1000, &#39;logreg__penalty&#39;: &#39;l2&#39;, &#39;logreg__tol&#39;: 0.0001}
+F1 Score: 0.79
+Classification report para modelo 2 com smote (2018 - 2024): 
+
+                 precision    recall  f1-score   support
+
+    Reconhecido   0.965458  0.740397  0.838081      1510
+Não reconhecido   0.211268  0.724138  0.327103       145
+
+       accuracy                       0.738973      1655
+      macro avg   0.588363  0.732268  0.582592      1655
+   weighted avg   0.899381  0.738973  0.793312      1655
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Regress%C3%A3o%20Log%C3%ADstica%20-%20Modelo%202%202010%20a%202017.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Regressão logística - Variáveis desagregadas (2010 a 2017)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Regress%C3%A3o%20Log%C3%ADstica%20-%20conclus%C3%A3o.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Resultados da regressão logística</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas-e-bases-de-dados">Bibliotecas e bases de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajustes-da-base-de-dados">Ajustes da base de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treino-e-teste">Treino e teste</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-sem-balanceamento">Resultados - sem balanceamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-com-balanceamento-smote">Resultados - com balanceamento SMOTE</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

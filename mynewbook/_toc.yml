@@ -6,7 +6,12 @@ root: intro
 chapters:
   - file: AnaliseExploratoria
   - file: Pré processamento
-  - file: Regressão Logística
+  - file: "Regressão Logística - Modelo 1 2010 a 2017"
+    sections:
+      - file: "Regressão Logística - Modelo 1 2018 a 2024"
+      - file: "Regressão Logística - Modelo 2 2010 a 2017"
+      - file: "Regressão Logística - Modelo 2 2018 a 2024"
+      - file: "Regressão Logística - conclusão"
   - file: Classificação de textos
     sections:
       - file: "Classificação de textos - balanced RandomUnderSampler"
