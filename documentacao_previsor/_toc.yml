@@ -25,6 +25,10 @@ parts:
 - caption: Random Forest
   chapters:
   - file: randomforest_base
+- caption: XGBoost
+  chapters:
+  - file: xgboost_base
+  - file: xgboost_modelo1_2010_2017
 - caption: Classificação de textos
   chapters:
   - file: nlp_tfidf_base
