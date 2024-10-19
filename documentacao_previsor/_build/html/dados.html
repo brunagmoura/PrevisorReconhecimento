@@ -1,0 +1,1661 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Base de dados &#8212; Previsor de reconhecimento</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dados';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Análise preliminar" href="analise_exploratoria_preliminar.html" />
+    <link rel="prev" title="Introdução" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="content.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/previsor_logo.png" class="logo__image only-light" alt="Previsor de reconhecimento - Home"/>
+    <script>document.write(`<img src="_static/previsor_logo.png" class="logo__image only-dark" alt="Previsor de reconhecimento - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introdução</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Base de dados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise exploratória</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="analise_exploratoria_preliminar.html">Análise preliminar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_registros_municipios.html">Municípios e desastres</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pré processamento</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pre_processamento.html">Pré processamento dos dados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regressão logística</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="reglog_baseline.html">Modelo “base”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_conclusao.html">Resultados da regressão logística</a></li>
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="randomforest_base.html">Modelo base</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Classificação de textos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_base.html">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_oversampler.html">Balanceamento “Random Under Sampler”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_undersampler.html">Balanceamento “Random Under Sampler”</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc/edit/main/dados.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc/issues/new?title=Issue%20on%20page%20%2Fdados.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/dados.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Base de dados</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="base-de-dados">
+<h1>Base de dados<a class="headerlink" href="#base-de-dados" title="Link to this heading">#</a></h1>
+<p>A base de dados utilizada neste projeto reúne informações provenientes de diferentes fontes relevantes. Os dados sobre desastres foram disponibilizados pela Secretaria Nacional de Proteção e Defesa Civil (SEDEC/MIDR) e estão organizados no Atlas Digital de Desastres. Além disso, as informações sobre famílias em situação de vulnerabilidade social foram obtidas a partir do Cadastro Único (CadÚnico), enquanto os dados sobre os municípios brasileiros foram fornecidos pelo IBGE.</p>
+<style>
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+td, th {
+  font-size: 8px;
+  word-wrap: break-word; /* Para quebrar o texto */
+}
+
+th:nth-child(1), td:nth-child(1) {
+  width: 100px; /* Tamanho da primeira coluna */
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 150px; /* Tamanho da segunda coluna */
+}
+</style>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variável</p></th>
+<th class="head"><p>Descrição</p></th>
+<th class="head"><p>Tipo de variável</p></th>
+<th class="head"><p>Período</p></th>
+<th class="head"><p>Resumo metodologia</p></th>
+<th class="head"><p>Fonte</p></th>
+<th class="head"><p>Observação</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Protocolo_S2iD</p></td>
+<td><p>Protocolo de identificação do evento</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nome_Municipio</p></td>
+<td><p>Nome do município</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Sigla_UF</p></td>
+<td><p>Unidade da federação do município</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>regiao</p></td>
+<td><p>Região do município</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Data_Registro</p></td>
+<td><p>Data de registro do evento</p></td>
+<td><p>Data</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data_Evento</p></td>
+<td><p>Data do evento</p></td>
+<td><p>Data</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>codigo_ibge</p></td>
+<td><p>Código IBGE identificador do município</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Setores Censitários</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Status</p></td>
+<td><p>Reconhecido / Não reconhecido</p></td>
+<td><p>Texto</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DH_Descricao</p></td>
+<td><p>Descrição dos danos humanos</p></td>
+<td><p>Texto</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DH_MORTOS</p></td>
+<td><p>Qtde. mortos</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Pessoas que perderam suas vidas em decorrência direta dos efeitos do desastre</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DH_FERIDOS</p></td>
+<td><p>Qtde. feridos</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Pessoas que sofreram lesões em decorrência direta dos efeitos do desastre e necessitam de intervenção médico-hospitalar, materiais e insumos de saúde (medicamentos, médicos, etc.)</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DH_ENFERMOS</p></td>
+<td><p>Qtde. enfermos</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Pessoas que desenvolveram processos patológicos em decorrência direta dos efeitos do desastre.</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DH_DESABRIGADOS</p></td>
+<td><p>Qtde. desabrigados</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Pessoas que necessitam de abrigo público, como habitação temporária, em função de danos ou ameaça de danos causados em decorrência direta dos efeitos do desastre.</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DH_DESALOJADOS</p></td>
+<td><p>Qtde. desalojados</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Pessoas que, em decorrência dos efeitos do desastre, desocuparam seus domicílios, mas não necessitam de abrigo público.</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DH_DESAPARECIDOS</p></td>
+<td><p>Qtde. desaprecidos</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Pessoas que necessitam ser encontradas, pois, em decorrência direta dos efeitos do desastre, estão em situação de risco de morte iminente e em locais inseguros/perigosos.</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DH_OUTROS AFETADOS</p></td>
+<td><p>Qtde. outros afetados</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Pessoas afetadas diretamente pelo desastre (excetuando as já informadas acima)</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DH_total_danos_humanos</p></td>
+<td><p>Total de danos humanos reportados no evento</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Danos humanos reportados pelos municípios ao Ministério da Integração e Desenvolvimento Regional em situações de desastres com o objetivo de solicitar recursos para as ações de resposta e reconstrução. Os dados são coletados no Sistema Integrado de Informações sobre Desastres (S2ID). Os danos humanos correspondem ao quantitativo de pessoas mortas, feridas, enfermas, desabrigadas, desalojadas, desaparecidas e outras diretamente afetadas. Mais informações: <a class="reference external" href="https://atlasdigital.mdr.gov.br/arquivos/Atlas_Digital_Desastres_Manual_Aplicacao.pdf">https://atlasdigital.mdr.gov.br/arquivos/Atlas_Digital_Desastres_Manual_Aplicacao.pdf</a></p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Descricao</p></td>
+<td><p>Descrição dos danos materiais</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Uni Habita Danificadas</p></td>
+<td><p>Qtde. unidades habitacionais danificadas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Uni Habita Destruidas</p></td>
+<td><p>Qtde. unidades habitacionais destruídas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Uni Habita Valor</p></td>
+<td><p>Valor estimado das unidades habitacionais atingidas</p></td>
+<td><p>Int (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst Saúde Danificadas</p></td>
+<td><p>Qtde. instalações de saúde danificadas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst Saúde Destruidas</p></td>
+<td><p>Qtde. instalações de saúde destruídas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst Saúde Valor</p></td>
+<td><p>Valor estimado das instituições de saúde atingidas</p></td>
+<td><p>Int (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst Ensino Danificadas</p></td>
+<td><p>Qtde. instituições de ensino danificadas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst Ensino Destruidas</p></td>
+<td><p>Qtde. instituições de ensino destruídas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst Ensino Valor</p></td>
+<td><p>Valor estimado das instituições de ensino atingidas</p></td>
+<td><p>Int (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst Serviços Danificadas</p></td>
+<td><p>Qtde. instituições de serviços públicos danificadas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst Serviços Destruidas</p></td>
+<td><p>Qtde. instituições de serviços públicos destruídas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst Serviços Valor</p></td>
+<td><p>Valor estimado das instituições de serviços públicos atingidas</p></td>
+<td><p>Int (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst Comuni Danificadas</p></td>
+<td><p>Qtde. instituições comunitárias danificadas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst Comuni Destruidas</p></td>
+<td><p>Qtde. instituições comunitárias destruídas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst Comuni Valor</p></td>
+<td><p>Valor estimado das instituições comunitárias de serviços públicos</p></td>
+<td><p>Int (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Obras de Infra Danificadas</p></td>
+<td><p>Qtde. obras de infraestrutura danificadas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Obras de Infra Destruidas</p></td>
+<td><p>Qtde. obras de infraestrutura destruídas</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Obras de Infra Valor</p></td>
+<td><p>Valor estimado das obras de infraestrutura atingidas</p></td>
+<td><p>Int (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_total_danos_materiais</p></td>
+<td><p>Danos materiais reportados no evento</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Danos materiais reportados pelos municípios ao Ministério da Integração e Desenvolvimento Regional em situações de desastres com o objetivo de solicitar recursos para as ações de resposta e reconstrução. Os dados são coletados no Sistema Integrado de Informações sobre Desastres (S2ID). Os danos materiais correspondem ao valor estimado de danos às unidades habitacionais, instalações públicas de saúde, instalações públicas de ensino, instalações públicas prestadoras de outros serviços, instalações públicas de uso comunitário e obras de infraestrutura pública danificadas ou destruídas pelo desastre. Mais informações: <a class="reference external" href="https://atlasdigital.mdr.gov.br/arquivos/Atlas_Digital_Desastres_Manual_Aplicacao.pdf">https://atlasdigital.mdr.gov.br/arquivos/Atlas_Digital_Desastres_Manual_Aplicacao.pdf</a></p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DA_Descricao</p></td>
+<td><p>Descrição dos danos ambientais</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Descrição dos danos ambientais e sua relação direta com os efeitos do desastre</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DA_Polui/cont da água</p></td>
+<td><p>Poluição ou contaminação da água</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DA_Polui/cont do ar</p></td>
+<td><p>Poluição ou contaminação do ar</p></td>
+<td><p>Str (faixa de valor)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DA_Polui/cont do solo</p></td>
+<td><p>Poluição ou contaminação do solo</p></td>
+<td><p>Str (faixa de valor)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DA_Dimi/exauri hídrico</p></td>
+<td><p>Diminuição ou exaurimento hídrico</p></td>
+<td><p>Str (faixa de valor)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DA_Incêndi parques/APAs/APPs</p></td>
+<td><p>Incêndios em parques, APA’s ou APP’s</p></td>
+<td><p>Str (faixa de valor)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPL_Descricao</p></td>
+<td><p>Descrição dos prejuízos econômicos públicos</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Descrição dos serviços essenciais públicos prejudicados ou interrompidos.</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPL_Assis_méd e emergên(R$)</p></td>
+<td><p>Prejuízo econômico público em assistência médica</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com assistência médica, saúde pública e atendimento de emergências médicas.</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPL_Abast de água pot(R$)</p></td>
+<td><p>Prejuízo econômico público em assistência médica</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com abastecimento de água potável</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPL_sist de esgotos sanit(R$)</p></td>
+<td><p>Prejuízo econômico público em esgoto</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com esgoto de águas pluviais e sistema de esgotos sanitários</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPL_Sis limp e rec lixo (R$)</p></td>
+<td><p>Prejuízo econômico público em limpeza urbana</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com sistema de limpeza urbana e de recolhimento e destinação do lixo</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPL_Sis cont pragas (R$)</p></td>
+<td><p>Prejuízo econômico público em controle de pragas</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuíuzo econômico público com sistema de desinfestação e controle de pregas e vetores</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPL_distrib energia (R$)</p></td>
+<td><p>Prejuízo econômico público em distribuição de energia</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com geração e distribuição de energia elétrica</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPL_Telecomunicações (R$)</p></td>
+<td><p>Prejuízo econômico público em telecomunicações</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com telecomunicações</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPL_Tran loc/reg/l_curso (R$)</p></td>
+<td><p>Prejuízo econômico público em transportes</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com transportes locais, regionais e de longo curso</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPL_Distrib combustíveis(R$)</p></td>
+<td><p>Prejuízo econômico público em distribuição de combustíveis</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com distribuição de combustíveis, especialmente de uso doméstico</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPL_Segurança pública (R$)</p></td>
+<td><p>Prejuízo econômico público em segurança púb;ica</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com segurança pública</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPL_Ensino (R$)</p></td>
+<td><p>Prejuízo econômico público em ensino</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico público com esnino</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPL_total_publico</p></td>
+<td><p>Prejuízos públicos totais</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor total dos prejuízos econômicos públicos. O valor é informado pelo município a partir do prejuízo econômico público estimado com os serviços essenciais prejudicados.</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPR_Descricao</p></td>
+<td><p>Descrição dos prejuízos econômicos privados</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Descrição dos setores econômicos prejudicados pelo evento</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPR_Agricultura (R$)</p></td>
+<td><p>Prejuízo econômico privado em agricultura</p></td>
+<td><p>Valor (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico privado do setor da agricultura em decorrência direta dos efeitos do desastre</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPR_Pecuária (R$)</p></td>
+<td><p>Prejuízo econômico privado em pecuária</p></td>
+<td><p>Valor (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico privado do setor da pecuária  em decorrência direta dos efeitos do desastre</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPR_Indústria (R$)</p></td>
+<td><p>Prejuízo econômico privado em indústria</p></td>
+<td><p>Valor (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico privado do setor da indústria  em decorrência direta dos efeitos do desastre</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPR_Comércio (R$)</p></td>
+<td><p>Prejuízo econômico privado em comércio</p></td>
+<td><p>Valor (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico privado do setor de comércio  em decorrência direta dos efeitos do desastre</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPR_Serviços (R$)</p></td>
+<td><p>Prejuízo econômico privado em serviços</p></td>
+<td><p>Valor (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor estimado do prejuízo econômico privado do setor de serviços  em decorrência direta dos efeitos do desastre</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPR_total_privado</p></td>
+<td><p>Prejuízos privados totais</p></td>
+<td><p>Valor acumulado (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Descrição dos efeitos do desastre sobre os prejuízos econômicos privados.</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PE_PLePR</p></td>
+<td><p>Prejuízos públicos e privados totais</p></td>
+<td><p>Valor (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>Valor total dos prejuízos econômicos públicos e privados</p></td>
+<td><p>Atlas digital de desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ano_Evento</p></td>
+<td><p>Ano do desastre</p></td>
+<td><p>Numérica</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Empenhado</p></td>
+<td><p>Valor empenhado em gestão de riscos e desastres</p></td>
+<td><p>Valor (R$)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DensidadePop</p></td>
+<td><p>Densidade populacional</p></td>
+<td><p>Float (índice)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>População / Área</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Area</p></td>
+<td><p>Área</p></td>
+<td><p>Int (km2)</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Censo IBGE 2022</p></td>
+<td><p>Cada município tem apenas um valor de área. E esse valor tem como fonte o Censo IBGE 2022.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Municipio - UF</p></td>
+<td><p>Município - Unidade da Federação</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PIB</p></td>
+<td><p>Produto Interno Bruto</p></td>
+<td><p>Float (R$)</p></td>
+<td><p>2010-2021</p></td>
+<td><p>-</p></td>
+<td><p>PIB Municipal. IBGE.</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DOMICILIO_AREARURAL</p></td>
+<td><p>Qtde. domicílios na área rural</p></td>
+<td><p>Int</p></td>
+<td><p>2018-2024</p></td>
+<td><p>-</p></td>
+<td><p>CadÚnico (CGUData)</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PDEFAGUA</p></td>
+<td><p>Participação percentual de pessoas inscritas no Cadastro Único residentes em domicílios sem abastecimento de água adequado no total de pessoas inscritas no Cadastro Único. Considera-se adequado o abastecimento de água por meio de rede geral de distribuição e canalização interna. Foram excluídas as pessoas pertencentes a famílias com mais de 2 anos sem atualização do cadastro. A referência deste indicador é o mês de dezembro de cada ano.</p></td>
+<td><p>Int</p></td>
+<td><p>2018-2024</p></td>
+<td><p>Razão entre o número de pessoas inscritas no Cadastro Único residentes em domicílios sem abastecimento de água adequado e o total de pessoas inscritas no Cadastro Único, multiplicado por 100. Considera-se adequado o abastecimento de água por meio de rede geral de distribuição e canalização interna.</p></td>
+<td><p>CadÚnico (CGUData)</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PDEFESGOTO</p></td>
+<td><p>Participação percentual de pessoas inscritas no Cadastro Único residentes em domicílios sem banheiro ou com banheiro mas sem esgotamento sanitário adequado no total de pessoas inscritas no Cadastro Único. Considera-se adequado o esgotamento sanitário através de rede coletora de esgoto ou pluvial ou de fossa séptica. Foram excluídas as pessoas pertencentes a famílias com mais de 2 anos sem atualização do cadastro. A referência deste indicador é o mês de dezembro de cada ano.</p></td>
+<td><p>Int</p></td>
+<td><p>2018-2024</p></td>
+<td><p>Razão entre o número de pessoas inscritas no Cadastro Único residentes em domicílios sem banheiro ou com banheiro mas sem esgotamento sanitário adequado e o total de pessoas inscritas no Cadastro Único, multiplicado por 100. Considera-se adequado o esgotamento sanitário através de rede coletora de esgoto ou pluvial ou de fossa séptica.</p></td>
+<td><p>CadÚnico (CGUData)</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PDEFLIXO</p></td>
+<td><p>Participação percentual de pessoas inscritas no Cadastro Único residentes em domicílios sem coleta de lixo adequada no total de pessoas inscritas no Cadastro Único. Considera-se adequada a coleta de lixo direta ou indireta. Foram excluídas as pessoas pertencentes a famílias com mais de 2 anos sem atualização do cadastro. A referência deste indicador é o mês de dezembro de cada ano.</p></td>
+<td><p>Int</p></td>
+<td><p>2018-2024</p></td>
+<td><p>Razão entre o número de pessoas inscritas no Cadastro Único residentes em domicílios sem coleta de lixo adequada e o total de pessoas inscritas no Cadastro Único, multiplicado por 100. Considera-se adequada a coleta de lixo direta ou indireta.</p></td>
+<td><p>CadÚnico (CGUData)</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PDEFSAN</p></td>
+<td><p>Participação percentual de pessoas inscritas no Cadastro Único sem abastecimento de água, esgotamento sanitário e coleta de lixo adequados no total de pessoas inscritas no Cadastro Único. Consideram-se adequados: abastecimento de água por meio de rede geral de distribuição e canalização interna; esgotamento sanitário através de rede coletora de esgoto ou pluvial ou de fossa séptica; e coleta de lixo direta ou indireta. Foram excluídas as pessoas pertencentes a famílias com mais de 2 anos sem atualização do cadastro. A referência deste indicador é o mês de dezembro de cada ano.</p></td>
+<td><p>Int</p></td>
+<td><p>2018-2024</p></td>
+<td><p>Razão entre o número de pessoas inscritas no Cadastro Único sem abastecimento de água, esgotamento sanitário e coleta de lixo adequados e o total de pessoas inscritas no Cadastro Único, multiplicado por 100.</p></td>
+<td><p>CadÚnico (CGUData)</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>QTDE_FAMILIAS_ATUALIZADA</p></td>
+<td><p>Qtde. famílias inscritas no CadÚnico</p></td>
+<td><p>Int</p></td>
+<td><p>2018-2024</p></td>
+<td><p>-</p></td>
+<td><p>CadÚnico (CGUData)</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cod_Cobrade</p></td>
+<td><p>Classificação e Codificação Brasileira de Desastres</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>O código Cobrade se divide em “Categoria”, “Grupo”, “Subgrupo” e “Tipo”</p></td>
+<td><p>Classificação e Codificação Brasileira de Desastres</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Categoria</p></td>
+<td><p>Categoria do desastre</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Grupo</p></td>
+<td><p>Grupo do desastre</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Subgrupo</p></td>
+<td><p>Subgrupo do desastre</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tipo</p></td>
+<td><p>Tipo do desastre</p></td>
+<td><p>Str</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Pop</p></td>
+<td><p>População residente</p></td>
+<td><p>Int</p></td>
+<td><p>2010-2024</p></td>
+<td><p>-</p></td>
+<td><p>Censo IBGE 2010. Censo IBGE 2022. Para os demais anos: estimativa IBGE.</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+A tabela a seguir apresenta os códigos da Classificação e Codificação Brasileira de Desastres (COBRADE), juntamente com seus respectivos significados, facilitando a compreensão dos tipos e categorias de desastres catalogados.
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>COBRADE</p></th>
+<th class="head"><p>Categoria</p></th>
+<th class="head"><p>Grupo</p></th>
+<th class="head"><p>Subgrupo</p></th>
+<th class="head"><p>Tipo</p></th>
+<th class="head"><p>Subtipo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>11110</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Terremoto</p></td>
+<td><p>Tremor de terra</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>11120</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Terremoto</p></td>
+<td><p>Tsunami</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>11200</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Emanação vulcânica</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>11311</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Movimento de massa</p></td>
+<td><p>Quedas, Tombamentos e rolamentos</p></td>
+<td><p>Blocos</p></td>
+</tr>
+<tr class="row-even"><td><p>11312</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Movimento de massa</p></td>
+<td><p>Quedas, Tombamentos e rolamentos</p></td>
+<td><p>Lascas</p></td>
+</tr>
+<tr class="row-odd"><td><p>11313</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Movimento de massa</p></td>
+<td><p>Quedas, Tombamentos e rolamentos</p></td>
+<td><p>Matacões</p></td>
+</tr>
+<tr class="row-even"><td><p>11314</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Movimento de massa</p></td>
+<td><p>Quedas, Tombamentos e rolamentos</p></td>
+<td><p>Lajes</p></td>
+</tr>
+<tr class="row-odd"><td><p>11321</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Movimento de massa</p></td>
+<td><p>Deslizamentos</p></td>
+<td><p>Deslizamentos de solo e ou rocha</p></td>
+</tr>
+<tr class="row-even"><td><p>11331</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Movimento de massa</p></td>
+<td><p>Corridas de Massa</p></td>
+<td><p>Solo/Lama</p></td>
+</tr>
+<tr class="row-odd"><td><p>11332</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Movimento de massa</p></td>
+<td><p>Corridas de Massa</p></td>
+<td><p>Rocha/Detrito</p></td>
+</tr>
+<tr class="row-even"><td><p>11340</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Movimento de massa</p></td>
+<td><p>Subsidências e colapsos</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>11410</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Erosão</p></td>
+<td><p>Erosão Costeira/Marinha</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>11420</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Erosão</p></td>
+<td><p>Erosão de Margem Fluvial</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>11431</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Erosão Continental</p></td>
+<td><p>Laminar</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>11432</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Erosão Continental</p></td>
+<td><p>Ravinas</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>11433</p></td>
+<td><p>Natural</p></td>
+<td><p>Geológico</p></td>
+<td><p>Erosão Continental</p></td>
+<td><p>Boçorocas</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>12100</p></td>
+<td><p>Natural</p></td>
+<td><p>Hidrológico</p></td>
+<td><p>Inundações</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>12200</p></td>
+<td><p>Natural</p></td>
+<td><p>Hidrológico</p></td>
+<td><p>Enxurradas</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>12300</p></td>
+<td><p>Natural</p></td>
+<td><p>Hidrológico</p></td>
+<td><p>Alagamentos</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>13111</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Sistemas de Grande Escala/Escala Regional</p></td>
+<td><p>Ciclones</p></td>
+<td><p>Ventos Costeiros (Mobilidade de Dunas)</p></td>
+</tr>
+<tr class="row-even"><td><p>13112</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Sistemas de Grande Escala/Escala Regional</p></td>
+<td><p>Ciclones</p></td>
+<td><p>Marés de Tempestade (Ressacas)</p></td>
+</tr>
+<tr class="row-odd"><td><p>13120</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Sistemas de Grande Escala/Escala Regional</p></td>
+<td><p>Frentes Frias/Zonas de Convergência</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>13211</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Tempestades</p></td>
+<td><p>Tempestade Local/Convectiva</p></td>
+<td><p>Tornados</p></td>
+</tr>
+<tr class="row-odd"><td><p>13212</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Tempestades</p></td>
+<td><p>Tempestade Local/Convectiva</p></td>
+<td><p>Tempestade de Raios</p></td>
+</tr>
+<tr class="row-even"><td><p>13213</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Tempestades</p></td>
+<td><p>Tempestade Local/Convectiva</p></td>
+<td><p>Granizo</p></td>
+</tr>
+<tr class="row-odd"><td><p>13214</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Tempestades</p></td>
+<td><p>Tempestade Local/Convectiva</p></td>
+<td><p>Chuvas Intensas</p></td>
+</tr>
+<tr class="row-even"><td><p>13215</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Tempestades</p></td>
+<td><p>Tempestade Local/Convectiva</p></td>
+<td><p>Vendaval</p></td>
+</tr>
+<tr class="row-odd"><td><p>13310</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Temperaturas Extremas</p></td>
+<td><p>Onda de Calor</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>13321</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Temperaturas Extremas</p></td>
+<td><p>Onda de Frio</p></td>
+<td><p>Friagem</p></td>
+</tr>
+<tr class="row-odd"><td><p>13322</p></td>
+<td><p>Natural</p></td>
+<td><p>Meteorológico</p></td>
+<td><p>Temperaturas Extremas</p></td>
+<td><p>Onda de Frio</p></td>
+<td><p>Geadas</p></td>
+</tr>
+<tr class="row-even"><td><p>14110</p></td>
+<td><p>Natural</p></td>
+<td><p>Climatológico</p></td>
+<td><p>Seca</p></td>
+<td><p>Estiagem</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>14120</p></td>
+<td><p>Natural</p></td>
+<td><p>Climatológico</p></td>
+<td><p>Seca</p></td>
+<td><p>Seca</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>14131</p></td>
+<td><p>Natural</p></td>
+<td><p>Climatológico</p></td>
+<td><p>Seca</p></td>
+<td><p>Incêndio Florestal</p></td>
+<td><p>Incêndios em Parques, Áreas de Proteção Ambiental e Áreas de Preservação Permanente Nacionais, Estaduais ou Municipais</p></td>
+</tr>
+<tr class="row-odd"><td><p>14132</p></td>
+<td><p>Natural</p></td>
+<td><p>Climatológico</p></td>
+<td><p>Seca</p></td>
+<td><p>Incêndio Florestal</p></td>
+<td><p>Incêndios em áreas não protegidas, com reflexos na qualidade do ar</p></td>
+</tr>
+<tr class="row-even"><td><p>14140</p></td>
+<td><p>Natural</p></td>
+<td><p>Climatológico</p></td>
+<td><p>Seca</p></td>
+<td><p>Baixa Umidade do Ar</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>15110</p></td>
+<td><p>Natural</p></td>
+<td><p>Biológico</p></td>
+<td><p>Epidemias</p></td>
+<td><p>Doenças infecciosas virais</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>15120</p></td>
+<td><p>Natural</p></td>
+<td><p>Biológico</p></td>
+<td><p>Epidemias</p></td>
+<td><p>Doenças infecciosas bacterianas</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>15130</p></td>
+<td><p>Natural</p></td>
+<td><p>Biológico</p></td>
+<td><p>Epidemias</p></td>
+<td><p>Doenças infecciosas parasíticas</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>15140</p></td>
+<td><p>Natural</p></td>
+<td><p>Biológico</p></td>
+<td><p>Epidemias</p></td>
+<td><p>Doenças infecciosas fúngicas</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>15210</p></td>
+<td><p>Natural</p></td>
+<td><p>Biológico</p></td>
+<td><p>Infestações/Pragas</p></td>
+<td><p>Infestações de animais</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>15221</p></td>
+<td><p>Natural</p></td>
+<td><p>Biológico</p></td>
+<td><p>Infestações/Pragas</p></td>
+<td><p>Infestações de algas</p></td>
+<td><p>Marés vermelhas</p></td>
+</tr>
+<tr class="row-odd"><td><p>15222</p></td>
+<td><p>Natural</p></td>
+<td><p>Biológico</p></td>
+<td><p>Infestações/Pragas</p></td>
+<td><p>Infestações de algas</p></td>
+<td><p>Ciano bactérias em reservatórios</p></td>
+</tr>
+<tr class="row-even"><td><p>15230</p></td>
+<td><p>Natural</p></td>
+<td><p>Biológico</p></td>
+<td><p>Infestações/Pragas</p></td>
+<td><p>Outras Infestações</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>21110</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Substâncias radioativas</p></td>
+<td><p>Desastres siderais com riscos radioativos</p></td>
+<td><p>Queda de satélite (radionuclídeos)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>21210</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Substâncias radioativas</p></td>
+<td><p>Desastres com substâncias e equipamentos radioativos de uso em pesquisas, indústrias e usinas nucleares</p></td>
+<td><p>Fontes radioativas em processos de produção</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>21310</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Substâncias radioativas</p></td>
+<td><p>Desastres relacionados com riscos de intensa poluição ambiental provocada por resíduos radioativos</p></td>
+<td><p>Outras fontes de liberação de radionuclídeos para o meio ambiente</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>22110</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres em plantas e distritos industriais, parques e armazenamentos com extravasamento de produtos perigosos</p></td>
+<td><p>Liberação de produtos químicos para a atmosfera causada por explosão ou incêndio</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>22210</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres relacionados à contaminação da água</p></td>
+<td><p>Liberação de produtos químicos nos sistemas de água potável</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>22220</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres relacionados à contaminação da água</p></td>
+<td><p>Derramamento de produtos químicos em ambiente lacustre, fluvial, marinho e aquíferos</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>22310</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres Relacionados a Conflitos Bélicos</p></td>
+<td><p>Liberação produtos químicos e contaminação como consequência de ações militares</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>22410</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres relacionados a transporte de produtos perigosos</p></td>
+<td><p>Transporte rodoviário</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>22420</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres relacionados a transporte de produtos perigosos</p></td>
+<td><p>Transporte ferroviário</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>22430</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres relacionados a transporte de produtos perigosos</p></td>
+<td><p>Transporte aéreo</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>22440</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres relacionados a transporte de produtos perigosos</p></td>
+<td><p>Transporte dutoviário</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>22450</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres relacionados a transporte de produtos perigosos</p></td>
+<td><p>Transporte marítimo</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>22460</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Produtos Perigosos</p></td>
+<td><p>Desastres relacionados a transporte de produtos perigosos</p></td>
+<td><p>Transporte aquaviário</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>23110</p></td>
+<td><p>Tecnológico</p></td>
+<td><p>Desastres Relacionados a Incêndios Urbanos</p></td>
+<td><p>Incêndios urbanos</p></td>
+<td><p>Incêndios em plantas e distritos industriais, parques e</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introdução</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="analise_exploratoria_preliminar.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Análise preliminar</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+  <div class="mooc_add">
+   <a href="https://www.fun-mooc.fr/en/courses/machine-learning-python-scikit-learn">Join the full MOOC for better learning!</a>
+  </div>
+  Brought to you under a <a href="https://github.com/INRIA/scikit-learn-mooc/blob/main/LICENSE">CC-BY License</a> by
+  <a href="https://learninglab.inria.fr">Inria Learning Lab</a>,
+  <a href="https://scikit-learn.fondation-inria.fr">scikit-learn @ La Fondation Inria</a>,
+  <a href="https://www.inria-academy.fr/formation/scikit-learn-la-boite-a-outils-de-lapprentissage-automatique/">Inria Academy</a>,
+  with many thanks to the <a href="https://scikit-learn.org">scikit-learn</a> community as a whole!
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
