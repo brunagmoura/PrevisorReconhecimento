@@ -1,0 +1,32 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: content
+parts:
+- chapters:
+  - file: intro
+  - file: dados
+- caption: Análise exploratória
+  chapters:
+  - file: analise_exploratoria_preliminar
+  - file: analise_registros_municipios
+- caption: Pré processamento
+  chapters:
+  - file: pre_processamento
+- caption: Regressão logística
+  chapters:
+  - file: reglog_baseline
+  - file: reglog_modelo1_2010_2017
+  - file: reglog_modelo1_2018_2024
+  - file: reglog_modelo2_2010_2017
+  - file: reglog_modelo2_2018_2024
+  - file: reglog_conclusao
+- caption: Random Forest
+  chapters:
+  - file: randomforest_base
+- caption: Classificação de textos
+  chapters:
+  - file: nlp_tfidf_base
+  - file: nlp_tfidf_oversampler
+  - file: nlp_tfidf_undersampler
