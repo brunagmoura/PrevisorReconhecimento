@@ -1,0 +1,1228 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dados ausentes e status de reconhecimento federal &#8212; Previsor de reconhecimento</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analise_dados_ausentes';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pré processamento dos dados" href="pre_processamento.html" />
+    <link rel="prev" title="Municípios e desastres" href="analise_registros_municipios.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="content.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/previsor_logo.png" class="logo__image only-light" alt="Previsor de reconhecimento - Home"/>
+    <script>document.write(`<img src="_static/previsor_logo.png" class="logo__image only-dark" alt="Previsor de reconhecimento - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dados.html">Base de dados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise exploratória</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="analise_exploratoria_preliminar.html">Análise preliminar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_registros_municipios.html">Municípios e desastres</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dados ausentes e status de reconhecimento federal</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pré processamento</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pre_processamento.html">Pré processamento dos dados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regressão logística</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="reglog_baseline.html">Modelo “base”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_conclusao.html">Resultados da Regressão Logística</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="randomforest_base.html">Modelo base</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">XGBoost</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="xgboost_base.html">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_conclusao.html">Resultados do modelo XGBoost</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Classificação de textos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_base.html">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_oversampler.html">Balanceamento “Random Under Sampler”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_undersampler.html">Balanceamento “Random Under Sampler”</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/INRIA/scikit-learn-mooc/main?urlpath=tree/analise_dados_ausentes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc/edit/main/analise_dados_ausentes.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc/issues/new?title=Issue%20on%20page%20%2Fanalise_dados_ausentes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/analise_dados_ausentes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dados ausentes e status de reconhecimento federal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas-e-bases-de-dados">Bibliotecas e bases de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacao-da-base-de-dados">Manipulação da base de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-dos-dados-ausentes-nas-colunas-de-descricao">Análise dos dados ausentes nas colunas de descrição</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campos-de-descricao-preenchidos-vs-status-de-reconhecimento">Campos de descrição preenchidos vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testes-de-correlacao-para-variaveis-categoricas">Testes de correlação para variáveis categóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descricao-de-danos-materiais-vs-status-de-reconhecimento">Descrição de danos materiais vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descricao-de-danos-humanos-vs-status-de-reconhecimento">Descrição de danos humanos vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descricao-de-prejuizos-economicos-publicos-vs-status-de-reconhecimento">Descrição de prejuízos econômicos públicos vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descricao-de-prejuizos-economicos-privados-vs-status-de-reconhecimento">Descrição de prejuízos econômicos privados vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Descrição de danos humanos vs status de reconhecimento</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="dados-ausentes-e-status-de-reconhecimento-federal">
+<h1>Dados ausentes e status de reconhecimento federal<a class="headerlink" href="#dados-ausentes-e-status-de-reconhecimento-federal" title="Link to this heading">#</a></h1>
+<p>Considerando que existem features descritivas com elevado valor de dados ausentes, testou-se a relação entre o não-preenchimento de informações pelos municípios e se houve ou não reconhecimento federal.</p>
+<section id="bibliotecas-e-bases-de-dados">
+<h2>Bibliotecas e bases de dados<a class="headerlink" href="#bibliotecas-e-bases-de-dados" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Bibliotecas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1">#Estilizar conteúdo</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">estilo_tabelas</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">max_altura</span><span class="o">=</span><span class="s1">&#39;300px&#39;</span><span class="p">,</span> <span class="n">casas_decimais</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;thead th&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="s1">&#39;12px&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;text-align&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;border-bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;2px solid #007BFF&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="s1">&#39;10px&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;text-align&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;max-height&#39;</span><span class="p">,</span> <span class="s1">&#39;40px&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;white-space&#39;</span><span class="p">,</span> <span class="s1">&#39;nowrap&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;text-overflow&#39;</span><span class="p">,</span> <span class="s1">&#39;ellipsis&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;overflow&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;max-width&#39;</span><span class="p">,</span> <span class="s1">&#39;100px&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;tr:nth-child(odd)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;background-color&#39;</span><span class="p">,</span> <span class="s1">&#39;#ffffff&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;90%&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;margin-left&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;margin-right&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;border-collapse&#39;</span><span class="p">,</span> <span class="s1">&#39;collapse&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;td, th&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;border&#39;</span><span class="p">,</span> <span class="s1">&#39;1px solid #666&#39;</span><span class="p">)]},</span>
+            <span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span>
+            <span class="o">**</span><span class="p">{</span><span class="s1">&#39;border-color&#39;</span><span class="p">:</span> <span class="s1">&#39;darkgray&#39;</span><span class="p">,</span> <span class="s1">&#39;border-style&#39;</span><span class="p">:</span> <span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="s1">&#39;border-width&#39;</span><span class="p">:</span> <span class="s1">&#39;1px&#39;</span><span class="p">}</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;style=&quot;height:auto; overflow:auto; max-height:</span><span class="si">{</span><span class="n">max_altura</span><span class="si">}</span><span class="s1">; display:block;&quot;&#39;</span>  
+        <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">precision</span><span class="o">=</span><span class="n">casas_decimais</span>  
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="c1"># Base de dados</span>
+
+<span class="n">object_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Protocolo_S2iD&#39;</span><span class="p">,</span> <span class="s1">&#39;Nome_Municipio&#39;</span><span class="p">,</span> <span class="s1">&#39;Sigla_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;regiao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Setores Censitários&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Descricao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;DA_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;DA_Polui/cont da água&#39;</span><span class="p">,</span> <span class="s1">&#39;DA_Polui/cont do ar&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;DA_Polui/cont do solo&#39;</span><span class="p">,</span> <span class="s1">&#39;DA_Dimi/exauri hídrico&#39;</span><span class="p">,</span>
+                  <span class="s2">&quot;DA_Incêndi parques/APA&#39;s/APP&#39;s&quot;</span><span class="p">,</span> <span class="s1">&#39;PEPL_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPR_Descricao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Categoria&#39;</span><span class="p">,</span> <span class="s1">&#39;Grupo&#39;</span><span class="p">,</span> <span class="s1">&#39;Subgrupo&#39;</span><span class="p">,</span> <span class="s1">&#39;Tipo&#39;</span><span class="p">,</span> <span class="s1">&#39;Subtipo&#39;</span><span class="p">]</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">object_columns</span><span class="p">}</span>
+
+<span class="n">df_eventos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/brunagmoura/PrevisorReconhecimento/refs/heads/main/df_eventos_desastres_rec_nrec.csv&quot;</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="manipulacao-da-base-de-dados">
+<h2>Manipulação da base de dados<a class="headerlink" href="#manipulacao-da-base-de-dados" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#criar df só com campos descritivos e status</span>
+<span class="n">colunas_descr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Descricao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;DA_Descricao&#39;</span><span class="p">,</span><span class="s1">&#39;PEPL_Descricao&#39;</span><span class="p">,</span><span class="s1">&#39;PEPR_Descricao&#39;</span><span class="p">]</span>
+<span class="n">df_eventos_descr</span> <span class="o">=</span> <span class="n">df_eventos</span><span class="p">[</span><span class="n">colunas_descr</span><span class="p">]</span>
+
+<span class="n">estilo_tabelas</span><span class="p">(</span><span class="n">df_eventos_descr</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_e4b9f thead th {
+  font-size: 12px;
+  text-align: center;
+  border-bottom: 2px solid #007BFF;
+}
+#T_e4b9f td {
+  font-size: 10px;
+  text-align: center;
+  max-height: 40px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100px;
+}
+#T_e4b9f tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+#T_e4b9f table {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+#T_e4b9f td {
+  border: 1px solid #666;
+}
+#T_e4b9f  th {
+  border: 1px solid #666;
+}
+#T_e4b9f_row0_col0, #T_e4b9f_row0_col1, #T_e4b9f_row0_col2, #T_e4b9f_row0_col3, #T_e4b9f_row0_col4, #T_e4b9f_row0_col5, #T_e4b9f_row1_col0, #T_e4b9f_row1_col1, #T_e4b9f_row1_col2, #T_e4b9f_row1_col3, #T_e4b9f_row1_col4, #T_e4b9f_row1_col5, #T_e4b9f_row2_col0, #T_e4b9f_row2_col1, #T_e4b9f_row2_col2, #T_e4b9f_row2_col3, #T_e4b9f_row2_col4, #T_e4b9f_row2_col5, #T_e4b9f_row3_col0, #T_e4b9f_row3_col1, #T_e4b9f_row3_col2, #T_e4b9f_row3_col3, #T_e4b9f_row3_col4, #T_e4b9f_row3_col5, #T_e4b9f_row4_col0, #T_e4b9f_row4_col1, #T_e4b9f_row4_col2, #T_e4b9f_row4_col3, #T_e4b9f_row4_col4, #T_e4b9f_row4_col5 {
+  border-color: darkgray;
+  border-style: solid;
+  border-width: 1px;
+}
+</style>
+<table id="T_e4b9f" style="height:auto; overflow:auto; max-height:300px; display:block;">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_e4b9f_level0_col0" class="col_heading level0 col0" >Status</th>
+      <th id="T_e4b9f_level0_col1" class="col_heading level0 col1" >DH_Descricao</th>
+      <th id="T_e4b9f_level0_col2" class="col_heading level0 col2" >DM_Descricao</th>
+      <th id="T_e4b9f_level0_col3" class="col_heading level0 col3" >DA_Descricao</th>
+      <th id="T_e4b9f_level0_col4" class="col_heading level0 col4" >PEPL_Descricao</th>
+      <th id="T_e4b9f_level0_col5" class="col_heading level0 col5" >PEPR_Descricao</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_e4b9f_level0_row0" class="row_heading level0 row0" >26253</th>
+      <td id="T_e4b9f_row0_col0" class="data row0 col0" >Reconhecido</td>
+      <td id="T_e4b9f_row0_col1" class="data row0 col1" >A seca tem causado interrupções no fornecimento de água potável para a população dos núcleos urbanos e limitações severas no consumo de água nos domicílios situados na zona rural que precisam aguardar um tempo elevado para que a água acumule em cisterna em volume que seja possível bombear. _x000D_
+_x000D_
+</td>
+      <td id="T_e4b9f_row0_col2" class="data row0 col2" >nan</td>
+      <td id="T_e4b9f_row0_col3" class="data row0 col3" >Redução dos cursos de água e pastagem provocado pela seca.</td>
+      <td id="T_e4b9f_row0_col4" class="data row0 col4" >Aluguel de 01 caminhão pipa para abastecimento de domicílios rurais, distribuição de 50 caixas água mineral para a população, 380 litros combustível para a frota municipal utilizada nas ações de assistência e distribuição de 200 cestas básicas.</td>
+      <td id="T_e4b9f_row0_col5" class="data row0 col5" >Com a estiagem, houve perdas nos setores da agricultura, pecuária e abastecimento de água principalmente nas comunidades rurais. Houve redução na produção agrícola de 40,43%, perda por mortalidade de animais em torno de 1,0%, redução na produção de carne de 16,7% e redução na produção de leite de 33,3%.</td>
+    </tr>
+    <tr>
+      <th id="T_e4b9f_level0_row1" class="row_heading level0 row1" >26254</th>
+      <td id="T_e4b9f_row1_col0" class="data row1 col0" >Reconhecido</td>
+      <td id="T_e4b9f_row1_col1" class="data row1 col1" >Conforme laudo da assistência social, o desastre Tempestade Local/Convectiva - Vendaval atingiu o município em todo o seu território urbano e rural,  afetando diretamente 1.180 famílias, aproximadamente 4.716 pessoas, desse total, aproximadamente 30 pessoas ficaram desalojadas. Ainda dentro desse número de famílias 30 famílias foram diretamente afetadas, sendo aproximadamente 120 pessoas encontram-se em vulnerabilidade social. Todos os afetados tiveram danos em suas residências, em telhados, em muitas delas perdendo móveis, roupas e alimentos. Estradas no interior que ficaram sem condições seguras de trafegabilidade e/ou bloqueadas, conforme constatado pela engenharia. A tempestade que atingiu o município afetou as famílias também com a falta de energia elétrica e consequentemente de água, sendo restabelecida em todo o território do município somente no dia 02 de Janeiro.</td>
+      <td id="T_e4b9f_row1_col2" class="data row1 col2" >Conforme laudo da engenharia o evento vendaval causou danos em aproximadamente 30 unidades habitacionais, 01 instalação pública de saúde, uma de ensino e ainda nas estradas rurais do município.</td>
+      <td id="T_e4b9f_row1_col3" class="data row1 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pela quebra das telhas de fibrocimento e queda de árvores.</td>
+      <td id="T_e4b9f_row1_col4" class="data row1 col4" >Conforme laudo da secretaria de administração, o município aportou aproximadamente R$ 6.000,00 em limpeza urbana, recolhimento e destinação do lixo. Ainda conforme laudo da Engenharia os danos/prejuízos nas estradas rurais, instalações públicas de ensino e saúde aproximam-se do valor de R$ 135.000,00.</td>
+      <td id="T_e4b9f_row1_col5" class="data row1 col5" >Conforme laudo da Emater, os prejuízos decorrentes do evento somam-se ao valor de R$ 3.384.500,00 na pecuária. </td>
+    </tr>
+    <tr>
+      <th id="T_e4b9f_level0_row2" class="row_heading level0 row2" >26255</th>
+      <td id="T_e4b9f_row2_col0" class="data row2 col0" >Reconhecido</td>
+      <td id="T_e4b9f_row2_col1" class="data row2 col1" >Conforme laudo da assistência social, 20 famílias, 80 pessoas ficaram desalojadas devido destelhamento das suas residências, sendo que três moradias teve todo telhado arrancado, com tesouras e forro. No total foram 276 unidades habitacionais danificadas conforme laudo da engenharia. Ainda conforme laudo da Emater em anexo, houve prejuízos na pecuária que chegam ao valor de R$ 132.000,00. </td>
+      <td id="T_e4b9f_row2_col2" class="data row2 col2" >Conforme laudo da engenharia foram danificadas 276 unidades habitacionais, 07 instalações públicas de ensino sofreram destelhamento devidos aos fortes ventos.</td>
+      <td id="T_e4b9f_row2_col3" class="data row2 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pelas quebra das telhas de fibrocimento e quedas de inúmeras árvores.</td>
+      <td id="T_e4b9f_row2_col4" class="data row2 col4" >Conforme laudo da secretaria de administração, o município de Tenente portela gastou até o momento o valor aproximado de R$ 8.000,00 em abastecimento de água potável as famílias atingidas, R$ 5.500,00 em limpeza urbana recolhimento e destinação do lixo. Somam-se ainda, conforme laudo da engenharia os danos/prejuízos em 7 instalações públicas de ensino valor aproximado de R$ 25.000,00.</td>
+      <td id="T_e4b9f_row2_col5" class="data row2 col5" >Conforme laudo da Emater, o evento vendaval ocasionou danos e prejuízos na pecuária, valor este que aproximam-se de R$ 132.000,00.</td>
+    </tr>
+    <tr>
+      <th id="T_e4b9f_level0_row3" class="row_heading level0 row3" >26256</th>
+      <td id="T_e4b9f_row3_col0" class="data row3 col0" >Reconhecido</td>
+      <td id="T_e4b9f_row3_col1" class="data row3 col1" >As pessoas atingidas, tiveram os telhados de suas residências danificados, moveis molhados, sendo necessário cobrir com lonas, totalizando num total de 300 pessoas atingidas diretamente, de acordo com o laudo da assistência social.</td>
+      <td id="T_e4b9f_row3_col2" class="data row3 col2" >De acordo com o laudo da engenharia civil, houve um total de 75 unidades habitacionais atingidas, totalizando um dano estimado de R$120.583,50. Além disso, foi registrado danos causados em prédios públicos, como postos de saúde, escolas, secretarias, totalizando um valor estimado de R$106.834,65.</td>
+      <td id="T_e4b9f_row3_col3" class="data row3 col3" >nan</td>
+      <td id="T_e4b9f_row3_col4" class="data row3 col4" >De acordo com o laudo da engenharia civil, houve prejuizos econômicos públicos, entre eles: o posto de sáude (R$ 22.632,95), a sede da assitencia social (R$ 43.975,80), a secretária de obras (R$ 16.430,00) e a escola do bairro CIEP (R$ 13.520,60). Totalizando um valor de R$ 96.559,35. </td>
+      <td id="T_e4b9f_row3_col5" class="data row3 col5" >nan</td>
+    </tr>
+    <tr>
+      <th id="T_e4b9f_level0_row4" class="row_heading level0 row4" >26257</th>
+      <td id="T_e4b9f_row4_col0" class="data row4 col0" >Reconhecido</td>
+      <td id="T_e4b9f_row4_col1" class="data row4 col1" >Toda a população do Município foi afetada direta ou indiretamente pelo evento adverso do dia 29 de dezembro de 2023, devido aos fortes ventos em todo teritório do Município de Ubiretama, que causaram vários destelhamentos em residências e prédios públicos, queda de galhos e árvores sobre as vias municipais, assim dificultando a locomoção das pessoas, bem como interrupçao de fornecimento de energia elétrica, sendo que todo município de Ubiretama está sem energia elétrica até o momento, o que pode perdurar por vários dias inclusive. </td>
+      <td id="T_e4b9f_row4_col2" class="data row4 col2" >Várias residências afetadas, causando um valor aproximado de R$ 10.000,00(dez mil reais), e a quadra de futebol society, que foi teve a cobertura totalmente destruída, em razão dos fortes ventos, causando um prejuízo aproximado de R$ 250.000,00(duzentos e cinquenta mil reais), de acordo com o Relatório do Engenheiro Civil. </td>
+      <td id="T_e4b9f_row4_col3" class="data row4 col3" >nan</td>
+      <td id="T_e4b9f_row4_col4" class="data row4 col4" >Em razão dos fortes ventos, ocorrram quedas de galhos e árvores, obstruíndo vias municipais, que foram desobstruídos pela Secretaria de Obras.</td>
+      <td id="T_e4b9f_row4_col5" class="data row4 col5" >nan</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ausentes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;</span><span class="si">% d</span><span class="s1">ados ausentes&#39;</span><span class="p">:</span> <span class="n">df_eventos_descr</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="p">})</span>
+
+<span class="n">estilo_tabelas</span><span class="p">(</span><span class="n">ausentes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_4d2b3 thead th {
+  font-size: 12px;
+  text-align: center;
+  border-bottom: 2px solid #007BFF;
+}
+#T_4d2b3 td {
+  font-size: 10px;
+  text-align: center;
+  max-height: 40px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100px;
+}
+#T_4d2b3 tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+#T_4d2b3 table {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+#T_4d2b3 td {
+  border: 1px solid #666;
+}
+#T_4d2b3  th {
+  border: 1px solid #666;
+}
+#T_4d2b3_row0_col0, #T_4d2b3_row1_col0, #T_4d2b3_row2_col0, #T_4d2b3_row3_col0, #T_4d2b3_row4_col0, #T_4d2b3_row5_col0 {
+  border-color: darkgray;
+  border-style: solid;
+  border-width: 1px;
+}
+</style>
+<table id="T_4d2b3" style="height:auto; overflow:auto; max-height:300px; display:block;">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_4d2b3_level0_col0" class="col_heading level0 col0" >% dados ausentes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_4d2b3_level0_row0" class="row_heading level0 row0" >Status</th>
+      <td id="T_4d2b3_row0_col0" class="data row0 col0" >0.00</td>
+    </tr>
+    <tr>
+      <th id="T_4d2b3_level0_row1" class="row_heading level0 row1" >DH_Descricao</th>
+      <td id="T_4d2b3_row1_col0" class="data row1 col0" >25.14</td>
+    </tr>
+    <tr>
+      <th id="T_4d2b3_level0_row2" class="row_heading level0 row2" >DM_Descricao</th>
+      <td id="T_4d2b3_row2_col0" class="data row2 col0" >47.61</td>
+    </tr>
+    <tr>
+      <th id="T_4d2b3_level0_row3" class="row_heading level0 row3" >DA_Descricao</th>
+      <td id="T_4d2b3_row3_col0" class="data row3 col0" >38.77</td>
+    </tr>
+    <tr>
+      <th id="T_4d2b3_level0_row4" class="row_heading level0 row4" >PEPL_Descricao</th>
+      <td id="T_4d2b3_row4_col0" class="data row4 col0" >31.60</td>
+    </tr>
+    <tr>
+      <th id="T_4d2b3_level0_row5" class="row_heading level0 row5" >PEPR_Descricao</th>
+      <td id="T_4d2b3_row5_col0" class="data row5 col0" >25.42</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="analise-dos-dados-ausentes-nas-colunas-de-descricao">
+<h2>Análise dos dados ausentes nas colunas de descrição<a class="headerlink" href="#analise-dos-dados-ausentes-nas-colunas-de-descricao" title="Link to this heading">#</a></h2>
+<p>Levantou-se a hipótese de que, uma vez que a análise para o reconhecimento ou não é feita manualmente, solicitações com descrições preenchidas poderiam resultar com mais frequência no status de “Reconhecimento”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#criar um dataset com instancias que possuem pelo menos um valor isnull</span>
+<span class="n">null_data</span> <span class="o">=</span> <span class="n">df_eventos_descr</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+<span class="n">df_descr_missing</span> <span class="o">=</span> <span class="n">df_eventos_descr</span><span class="p">[</span><span class="n">null_data</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;Total_Missing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="p">[</span><span class="n">colunas_descr</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop_df</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Total_Missing&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">])[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<span class="n">prop_df</span> <span class="o">=</span> <span class="n">prop_df</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">prop_df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">estilo_tabelas</span><span class="p">(</span><span class="n">prop_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_d0d46 thead th {
+  font-size: 12px;
+  text-align: center;
+  border-bottom: 2px solid #007BFF;
+}
+#T_d0d46 td {
+  font-size: 10px;
+  text-align: center;
+  max-height: 40px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100px;
+}
+#T_d0d46 tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+#T_d0d46 table {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+#T_d0d46 td {
+  border: 1px solid #666;
+}
+#T_d0d46  th {
+  border: 1px solid #666;
+}
+#T_d0d46_row0_col0, #T_d0d46_row0_col1, #T_d0d46_row1_col0, #T_d0d46_row1_col1, #T_d0d46_row2_col0, #T_d0d46_row2_col1, #T_d0d46_row3_col0, #T_d0d46_row3_col1, #T_d0d46_row4_col0, #T_d0d46_row4_col1 {
+  border-color: darkgray;
+  border-style: solid;
+  border-width: 1px;
+}
+</style>
+<table id="T_d0d46" style="height:auto; overflow:auto; max-height:300px; display:block;">
+  <thead>
+    <tr>
+      <th class="index_name level0" >Status</th>
+      <th id="T_d0d46_level0_col0" class="col_heading level0 col0" >Não reconhecido</th>
+      <th id="T_d0d46_level0_col1" class="col_heading level0 col1" >Reconhecido</th>
+    </tr>
+    <tr>
+      <th class="index_name level0" >Total_Missing</th>
+      <th class="blank col0" >&nbsp;</th>
+      <th class="blank col1" >&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_d0d46_level0_row0" class="row_heading level0 row0" >1</th>
+      <td id="T_d0d46_row0_col0" class="data row0 col0" >0.09</td>
+      <td id="T_d0d46_row0_col1" class="data row0 col1" >0.91</td>
+    </tr>
+    <tr>
+      <th id="T_d0d46_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_d0d46_row1_col0" class="data row1 col0" >0.17</td>
+      <td id="T_d0d46_row1_col1" class="data row1 col1" >0.83</td>
+    </tr>
+    <tr>
+      <th id="T_d0d46_level0_row2" class="row_heading level0 row2" >3</th>
+      <td id="T_d0d46_row2_col0" class="data row2 col0" >0.30</td>
+      <td id="T_d0d46_row2_col1" class="data row2 col1" >0.70</td>
+    </tr>
+    <tr>
+      <th id="T_d0d46_level0_row3" class="row_heading level0 row3" >4</th>
+      <td id="T_d0d46_row3_col0" class="data row3 col0" >0.07</td>
+      <td id="T_d0d46_row3_col1" class="data row3 col1" >0.93</td>
+    </tr>
+    <tr>
+      <th id="T_d0d46_level0_row4" class="row_heading level0 row4" >5</th>
+      <td id="T_d0d46_row4_col0" class="data row4 col0" >0.05</td>
+      <td id="T_d0d46_row4_col1" class="data row4 col1" >0.95</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<section id="campos-de-descricao-preenchidos-vs-status-de-reconhecimento">
+<h3>Campos de descrição preenchidos vs status de reconhecimento<a class="headerlink" href="#campos-de-descricao-preenchidos-vs-status-de-reconhecimento" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">],</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total de faltantes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporção Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relação status e preenchimento descritivas&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5c14a3aca8f308045ce2a6713104a6aaeea2f5c55e77dd4aa80f6724d7f0442d.png" src="_images/5c14a3aca8f308045ce2a6713104a6aaeea2f5c55e77dd4aa80f6724d7f0442d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total de faltantes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporção Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relação status e preenchimento descritivas&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d50c69c16ea44fb3110181ef4e296f84ac5a2c2be10390764ee8b96ee70fc9fb.png" src="_images/d50c69c16ea44fb3110181ef4e296f84ac5a2c2be10390764ee8b96ee70fc9fb.png" />
+</div>
+</div>
+</section>
+<section id="testes-de-correlacao-para-variaveis-categoricas">
+<h3>Testes de correlação para variáveis categóricas<a class="headerlink" href="#testes-de-correlacao-para-variaveis-categoricas" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##TESTES DE CORRELAÇÃO PARA VARIÁVEIS CATEGÓRICAS</span>
+
+<span class="c1">## Chi-quadrado</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
+
+<span class="n">tabela_cont1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;Total_Missing&#39;</span><span class="p">],</span> <span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">])</span>
+<span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span><span class="n">tabela_cont1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chi-quadrado:&quot;</span><span class="p">,</span> <span class="n">chi2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-valor:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="c1">###Cramer&#39;s V</span>
+<span class="n">contingency_table1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;Total_Missing&#39;</span><span class="p">],</span> <span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">])</span>
+<span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span><span class="n">contingency_table1</span><span class="p">)</span>
+<span class="c1">## Calculate Cramer&#39;s V</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">contingency_table1</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># Total number of observations</span>
+<span class="n">phi2</span> <span class="o">=</span> <span class="n">chi2</span> <span class="o">/</span> <span class="n">n</span>
+<span class="n">k</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">contingency_table1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Number of categories in the smaller variable</span>
+<span class="n">cramers_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">phi2</span> <span class="o">/</span> <span class="n">k</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cramer&#39;s V:&quot;</span><span class="p">,</span> <span class="n">cramers_v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chi-quadrado: 591.0525262674172
+P-valor: 1.3385599544407019e-126
+Cramer&#39;s V: 0.18870007661588079
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="descricao-de-danos-materiais-vs-status-de-reconhecimento">
+<h3>Descrição de danos materiais vs status de reconhecimento<a class="headerlink" href="#descricao-de-danos-materiais-vs-status-de-reconhecimento" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Para Danos Materiais</span>
+
+<span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;dm_isnull&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;DM_Descricao&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+
+<span class="n">prop_df_dm</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;dm_isnull&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">])[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+
+<span class="n">prop_df_dm</span> <span class="o">=</span> <span class="n">prop_df_dm</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">prop_df_dm</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Plotar &#39;DM_Descricao&#39; as the x-axis</span>
+<span class="n">prop_df_dm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">],</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;DM&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporção Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relação status e preenchimento &quot;descrição Danos Materiais&quot;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>  <span class="c1"># Rotate for better readability if needed</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">_usetex</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Disable mathtext for tick labels</span>
+<span class="c1"># plt.show()</span>
+<span class="n">x_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Preenchido&#39;</span><span class="p">,</span> <span class="s1">&#39;Faltante&#39;</span><span class="p">]</span>  <span class="c1"># Define your desired labels here</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">prop_df_dm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bf1d82479f51340bff2613af80a1c33ee1754fd349c02a8e43c37bfd3f351385.png" src="_images/bf1d82479f51340bff2613af80a1c33ee1754fd349c02a8e43c37bfd3f351385.png" />
+</div>
+</div>
+</section>
+<section id="descricao-de-danos-humanos-vs-status-de-reconhecimento">
+<h3>Descrição de danos humanos vs status de reconhecimento<a class="headerlink" href="#descricao-de-danos-humanos-vs-status-de-reconhecimento" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Para DA</span>
+<span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;da_isnull&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;DA_Descricao&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+
+<span class="c1">#print(df_descr_missing.head())</span>
+<span class="n">prop_df_da</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;da_isnull&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">])[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+
+<span class="n">prop_df_da</span> <span class="o">=</span> <span class="n">prop_df_da</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">prop_df_da</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">prop_df_da</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">],</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;DA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporção Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relação status e preenchimento &quot;Descrição danos humanos&quot;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>  <span class="c1"># Rotate for better readability if needed</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">_usetex</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Disable mathtext for tick labels</span>
+<span class="c1"># plt.show()</span>
+<span class="n">x_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Preenchido&#39;</span><span class="p">,</span> <span class="s1">&#39;Faltante&#39;</span><span class="p">]</span>  <span class="c1"># Define your desired labels here</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">prop_df_dm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/79588c7a246e951627a654a7209c3ae3864ced0ba7cbd238eabebfd4a720d279.png" src="_images/79588c7a246e951627a654a7209c3ae3864ced0ba7cbd238eabebfd4a720d279.png" />
+</div>
+</div>
+</section>
+<section id="descricao-de-prejuizos-economicos-publicos-vs-status-de-reconhecimento">
+<h3>Descrição de prejuízos econômicos públicos vs status de reconhecimento<a class="headerlink" href="#descricao-de-prejuizos-economicos-publicos-vs-status-de-reconhecimento" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Para PEPL</span>
+<span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;pepl_isnull&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;PEPL_Descricao&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+
+<span class="c1">#print(df_descr_missing.head())</span>
+<span class="n">prop_df_pepl</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;pepl_isnull&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">])[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+
+<span class="n">prop_df_pepl</span> <span class="o">=</span> <span class="n">prop_df_pepl</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">prop_df_pepl</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">prop_df_pepl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">],</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PEPL&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporção Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relação status e preenchimento &quot;Descrição prejuízos econômicos públicos&quot;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>  <span class="c1"># Rotate for better readability if needed</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">_usetex</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Disable mathtext for tick labels</span>
+<span class="c1"># plt.show()</span>
+<span class="n">x_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Preenchido&#39;</span><span class="p">,</span> <span class="s1">&#39;Faltante&#39;</span><span class="p">]</span>  <span class="c1"># Define your desired labels here</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">prop_df_dm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e659490489f33fe6f48af3a2212ed2319a13d82d832612708f77a7033cc94a8e.png" src="_images/e659490489f33fe6f48af3a2212ed2319a13d82d832612708f77a7033cc94a8e.png" />
+</div>
+</div>
+</section>
+<section id="descricao-de-prejuizos-economicos-privados-vs-status-de-reconhecimento">
+<h3>Descrição de prejuízos econômicos privados vs status de reconhecimento<a class="headerlink" href="#descricao-de-prejuizos-economicos-privados-vs-status-de-reconhecimento" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#PEPR</span>
+<span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;pepr_isnull&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;PEPR_Descricao&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+
+<span class="c1">#print(df_descr_missing.head())</span>
+<span class="n">prop_df_pepr</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;pepr_isnull&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">])[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+
+<span class="n">prop_df_pepr</span> <span class="o">=</span> <span class="n">prop_df_pepr</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">prop_df_pepr</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">prop_df_pepr</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">],</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PEPR&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporção Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relação status e preenchimento &quot;Descrição prejuízos econômicos privados&quot;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>  <span class="c1"># Rotate for better readability if needed</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">_usetex</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Disable mathtext for tick labels</span>
+<span class="c1"># plt.show()</span>
+<span class="n">x_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Preenchido&#39;</span><span class="p">,</span> <span class="s1">&#39;Faltante&#39;</span><span class="p">]</span>  <span class="c1"># Define your desired labels here</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">prop_df_dm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/451aa4b42151aef4fa0b2a36a6745a12d09d95e90e929218bcb2b7da879f6b45.png" src="_images/451aa4b42151aef4fa0b2a36a6745a12d09d95e90e929218bcb2b7da879f6b45.png" />
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>Descrição de danos humanos vs status de reconhecimento<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#DH</span>
+<span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;dh_isnull&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="p">[</span><span class="s1">&#39;DH_Descricao&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+
+<span class="c1">#print(df_descr_missing.head())</span>
+<span class="n">prop_df_dh</span> <span class="o">=</span> <span class="n">df_descr_missing</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;dh_isnull&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">])[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+
+<span class="n">prop_df_dh</span> <span class="o">=</span> <span class="n">prop_df_dh</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">prop_df_dh</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">prop_df_pepr</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">],</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PEPR&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporção Status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relação status e preenchimento PEPR&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>  <span class="c1"># Rotate for better readability if needed</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_major_formatter</span><span class="p">()</span><span class="o">.</span><span class="n">_usetex</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Disable mathtext for tick labels</span>
+<span class="c1"># plt.show()</span>
+<span class="n">x_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Preenchido&#39;</span><span class="p">,</span> <span class="s1">&#39;Faltante&#39;</span><span class="p">]</span>  <span class="c1"># Define your desired labels here</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">prop_df_dm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/73c9a86fc68c9758ff1f93e0aed0e5d13501e705295293c38ad7431eed8dfc0f.png" src="_images/73c9a86fc68c9758ff1f93e0aed0e5d13501e705295293c38ad7431eed8dfc0f.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="analise_registros_municipios.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Municípios e desastres</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pre_processamento.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pré processamento dos dados</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas-e-bases-de-dados">Bibliotecas e bases de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacao-da-base-de-dados">Manipulação da base de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-dos-dados-ausentes-nas-colunas-de-descricao">Análise dos dados ausentes nas colunas de descrição</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campos-de-descricao-preenchidos-vs-status-de-reconhecimento">Campos de descrição preenchidos vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testes-de-correlacao-para-variaveis-categoricas">Testes de correlação para variáveis categóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descricao-de-danos-materiais-vs-status-de-reconhecimento">Descrição de danos materiais vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descricao-de-danos-humanos-vs-status-de-reconhecimento">Descrição de danos humanos vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descricao-de-prejuizos-economicos-publicos-vs-status-de-reconhecimento">Descrição de prejuízos econômicos públicos vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descricao-de-prejuizos-economicos-privados-vs-status-de-reconhecimento">Descrição de prejuízos econômicos privados vs status de reconhecimento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Descrição de danos humanos vs status de reconhecimento</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+  <div class="mooc_add">
+   <a href="https://www.fun-mooc.fr/en/courses/machine-learning-python-scikit-learn">Join the full MOOC for better learning!</a>
+  </div>
+  Brought to you under a <a href="https://github.com/INRIA/scikit-learn-mooc/blob/main/LICENSE">CC-BY License</a> by
+  <a href="https://learninglab.inria.fr">Inria Learning Lab</a>,
+  <a href="https://scikit-learn.fondation-inria.fr">scikit-learn @ La Fondation Inria</a>,
+  <a href="https://www.inria-academy.fr/formation/scikit-learn-la-boite-a-outils-de-lapprentissage-automatique/">Inria Academy</a>,
+  with many thanks to the <a href="https://scikit-learn.org">scikit-learn</a> community as a whole!
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
