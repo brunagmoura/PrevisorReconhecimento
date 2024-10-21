@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Resultados da regressão logística &#8212; Previsor de reconhecimento</title>
+    <title>Resultados da Regressão Logística &#8212; Previsor de reconhecimento</title>
   
   
   
@@ -193,12 +193,7 @@
 <li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Resultados da regressão logística</a></li>
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Resultados da Regressão Logística</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
 <ul class="nav bd-sidenav">
@@ -207,7 +202,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">XGBoost</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="xgboost_base.html">Modelo base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo1_2010_2017.html">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_conclusao.html">Resultados do modelo XGBoost</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Classificação de textos</span></p>
 <ul class="nav bd-sidenav">
@@ -416,7 +415,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Resultados da regressão logística</h1>
+    <h1>Resultados da Regressão Logística</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -426,23 +425,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Resultados da regressão logística</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-base">Modelo “base”</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-ocorridos-entre-2010-e-2017">Eventos ocorridos entre 2010 e 2017</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-precisao">Precision (Precisão)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-sensibilidade-ou-revocacao">Recall (Sensibilidade ou Revocação)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">F1-Score</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-suporte">Support (Suporte)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-acuracia">Accuracy (Acurácia)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-avg-media-macro">Macro Avg (Média Macro)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weighted-avg-media-ponderada">Weighted Avg (Média Ponderada)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2010-2017">Tabela Comparativa dos Modelos (2010-2017)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2010-2017">Análise Comparativa dos Modelos (2010-2017)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-ocorridos-entre-2018-e-2024">Eventos ocorridos entre 2018 e 2024</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-confusao">Matriz de confusão</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusao">Conclusão</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2018-2024">Tabela Comparativa dos Modelos (2018-2024)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2018-2024">Análise Comparativa dos Modelos (2018-2024)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusões</a></li>
 </ul>
-
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -453,109 +446,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="resultados-da-regressao-logistica">
-<h1>Resultados da regressão logística<a class="headerlink" href="#resultados-da-regressao-logistica" title="Link to this heading">#</a></h1>
-<p>Tendo em vista as especificidades identificadas na base de dados, foram realizados testes para quatro bases de dados diferentes:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="resultados-da-regressao-logistica">
+<h1>Resultados da Regressão Logística<a class="headerlink" href="#resultados-da-regressao-logistica" title="Link to this heading">#</a></h1>
+<p>Com base nas especificidades identificadas na base de dados, foram realizados testes utilizando quatro conjuntos de dados distintos:</p>
 <ol class="arabic simple">
-<li><p>Features agregadas com eventos ocorridos entre 2010 e 2017;</p></li>
-<li><p>Features agregadas com eventos ocorridos entre 2018 e 2024;</p></li>
-<li><p>Features desagregadas com eventos ocorridos entre 2010 e 2017;</p></li>
+<li><p>Features agregadas com eventos ocorridos entre 2010 e 2017.</p></li>
+<li><p>Features agregadas com eventos ocorridos entre 2018 e 2024.</p></li>
+<li><p>Features desagregadas com eventos ocorridos entre 2010 e 2017.</p></li>
 <li><p>Features desagregadas com eventos ocorridos entre 2018 e 2024.</p></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Mais detalhes sobre o pré-processamento dos dados podem ser verificados no capítulo “Pré processamento”.</p>
-</div>
-</section>
-<section id="modelo-base">
-<h1>Modelo “base”<a class="headerlink" href="#modelo-base" title="Link to this heading">#</a></h1>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Métrica</strong></p></th>
-<th class="head"><p>s/ Smote</p></th>
-<th class="head"><p>c/ Smote</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Reconhecido</strong></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Precision</p></td>
-<td><p>0.923507</p></td>
-<td><p>0.934761</p></td>
-</tr>
-<tr class="row-even"><td><p>Recall</p></td>
-<td><p>0.990000</p></td>
-<td><p>0.960000</p></td>
-</tr>
-<tr class="row-odd"><td><p>F1-Score</p></td>
-<td><p>0.955598</p></td>
-<td><p>0.947213</p></td>
-</tr>
-<tr class="row-even"><td><p>Support</p></td>
-<td><p>1000</p></td>
-<td><p>1000</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Não Reconhecido</strong></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>Precision</p></td>
-<td><p>0.565217</p></td>
-<td><p>0.411765</p></td>
-</tr>
-<tr class="row-odd"><td><p>Recall</p></td>
-<td><p>0.136842</p></td>
-<td><p>0.294737</p></td>
-</tr>
-<tr class="row-even"><td><p>F1-Score</p></td>
-<td><p>0.220339</p></td>
-<td><p>0.343558</p></td>
-</tr>
-<tr class="row-odd"><td><p>Support</p></td>
-<td><p>95</p></td>
-<td><p>95</p></td>
-</tr>
-<tr class="row-even"><td><p>** Métricas gerais**</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Accuracy</p></td>
-<td><p>0.915982</p></td>
-<td><p>0.902283</p></td>
-</tr>
-<tr class="row-even"><td><p>Macro avg Precision</p></td>
-<td><p>0.744362</p></td>
-<td><p>0.673263</p></td>
-</tr>
-<tr class="row-odd"><td><p>Macro avg Recall</p></td>
-<td><p>0.563421</p></td>
-<td><p>0.627368</p></td>
-</tr>
-<tr class="row-even"><td><p>Macro avg F1-Score</p></td>
-<td><p>0.587969</p></td>
-<td><p>0.645385</p></td>
-</tr>
-<tr class="row-odd"><td><p>Weighted avg Precision</p></td>
-<td><p>0.892423</p></td>
-<td><p>0.889387</p></td>
-</tr>
-<tr class="row-even"><td><p>Weighted avg Recall</p></td>
-<td><p>0.915982</p></td>
-<td><p>0.902283</p></td>
-</tr>
-<tr class="row-odd"><td><p>Weighted avg F1-Score</p></td>
-<td><p>0.891809</p></td>
-<td><p>0.894841</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="eventos-ocorridos-entre-2010-e-2017">
-<h1>Eventos ocorridos entre 2010 e 2017<a class="headerlink" href="#eventos-ocorridos-entre-2010-e-2017" title="Link to this heading">#</a></h1>
-<p>Nos testes dos eventos ocorridos entre 2010 e 2017 observou-se os seguintes resultados em relação às métricas de avaliação dos modelos:</p>
+<blockquote>
+<div><p><strong>Nota</strong>: Mais detalhes sobre o pré-processamento dos dados podem ser verificados no capítulo “Pré-processamento”.</p>
+</div></blockquote>
+<section id="tabela-comparativa-dos-modelos-2010-2017">
+<h2>Tabela Comparativa dos Modelos (2010-2017)<a class="headerlink" href="#tabela-comparativa-dos-modelos-2010-2017" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Métrica</p></th>
@@ -590,71 +494,35 @@ document.write(`
 <td><p>0.949892</p></td>
 <td><p>0.852205</p></td>
 </tr>
-<tr class="row-even"><td><p>Support</p></td>
-<td><p>2363</p></td>
-<td><p>2363</p></td>
-<td><p>1565</p></td>
-<td><p>1565</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Não reconhecido</strong></p></td>
+<tr class="row-even"><td><p><strong>Não Reconhecido</strong></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p>Precision</p></td>
+<tr class="row-odd"><td><p>Precision</p></td>
 <td><p><strong>0.465517</strong></p></td>
 <td><p>0.211816</p></td>
 <td><p>0.375000</p></td>
 <td><p>0.206667</p></td>
 </tr>
-<tr class="row-odd"><td><p>Recall</p></td>
+<tr class="row-even"><td><p>Recall</p></td>
 <td><p>0.109312</p></td>
 <td><p>0.595142</p></td>
 <td><p>0.077419</p></td>
 <td><p>0.600000</p></td>
 </tr>
-<tr class="row-even"><td><p>F1-Score</p></td>
+<tr class="row-odd"><td><p>F1-Score</p></td>
 <td><p>0.177049</p></td>
 <td><p>0.312434</p></td>
 <td><p>0.128342</p></td>
 <td><p>0.307438</p></td>
-</tr>
-<tr class="row-odd"><td><p>Support</p></td>
-<td><p>247</p></td>
-<td><p>247</p></td>
-<td><p>155</p></td>
-<td><p>155</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Métricas gerais</strong></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Accuracy</p></td>
-<td><p><strong>0.903831</strong></p></td>
-<td><p>0.752107</p></td>
-<td><p>0.905233</p></td>
-<td><p>0.756395</p></td>
-</tr>
-<tr class="row-even"><td><p>Macro Avg Precision</p></td>
-<td><p>0.689655</p></td>
-<td><p>0.579812</p></td>
-<td><p>0.645142</p></td>
-<td><p>0.578924</p></td>
-</tr>
-<tr class="row-odd"><td><p>Macro Avg Recall</p></td>
-<td><p>0.548096</p></td>
-<td><p>0.681828</p></td>
-<td><p>0.532320</p></td>
-<td><p>0.685942</p></td>
-</tr>
-<tr class="row-even"><td><p>Macro Avg F1-Score</p></td>
-<td><p>0.562991</p></td>
-<td><p>0.580615</p></td>
-<td><p>0.539117</p></td>
-<td><p>0.579821</p></td>
 </tr>
 <tr class="row-odd"><td><p>Weighted Avg Precision</p></td>
 <td><p>0.871370</p></td>
@@ -663,7 +531,7 @@ document.write(`
 <td><p>0.884088</p></td>
 </tr>
 <tr class="row-even"><td><p>Weighted Avg Recall</p></td>
-<td><p>0.903831</p></td>
+<td><p><strong>0.903831</strong></p></td>
 <td><p>0.752107</p></td>
 <td><p><strong>0.905233</strong></p></td>
 <td><p>0.756395</p></td>
@@ -683,57 +551,73 @@ document.write(`
 </tbody>
 </table>
 </div>
-<section id="precision-precisao">
-<h2>Precision (Precisão)<a class="headerlink" href="#precision-precisao" title="Link to this heading">#</a></h2>
-<p><em>Definição</em>: A precisão mede a proporção de previsões positivas que estão corretas. Ou seja, quantos dos exemplos classificados como “positivos” realmente pertencem à classe positiva.</p>
-<p><em>Interpretação</em>:</p>
-<p>Para a classe Reconhecido, a precisão é consistentemente alta em todos os cenários. Isso significa que quando o modelo prevê que um evento será reconhecido, ele geralmente está correto.
-Para a classe Não reconhecido, a precisão é muito menor. Isso sugere que quando o modelo prevê que um evento não será reconhecido, ele erra mais frequentemente, o que é esperado considerando a natureza desequilibrada dos dados.</p>
+<section id="analise-comparativa-dos-modelos-2010-2017">
+<h3>Análise Comparativa dos Modelos (2010-2017)<a class="headerlink" href="#analise-comparativa-dos-modelos-2010-2017" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Modelo sem SMOTE</strong>:</p>
+<ul>
+<li><p>Weighted avg F1-score: <strong>87,58%</strong></p></li>
+<li><p>Classe “Não reconhecido”:</p>
+<ul>
+<li><p>Precision: 46,55%</p></li>
+<li><p>Recall: 10,93%</p></li>
+<li><p>F1-score: 17,70%</p></li>
+</ul>
+</li>
+<li><p>O modelo apresenta alta precisão e recall para a classe majoritária, mas dificuldades em detectar a classe minoritária.</p></li>
+</ul>
+</li>
+<li><p><strong>Modelo com SMOTE</strong>:</p>
+<ul>
+<li><p>Weighted avg F1-score: <strong>79,80%</strong></p></li>
+<li><p>Classe “Não reconhecido”:</p>
+<ul>
+<li><p>Precision: 21,18%</p></li>
+<li><p>Recall: 59,51%</p></li>
+<li><p>F1-score: 31,24%</p></li>
+</ul>
+</li>
+<li><p>A aplicação do SMOTE melhora significativamente o recall da classe minoritária, mas reduz a precisão geral.</p></li>
+</ul>
+</li>
+<li><p><strong>Modelo com variáveis desagregadas e sem SMOTE</strong>:</p>
+<ul>
+<li><p>Weighted avg F1-score: <strong>87,58%</strong></p></li>
+<li><p>Classe “Não reconhecido”:</p>
+<ul>
+<li><p>Precision: 37,50%</p></li>
+<li><p>Recall: 7,74%</p></li>
+<li><p>F1-score: 12,83%</p></li>
+</ul>
+</li>
+<li><p>Embora o modelo tenha alta performance para a classe majoritária, o desempenho para a classe minoritária é baixo.</p></li>
+</ul>
+</li>
+<li><p><strong>Modelo com variáveis desagregadas e com SMOTE</strong>:</p>
+<ul>
+<li><p>Weighted avg F1-score: <strong>80,31%</strong></p></li>
+<li><p>Classe “Não reconhecido”:</p>
+<ul>
+<li><p>Precision: 20,67%</p></li>
+<li><p>Recall: 60,00%</p></li>
+<li><p>F1-score: 30,74%</p></li>
+</ul>
+</li>
+<li><p>A remoção de variáveis correlacionadas com SMOTE melhorou o recall da classe minoritária, mas reduziu a precisão.</p></li>
+</ul>
+</li>
+</ul>
 </section>
-<section id="recall-sensibilidade-ou-revocacao">
-<h2>Recall (Sensibilidade ou Revocação)<a class="headerlink" href="#recall-sensibilidade-ou-revocacao" title="Link to this heading">#</a></h2>
-<p><em>Definição</em>: O recall mede a proporção de exemplos verdadeiramente positivos que foram corretamente identificados. Em outras palavras, o quanto o modelo consegue capturar todos os exemplos positivos.</p>
-<p><em>Interpretação</em>:
-Reconhecido: O recall é muito alto para a classe “Reconhecido”, principalmente nos cenários sem SMOTE (0.986881 no primeiro cenário e 0.987220 no modelo 2). Isso significa que o modelo é capaz de identificar quase todos os eventos que deveriam ser reconhecidos.
-Não reconhecido: O recall para “Não reconhecido” é extremamente baixo nos cenários sem SMOTE (0.109312 e 0.077419), indicando que o modelo raramente identifica corretamente essa classe. No entanto, após aplicar SMOTE, o recall melhora drasticamente (0.595142 e 0.600000). Isso mostra que o SMOTE está ajudando o modelo a capturar mais exemplos da classe minoritária.</p>
-</section>
-<section id="f1-score">
-<h2>F1-Score<a class="headerlink" href="#f1-score" title="Link to this heading">#</a></h2>
-<p><em>Definição</em>: O F1-Score é a média harmônica da precisão e do recall. Ele equilibra os dois aspectos e é especialmente útil quando se trabalha com dados desbalanceados.</p>
-<p><em>Interpretação</em>:
-Reconhecido: O F1-Score para a classe “Reconhecido” é sempre muito alto (acima de 0.84), refletindo o bom desempenho do modelo para essa classe majoritária.
-Não reconhecido: O F1-Score para “Não reconhecido” é muito baixo sem SMOTE (0.177049 e 0.128342), mas melhora com SMOTE (0.312434 e 0.307438). Isso ocorre porque o SMOTE ajuda a balancear os dados, melhorando a identificação de exemplos dessa classe.</p>
-</section>
-<section id="support-suporte">
-<h2>Support (Suporte)<a class="headerlink" href="#support-suporte" title="Link to this heading">#</a></h2>
-<p><em>Definição</em>: O suporte é o número de ocorrências reais de cada classe nos dados. Ele mostra a distribuição do número de exemplos entre as classes.</p>
-<p><em>Interpretação</em>:
-Reconhecido: A classe “Reconhecido” tem muito mais suporte (2363 no primeiro cenário e 1565 no modelo 2). Isso confirma que os dados estão desbalanceados, com muito mais exemplos de eventos reconhecidos do que não reconhecidos.
-Não reconhecido: A classe “Não reconhecido” tem muito menos suporte (247 no primeiro cenário e 155 no modelo 2), o que faz com que os modelos tenham mais dificuldade em prever essa classe corretamente.</p>
-</section>
-<section id="accuracy-acuracia">
-<h2>Accuracy (Acurácia)<a class="headerlink" href="#accuracy-acuracia" title="Link to this heading">#</a></h2>
-<p><em>Definição</em>: A acurácia é a proporção de previsões corretas em relação ao total de exemplos.</p>
-<p><em>Interpretação</em>:
-A acurácia é alta nos cenários sem SMOTE (acima de 0.90), indicando que o modelo está correto na maioria das previsões. No entanto, como os dados estão desbalanceados, a alta acurácia pode estar inflada pela boa performance na classe majoritária (Reconhecido).
-Após aplicar SMOTE, a acurácia diminui para cerca de 0.75. Isso acontece porque o modelo passa a focar mais na classe minoritária (Não reconhecido), mas ainda não consegue identificar perfeitamente os dois grupos.</p>
-</section>
-<section id="macro-avg-media-macro">
-<h2>Macro Avg (Média Macro)<a class="headerlink" href="#macro-avg-media-macro" title="Link to this heading">#</a></h2>
-<p><em>Definição</em>: A média macro calcula a média simples das métricas para todas as classes, tratando cada classe igualmente, independentemente do número de exemplos.</p>
-<p><em>Interpretação</em>:
-A média macro de precisão e F1-score é consistentemente menor com SMOTE, o que indica que o SMOTE melhora o recall da classe minoritária às custas da precisão geral do modelo.
-Sem SMOTE, o modelo favorece a classe “Reconhecido”, o que leva a médias macro mais baixas, especialmente para o recall.</p>
-</section>
-<section id="weighted-avg-media-ponderada">
-<h2>Weighted Avg (Média Ponderada)<a class="headerlink" href="#weighted-avg-media-ponderada" title="Link to this heading">#</a></h2>
-<p><em>Definição</em>: A média ponderada calcula a média das métricas levando em conta o suporte (número de exemplos) de cada classe.</p>
-<p><em>Interpretação</em>
-A média ponderada de precisão e F1-score é alta nos quatro cenários, mas cai ligeiramente após o uso de SMOTE. Isso ocorre porque, embora o modelo melhore o desempenho para a classe minoritária, ele ainda tem dificuldade em prever corretamente essa classe, o que afeta o desempenho geral.</p>
+<section id="conclusoes">
+<h3>Conclusões<a class="headerlink" href="#conclusoes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Impacto do SMOTE</strong>: A aplicação do SMOTE melhorou a capacidade de detecção da classe “Não reconhecido”, aumentando o recall e o F1-score dessa classe. No entanto, reduziu a precisão geral do modelo.</p></li>
+<li><p><strong>Desempenho Geral</strong>: Todos os modelos mantiveram um bom desempenho na classe majoritária “Reconhecido”, com alta precisão e recall.</p></li>
+</ul>
 </section>
 </section>
-<section id="eventos-ocorridos-entre-2018-e-2024">
-<h1>Eventos ocorridos entre 2018 e 2024<a class="headerlink" href="#eventos-ocorridos-entre-2018-e-2024" title="Link to this heading">#</a></h1>
+<section id="tabela-comparativa-dos-modelos-2018-2024">
+<h2>Tabela Comparativa dos Modelos (2018-2024)<a class="headerlink" href="#tabela-comparativa-dos-modelos-2018-2024" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Métrica</p></th>
@@ -768,71 +652,35 @@ A média ponderada de precisão e F1-score é alta nos quatro cenários, mas cai
 <td><p>0.961798</p></td>
 <td><p>0.838081</p></td>
 </tr>
-<tr class="row-even"><td><p>Support</p></td>
-<td><p>2404</p></td>
-<td><p>2404</p></td>
-<td><p>1510</p></td>
-<td><p>1510</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Não reconhecido</strong></p></td>
+<tr class="row-even"><td><p><strong>Não Reconhecido</strong></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p>Precision</p></td>
+<tr class="row-odd"><td><p>Precision</p></td>
 <td><p>0.456790</p></td>
 <td><p>0.168142</p></td>
 <td><p><strong>0.760000</strong></p></td>
 <td><p>0.211268</p></td>
 </tr>
-<tr class="row-odd"><td><p>Recall</p></td>
+<tr class="row-even"><td><p>Recall</p></td>
 <td><p>0.160870</p></td>
 <td><p>0.578261</p></td>
 <td><p>0.262069</p></td>
 <td><p>0.724138</p></td>
 </tr>
-<tr class="row-even"><td><p>F1-Score</p></td>
+<tr class="row-odd"><td><p>F1-Score</p></td>
 <td><p>0.237942</p></td>
 <td><p>0.260529</p></td>
 <td><p>0.389744</p></td>
 <td><p>0.327103</p></td>
-</tr>
-<tr class="row-odd"><td><p>Support</p></td>
-<td><p>230</p></td>
-<td><p>230</p></td>
-<td><p>145</p></td>
-<td><p>145</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Métricas gerais</strong></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Accuracy</p></td>
-<td><p>0.910023</p></td>
-<td><p>0.713364</p></td>
-<td><p>0.928097</p></td>
-<td><p>0.738973</p></td>
-</tr>
-<tr class="row-even"><td><p>Macro Avg Precision</p></td>
-<td><p>0.690596</p></td>
-<td><p>0.557755</p></td>
-<td><p>0.846667</p></td>
-<td><p>0.588363</p></td>
-</tr>
-<tr class="row-odd"><td><p>Macro Avg Recall</p></td>
-<td><p>0.571283</p></td>
-<td><p>0.652275</p></td>
-<td><p>0.627061</p></td>
-<td><p>0.732268</p></td>
-</tr>
-<tr class="row-even"><td><p>Macro Avg F1-Score</p></td>
-<td><p>0.595065</p></td>
-<td><p>0.541378</p></td>
-<td><p>0.675771</p></td>
-<td><p>0.582592</p></td>
 </tr>
 <tr class="row-odd"><td><p>Weighted Avg Precision</p></td>
 <td><p>0.883571</p></td>
@@ -841,13 +689,13 @@ A média ponderada de precisão e F1-score é alta nos quatro cenários, mas cai
 <td><p>0.899381</p></td>
 </tr>
 <tr class="row-even"><td><p>Weighted Avg Recall</p></td>
-<td><p>0.910023</p></td>
+<td><p><strong>0.910023</strong></p></td>
 <td><p>0.713364</p></td>
 <td><p><strong>0.928097</strong></p></td>
 <td><p>0.738973</p></td>
 </tr>
 <tr class="row-odd"><td><p>Weighted Avg F1-Score</p></td>
-<td><p>0.889821</p></td>
+<td><p><strong>0.889821</strong></p></td>
 <td><p>0.773180</p></td>
 <td><p><strong>0.911678</strong></p></td>
 <td><p>0.793312</p></td>
@@ -861,23 +709,71 @@ A média ponderada de precisão e F1-score é alta nos quatro cenários, mas cai
 </tbody>
 </table>
 </div>
+<section id="analise-comparativa-dos-modelos-2018-2024">
+<h3>Análise Comparativa dos Modelos (2018-2024)<a class="headerlink" href="#analise-comparativa-dos-modelos-2018-2024" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Modelo sem SMOTE</strong>:</p>
+<ul>
+<li><p>Weighted avg F1-score: <strong>88,98%</strong></p></li>
+<li><p>Classe “Não reconhecido”:</p>
+<ul>
+<li><p>Precision: 45,68%</p></li>
+<li><p>Recall: 16,09%</p></li>
+<li><p>F1-score: 23,79%</p></li>
+</ul>
+</li>
+<li><p>O modelo apresenta bom desempenho para a classe majoritária, mas desempenho limitado para a classe minoritária.</p></li>
+</ul>
+</li>
+<li><p><strong>Modelo com SMOTE</strong>:</p>
+<ul>
+<li><p>Weighted avg F1-score: <strong>77,31%</strong></p></li>
+<li><p>Classe “Não reconhecido”:</p>
+<ul>
+<li><p>Precision: 16,81%</p></li>
+<li><p>Recall: 57,83%</p></li>
+<li><p>F1-score: 26,05%</p></li>
+</ul>
+</li>
+<li><p>O SMOTE melhora o recall da classe minoritária, mas afeta negativamente a precisão geral.</p></li>
+</ul>
+</li>
+<li><p><strong>Modelo com variáveis desagregadas e sem SMOTE</strong>:</p>
+<ul>
+<li><p>Weighted avg F1-score: <strong>91,16%</strong></p></li>
+<li><p>Classe “Não reconhecido”:</p>
+<ul>
+<li><p>Precision: 76,00%</p></li>
+<li><p>Recall: 26,21%</p></li>
+<li><p>F1-score: 38,97%</p></li>
+</ul>
+</li>
+<li><p>O modelo melhora significativamente a precisão da classe minoritária ao custo de uma redução no recall.</p></li>
+</ul>
+</li>
+<li><p><strong>Modelo com variáveis desagregadas e com SMOTE</strong>:</p>
+<ul>
+<li><p>Weighted avg F1-score: <strong>79,33%</strong></p></li>
+<li><p>Classe “Não reconhecido”:</p>
+<ul>
+<li><p>Precision: 21,13%</p></li>
+<li><p>Recall: 72,41%</p></li>
+<li><p>F1-score: 32,71%</p></li>
+</ul>
+</li>
+<li><p>O SMOTE combinado com variáveis desagregadas melhora o recall da classe “Não reconhecido”, mas com uma precisão menor.</p></li>
+</ul>
+</li>
+</ul>
 </section>
-<section id="matriz-de-confusao">
-<h1>Matriz de confusão<a class="headerlink" href="#matriz-de-confusao" title="Link to this heading">#</a></h1>
-<p>A matriz de confusão do modelo com variáveis desagregadas (2018-2024) indica que o modelo apresenta número alto de casos falsos positivos (porque será?)</p>
-<figure class="align-default" id="matriz-confusa-reglog-modelo2-2018-2024">
-<a class="reference internal image-reference" href="_images/matriz_confusa_reglog_modelo2_2018_2024.png"><img alt="_images/matriz_confusa_reglog_modelo2_2018_2024.png" src="_images/matriz_confusa_reglog_modelo2_2018_2024.png" style="width: 50%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Matriz de confusão modelo regressão logística com variáveis desagregadas (2018 - 2024)</span><a class="headerlink" href="#matriz-confusa-reglog-modelo2-2018-2024" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
+<section id="id1">
+<h3>Conclusões<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Impacto do SMOTE</strong>: O SMOTE melhorou o desempenho de recall para a classe “Não reconhecido”, especialmente em combinações com variáveis desagregadas. Contudo, reduziu a precisão geral.</p></li>
+<li><p><strong>Desempenho Geral</strong>: Assim como nos dados de 2010-2017, os modelos mostraram um bom desempenho na classe “Reconhecido”, com alta precisão e recall.</p></li>
+</ul>
 </section>
-<section id="conclusao">
-<h1>Conclusão<a class="headerlink" href="#conclusao" title="Link to this heading">#</a></h1>
-<p>Modelos sem SMOTE têm uma melhor performance para a classe “Reconhecido”, mas sofrem ao prever a classe “Não reconhecido”.</p>
-<p>Modelos com SMOTE melhoram significativamente o recall para a classe “Não reconhecido”, mas isso vem à custa de uma redução na precisão e acurácia geral.</p>
-<p>O Modelo com variáveis desagregadas (2018-2024) sem SMOTE apresenta o melhor desempenho geral, com uma boa acurácia e um bom equilíbrio entre precisão e recall.</p>
-<p>No entanto, se o objetivo é melhorar o recall da classe “Não reconhecido”, o uso de SMOTE no modelo com variáveis desagregadas se destaca, embora com uma leve queda na acurácia.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -944,23 +840,17 @@ A média ponderada de precisão e F1-score é alta nos quatro cenários, mas cai
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Resultados da regressão logística</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-base">Modelo “base”</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-ocorridos-entre-2010-e-2017">Eventos ocorridos entre 2010 e 2017</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-precisao">Precision (Precisão)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-sensibilidade-ou-revocacao">Recall (Sensibilidade ou Revocação)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">F1-Score</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-suporte">Support (Suporte)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-acuracia">Accuracy (Acurácia)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-avg-media-macro">Macro Avg (Média Macro)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weighted-avg-media-ponderada">Weighted Avg (Média Ponderada)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2010-2017">Tabela Comparativa dos Modelos (2010-2017)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2010-2017">Análise Comparativa dos Modelos (2010-2017)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-ocorridos-entre-2018-e-2024">Eventos ocorridos entre 2018 e 2024</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-confusao">Matriz de confusão</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusao">Conclusão</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2018-2024">Tabela Comparativa dos Modelos (2018-2024)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2018-2024">Análise Comparativa dos Modelos (2018-2024)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusões</a></li>
 </ul>
-
+</li>
+</ul>
   </nav></div>
 
 </div></div>
