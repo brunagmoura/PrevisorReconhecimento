@@ -159,7 +159,7 @@ if st.button('Prever'):
     if modelo is not None:
         try:
             predicao = modelo.predict(df_dados)
-            if predicao == 1:
+            if predicao == 0:
                 resultado = 'Reconhecido'
                 st.success(f'A previsão para o desastre declarado é: {resultado}')
             else:
