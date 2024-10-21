@@ -425,16 +425,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2010-2017">Tabela Comparativa dos Modelos (2010-2017)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2010-2017">Análise Comparativa dos Modelos (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-com-features-agregadas">Modelos com features agregadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-com-features-desagregadas">Modelos com features desagregadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2010-2017">Análise comparativa dos Modelos com features desagregadas (2010-2017)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2018-2024">Análise comparativa dos Modelos com features desagregadas (2018-2024)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2018-2024">Tabela Comparativa dos Modelos (2018-2024)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2018-2024">Análise Comparativa dos Modelos (2018-2024)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusões</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
 </ul>
             </nav>
         </div>
@@ -458,8 +455,21 @@ document.write(`
 <blockquote>
 <div><p><strong>Nota</strong>: Mais detalhes sobre o pré-processamento dos dados podem ser verificados no capítulo “Pré-processamento”.</p>
 </div></blockquote>
-<section id="tabela-comparativa-dos-modelos-2010-2017">
-<h2>Tabela Comparativa dos Modelos (2010-2017)<a class="headerlink" href="#tabela-comparativa-dos-modelos-2010-2017" title="Link to this heading">#</a></h2>
+<section id="modelos-com-features-agregadas">
+<h2>Modelos com features agregadas<a class="headerlink" href="#modelos-com-features-agregadas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Modelo com features agregadas</strong>:</p>
+<ul>
+<li><p>Weighted avg F1-score: <strong>86,59%</strong> no período 2010-2017 e <strong>90,1%</strong> no período 2018-2024</p></li>
+<li><p>Baixo desempenho para a classe ‘Não reconhecido’.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="modelos-com-features-desagregadas">
+<h2>Modelos com features desagregadas<a class="headerlink" href="#modelos-com-features-desagregadas" title="Link to this heading">#</a></h2>
+<section id="analise-comparativa-dos-modelos-com-features-desagregadas-2010-2017">
+<h3>Análise comparativa dos Modelos com features desagregadas (2010-2017)<a class="headerlink" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2010-2017" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -470,29 +480,29 @@ document.write(`
 <th class="head"><p>Recall (Reconhecido)</p></th>
 <th class="head"><p>F1-score (Reconhecido)</p></th>
 <th class="head"><p>Macro avg F1-score</p></th>
-<th class="head"><p>Weighted avg F1-score (<strong>destacado</strong>)</p></th>
+<th class="head"><p>Weighted avg F1-score</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Sem balanceamento</p></td>
-<td><p>0.612903</p></td>
-<td><p>0.122581</p></td>
-<td><p>0.204301</p></td>
-<td><p>0.919479</p></td>
-<td><p>0.992332</p></td>
-<td><p>0.954518</p></td>
-<td><p>0.579409</p></td>
-<td><p><strong>0.886911</strong></p></td>
+<td><p>0.687500</p></td>
+<td><p>0.152778</p></td>
+<td><p>0.250000</p></td>
+<td><p>0.908683</p></td>
+<td><p>0.991830</p></td>
+<td><p>0.948438</p></td>
+<td><p>0.599219</p></td>
+<td><p><strong>0.874918</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p>Com SMOTE</p></td>
-<td><p>0.634146</p></td>
-<td><p>0.167742</p></td>
-<td><p>0.265306</p></td>
-<td><p>0.923169</p></td>
-<td><p>0.990415</p></td>
-<td><p>0.955610</p></td>
-<td><p>0.610458</p></td>
-<td><p><strong>0.893403</strong></p></td>
+<td><p>0.524590</p></td>
+<td><p>0.222222</p></td>
+<td><p>0.312195</p></td>
+<td><p>0.914308</p></td>
+<td><p>0.976307</p></td>
+<td><p>0.944291</p></td>
+<td><p>0.628243</p></td>
+<td><p><strong>0.877754</strong></p></td>
 </tr>
 <tr class="row-even"><td><p>Com SMOTE e variáveis &gt; -0,01</p></td>
 <td><p>0.634146</p></td>
@@ -517,67 +527,14 @@ document.write(`
 </tbody>
 </table>
 </div>
-<section id="analise-comparativa-dos-modelos-2010-2017">
-<h3>Análise Comparativa dos Modelos (2010-2017)<a class="headerlink" href="#analise-comparativa-dos-modelos-2010-2017" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Modelo sem balanceamento</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>88,69%</strong></p></li>
-<li><p>Classe ‘Não reconhecido’:</p>
-<ul>
-<li><p>Precisão: 61,29%</p></li>
-<li><p>Recall: 12,26%</p></li>
-<li><p>F1-score: 20,43%</p></li>
-</ul>
-</li>
-<li><p>O modelo tem alta precisão para a classe majoritária, mas baixo desempenho na classe minoritária.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>89,34%</strong></p></li>
-<li><p>Classe ‘Não reconhecido’:</p>
-<ul>
-<li><p>Precisão: 63,41%</p></li>
-<li><p>Recall: 16,77%</p></li>
-<li><p>F1-score: 26,53%</p></li>
-</ul>
-</li>
-<li><p>A aplicação do SMOTE aumentou tanto a precisão quanto o recall da classe minoritária.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com SMOTE e variáveis de importância &gt; -0,01</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>89,34%</strong></p></li>
-<li><p>Resultados idênticos ao modelo anterior. A seleção de variáveis com base na importância não trouxe impacto significativo.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com SMOTE e correlação &lt; 0,5</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>89,39%</strong></p></li>
-<li><p>Classe ‘Não reconhecido’:</p>
-<ul>
-<li><p>Precisão: 54,38%</p></li>
-<li><p>Recall: 20,00%</p></li>
-<li><p>F1-score: 29,25%</p></li>
-</ul>
-</li>
-<li><p>A remoção de variáveis correlacionadas aumentou o recall e o F1-score da classe minoritária, mas reduziu a precisão.</p></li>
-</ul>
-</li>
+<li><p><strong>Uso do SMOTE</strong>: A técnica de balanceamento melhorou o recall e o F1-score da classe ‘Não reconhecido’, mas a precisão caiu.</p></li>
+<li><p><strong>Seleção de Variáveis por Importância</strong>: A exclusão de variáveis com importância &lt; -0,01 não alterou significativamente o desempenho.</p></li>
+<li><p><strong>Remoção de Variáveis Correlacionadas</strong>: A remoção de variáveis altamente correlacionadas beneficiou o recall da classe minoritária, com uma pequena redução na precisão.</p></li>
 </ul>
 </section>
-<section id="conclusoes">
-<h3>Conclusões<a class="headerlink" href="#conclusoes" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Uso do SMOTE</strong>: A técnica de balanceamento melhorou a detecção da classe minoritária, aumentando a precisão, recall e F1-score.</p></li>
-<li><p><strong>Seleção de Variáveis por Importância</strong>: A exclusão de variáveis com importância &lt; -0,01 não alterou o desempenho.</p></li>
-<li><p><strong>Remoção de Variáveis Correlacionadas</strong>: A remoção de variáveis altamente correlacionadas beneficiou o recall da classe minoritária, mas com uma redução na precisão.</p></li>
-</ul>
-</section>
-</section>
-<section id="tabela-comparativa-dos-modelos-2018-2024">
-<h2>Tabela Comparativa dos Modelos (2018-2024)<a class="headerlink" href="#tabela-comparativa-dos-modelos-2018-2024" title="Link to this heading">#</a></h2>
+<section id="analise-comparativa-dos-modelos-com-features-desagregadas-2018-2024">
+<h3>Análise comparativa dos Modelos com features desagregadas (2018-2024)<a class="headerlink" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2018-2024" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -588,106 +545,69 @@ document.write(`
 <th class="head"><p>Recall (Reconhecido)</p></th>
 <th class="head"><p>F1-score (Reconhecido)</p></th>
 <th class="head"><p>Macro avg F1-score</p></th>
-<th class="head"><p>Weighted avg F1-score (<strong>destacado</strong>)</p></th>
+<th class="head"><p>Weighted avg F1-score</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Sem balanceamento</p></td>
-<td><p>0.859649</p></td>
-<td><p>0.337931</p></td>
-<td><p>0.485149</p></td>
-<td><p>0.939925</p></td>
-<td><p>0.994702</p></td>
-<td><p>0.966538</p></td>
-<td><p>0.725843</p></td>
-<td><p><strong>0.924362</strong></p></td>
+<td><p>0.766667</p></td>
+<td><p>0.194915</p></td>
+<td><p>0.310811</p></td>
+<td><p>0.939258</p></td>
+<td><p>0.995257</p></td>
+<td><p>0.966447</p></td>
+<td><p>0.638629</p></td>
+<td><p><strong>0.917912</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p>Com SMOTE</p></td>
-<td><p>0.756757</p></td>
-<td><p>0.386207</p></td>
-<td><p>0.511416</p></td>
-<td><p>0.943707</p></td>
-<td><p>0.988079</p></td>
-<td><p>0.965383</p></td>
-<td><p>0.738399</p></td>
-<td><p><strong>0.925610</strong></p></td>
+<td><p>0.648148</p></td>
+<td><p>0.296610</p></td>
+<td><p>0.406977</p></td>
+<td><p>0.946104</p></td>
+<td><p>0.987127</p></td>
+<td><p>0.966180</p></td>
+<td><p>0.686579</p></td>
+<td><p><strong>0.924784</strong></p></td>
 </tr>
 <tr class="row-even"><td><p>Com SMOTE e variáveis &gt; -0,01</p></td>
-<td><p>0.666667</p></td>
-<td><p>0.427586</p></td>
-<td><p>0.521008</p></td>
-<td><p>0.946863</p></td>
-<td><p>0.979470</p></td>
-<td><p>0.962891</p></td>
-<td><p>0.741950</p></td>
-<td><p><strong>0.924176</strong></p></td>
+<td><p>0.648148</p></td>
+<td><p>0.296610</p></td>
+<td><p>0.406977</p></td>
+<td><p>0.946104</p></td>
+<td><p>0.987127</p></td>
+<td><p>0.966180</p></td>
+<td><p>0.686579</p></td>
+<td><p><strong>0.924784</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p>Com SMOTE e correlação &lt; 0,5</p></td>
-<td><p>0.677778</p></td>
-<td><p>0.420690</p></td>
-<td><p>0.519149</p></td>
-<td><p>0.946326</p></td>
-<td><p>0.980795</p></td>
-<td><p>0.963252</p></td>
-<td><p>0.741200</p></td>
-<td><p><strong>0.924343</strong></p></td>
+<td><p>0.568966</p></td>
+<td><p>0.279661</p></td>
+<td><p>0.375000</p></td>
+<td><p>0.944661</p></td>
+<td><p>0.983062</p></td>
+<td><p>0.963479</p></td>
+<td><p>0.669240</p></td>
+<td><p><strong>0.919916</strong></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<section id="analise-comparativa-dos-modelos-2018-2024">
-<h3>Análise Comparativa dos Modelos (2018-2024)<a class="headerlink" href="#analise-comparativa-dos-modelos-2018-2024" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Modelo sem balanceamento</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>92,43%</strong></p></li>
-<li><p>Classe ‘Não reconhecido’:</p>
-<ul>
-<li><p>Precisão: 85,96%</p></li>
-<li><p>Recall: 33,79%</p></li>
-<li><p>F1-score: 48,51%</p></li>
-</ul>
-</li>
-<li><p>Alta precisão na classe ‘Reconhecido’, mas baixo recall na classe minoritária.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>92,56%</strong></p></li>
-<li><p>Classe ‘Não reconhecido’:</p>
-<ul>
-<li><p>Precisão: 75,68%</p></li>
-<li><p>Recall: 38,62%</p></li>
-<li><p>F1-score: 51,14%</p></li>
-</ul>
-</li>
-<li><p>Melhorou o recall e F1-score da classe minoritária.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com SMOTE e variáveis de importância &gt; -0,01</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>92,41%</strong></p></li>
-<li><p>Precisão reduziu, mas recall e F1-score da classe minoritária aumentaram.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com SMOTE e correlação &lt; 0,5</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>92,43%</strong></p></li>
-<li><p>Precisão e recall se mantiveram estáveis em relação ao modelo anterior.</p></li>
-</ul>
-</li>
+<li><p><strong>Uso do SMOTE</strong>: A técnica de balanceamento melhorou o recall e o F1-score da classe ‘Não reconhecido’, apesar de uma leve redução na precisão.</p></li>
+<li><p><strong>Seleção de Variáveis por Importância</strong>: Não houve impacto perceptível no desempenho ao usar apenas variáveis com importância maior que -0,01.</p></li>
+<li><p><strong>Remoção de Variáveis Correlacionadas</strong>: A remoção de variáveis altamente correlacionadas beneficiou o recall da classe minoritária, mas com uma redução significativa na precisão.</p></li>
 </ul>
 </section>
-<section id="id1">
-<h3>Conclusões<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+</section>
+<section id="conclusoes">
+<h2>Conclusões<a class="headerlink" href="#conclusoes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Impacto do SMOTE</strong>: Melhorou o recall e F1-score da classe ‘Não reconhecido’.</p></li>
-<li><p><strong>Seleção de Variáveis por Importância</strong>: Simplificação do modelo aumentou o recall e F1-score.</p></li>
-<li><p><strong>Remoção de Variáveis Correlacionadas</strong>: Também melhorou o desempenho da classe minoritária, mantendo uma precisão ligeiramente maior.</p></li>
+<li><p>Impacto do SMOTE: Melhorou o recall e F1-score da classe ‘Não reconhecido’.</p></li>
+<li><p>Seleção de Variáveis por Importância: Simplificação do modelo aumentou o recall e F1-score.</p></li>
+<li><p>Remoção de Variáveis Correlacionadas: Também melhorou o desempenho da classe minoritária, mantendo uma precisão ligeiramente maior.</p></li>
 <li><p>Os modelos de 2018-2024 mostraram melhor desempenho geral na classe minoritária.</p></li>
 <li><p>As técnicas de balanceamento e seleção de variáveis foram mais eficazes nos dados mais recentes.</p></li>
 </ul>
-</section>
 </section>
 </section>
 
@@ -755,16 +675,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2010-2017">Tabela Comparativa dos Modelos (2010-2017)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2010-2017">Análise Comparativa dos Modelos (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-com-features-agregadas">Modelos com features agregadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-com-features-desagregadas">Modelos com features desagregadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2010-2017">Análise comparativa dos Modelos com features desagregadas (2010-2017)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2018-2024">Análise comparativa dos Modelos com features desagregadas (2018-2024)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2018-2024">Tabela Comparativa dos Modelos (2018-2024)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2018-2024">Análise Comparativa dos Modelos (2018-2024)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusões</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
 </ul>
   </nav></div>
 

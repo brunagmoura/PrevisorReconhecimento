@@ -11,6 +11,7 @@ parts:
   chapters:
   - file: analise_exploratoria_preliminar
   - file: analise_registros_municipios
+  - file: analise_dados_ausentes
 - caption: Pré processamento
   chapters:
   - file: pre_processamento
