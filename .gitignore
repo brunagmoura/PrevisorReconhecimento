@@ -1,1 +1,5 @@
 .venv
+./documentacao_previsor/df_eventos_2010_2017_modelo1.csv
+./documentacao_previsor/df_eventos_2010_2017_modelo2.csv
+./documentacao_previsor/df_eventos_2018_2024_modelo1.csv
+./documentacao_previsor/df_eventos_2018_2024_modelo2.csv
