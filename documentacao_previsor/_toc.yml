@@ -33,6 +33,7 @@ parts:
   - file: xgboost_modelo1_2018_2024
   - file: xgboost_modelo2_2010_2017
   - file: xgboost_modelo2_2018_2024
+  - file: xgboost_adicionais
   - file: xgboost_conclusao
 
 - caption: Classificação de textos
