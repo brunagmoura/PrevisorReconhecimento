@@ -58,51 +58,51 @@ col4, col5 = st.columns(2)
 
 with col4:
     dm_uni_habita_danificadas_destruidas = st.number_input('Unidades Habitacionais Danificadas e Destruídas', min_value=0, step=1)
-    dm_uni_habita_valor = st.number_input('Valor das Unidades Habitacionais (R$)', min_value=0, step=1000)
+    dm_uni_habita_valor = st.number_input('Valor das Unidades Habitacionais Danificadas e Destruídas (R$)', min_value=0, step=1000)
     dm_inst_saude_danificadas_destruidas = st.number_input('Instalações de Saúde Danificadas e Destruídas', min_value=0, step=1)
-    dm_inst_saude_valor = st.number_input('Valor das Instalações de Saúde (R$)', min_value=0, step=1000)
+    dm_inst_saude_valor = st.number_input('Valor das Instalações de Saúde Danificadas e Destruídas (R$)', min_value=0, step=1000)
     dm_inst_ensino_danificadas_destruidas = st.number_input('Instalações de Ensino Danificadas e Destruídas', min_value=0, step=1)
-    dm_inst_ensino_valor = st.number_input('Valor das Instalações de Ensino (R$)', min_value=0, step=1000)
+    dm_inst_ensino_valor = st.number_input('Valor das Instalações de Ensino Danificadas e Destruídas (R$)', min_value=0, step=1000)
 
 with col5:
     dm_inst_servicos_danificadas_destruidas = st.number_input('Instalações de Serviços Danificadas e Destruídas', min_value=0, step=1)
-    dm_inst_servicos_valor = st.number_input('Valor das Instalações de Serviços (R$)', min_value=0, step=1000)
+    dm_inst_servicos_valor = st.number_input('Valor das Instalações de Serviços Danificadas e Destruídas (R$)', min_value=0, step=1000)
     dm_inst_comuni_danificadas_destruidas = st.number_input('Instalações de Comunicação Danificadas e Destruídas', min_value=0, step=1)
-    dm_inst_comuni_valor = st.number_input('Valor das Instalações de Comunicação (R$)', min_value=0, step=1000)
+    dm_inst_comuni_valor = st.number_input('Valor das Instalações de Comunicação Danificadas e Destruídas (R$)', min_value=0, step=1000)
     dm_obras_infra_danificadas_destruidas = st.number_input('Obras de Infraestrutura Danificadas e Destruídas', min_value=0, step=1)
-    dm_obras_infra_valor = st.number_input('Valor das Obras de Infraestrutura (R$)', min_value=0, step=1000)
+    dm_obras_infra_valor = st.number_input('Valor das Obras de Infraestrutura Danificadas e Destruídas (R$)', min_value=0, step=1000)
 
 # Prejuízos Públicos
 st.markdown("#### Prejuízos Públicos (R$)")
 col6, col7 = st.columns(2)
 
 with col6:
-    pepl_assis_med_emerg = st.number_input('Assistência Médica e Emergencial', min_value=0, step=1000)
-    pepl_abast_agua_pot = st.number_input('Abastecimento de Água Potável', min_value=0, step=1000)
-    pepl_sist_esgotos_sanit = st.number_input('Sistemas de Esgotos Sanitários', min_value=0, step=1000)
-    pepl_sis_limp_rec_lixo = st.number_input('Sistemas de Limpeza e Reciclagem de Lixo', min_value=0, step=1000)
-    pepl_sis_cont_pragas = st.number_input('Sistemas de Controle de Pragas', min_value=0, step=1000)
-    pepl_distrib_energia = st.number_input('Distribuição de Energia', min_value=0, step=1000)
+    pepl_assis_med_emerg = st.number_input('Prejuízos com Assistência Médica e Emergencial', min_value=0, step=1000)
+    pepl_abast_agua_pot = st.number_input('Prejuízos com Abastecimento de Água Potável', min_value=0, step=1000)
+    pepl_sist_esgotos_sanit = st.number_input('Prejuízos com Sistemas de Esgotos Sanitários', min_value=0, step=1000)
+    pepl_sis_limp_rec_lixo = st.number_input('Prejuízos com Sistemas de Limpeza e Reciclagem de Lixo', min_value=0, step=1000)
+    pepl_sis_cont_pragas = st.number_input('Prejuízos com Sistemas de Controle de Pragas', min_value=0, step=1000)
+    pepl_distrib_energia = st.number_input('Prejuízos com Distribuição de Energia', min_value=0, step=1000)
 
 with col7:
-    pepl_telecomunicacoes = st.number_input('Telecomunicações', min_value=0, step=1000)
-    pepl_tran_loc_reg_curso = st.number_input('Transporte Local/Regional/Longo Curso', min_value=0, step=1000)
-    pepl_distrib_combustiveis = st.number_input('Distribuição de Combustíveis', min_value=0, step=1000)
-    pepl_seguranca_publica = st.number_input('Segurança Pública', min_value=0, step=1000)
-    pepl_ensino = st.number_input('Ensino', min_value=0, step=1000)
+    pepl_telecomunicacoes = st.number_input('Prejuízos com Telecomunicações', min_value=0, step=1000)
+    pepl_tran_loc_reg_curso = st.number_input('Prejuízos com Transporte Local/Regional/Longo Curso', min_value=0, step=1000)
+    pepl_distrib_combustiveis = st.number_input('Prejuízos com Distribuição de Combustíveis', min_value=0, step=1000)
+    pepl_seguranca_publica = st.number_input('Prejuízos com Segurança Pública', min_value=0, step=1000)
+    pepl_ensino = st.number_input('Prejuízos com Ensino', min_value=0, step=1000)
 
 # Prejuízos Privados
 st.markdown("#### Prejuízos Privados (R$)")
 col8, col9 = st.columns(2)
 
 with col8:
-    pepr_agricultura = st.number_input('Agricultura', min_value=0, step=1000)
-    pepr_pecuaria = st.number_input('Pecuária', min_value=0, step=1000)
-    pepr_industria = st.number_input('Indústria', min_value=0, step=1000)
+    pepr_agricultura = st.number_input('Prejuízos na Agricultura', min_value=0, step=1000)
+    pepr_pecuaria = st.number_input('Prejuízos na  Pecuária', min_value=0, step=1000)
+    pepr_industria = st.number_input('Prejuízos na Indústria', min_value=0, step=1000)
 
 with col9:
-    pepr_comercio = st.number_input('Comércio', min_value=0, step=1000)
-    pepr_servicos = st.number_input('Serviços', min_value=0, step=1000)
+    pepr_comercio = st.number_input('Prejuízos no Comércio', min_value=0, step=1000)
+    pepr_servicos = st.number_input('Prejuízos nos Serviços', min_value=0, step=1000)
 
 # Dados do Município
 st.markdown("### Dados do Município")
@@ -111,7 +111,7 @@ col10, col11 = st.columns(2)
 with col10:
     densidade_pop = st.number_input('Densidade Populacional (hab/km²)', min_value=0.0)
     domicilio_area_rural = st.number_input('Número de Domicílios na Área Rural', min_value=0, step=1)
-    qtde_familias_atualizadas = st.number_input('Quantidade de Famílias Atualizadas', min_value=0, step=1)
+    qtde_familias_atualizadas = st.number_input('Quantidade de Famílias no CadÚnico', min_value=0, step=1)
 
 with col11:
     pdefagua = st.number_input('Deficiência de Abastecimento de Água (%)', min_value=0.0, max_value=100.0)
