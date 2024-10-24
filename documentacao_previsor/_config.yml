@@ -17,7 +17,6 @@ exclude_patterns:
   - "datasets"
   - "README.md"
 
-
 #######################################################################################
 # Execution settings
 execute:
@@ -32,6 +31,7 @@ parse:
     - dollarmath
     - linkify
     - substitution
+    - html_image
 
 #######################################################################################
 # HTML-specific settings
@@ -88,7 +88,6 @@ launch_buttons:
 binder:
   binderhub_url               : "https://mybinder.org"
   text                        : "Launch binder"
-
 
 latex:
   latex_engine                : "xelatex"
