@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -66,6 +69,7 @@
     <link rel="prev" title="Testes adicionais" href="xgboost_adicionais.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="_static/previsor_logo.png" class="logo__image only-light" alt="Previsor de reconhecimento - Home"/>
-    <script>document.write(`<img src="_static/previsor_logo.png" class="logo__image only-dark" alt="Previsor de reconhecimento - Home"/>`);</script>
+    <img src="_static/previsor_logo.png" class="logo__image only-dark pst-js-only" alt="Previsor de reconhecimento - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
@@ -181,7 +170,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="analise_exploratoria_preliminar.html">Análise preliminar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analise_registros_municipios.html">Municípios e desastres</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analise_dados_ausentes_descricao.html">Dados ausentes e status de reconhecimento federal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_dados_ausentes_descricao.html">Dados ausentes (descrição)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_dados_ausentes_prejuizos_danos.html">Dados ausentes (danos e prejuízos)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_outliers.html">Análise outliers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pré processamento</span></p>
 <ul class="nav bd-sidenav">
@@ -386,24 +377,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -429,8 +412,13 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-com-features-agregadas">Modelos com features agregadas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-com-features-desagregadas">Modelos com features desagregadas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2010-2017">Análise comparativa dos Modelos com features desagregadas (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2018-2024">Análise comparativa dos Modelos com features desagregadas (2018-2024)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2010-2017</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2018-2024</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primeiras-conclusoes">Primeiras conclusões</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-adicionais-2018-2024">Modelos adicionais 2018-2024</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-dos-resultados">Análise dos Resultados</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
@@ -457,32 +445,43 @@ document.write(`
 <blockquote>
 <div><p><strong>Nota</strong>: Mais detalhes sobre o pré-processamento dos dados podem ser verificados no capítulo “Pré-processamento”.</p>
 </div></blockquote>
+<p>As métricas analisadas foram:</p>
+<ul class="simple">
+<li><p>Accuracy (Acurácia): Proporção de previsões corretas (tanto positivas quanto negativas) em relação ao total de casos.</p></li>
+<li><p>Recall (Revocação): Proporção de casos positivos corretamente identificados pelo modelo. É crucial quando queremos capturar todos os casos positivos. No caso do reconhecimento federal, é um risco para o negócio que um evento não seja reconhecido quando o deveria ser.</p></li>
+<li><p>Precision (Precisão): Proporção de previsões positivas que realmente são positivas. Importante para minimizar falsos positivos.</p></li>
+<li><p>F1 Score: Média harmônica entre precisão e recall. É útil quando temos um desbalanceamento nas classes e queremos um equilíbrio entre precisão e recall.</p></li>
+</ul>
 <section id="modelos-com-features-agregadas">
 <h2>Modelos com features agregadas<a class="headerlink" href="#modelos-com-features-agregadas" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Modelo com features agregadas</strong>:</p>
+<li><p>Weighted avg F1-score: <strong>86,59%</strong> no período 2010-2017 e <strong>90,1%</strong> no período 2018-2024</p>
 <ul>
-<li><p>Weighted avg F1-score: <strong>86,59%</strong> no período 2010-2017 e <strong>90,1%</strong> no período 2018-2024</p></li>
-<li><p>Baixo desempenho para a classe ‘Não reconhecido’.</p></li>
+<li><p>O modelo performou melhor nos dados mais recentes. Isso pode indicar que os padrões nos dados de 2018-2024 são mais consistentes ou que as features agregadas capturam melhor as características dos eventos nesse período.</p></li>
+</ul>
+</li>
+<li><p>Baixo desempenho para a classe ‘Não reconhecido’.</p>
+<ul>
+<li><p>Apesar do bom F1-score geral, o modelo teve dificuldades em prever corretamente a classe ‘Não reconhecido’. Isso significa que o modelo está tendo dificuldade em identificar corretamente os casos negativos.</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="modelos-com-features-desagregadas">
 <h2>Modelos com features desagregadas<a class="headerlink" href="#modelos-com-features-desagregadas" title="Link to this heading">#</a></h2>
-<section id="analise-comparativa-dos-modelos-com-features-desagregadas-2010-2017">
-<h3>Análise comparativa dos Modelos com features desagregadas (2010-2017)<a class="headerlink" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2010-2017" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>2010-2017<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
-<th class="head"><p>Precisão (Não reconhecido)</p></th>
-<th class="head"><p>Recall (Não reconhecido)</p></th>
-<th class="head"><p>F1-score (Não reconhecido)</p></th>
-<th class="head"><p>Precisão (Reconhecido)</p></th>
-<th class="head"><p>Recall (Reconhecido)</p></th>
-<th class="head"><p>F1-score (Reconhecido)</p></th>
-<th class="head"><p>Macro avg F1-score</p></th>
-<th class="head"><p>Weighted avg F1-score</p></th>
+<th class="head"><p>Precisão <br/>(Não reconhecido)</p></th>
+<th class="head"><p>Recall <br/>(Não reconhecido)</p></th>
+<th class="head"><p>F1-score <br/>(Não reconhecido)</p></th>
+<th class="head"><p>Precisão <br/>(Reconhecido)</p></th>
+<th class="head"><p>Recall <br/>(Reconhecido)</p></th>
+<th class="head"><p>F1-score <br/>(Reconhecido)</p></th>
+<th class="head"><p>Macro avg <br/>F1-score</p></th>
+<th class="head"><p>Weighted avg <br/>F1-score</p></th>
 </tr>
 </thead>
 <tbody>
@@ -530,13 +529,22 @@ document.write(`
 </table>
 </div>
 <ul class="simple">
-<li><p><strong>Uso do SMOTE</strong>: A técnica de balanceamento melhorou o recall e o F1-score da classe ‘Não reconhecido’, mas a precisão caiu.</p></li>
-<li><p><strong>Seleção de Variáveis por Importância</strong>: A exclusão de variáveis com importância &lt; -0,01 não alterou significativamente o desempenho.</p></li>
-<li><p><strong>Remoção de Variáveis Correlacionadas</strong>: A remoção de variáveis altamente correlacionadas beneficiou o recall da classe minoritária, com uma pequena redução na precisão.</p></li>
+<li><p><strong>Uso do SMOTE</strong>: A aplicação do SMOTE, que é uma técnica de balanceamento, ajudou o modelo a identificar melhor os casos da classe minoritária (‘Não reconhecido’). Isso aumentou o F1-score dessa classe.</p>
+<ul>
+<li><p>Houve uma queda na precisão, o que significa que o modelo passou a classificar mais casos como ‘Não reconhecido’, mas nem todos eram realmente dessa classe (aumentou o número de falsos positivos).</p></li>
+<li><p>Essa situação representa um risco para o negócio</p></li>
+</ul>
+</li>
+<li><p><strong>Seleção de Variáveis por Importância</strong>: A exclusão de variáveis com importância &lt; -0,01 não alterou significativamente o desempenho.</p>
+<ul>
+<li><p>Isso sugere que essas variáveis não estavam contribuindo muito para o modelo.</p></li>
+</ul>
+</li>
+<li><p><strong>Remoção de Variáveis Correlacionadas</strong>: A remoção de variáveis altamente correlacionadas beneficiou o recall da classe minoritária, sem prejudicar a precisão.</p></li>
 </ul>
 </section>
-<section id="analise-comparativa-dos-modelos-com-features-desagregadas-2018-2024">
-<h3>Análise comparativa dos Modelos com features desagregadas (2018-2024)<a class="headerlink" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2018-2024" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>2018-2024<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -595,20 +603,201 @@ document.write(`
 </table>
 </div>
 <ul class="simple">
+<li><p>O modelo teve melhor desempenho na classe ‘Não reconhecido’ no período mais recente, indicando que os dados podem estar mais propícios para a identificação correta dessa classe.</p></li>
 <li><p><strong>Uso do SMOTE</strong>: A técnica de balanceamento melhorou o recall e o F1-score da classe ‘Não reconhecido’, apesar de uma leve redução na precisão.</p></li>
-<li><p><strong>Seleção de Variáveis por Importância</strong>: Não houve impacto perceptível no desempenho ao usar apenas variáveis com importância maior que -0,01.</p></li>
-<li><p><strong>Remoção de Variáveis Correlacionadas</strong>: A remoção de variáveis altamente correlacionadas beneficiou o recall da classe minoritária, mas com uma redução significativa na precisão.</p></li>
+<li><p><strong>Seleção de Variáveis por Importância</strong> e <strong>Remoção de Variáveis Correlacionadas</strong>: Assim como no período anterior, essas técnicas não tiveram um impacto significativo no desempenho, mas ajudaram a melhorar um pouco o recall da classe minoritária.</p></li>
 </ul>
 </section>
-</section>
-<section id="conclusoes">
-<h2>Conclusões<a class="headerlink" href="#conclusoes" title="Link to this heading">#</a></h2>
+<section id="primeiras-conclusoes">
+<h3>Primeiras conclusões<a class="headerlink" href="#primeiras-conclusoes" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Impacto do SMOTE: Melhorou o recall e F1-score da classe ‘Não reconhecido’.</p></li>
 <li><p>Seleção de Variáveis por Importância: Simplificação do modelo aumentou o recall e F1-score.</p></li>
 <li><p>Remoção de Variáveis Correlacionadas: Também melhorou o desempenho da classe minoritária, mantendo uma precisão ligeiramente maior.</p></li>
 <li><p>Os modelos de 2018-2024 mostraram melhor desempenho geral na classe minoritária.</p></li>
 <li><p>As técnicas de balanceamento e seleção de variáveis foram mais eficazes nos dados mais recentes.</p></li>
+</ul>
+</section>
+</section>
+<section id="modelos-adicionais-2018-2024">
+<h2>Modelos adicionais 2018-2024<a class="headerlink" href="#modelos-adicionais-2018-2024" title="Link to this heading">#</a></h2>
+<p>Considerando os melhores resultados obtidos nos modelos testados com as variáveis desagregadas e com os dados 2018-2024, foram realizados testes adicionais.</p>
+<p>Nesses testes adicionais, as seguintes variáveis foram agregadas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nova Variável</p></th>
+<th class="head"><p>Agregação</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DH_FERIDOS_ENFERMOS</p></td>
+<td><p>DH_FERIDOS + DH_ENFERMOS</p></td>
+</tr>
+<tr class="row-odd"><td><p>DH_DESABRIGADOS_DESALOJADOS</p></td>
+<td><p>DH_DESABRIGADOS + DH_DESALOJADOS</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Uni_Habita_Danificadas_Destruidas</p></td>
+<td><p>DM_Uni Habita Danificadas + DM_Uni Habita Destruidas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst_Saude_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Saúde Danificadas + DM_Inst Saúde Destruidas</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst_Ensino_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Ensino Danificadas + DM_Inst Ensino Destruidas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst_Servicos_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Serviços Danificadas + DM_Inst Serviços Destruidas</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst_Comuni_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Comuni Danificadas + DM_Inst Comuni Destruidas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Obras_Infra_Danificadas_Destruidas</p></td>
+<td><p>DM_Obras de Infra Danificadas + DM_Obras de Infra Destruidas</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Novas métricas foram analisadas nessa nova rodada de testes:</p>
+<ul class="simple">
+<li><p>AUC-ROC (Área Sob a Curva ROC): Mede a capacidade do modelo em distinguir entre classes. Valores mais próximos de 1 indicam melhor desempenho.</p></li>
+<li><p>AUC-PR (Área Sob a Curva de Precisão-Revocação): Similar ao AUC-ROC, mas é mais informativa em conjuntos de dados desbalanceados.</p></li>
+</ul>
+<p>Os resultados são apresentados a seguir:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>accuracy_train</p></th>
+<th class="head"><p>accuracy_test</p></th>
+<th class="head"><p>recall_train</p></th>
+<th class="head"><p>recall_test</p></th>
+<th class="head"><p>precision</p></th>
+<th class="head"><p>f1</p></th>
+<th class="head"><p>auc_roc</p></th>
+<th class="head"><p>auc_pr</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(1) XGBoost Base</p></td>
+<td><p>0.996</p></td>
+<td><p>0.935</p></td>
+<td><p>1.000</p></td>
+<td><p>0.993</p></td>
+<td><p>0.940</p></td>
+<td><p>0.966</p></td>
+<td><p>0.824</p></td>
+<td><p>0.975</p></td>
+</tr>
+<tr class="row-odd"><td><p>(2) XGBoost com Hiperparâmetros e balanceamento por pesos</p></td>
+<td><p>0.931</p></td>
+<td><p>0.930</p></td>
+<td><p>1.000</p></td>
+<td><p>1.000</p></td>
+<td><p>0.929</p></td>
+<td><p>0.963</p></td>
+<td><p>0.825</p></td>
+<td><p>0.977</p></td>
+</tr>
+<tr class="row-even"><td><p>(3) XGBoost com Hiperparâmetros, balanceamento por pesos e Features Selecionadas</p></td>
+<td><p>0.944</p></td>
+<td><p>0.932</p></td>
+<td><p>0.998</p></td>
+<td><p>0.996</p></td>
+<td><p>0.934</p></td>
+<td><p>0.964</p></td>
+<td><p>0.843</p></td>
+<td><p>0.980</p></td>
+</tr>
+<tr class="row-odd"><td><p>(4) XGBoost com Hiperparâmetros, balanceamento por pesos e Feature Engineering</p></td>
+<td><p>0.945</p></td>
+<td><p>0.933</p></td>
+<td><p>0.999</p></td>
+<td><p>0.997</p></td>
+<td><p>0.934</p></td>
+<td><p>0.964</p></td>
+<td><p>0.846</p></td>
+<td><p>0.978</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Matriz de confusão para os modelos (2) e (3)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="Matriz de Confusão - Seleção de variáveis" src="_images/xgboost_confusao_features_selecionadas.png" /></p></th>
+<th class="head text-center"><p><img alt="Matriz de Confusão - Feature Engineering" src="_images/xgboost_confusao_feature_engenering.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Matriz de Confusão - Seleção de features</p></td>
+<td class="text-center"><p>Matriz de Confusão - Feature Engineering</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Curva ROC para os modelos (2) e (3)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="Curva ROC - Seleção de variáveis" src="_images/xgboost_ROC_features_selecionadas.png" /></p></th>
+<th class="head text-center"><p><img alt="Curva ROC - Feature Engineering" src="_images/xgboost_ROC_features_engenering.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Curva ROC - Seleção de features</p></td>
+<td class="text-center"><p>Curva ROC - Feature Engineering</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="analise-dos-resultados">
+<h3>Análise dos Resultados<a class="headerlink" href="#analise-dos-resultados" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>XGBoost Base</p></li>
+</ol>
+<ul class="simple">
+<li><p>Acurácia e Recall Altos no Treino: A acurácia no treino é muito alta (99,6%), e o recall é 1.000, o que indica que o modelo está acertando praticamente todos os casos no treino.</p></li>
+<li><p>Possível Overfitting: A acurácia no teste é um pouco menor (93,5%), e o recall cai para 0.993. Essa diferença sugere que o modelo pode estar se ajustando demais aos dados de treino (overfitting).</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>XGBoost com Hiperparâmetros e balanceamento por pesos</p></li>
+</ol>
+<ul class="simple">
+<li><p>Modelo em que se utilizou o balanceamento por pesos de acordo com a relação classe majoritária / classe minoritária</p></li>
+<li><p>Também se utilizou os hiperparâmetros sugeridos por Thakur (2020)</p></li>
+<li><p><em>Redução do Overfitting</em>: A acurácia de treino diminuiu para 93,1%, aproximando-se da acurácia de teste (93,0%). Isso indica redução do overfitting.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>XGBoost com Hiperparâmetros, balanceamento por pesos e features selecionadas</p></li>
+</ol>
+<ul class="simple">
+<li><p>Além do indicado em (2), nesse modelo selecionou-se as variáveis que contribuem acima da média para os resultados</p></li>
+<li><p><em>Aumento no AUC-ROC e AUC-PR</em>: O AUC-ROC aumentou para 0.843, indicando que o modelo está melhor em distinguir entre as classes.</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>XGBoost com Feature Engineering:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Além do indicado em (2), nesse modelo as variáveis que se referem a prejuízos foram agrupadas</p></li>
+<li><p><em>Melhor AUC-ROC</em>: O AUC-ROC é o mais alto entre os modelos (0.846), sugerindo que o feature engineering (criação de novas features) melhorou a capacidade do modelo de distinguir entre as classes.</p></li>
+</ul>
+</section>
+</section>
+<section id="conclusoes">
+<h2>Conclusões<a class="headerlink" href="#conclusoes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Redução de Overfitting com seleção de hiperparâmetros e seleção de Features:</p>
+<ul>
+<li><p>Ajustar os hiperparâmetros e selecionar as features ajudou a reduzir o overfitting, equilibrando melhor a acurácia entre o treino e o teste.</p></li>
+</ul>
+</li>
+<li><p>Feature Engineering Beneficiou o Modelo:</p>
+<ul>
+<li><p>A criação de novas features agregadas aumentou o AUC-ROC, indicando uma melhor capacidade de diferenciação entre as classes. Isso pode significar que as novas features capturaram informações relevantes que não estavam claras antes.</p></li>
+</ul>
+</li>
+<li><p>Desempenho Consistente na Classe Positiva:
+O recall alto (próximo ou igual a 1.000) pode ser positivo se o objetivo é não perder nenhum caso positivo.</p></li>
+<li><p>Acurácia de Treino vs. Teste:
+Modelos com acurácia de treino muito superior à de teste podem estar sofrendo de overfitting. Se for desejável que essas acurácias sejam próximas, o modelo com seleção de hiperparâmetros e agregação de algumas variáveis pode ser mais interessante do que os demais.</p></li>
 </ul>
 </section>
 </section>
@@ -668,7 +857,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -679,8 +869,13 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-com-features-agregadas">Modelos com features agregadas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-com-features-desagregadas">Modelos com features desagregadas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2010-2017">Análise comparativa dos Modelos com features desagregadas (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-com-features-desagregadas-2018-2024">Análise comparativa dos Modelos com features desagregadas (2018-2024)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2010-2017</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2018-2024</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primeiras-conclusoes">Primeiras conclusões</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-adicionais-2018-2024">Modelos adicionais 2018-2024</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-dos-resultados">Análise dos Resultados</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
@@ -745,8 +940,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

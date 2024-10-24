@@ -12,6 +12,8 @@ parts:
   - file: analise_exploratoria_preliminar
   - file: analise_registros_municipios
   - file: analise_dados_ausentes_descricao
+  - file: analise_dados_ausentes_prejuizos_danos
+  - file: analise_outliers
 - caption: Pré processamento
   chapters:
   - file: pre_processamento
