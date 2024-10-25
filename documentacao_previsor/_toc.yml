@@ -38,8 +38,10 @@ parts:
   - file: xgboost_adicionais
   - file: xgboost_conclusao
 
-- caption: Classificação de textos
+- caption: Análise de Tópicos e Classificação de textos
   chapters:
+  - file: bert_base
+  - file:
   - file: nlp_tfidf_base
   - file: nlp_tfidf_oversampler
   - file: nlp_tfidf_undersampler

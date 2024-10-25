@@ -1,0 +1,38 @@
+
+## Resultados das Árvores de Decisão
+
+As primeiras árvores de decisão obtidas, sem utilização de técnicas de balanceamento, tiveram f1-score de 0,88, mas valores de recall (entre 0.8 e 0.13) e f1-score para o status "Não reconhecido" (entre 0.15 e 0.22) muito baixos.
+
+Foram realizados testes eliminando do dataset variáveis quase-constantes e com alta correlação entre si, mas não houve melhora de desempenho significativa.
+
+## Aplicação de SMOTE e GridSearch
+
+Uma vez que o desempenho das árvores de decisão vinha sendo consideravelmente pior em relação à classe "Não reconhecido", foram feitos testes com a aplicação de SMOTE (com tratamento de variáveis faltantes com substituição pela média) e gridsearch, com os resultados abaixo:
+
+### Modelo 1 (Dados Agregados)
+
+| Métrica | Valor |
+|---------|-------|
+| Acurácia | 0.9242 |
+| Precisão | 0.9242 |
+| Recall | 0.9242 |
+| F1-score | 0.9242 |
+
+### Modelo 2 (Dados Não Agregados)
+
+| Métrica | Valor |
+|---------|-------|
+| Acurácia | 0.9412 |
+| Precisão | 0.9412 |
+| Recall | 0.9412 |
+| F1-score | 0.9412 |
+
+## Otimização e Resultados Finais
+
+Posteriormente, foi aplicada técnica de busca bayesiana para otimização dos hiperparâmetros, mas não houve melhora significativa nos resultados.
+
+De forma geral, as árvores de decisão rodadas com dados não agregados (modelo 2) tiveram melhor desempenho que aqueles em que foram utilizados dados agregados (modelo 1).
+
+## Considerações da Área de Negócio
+
+Em reunião com a área de negócio, foi informado que há casos em que o não reconhecimento não se dá somente a partir dos dados preenchidos em formulário (S2ID), mas também por análise complementar, feita por servidor, de documentos e imagens enviados. Além do desbalanceamento do dataset, esse fator externo pode estar influenciando nos resultados piores para os casos de não reconhecimento.
