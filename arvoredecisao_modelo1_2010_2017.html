@@ -891,7 +891,12 @@ Não reconhecido   1.000000  0.004149  0.008264       241
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obter as importâncias das features do melhor modelo encontrado (balanceado por pesos)</span>
 <span class="n">importances_balanceado</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">best_tree_model_balanceado</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> 
@@ -906,6 +911,7 @@ Não reconhecido   1.000000  0.004149  0.008264       241
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importâncias das Features (Modelo com Balanceamento por Pesos):
 PEPR_total_privado          0.415001
@@ -1073,7 +1079,12 @@ Não reconhecido   0.000000  0.000000  0.000000       241
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obter as importâncias das features do melhor modelo encontrado (balanceado com variáveis selecionadas)</span>
 <span class="n">importances_balanceado_vars</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">best_tree_model_balanceado_vars</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> 
@@ -1088,6 +1099,7 @@ Não reconhecido   0.000000  0.000000  0.000000       241
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importâncias das Features (Modelo com Balanceamento por Pesos e Seleção de Variáveis):
 PEPR_total_privado          0.419349
@@ -1101,7 +1113,12 @@ dtype: float64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">plot_tree</span><span class="p">(</span>
@@ -1114,6 +1131,7 @@ dtype: float64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/d7072bdb9aa3f37f127e1e46a23f0e6e27b9112d1f9dde506d37082ef348b18d.png" src="_images/d7072bdb9aa3f37f127e1e46a23f0e6e27b9112d1f9dde506d37082ef348b18d.png" />
 </div>
