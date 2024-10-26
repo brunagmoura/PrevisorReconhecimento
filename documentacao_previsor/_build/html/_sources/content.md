@@ -1,4 +1,0 @@
-## Conteúdo deste livro
-
-```{tableofcontents}
-```
