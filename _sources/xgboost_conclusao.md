@@ -105,7 +105,7 @@ Curva ROC para os modelos (2) e (3)
 
 | ![Curva ROC - Seleção de variáveis](../figures/xgboost_ROC_features_selecionadas.png) | ![Curva ROC - Feature Engineering](../figures/xgboost_ROC_features_engenering.png) |
 |:-------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
-|                            Curva ROC - Seleção de features                            |                          Curva ROC - Feature Engineering                           |
+|                            Curva ROC - Seleção de features                            |                 git status         Curva ROC - Feature Engineering                 |
 
 
 ### Análise dos Resultados

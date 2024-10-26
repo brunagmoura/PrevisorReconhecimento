@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -65,7 +65,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="BERTopic" href="bert_base.html" />
     <link rel="prev" title="Testes adicionais" href="xgboost_adicionais.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,13 +177,14 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="pre_processamento.html">Pré processamento dos dados</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Árvore de Decisão</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regressão logística</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2022)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_conclusoes.html">Resultados dos Modelos de Árvores de Decisão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_baseline.html">Modelo “base”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_conclusao.html">Resultados da Regressão Logística</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
 <ul class="nav bd-sidenav">
@@ -199,10 +199,6 @@
 <li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Resultados do modelo XGBoost</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise de Tópicos e Classificação de textos</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="bert_base.html">BERTopic</a></li>
 </ul>
 
     </div>
@@ -740,7 +736,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-center"><p>Curva ROC - Seleção de features</p></td>
-<td class="text-center"><p>Curva ROC - Feature Engineering</p></td>
+<td class="text-center"><p>git status         Curva ROC - Feature Engineering</p></td>
 </tr>
 </tbody>
 </table>
@@ -837,15 +833,6 @@ Modelos com acurácia de treino muito superior à de teste podem estar sofrendo 
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Testes adicionais</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="bert_base.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">BERTopic</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
