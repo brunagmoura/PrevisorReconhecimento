@@ -4,3 +4,5 @@
 ./documentacao_previsor/df_eventos_2018_2024_modelo1.csv
 ./documentacao_previsor/df_eventos_2018_2024_modelo2.csv
 .idea
+/documentacao_previsor/_build/
+/documentacao_previsor/_config.yml/

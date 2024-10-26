@@ -50,6 +50,12 @@ O passo a passo foi:
 
 ## Visualização dos resultados
 
+Intertopic Distance Map
+
+| ![Intertopic Distance Map - Eventos Reconhecidos](../figures/bertTopic_reconhecidos.png) | ![Intertopic Distance Map - Eventos não reconhecidos](../figures/berTopic_naoreconhecidos.png) |
+|:----------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------:|
+|                      Intertopic Distance Map - Eventos Reconhecidos                      |                       Intertopic Distance Map - Eventos Não Reconhecidos                       |
+
 
 
 ## Conclusões
