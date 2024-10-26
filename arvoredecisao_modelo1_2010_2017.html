@@ -561,18 +561,10 @@
 
 <span class="c1"># Fazer predições</span>
 <span class="n">y_pred_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">clf_modelo1_2010_2017</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_modelo1_2010_2017</span><span class="p">)</span>
-
-<span class="c1"># Mostrar a árvore de decisão</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plot_tree</span><span class="p">(</span><span class="n">clf_modelo1_2010_2017</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X_modelo1_2010_2017</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<img alt="_images/5139cb65db03ebabe2a91a8110b582a2c13ae9266b04bf8af970e54284c113d8.png" src="_images/5139cb65db03ebabe2a91a8110b582a2c13ae9266b04bf8af970e54284c113d8.png" />
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -810,7 +802,7 @@ Não reconhecido   0.187970  0.207469  0.197239       241
 <span class="p">)</span>
 
 <span class="c1"># Calcular scale_pos_weight manualmente para balanceamento</span>
-<span class="n">scale_pos_weight_balanceado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_train_2010_2017_balanceado</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">y_train_2010_2017_balanceado</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">scale_pos_weight_balanceado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_train_2010_2017_balanceado</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">y_train_2010_2017_balanceado</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Definir hiperparâmetros para a busca bayesiana</span>
 <span class="n">param_grid_bayes_balanceado</span> <span class="o">=</span> <span class="p">{</span>
@@ -854,16 +846,6 @@ Não reconhecido   0.187970  0.207469  0.197239       241
 
 <span class="c1"># Fazer previsões com o conjunto de teste</span>
 <span class="n">y_pred_tree_balanceado</span> <span class="o">=</span> <span class="n">best_tree_model_balanceado</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_2010_2017_balanceado</span><span class="p">)</span>
-
-<span class="c1"># Mostrar a árvore de decisão do modelo com balanceamento</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plot_tree</span><span class="p">(</span>
-    <span class="n">best_tree_model_balanceado</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">],</span>  <span class="c1"># Seleciona o DecisionTreeClassifier do pipeline</span>
-    <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
-    <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
-    <span class="n">feature_names</span><span class="o">=</span><span class="n">X_train_2010_2017_balanceado</span><span class="o">.</span><span class="n">columns</span>
-<span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -872,7 +854,6 @@ Não reconhecido   0.187970  0.207469  0.197239       241
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melhores hiperparâmetros (balanceado): OrderedDict([(&#39;decisiontree__criterion&#39;, &#39;entropy&#39;), (&#39;decisiontree__max_depth&#39;, 3), (&#39;decisiontree__min_samples_leaf&#39;, 2), (&#39;decisiontree__min_samples_split&#39;, 2)])
 </pre></div>
 </div>
-<img alt="_images/717c34775ad02698b895972cf4326097cb4cc9bcb5e0bd346ad08fd002984b10.png" src="_images/717c34775ad02698b895972cf4326097cb4cc9bcb5e0bd346ad08fd002984b10.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -900,12 +881,89 @@ Não reconhecido   0.187970  0.207469  0.197239       241
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relatório de Classificação (balanceado pesos):
                  precision    recall  f1-score   support
 
-Não reconhecido   0.000000  0.000000  0.000000       241
-    Reconhecido   0.882496  1.000000  0.937581      1810
+Não reconhecido   1.000000  0.004149  0.008264       241
+    Reconhecido   0.882927  1.000000  0.937824      1810
 
-       accuracy                       0.882496      2051
-      macro avg   0.441248  0.500000  0.468790      2051
-   weighted avg   0.778800  0.882496  0.827412      2051
+       accuracy                       0.882984      2051
+      macro avg   0.941463  0.502075  0.473044      2051
+   weighted avg   0.896683  0.882984  0.828597      2051
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obter as importâncias das features do melhor modelo encontrado (balanceado por pesos)</span>
+<span class="n">importances_balanceado</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">best_tree_model_balanceado</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> 
+                                   <span class="n">index</span><span class="o">=</span><span class="n">X_train_2010_2017_balanceado</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Ordenar as importâncias das features em ordem decrescente</span>
+<span class="n">importances_balanceado</span> <span class="o">=</span> <span class="n">importances_balanceado</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Exibir as importâncias das features</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Importâncias das Features (Modelo com Balanceamento por Pesos):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">importances_balanceado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importâncias das Features (Modelo com Balanceamento por Pesos):
+PEPR_total_privado          0.415001
+Rendapercapita              0.217559
+DH_total_danos_humanos      0.185340
+PEPL_total_publico          0.060874
+COBRADE_14132               0.060805
+regiao_Sudeste              0.060421
+COBRADE_15110               0.000000
+COBRADE_13214               0.000000
+COBRADE_13215               0.000000
+COBRADE_13310               0.000000
+COBRADE_13321               0.000000
+COBRADE_13322               0.000000
+COBRADE_14110               0.000000
+COBRADE_14120               0.000000
+COBRADE_14131               0.000000
+COBRADE_14140               0.000000
+COBRADE_15120               0.000000
+COBRADE_13212               0.000000
+COBRADE_15130               0.000000
+COBRADE_15210               0.000000
+COBRADE_15230               0.000000
+COBRADE_22210               0.000000
+COBRADE_22220               0.000000
+COBRADE_23120               0.000000
+COBRADE_24100               0.000000
+COBRADE_24200               0.000000
+COBRADE_25100               0.000000
+COBRADE_25500               0.000000
+COBRADE_13213               0.000000
+COBRADE_13211               0.000000
+regiao_Centro-oeste         0.000000
+COBRADE_11332               0.000000
+regiao_Nordeste             0.000000
+regiao_Norte                0.000000
+regiao_Sul                  0.000000
+COBRADE_11110               0.000000
+COBRADE_11120               0.000000
+COBRADE_11311               0.000000
+COBRADE_11312               0.000000
+COBRADE_11313               0.000000
+COBRADE_11321               0.000000
+COBRADE_11331               0.000000
+COBRADE_11340               0.000000
+COBRADE_13120               0.000000
+COBRADE_11410               0.000000
+COBRADE_11420               0.000000
+COBRADE_11431               0.000000
+COBRADE_11432               0.000000
+COBRADE_11433               0.000000
+COBRADE_12100               0.000000
+COBRADE_12200               0.000000
+COBRADE_12300               0.000000
+COBRADE_13111               0.000000
+DM_total_danos_materiais    0.000000
+COBRADE_13112               0.000000
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -913,7 +971,12 @@ Não reconhecido   0.000000  0.000000  0.000000       241
 </section>
 <section id="modelo-com-busca-de-hiperparametros-balanceamento-das-variaveis-target-por-pesos-e-selecao-de-features">
 <h2>Modelo com busca de hiperparâmetros, balanceamento das variáveis target por pesos e seleção de features<a class="headerlink" href="#modelo-com-busca-de-hiperparametros-balanceamento-das-variaveis-target-por-pesos-e-selecao-de-features" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dividir dados em treino e teste (modelo com balanceamento)</span>
 <span class="n">X_train_2010_2017_balanceado_vars</span><span class="p">,</span> <span class="n">X_test_2010_2017_balanceado_vars</span><span class="p">,</span> <span class="n">y_train_2010_2017_balanceado_vars</span><span class="p">,</span> <span class="n">y_test_2010_2017_balanceado_vars</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
@@ -921,7 +984,7 @@ Não reconhecido   0.000000  0.000000  0.000000       241
 <span class="p">)</span>
 
 <span class="c1"># Calcular scale_pos_weight manualmente para balanceamento</span>
-<span class="n">scale_pos_weight_balanceado_vars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_train_2010_2017_balanceado_vars</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">y_train_2010_2017_balanceado_vars</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">scale_pos_weight_balanceado_vars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_train_2010_2017_balanceado_vars</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">y_train_2010_2017_balanceado_vars</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Criar modelo inicial para estimar importância das features</span>
 <span class="n">initial_tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="n">scale_pos_weight_balanceado_vars</span><span class="p">})</span>
@@ -994,6 +1057,7 @@ Não reconhecido   0.000000  0.000000  0.000000       241
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melhores hiperparâmetros (balanceado com variáveis selecionadas): OrderedDict([(&#39;decisiontree__criterion&#39;, &#39;entropy&#39;), (&#39;decisiontree__max_depth&#39;, 3), (&#39;decisiontree__min_samples_leaf&#39;, 2), (&#39;decisiontree__min_samples_split&#39;, 2)])
 Relatório de Classificação (balanceado com variáveis selecionadas):
@@ -1005,6 +1069,34 @@ Não reconhecido   0.000000  0.000000  0.000000       241
        accuracy                       0.882496      2051
       macro avg   0.441248  0.500000  0.468790      2051
    weighted avg   0.778800  0.882496  0.827412      2051
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obter as importâncias das features do melhor modelo encontrado (balanceado com variáveis selecionadas)</span>
+<span class="n">importances_balanceado_vars</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">best_tree_model_balanceado_vars</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> 
+                                        <span class="n">index</span><span class="o">=</span><span class="n">X_train_2010_2017_balanceado_vars</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()])</span>
+
+<span class="c1"># Ordenar as importâncias das features em ordem decrescente</span>
+<span class="n">importances_balanceado_vars</span> <span class="o">=</span> <span class="n">importances_balanceado_vars</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Exibir as importâncias das features</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Importâncias das Features (Modelo com Balanceamento por Pesos e Seleção de Variáveis):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">importances_balanceado_vars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importâncias das Features (Modelo com Balanceamento por Pesos e Seleção de Variáveis):
+PEPR_total_privado          0.419349
+Rendapercapita              0.219838
+DH_total_danos_humanos      0.187282
+PEPL_total_publico          0.117049
+DM_total_danos_materiais    0.056482
+regiao_Nordeste             0.000000
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1023,7 +1115,7 @@ Não reconhecido   0.000000  0.000000  0.000000       241
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b1616136b89ead0346d16ea0ecf08a58dae1edb368a44b2014dbbdc2cc4d6c03.png" src="_images/b1616136b89ead0346d16ea0ecf08a58dae1edb368a44b2014dbbdc2cc4d6c03.png" />
+<img alt="_images/d7072bdb9aa3f37f127e1e46a23f0e6e27b9112d1f9dde506d37082ef348b18d.png" src="_images/d7072bdb9aa3f37f127e1e46a23f0e6e27b9112d1f9dde506d37082ef348b18d.png" />
 </div>
 </div>
 </section>

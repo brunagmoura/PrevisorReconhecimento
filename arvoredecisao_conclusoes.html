@@ -409,13 +409,13 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-de-dados-testados">Conjuntos de Dados Testados:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-analisadas">Métricas Analisadas:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-de-modelos">Comparação de Modelos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2010-2017">Variáveis Agregadas (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2018-2024">Variáveis Agregadas (2018-2024)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2010-2017">Variáveis Desagregadas (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-de-modelos">Comparação de Modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2010-2017">Variáveis Agregadas (2010-2017)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2018-2024">Variáveis Agregadas (2018-2024)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2010-2017">Variáveis Desagregadas (2010-2017)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-das-variaveis-modelos-com-definicao-de-hiperparametros-balanceamento-por-pesos-selecao-de-variaveis">Importância das Variáveis (Modelos com definição de hiperparâmetros, Balanceamento por Pesos, Seleção de Variáveis)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arvore-2018-2024-com-variaveis-desagregadas-e-com-poda">Árvore 2018-2024 com variáveis desagregadas e com poda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-e-conclusoes">Análise e Conclusões:</a></li>
 </ul>
             </nav>
@@ -450,8 +450,9 @@
 </section>
 <section id="comparacao-de-modelos">
 <h2>Comparação de Modelos<a class="headerlink" href="#comparacao-de-modelos" title="Link to this heading">#</a></h2>
+</section>
 <section id="variaveis-agregadas-2010-2017">
-<h3>Variáveis Agregadas (2010-2017)<a class="headerlink" href="#variaveis-agregadas-2010-2017" title="Link to this heading">#</a></h3>
+<h2>Variáveis Agregadas (2010-2017)<a class="headerlink" href="#variaveis-agregadas-2010-2017" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -487,14 +488,14 @@
 <td><p>0.805763</p></td>
 </tr>
 <tr class="row-even"><td><p>Balanceado por Pesos</p></td>
-<td><p>0.000000</p></td>
-<td><p>0.000000</p></td>
-<td><p>0.000000</p></td>
-<td><p>0.882496</p></td>
 <td><p>1.000000</p></td>
-<td><p>0.937581</p></td>
-<td><p><strong>0.882496</strong></p></td>
-<td><p>0.827412</p></td>
+<td><p>0.004149</p></td>
+<td><p>0.008264</p></td>
+<td><p>0.882927</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.937824</p></td>
+<td><p><strong>0.882984</strong></p></td>
+<td><p>0.828597</p></td>
 </tr>
 <tr class="row-odd"><td><p>Balanceado com Variáveis Selecionadas</p></td>
 <td><p>0.000000</p></td>
@@ -511,7 +512,7 @@
 </div>
 </section>
 <section id="variaveis-agregadas-2018-2024">
-<h3>Variáveis Agregadas (2018-2024)<a class="headerlink" href="#variaveis-agregadas-2018-2024" title="Link to this heading">#</a></h3>
+<h2>Variáveis Agregadas (2018-2024)<a class="headerlink" href="#variaveis-agregadas-2018-2024" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -533,7 +534,7 @@
 <td><p>0.925241</p></td>
 <td><p>0.987559</p></td>
 <td><p>0.955385</p></td>
-<td><p><strong>0.915354</strong></p></td>
+<td><p>0.915354</p></td>
 <td><p>0.891275</p></td>
 </tr>
 <tr class="row-odd"><td><p>SMOTE</p></td>
@@ -547,31 +548,31 @@
 <td><p>0.881634</p></td>
 </tr>
 <tr class="row-even"><td><p>Balanceado por Pesos</p></td>
-<td><p>0.428571</p></td>
-<td><p>0.100478</p></td>
-<td><p>0.162791</p></td>
-<td><p>0.924528</p></td>
-<td><p>0.987988</p></td>
-<td><p>0.955205</p></td>
-<td><p><strong>0.914961</strong></p></td>
-<td><p>0.890003</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.917717</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.957093</p></td>
+<td><p><strong>0.917717</strong></p></td>
+<td><p>0.878340</p></td>
 </tr>
 <tr class="row-odd"><td><p>Balanceado com Variáveis Selecionadas</p></td>
-<td><p>0.391892</p></td>
-<td><p>0.138756</p></td>
-<td><p>0.204947</p></td>
-<td><p>0.927007</p></td>
-<td><p>0.980695</p></td>
-<td><p>0.953096</p></td>
-<td><p>0.911417</p></td>
-<td><p>0.891535</p></td>
+<td><p>0.428571</p></td>
+<td><p>0.014354</p></td>
+<td><p>0.027778</p></td>
+<td><p>0.918674</p></td>
+<td><p>0.998284</p></td>
+<td><p>0.956826</p></td>
+<td><p><strong>0.917323</strong></p></td>
+<td><p>0.880380</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
 <section id="variaveis-desagregadas-2010-2017">
-<h3>Variáveis Desagregadas (2010-2017)<a class="headerlink" href="#variaveis-desagregadas-2010-2017" title="Link to this heading">#</a></h3>
+<h2>Variáveis Desagregadas (2010-2017)<a class="headerlink" href="#variaveis-desagregadas-2010-2017" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -593,7 +594,7 @@
 <td><p>0.896831</p></td>
 <td><p>0.998359</p></td>
 <td><p>0.944876</p></td>
-<td><p>0.896199</p></td>
+<td><p><strong>0.896199</strong></p></td>
 <td><p>0.854215</p></td>
 </tr>
 <tr class="row-odd"><td><p>SMOTE</p></td>
@@ -617,21 +618,21 @@
 <td><p>0.857250</p></td>
 </tr>
 <tr class="row-odd"><td><p>Balanceado com Variáveis Selecionadas</p></td>
-<td><p>0.413043</p></td>
-<td><p>0.127517</p></td>
-<td><p>0.194872</p></td>
-<td><p>0.901664</p></td>
-<td><p>0.977851</p></td>
-<td><p>0.938213</p></td>
-<td><p><strong>0.885234</strong></p></td>
-<td><p>0.857250</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.020134</p></td>
+<td><p>0.039474</p></td>
+<td><p>0.893040</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.943498</p></td>
+<td><p><strong>0.893275</strong></p></td>
+<td><p>0.845034</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
 <section id="variaveis-desagregadas-2018-2024">
-<h3>Variáveis Desagregadas (2018-2024)<a class="headerlink" href="#variaveis-desagregadas-2018-2024" title="Link to this heading">#</a></h3>
+<h2>Variáveis Desagregadas (2018-2024)<a class="headerlink" href="#variaveis-desagregadas-2018-2024" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -647,14 +648,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Sem Balanceamento</p></td>
-<td><p>0.958333</p></td>
-<td><p>0.184000</p></td>
-<td><p>0.308725</p></td>
-<td><p>0.935032</p></td>
+<td><p>0.960000</p></td>
+<td><p>0.192000</p></td>
+<td><p>0.320000</p></td>
+<td><p>0.935628</p></td>
 <td><p>0.999319</p></td>
-<td><p>0.966107</p></td>
-<td><p><strong>0.935383</strong></p></td>
-<td><p>0.914556</p></td>
+<td><p>0.966425</p></td>
+<td><p><strong>0.936010</strong></p></td>
+<td><p>0.915733</p></td>
 </tr>
 <tr class="row-odd"><td><p>SMOTE</p></td>
 <td><p>0.319728</p></td>
@@ -667,29 +668,148 @@
 <td><p>0.892426</p></td>
 </tr>
 <tr class="row-even"><td><p>Balanceado por Pesos</p></td>
-<td><p>0.411215</p></td>
-<td><p>0.352000</p></td>
-<td><p>0.379310</p></td>
-<td><p>0.945528</p></td>
-<td><p>0.957114</p></td>
-<td><p>0.951286</p></td>
-<td><p>0.909661</p></td>
-<td><p>0.906432</p></td>
+<td><p>0.944444</p></td>
+<td><p>0.136000</p></td>
+<td><p>0.237762</p></td>
+<td><p>0.931472</p></td>
+<td><p>0.999319</p></td>
+<td><p>0.964204</p></td>
+<td><p><strong>0.931619</strong></p></td>
+<td><p>0.907237</p></td>
 </tr>
 <tr class="row-odd"><td><p>Balanceado com Variáveis Selecionadas</p></td>
-<td><p>0.405660</p></td>
-<td><p>0.344000</p></td>
-<td><p>0.372294</p></td>
-<td><p>0.944892</p></td>
-<td><p>0.957114</p></td>
-<td><p>0.950964</p></td>
-<td><p>0.909034</p></td>
-<td><p>0.905585</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.136000</p></td>
+<td><p>0.239437</p></td>
+<td><p>0.931516</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.964544</p></td>
+<td><p><strong>0.932246</strong></p></td>
+<td><p>0.907681</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
+<section id="importancia-das-variaveis-modelos-com-definicao-de-hiperparametros-balanceamento-por-pesos-selecao-de-variaveis">
+<h2>Importância das Variáveis (Modelos com definição de hiperparâmetros, Balanceamento por Pesos, Seleção de Variáveis)<a class="headerlink" href="#importancia-das-variaveis-modelos-com-definicao-de-hiperparametros-balanceamento-por-pesos-selecao-de-variaveis" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Feature</strong></p></th>
+<th class="head"><p><strong>Agregado 2010-2017</strong></p></th>
+<th class="head"><p><strong>Agregado 2018-2024</strong></p></th>
+<th class="head"><p><strong>Desagregado 2010-2017</strong></p></th>
+<th class="head"><p><strong>Desagregado 2018-2024</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PEPR_total_privado</p></td>
+<td><p><strong>0.419349</strong></p></td>
+<td><p><strong>0.267709</strong></p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rendapercapita</p></td>
+<td><p>0.219838</p></td>
+<td><p>-</p></td>
+<td><p>0.211740</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DH_total_danos_humanos</p></td>
+<td><p><strong>0.187282</strong></p></td>
+<td><p><strong>0.681237</strong></p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PEPL_total_publico</p></td>
+<td><p>0.117049</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_total_danos_materiais</p></td>
+<td><p>0.056482</p></td>
+<td><p>0.033385</p></td>
+<td><p>0.041523</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>PDEFESGOTO</p></td>
+<td><p>-</p></td>
+<td><p>0.017669</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPR_Agricultura (R$)</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.344319</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sigla_UF_TO</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.225400</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>PEPL_Abast de água pot(R$)</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.106759</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>DensidadePop</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.070259</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst Saúde Destruidas</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.581018</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Uni Habita Destruidas</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.139474</p></td>
+</tr>
+<tr class="row-even"><td><p>DH_OUTROS AFETADOS</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.106050</p></td>
+</tr>
+<tr class="row-odd"><td><p>COBRADE_11410 (Erosão costeira)</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.075611</p></td>
+</tr>
+<tr class="row-even"><td><p>COBRADE_24100 (Queda de estrutura civil)</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.068325</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst Saúde Valor</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>0.029520</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Parece haver uma certa mudança de foco ao longo do tempo</p>
+<ul class="simple">
+<li><p>2010-2017: O foco foi principalmente nas perdas econômicas, tanto no setor privado quanto no setor público. Em termos desagregados, as perdas no setor agrícola  foram importantes, sugerindo que o impacto econômico pesava nas decisões.</p></li>
+<li><p>2018-2024: O foco passou a ser significativamente mais relacionado aos danos humanos, o que pode refletir uma mudança nos critérios de reconhecimento federal. Em termos desagregados, há especial atenção aos danos à infraestrutura de saúde e o impacto em habitações, indicando uma ênfase nas consequências sociais e humanas dos desastres.</p></li>
+</ul>
+</section>
+<section id="arvore-2018-2024-com-variaveis-desagregadas-e-com-poda">
+<h2>Árvore 2018-2024 com variáveis desagregadas e com poda<a class="headerlink" href="#arvore-2018-2024-com-variaveis-desagregadas-e-com-poda" title="Link to this heading">#</a></h2>
 </section>
 <section id="analise-e-conclusoes">
 <h2>Análise e Conclusões:<a class="headerlink" href="#analise-e-conclusoes" title="Link to this heading">#</a></h2>
@@ -781,13 +901,13 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-de-dados-testados">Conjuntos de Dados Testados:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-analisadas">Métricas Analisadas:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-de-modelos">Comparação de Modelos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2010-2017">Variáveis Agregadas (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2018-2024">Variáveis Agregadas (2018-2024)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2010-2017">Variáveis Desagregadas (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-de-modelos">Comparação de Modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2010-2017">Variáveis Agregadas (2010-2017)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2018-2024">Variáveis Agregadas (2018-2024)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2010-2017">Variáveis Desagregadas (2010-2017)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-das-variaveis-modelos-com-definicao-de-hiperparametros-balanceamento-por-pesos-selecao-de-variaveis">Importância das Variáveis (Modelos com definição de hiperparâmetros, Balanceamento por Pesos, Seleção de Variáveis)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arvore-2018-2024-com-variaveis-desagregadas-e-com-poda">Árvore 2018-2024 com variáveis desagregadas e com poda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-e-conclusoes">Análise e Conclusões:</a></li>
 </ul>
   </nav></div>

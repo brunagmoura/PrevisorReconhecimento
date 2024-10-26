@@ -1,0 +1,127 @@
+Traceback (most recent call last):
+  File "/Users/brunamoura/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/brunamoura/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/brunamoura/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/brunamoura/anaconda3/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/brunamoura/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/brunamoura/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/brunamoura/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Aplicar RobustScaler aos dados de treino
+scaler = RobustScaler()
+
+# Ajustar o scaler aos dados de treino e transformar os dados
+X_train_scaled = scaler.fit_transform(X_train_2018_2024_selected_vars)
+
+# Definir o modelo de árvore de decisão com os melhores hiperparâmetros encontrados
+decision_tree_model = DecisionTreeClassifier(
+    random_state=1,
+    class_weight={0: 1, 1: scale_pos_weight_balanceado_vars},
+    criterion='entropy',  
+    max_depth=20,  
+    min_samples_leaf=1, 
+    min_samples_split=5,
+    ccp_alpha=0.001
+)
+
+
+# Treinar o modelo com o conjunto de treino selecionado
+decision_tree_model.fit(X_train_scaled, y_train_2018_2024_balanceado_vars)
+
+# Visualização
+viz = dtreeviz.model(
+    decision_tree_model, 
+    X_train_2018_2024_selected_vars, 
+    y_train_2018_2024_balanceado_vars,
+    target_name="Reconhecimento", 
+    feature_names=X_train_2018_2024_balanceado_vars.columns[selector.get_support()].tolist(), 
+    class_names=["Não reconhecido", "Reconhecido"]
+)
+
+viz.view(fancy=True, orientation = "LR")
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[10], line 32[0m
+[1;32m     22[0m [38;5;66;03m# Visualização[39;00m
+[1;32m     23[0m viz [38;5;241m=[39m dtreeviz[38;5;241m.[39mmodel(
+[1;32m     24[0m     decision_tree_model, 
+[1;32m     25[0m     X_train_2018_2024_selected_vars, 
+[0;32m   (...)[0m
+[1;32m     29[0m     class_names[38;5;241m=[39m[[38;5;124m"[39m[38;5;124mNão reconhecido[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mReconhecido[39m[38;5;124m"[39m]
+[1;32m     30[0m )
+[0;32m---> 32[0m [43mviz[49m[38;5;241;43m.[39;49m[43mview[49m[43m([49m[43mfancy[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43morientation[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mLR[39;49m[38;5;124;43m"[39;49m[43m)[49m
+
+File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/dtreeviz/trees.py:566[0m, in [0;36mDTreeVizAPI.view[0;34m(self, precision, orientation, instance_orientation, show_root_edge_labels, show_node_labels, show_just_path, fancy, histtype, leaftype, highlight_path, x, max_X_features_LR, max_X_features_TD, depth_range_to_display, label_fontsize, ticks_fontsize, fontname, title, title_fontsize, colors, scale)[0m
+[1;32m    564[0m [38;5;28;01mif[39;00m fancy:
+[1;32m    565[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mshadow_tree[38;5;241m.[39mis_classifier():
+[0;32m--> 566[0m         [43m_class_split_viz[49m[43m([49m[43mnode[49m[43m,[49m[43m [49m[43mX_train[49m[43m,[49m[43m [49m[43my_train[49m[43m,[49m
+[1;32m    567[0m [43m                         [49m[43mfilename[49m[38;5;241;43m=[39;49m[43mos[49m[38;5;241;43m.[39;49m[43mpath[49m[38;5;241;43m.[39;49m[43mjoin[49m[43m([49m[43mtmp[49m[43m,[49m[43m [49m[38;5;124;43mf[39;49m[38;5;124;43m"[39;49m[38;5;124;43mnode[39;49m[38;5;132;43;01m{[39;49;00m[43mnode[49m[38;5;241;43m.[39;49m[43mid[49m[38;5;132;43;01m}[39;49;00m[38;5;124;43m_[39;49m[38;5;132;43;01m{[39;49;00m[43mos[49m[38;5;241;43m.[39;49m[43mgetpid[49m[43m([49m[43m)[49m[38;5;132;43;01m}[39;49;00m[38;5;124;43m.svg[39;49m[38;5;124;43m"[39;49m[43m)[49m[43m,[49m
+[1;32m    568[0m [43m                         [49m[43mprecision[49m[38;5;241;43m=[39;49m[43mprecision[49m[43m,[49m
+[1;32m    569[0m [43m                         [49m[43mcolors[49m[38;5;241;43m=[39;49m[43m{[49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcolor_map[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcolors[49m[43m}[49m[43m,[49m
+[1;32m    570[0m [43m                         [49m[43mhisttype[49m[38;5;241;43m=[39;49m[43mhisttype[49m[43m,[49m
+[1;32m    571[0m [43m                         [49m[43mnode_heights[49m[38;5;241;43m=[39;49m[43mnode_heights[49m[43m,[49m
+[1;32m    572[0m [43m                         [49m[43mX[49m[38;5;241;43m=[39;49m[43mx[49m[43m,[49m
+[1;32m    573[0m [43m                         [49m[43mticks_fontsize[49m[38;5;241;43m=[39;49m[43mticks_fontsize[49m[43m,[49m
+[1;32m    574[0m [43m                         [49m[43mlabel_fontsize[49m[38;5;241;43m=[39;49m[43mlabel_fontsize[49m[43m,[49m
+[1;32m    575[0m [43m                         [49m[43mfontname[49m[38;5;241;43m=[39;49m[43mfontname[49m[43m,[49m
+[1;32m    576[0m [43m                         [49m[43mhighlight_node[49m[38;5;241;43m=[39;49m[43mnode[49m[38;5;241;43m.[39;49m[43mid[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[43mhighlight_path[49m[43m)[49m
+[1;32m    577[0m     [38;5;28;01melse[39;00m:
+[1;32m    578[0m         _regr_split_viz(node, X_train, y_train,
+[1;32m    579[0m                         filename[38;5;241m=[39mos[38;5;241m.[39mpath[38;5;241m.[39mjoin(tmp, [38;5;124mf[39m[38;5;124m"[39m[38;5;124mnode[39m[38;5;132;01m{[39;00mnode[38;5;241m.[39mid[38;5;132;01m}[39;00m[38;5;124m_[39m[38;5;132;01m{[39;00mos[38;5;241m.[39mgetpid()[38;5;132;01m}[39;00m[38;5;124m.svg[39m[38;5;124m"[39m),
+[1;32m    580[0m                         target_name[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mshadow_tree[38;5;241m.[39mtarget_name,
+[0;32m   (...)[0m
+[1;32m    586[0m                         highlight_node[38;5;241m=[39mnode[38;5;241m.[39mid [38;5;129;01min[39;00m highlight_path,
+[1;32m    587[0m                         colors[38;5;241m=[39mcolors)
+
+File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/dtreeviz/trees.py:1185[0m, in [0;36m_class_split_viz[0;34m(node, X_train, y_train, colors, node_heights, filename, ticks_fontsize, label_fontsize, fontname, precision, histtype, X, highlight_node)[0m
+[1;32m   1182[0m         ax[38;5;241m.[39mscatter(bucket, y_noise, alpha[38;5;241m=[39malpha, marker[38;5;241m=[39m[38;5;124m'[39m[38;5;124mo[39m[38;5;124m'[39m, s[38;5;241m=[39mdot_w, c[38;5;241m=[39mcolors[i],
+[1;32m   1183[0m                    edgecolors[38;5;241m=[39mcolors[[38;5;124m'[39m[38;5;124medge[39m[38;5;124m'[39m], lw[38;5;241m=[39m[38;5;241m.3[39m)
+[1;32m   1184[0m [38;5;28;01melse[39;00m:
+[0;32m-> 1185[0m     hist, bins, barcontainers [38;5;241m=[39m [43max[49m[38;5;241;43m.[39;49m[43mhist[49m[43m([49m[43mX_hist[49m[43m,[49m
+[1;32m   1186[0m [43m                                        [49m[43mcolor[49m[38;5;241;43m=[39;49m[43mX_colors[49m[43m,[49m
+[1;32m   1187[0m [43m                                        [49m[43malign[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mmid[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[1;32m   1188[0m [43m                                        [49m[43mhisttype[49m[38;5;241;43m=[39;49m[43mhisttype[49m[43m,[49m
+[1;32m   1189[0m [43m                                        [49m[43mbins[49m[38;5;241;43m=[39;49m[43mbins[49m[43m,[49m
+[1;32m   1190[0m [43m                                        [49m[43mlabel[49m[38;5;241;43m=[39;49m[43mclass_names[49m[43m)[49m
+[1;32m   1192[0m     [38;5;66;03m# Alter appearance of each bar[39;00m
+[1;32m   1193[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(barcontainers[[38;5;241m0[39m], matplotlib[38;5;241m.[39mcontainer[38;5;241m.[39mBarContainer):
+
+File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/matplotlib/__init__.py:1473[0m, in [0;36m_preprocess_data.<locals>.inner[0;34m(ax, data, *args, **kwargs)[0m
+[1;32m   1470[0m [38;5;129m@functools[39m[38;5;241m.[39mwraps(func)
+[1;32m   1471[0m [38;5;28;01mdef[39;00m [38;5;21minner[39m(ax, [38;5;241m*[39margs, data[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[1;32m   1472[0m     [38;5;28;01mif[39;00m data [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m-> 1473[0m         [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m
+[1;32m   1474[0m [43m            [49m[43max[49m[43m,[49m
+[1;32m   1475[0m [43m            [49m[38;5;241;43m*[39;49m[38;5;28;43mmap[39;49m[43m([49m[43msanitize_sequence[49m[43m,[49m[43m [49m[43margs[49m[43m)[49m[43m,[49m
+[1;32m   1476[0m [43m            [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43m{[49m[43mk[49m[43m:[49m[43m [49m[43msanitize_sequence[49m[43m([49m[43mv[49m[43m)[49m[43m [49m[38;5;28;43;01mfor[39;49;00m[43m [49m[43mk[49m[43m,[49m[43m [49m[43mv[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[43mkwargs[49m[38;5;241;43m.[39;49m[43mitems[49m[43m([49m[43m)[49m[43m}[49m[43m)[49m
+[1;32m   1478[0m     bound [38;5;241m=[39m new_sig[38;5;241m.[39mbind(ax, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[1;32m   1479[0m     auto_label [38;5;241m=[39m (bound[38;5;241m.[39marguments[38;5;241m.[39mget(label_namer)
+[1;32m   1480[0m                   [38;5;129;01mor[39;00m bound[38;5;241m.[39mkwargs[38;5;241m.[39mget(label_namer))
+
+File [0;32m~/PrevisorReconhecimento/.venv/lib/python3.11/site-packages/matplotlib/axes/_axes.py:6957[0m, in [0;36mAxes.hist[0;34m(self, x, bins, range, density, weights, cumulative, bottom, histtype, align, orientation, rwidth, log, color, label, stacked, **kwargs)[0m
+[1;32m   6955[0m     colors [38;5;241m=[39m mcolors[38;5;241m.[39mto_rgba_array(color)
+[1;32m   6956[0m     [38;5;28;01mif[39;00m [38;5;28mlen[39m(colors) [38;5;241m!=[39m nx:
+[0;32m-> 6957[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mThe [39m[38;5;124m'[39m[38;5;124mcolor[39m[38;5;124m'[39m[38;5;124m keyword argument must have one [39m[38;5;124m"[39m
+[1;32m   6958[0m                          [38;5;124mf[39m[38;5;124m"[39m[38;5;124mcolor per dataset, but [39m[38;5;132;01m{[39;00mnx[38;5;132;01m}[39;00m[38;5;124m datasets and [39m[38;5;124m"[39m
+[1;32m   6959[0m                          [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(colors)[38;5;132;01m}[39;00m[38;5;124m colors were provided[39m[38;5;124m"[39m)
+[1;32m   6961[0m hist_kwargs [38;5;241m=[39m [38;5;28mdict[39m()
+[1;32m   6963[0m [38;5;66;03m# if the bin_range is not given, compute without nan numpy[39;00m
+[1;32m   6964[0m [38;5;66;03m# does not do this for us when guessing the range (but will[39;00m
+[1;32m   6965[0m [38;5;66;03m# happily ignore nans when computing the histogram).[39;00m
+
+[0;31mValueError[0m: The 'color' keyword argument must have one color per dataset, but 1 datasets and 0 colors were provided
+
