@@ -43,12 +43,35 @@
 
 ## Variáveis Desagregadas (2018-2024)
 
-| Modelo                            | Precision (Não Reconhecido) | Recall (Não Reconhecido) | F1-score (Não Reconhecido) | Precision (Reconhecido) | Recall (Reconhecido) | F1-score (Reconhecido) | Weighted Avg Recall | Weighted F1  |
-|------------------------------------|-----------------------------|---------------------------|----------------------------|--------------------------|----------------------|-------------------------|---------------------|--------------|
-| Sem Balanceamento                  | 0.960000                    | 0.192000                  | 0.320000                   | 0.935628                 | 0.999319             | 0.966425                | **0.936010**        | 0.915733     |
-| SMOTE                              | 0.319728                    | 0.376000                  | 0.345588                   | 0.946095                 | 0.931926             | 0.938957                | 0.888331            | 0.892426     |
-| Balanceado por Pesos               | 0.944444                    | 0.136000                  | 0.237762                   | 0.931472                 | 0.999319             | 0.964204                | **0.931619**        | 0.907237     |
-| Balanceado com Variáveis Selecionadas | 1.000000                    | 0.136000                  | 0.239437                   | 0.931516                 | 1.000000             | 0.964544                | **0.932246**        | 0.907681     |
+| Modelo                                   | Precision (Não Reconhecido) | Recall (Não Reconhecido) | F1-score (Não Reconhecido) | Precision (Reconhecido) | Recall (Reconhecido) | F1-score (Reconhecido) | Weighted Avg Recall | Weighted F1 |
+|------------------------------------------|-------------------------|----------------------|------------------------|----------------------|-----------------|--------------------|-----------------|----------|
+| Sem Balanceamento                        | 0.960000                | 0.192000             | 0.320000               | 0.935628             | 0.999319        | 0.966425           | **0.936010**    | 0.915733 |
+| SMOTE                                    | 0.319728                | 0.376000             | 0.345588               | 0.946095             | 0.931926        | 0.938957           | 0.888331        | 0.892426 |
+| Balanceado por Pesos                     | 0.944444                | 0.136000             | 0.237762               | 0.931472             | 0.999319        | 0.964204           | **0.931619**    | 0.907237 |
+| Balanceado com Variáveis Selecionadas    | 1.000000                | 0.136000             | 0.239437               | 0.931516             | 1.000000        | 0.964544           | **0.932246**    | 0.907681 |
+| Balanceado com Variáveis Transformadas** | 1.000000                | 0.096000             | 0.175182               | 0.928571             | 1.000000        | 0.962963           | 0.929109        | 0.901186 |
+
+** Transformações realizadas:
+
+| Nova Variável                               | Agregação                                                                                         |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------|
+| DH_FERIDOS_ENFERMOS                         | DH_FERIDOS + DH_ENFERMOS                                                        |
+| DH_DESABRIGADOS_DESALOJADOS                 | DH_DESABRIGADOS + DH_DESALOJADOS                                               ||
+| DM_Uni_Habita_Danificadas_Destruidas        | DM_Uni Habita Danificadas + DM_Uni Habita Destruidas                           ||
+| DM_Inst_Saude_Danificadas_Destruidas        | DM_Inst Saúde Danificadas + DM_Inst Saúde Destruidas                           ||
+| DM_Inst_Ensino_Danificadas_Destruidas       | DM_Inst Ensino Danificadas + DM_Inst Ensino Destruidas                         | |
+| DM_Inst_Servicos_Danificadas_Destruidas     | DM_Inst Serviços Danificadas + DM_Inst Serviços Destruidas                     ||
+| DM_Inst_Comuni_Danificadas_Destruidas       | DM_Inst Comuni Danificadas + DM_Inst Comuni Destruidas                       | |
+| DM_Obras_Infra_Danificadas_Destruidas       | DM_Obras de Infra Danificadas + DM_Obras de Infra Destruidas                  | |
+
+### Árvore 2018-2024 com variáveis desagregadas transformadas
+
+ ![Árvore de decisão treinada com dados 2018-2024 e com transformação de features](../figures/arvoredecisao_modelo2_2018_2024_featurestransformadas.png) |
+
+- A primeira decisão da árvore é baseada na quantidade de instituições de saúde danificadas ou destruídas. 
+  - Se a quantidade for baixa, a árvore segue à esquerda e usa a variável DH_OUTROS_AFETADOS para uma nova decisão. Se o valor dessa variável for baixo, utiliza a quantidade de habitações danificadas e destruídas. Se essa também for baixa, o evento pode ser reconhecido, mas há uma certa proporção não reconhecida.
+  - Se a quantidade de instituições de saúde danificadas e destruídas for alta, mas a quantidade de unidades de habitação danificadas e destruídas for baixa, há uma maior tendência ao não reconhecimento.
+- Se a quantidade de instituições de saúde danificadas ou destruídas for baixa, mas quantidade de outros afetados for. alta e o evento não for erosão (Cobrade 24100), a decisão seria pelo reconhecimento.
 
 ## Importância das Variáveis (Modelos com definição de hiperparâmetros, Balanceamento por Pesos, Seleção de Variáveis)
 
@@ -76,18 +99,18 @@ Parece haver uma certa mudança de foco ao longo do tempo
 - 2010-2017: O foco foi principalmente nas perdas econômicas, tanto no setor privado quanto no setor público. Em termos desagregados, as perdas no setor agrícola  foram importantes, sugerindo que o impacto econômico pesava nas decisões.
 - 2018-2024: O foco passou a ser significativamente mais relacionado aos danos humanos, o que pode refletir uma mudança nos critérios de reconhecimento federal. Em termos desagregados, há especial atenção aos danos à infraestrutura de saúde e o impacto em habitações, indicando uma ênfase nas consequências sociais e humanas dos desastres.
 
-## Árvore 2018-2024 com variáveis desagregadas e com poda
-
-
-
 ## Análise e Conclusões:
 
-1. **Baixo Desempenho na Classe "Não Reconhecido"**:
-   - **Em todos os casos**, os modelos apresentaram dificuldades em prever corretamente a classe "Não Reconhecido" (baixo *recall*), especialmente com o balanceamento por pesos e seleção de variáveis.
-   - O **SMOTE** trouxe uma leve melhoria no *recall* para a classe "Não Reconhecido", mas ainda assim, o desempenho nessa classe foi muito inferior ao da classe "Reconhecido".
+*Foco nas Perdas Econômicas (2010-2017)*
+- Nos anos de 2010 a 2017, tanto nos modelos com variáveis agregadas quanto desagregadas, os fatores econômicos foram decisivos. Variáveis como PEPR_total_privado e PEPL_total_publico, que representam perdas econômicas no setor privado e público, tiveram grande relevância na classificação dos desastres.
+- Em particular, nas análises desagregadas, as perdas relacionadas à agricultura e a renda per capita desempenharam um papel importante, sugerindo que o impacto econômico regional influenciava significativamente a decisão de reconhecimento.
 
-2. **Impacto do Balanceamento por Pesos**:
-   - Nos modelos com **variáveis selecionadas**, o desempenho foi similar ao do modelo balanceado por pesos sem seleção de variáveis.
+*Mudança para Danos Humanos e Infraestrutura (2018-2024)*
+- Entre 2018 e 2024, houve uma mudança notável no foco, que passou a ser muito mais relacionado aos danos humanos e à infraestrutura, em vez de apenas às perdas econômicas. Variáveis como DH_total_danos_humanos e DM_Inst_Saude_Danificadas_Destruidas passaram a ter uma importância significativa.
+- Esta mudança pode refletir uma alteração nos critérios de reconhecimento, com uma maior ênfase nas consequências sociais dos desastres, como danos em habitações, infraestrutura de saúde
 
-3. **Melhor Desempenho Geral com SMOTE**:
-   - O **SMOTE** trouxe uma melhoria geral no desempenho para a classe "Não Reconhecido" em termos de *recall*, com um impacto menor nas outras métricas, tornando-se a técnica mais balanceada entre precisão e recall.
+*Desempenho dos Modelos e Técnicas de Balanceamento*
+
+- Em todos os períodos analisados, os modelos sem balanceamento tendem a apresentar um desempenho muito mais alto na classe "Reconhecido", mas falham ao prever corretamente a classe "Não reconhecido", evidenciado pelo baixo recall dessa classe.
+- A aplicação de técnicas de balanceamento, como o SMOTE e o balanceamento por pesos, trouxe algumas melhorias no recall da classe "Não reconhecido", mas frequentemente em detrimento da precisão ou do F1-Score.
+- O uso de variáveis selecionadas e transformadas levou a uma melhoria modesta, mas consistente, no desempenho geral, ao manter um equilíbrio entre as classes. O modelo com variáveis transformadas apresentou um weighted F1 equilibrado e manteve um weighted avg recall de 0.929109.

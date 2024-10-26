@@ -413,9 +413,11 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2010-2017">Variáveis Agregadas (2010-2017)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2018-2024">Variáveis Agregadas (2018-2024)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2010-2017">Variáveis Desagregadas (2010-2017)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arvore-2018-2024-com-variaveis-desagregadas-transformadas">Árvore 2018-2024 com variáveis desagregadas transformadas</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-das-variaveis-modelos-com-definicao-de-hiperparametros-balanceamento-por-pesos-selecao-de-variaveis">Importância das Variáveis (Modelos com definição de hiperparâmetros, Balanceamento por Pesos, Seleção de Variáveis)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arvore-2018-2024-com-variaveis-desagregadas-e-com-poda">Árvore 2018-2024 com variáveis desagregadas e com poda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-e-conclusoes">Análise e Conclusões:</a></li>
 </ul>
             </nav>
@@ -687,9 +689,67 @@
 <td><p><strong>0.932246</strong></p></td>
 <td><p>0.907681</p></td>
 </tr>
+<tr class="row-even"><td><p>Balanceado com Variáveis Transformadas**</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.096000</p></td>
+<td><p>0.175182</p></td>
+<td><p>0.928571</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.962963</p></td>
+<td><p>0.929109</p></td>
+<td><p>0.901186</p></td>
+</tr>
 </tbody>
 </table>
 </div>
+<p>** Transformações realizadas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nova Variável</p></th>
+<th class="head"><p>Agregação</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DH_FERIDOS_ENFERMOS</p></td>
+<td><p>DH_FERIDOS + DH_ENFERMOS</p></td>
+</tr>
+<tr class="row-odd"><td><p>DH_DESABRIGADOS_DESALOJADOS</p></td>
+<td><p>DH_DESABRIGADOS + DH_DESALOJADOS</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Uni_Habita_Danificadas_Destruidas</p></td>
+<td><p>DM_Uni Habita Danificadas + DM_Uni Habita Destruidas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst_Saude_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Saúde Danificadas + DM_Inst Saúde Destruidas</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst_Ensino_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Ensino Danificadas + DM_Inst Ensino Destruidas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst_Servicos_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Serviços Danificadas + DM_Inst Serviços Destruidas</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst_Comuni_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Comuni Danificadas + DM_Inst Comuni Destruidas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Obras_Infra_Danificadas_Destruidas</p></td>
+<td><p>DM_Obras de Infra Danificadas + DM_Obras de Infra Destruidas</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="arvore-2018-2024-com-variaveis-desagregadas-transformadas">
+<h3>Árvore 2018-2024 com variáveis desagregadas transformadas<a class="headerlink" href="#arvore-2018-2024-com-variaveis-desagregadas-transformadas" title="Link to this heading">#</a></h3>
+<p><img alt="Árvore de decisão treinada com dados 2018-2024 e com transformação de features" src="_images/arvoredecisao_modelo2_2018_2024_featurestransformadas.png" /> |</p>
+<ul class="simple">
+<li><p>A primeira decisão da árvore é baseada na quantidade de instituições de saúde danificadas ou destruídas.</p>
+<ul>
+<li><p>Se a quantidade for baixa, a árvore segue à esquerda e usa a variável DH_OUTROS_AFETADOS para uma nova decisão. Se o valor dessa variável for baixo, utiliza a quantidade de habitações danificadas e destruídas. Se essa também for baixa, o evento pode ser reconhecido, mas há uma certa proporção não reconhecida.</p></li>
+<li><p>Se a quantidade de instituições de saúde danificadas e destruídas for alta, mas a quantidade de unidades de habitação danificadas e destruídas for baixa, há uma maior tendência ao não reconhecimento.</p></li>
+</ul>
+</li>
+<li><p>Se a quantidade de instituições de saúde danificadas ou destruídas for baixa, mas quantidade de outros afetados for. alta e o evento não for erosão (Cobrade 24100), a decisão seria pelo reconhecimento.</p></li>
+</ul>
+</section>
 </section>
 <section id="importancia-das-variaveis-modelos-com-definicao-de-hiperparametros-balanceamento-por-pesos-selecao-de-variaveis">
 <h2>Importância das Variáveis (Modelos com definição de hiperparâmetros, Balanceamento por Pesos, Seleção de Variáveis)<a class="headerlink" href="#importancia-das-variaveis-modelos-com-definicao-de-hiperparametros-balanceamento-por-pesos-selecao-de-variaveis" title="Link to this heading">#</a></h2>
@@ -808,29 +868,24 @@
 <li><p>2018-2024: O foco passou a ser significativamente mais relacionado aos danos humanos, o que pode refletir uma mudança nos critérios de reconhecimento federal. Em termos desagregados, há especial atenção aos danos à infraestrutura de saúde e o impacto em habitações, indicando uma ênfase nas consequências sociais e humanas dos desastres.</p></li>
 </ul>
 </section>
-<section id="arvore-2018-2024-com-variaveis-desagregadas-e-com-poda">
-<h2>Árvore 2018-2024 com variáveis desagregadas e com poda<a class="headerlink" href="#arvore-2018-2024-com-variaveis-desagregadas-e-com-poda" title="Link to this heading">#</a></h2>
-</section>
 <section id="analise-e-conclusoes">
 <h2>Análise e Conclusões:<a class="headerlink" href="#analise-e-conclusoes" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><strong>Baixo Desempenho na Classe “Não Reconhecido”</strong>:</p>
+<p><em>Foco nas Perdas Econômicas (2010-2017)</em></p>
 <ul class="simple">
-<li><p><strong>Em todos os casos</strong>, os modelos apresentaram dificuldades em prever corretamente a classe “Não Reconhecido” (baixo <em>recall</em>), especialmente com o balanceamento por pesos e seleção de variáveis.</p></li>
-<li><p>O <strong>SMOTE</strong> trouxe uma leve melhoria no <em>recall</em> para a classe “Não Reconhecido”, mas ainda assim, o desempenho nessa classe foi muito inferior ao da classe “Reconhecido”.</p></li>
+<li><p>Nos anos de 2010 a 2017, tanto nos modelos com variáveis agregadas quanto desagregadas, os fatores econômicos foram decisivos. Variáveis como PEPR_total_privado e PEPL_total_publico, que representam perdas econômicas no setor privado e público, tiveram grande relevância na classificação dos desastres.</p></li>
+<li><p>Em particular, nas análises desagregadas, as perdas relacionadas à agricultura e a renda per capita desempenharam um papel importante, sugerindo que o impacto econômico regional influenciava significativamente a decisão de reconhecimento.</p></li>
 </ul>
-</li>
-<li><p><strong>Impacto do Balanceamento por Pesos</strong>:</p>
+<p><em>Mudança para Danos Humanos e Infraestrutura (2018-2024)</em></p>
 <ul class="simple">
-<li><p>Nos modelos com <strong>variáveis selecionadas</strong>, o desempenho foi similar ao do modelo balanceado por pesos sem seleção de variáveis.</p></li>
+<li><p>Entre 2018 e 2024, houve uma mudança notável no foco, que passou a ser muito mais relacionado aos danos humanos e à infraestrutura, em vez de apenas às perdas econômicas. Variáveis como DH_total_danos_humanos e DM_Inst_Saude_Danificadas_Destruidas passaram a ter uma importância significativa.</p></li>
+<li><p>Esta mudança pode refletir uma alteração nos critérios de reconhecimento, com uma maior ênfase nas consequências sociais dos desastres, como danos em habitações, infraestrutura de saúde</p></li>
 </ul>
-</li>
-<li><p><strong>Melhor Desempenho Geral com SMOTE</strong>:</p>
+<p><em>Desempenho dos Modelos e Técnicas de Balanceamento</em></p>
 <ul class="simple">
-<li><p>O <strong>SMOTE</strong> trouxe uma melhoria geral no desempenho para a classe “Não Reconhecido” em termos de <em>recall</em>, com um impacto menor nas outras métricas, tornando-se a técnica mais balanceada entre precisão e recall.</p></li>
+<li><p>Em todos os períodos analisados, os modelos sem balanceamento tendem a apresentar um desempenho muito mais alto na classe “Reconhecido”, mas falham ao prever corretamente a classe “Não reconhecido”, evidenciado pelo baixo recall dessa classe.</p></li>
+<li><p>A aplicação de técnicas de balanceamento, como o SMOTE e o balanceamento por pesos, trouxe algumas melhorias no recall da classe “Não reconhecido”, mas frequentemente em detrimento da precisão ou do F1-Score.</p></li>
+<li><p>O uso de variáveis selecionadas e transformadas levou a uma melhoria modesta, mas consistente, no desempenho geral, ao manter um equilíbrio entre as classes. O modelo com variáveis transformadas apresentou um weighted F1 equilibrado e manteve um weighted avg recall de 0.929109.</p></li>
 </ul>
-</li>
-</ol>
 </section>
 </section>
 
@@ -905,9 +960,11 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2010-2017">Variáveis Agregadas (2010-2017)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2018-2024">Variáveis Agregadas (2018-2024)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2010-2017">Variáveis Desagregadas (2010-2017)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arvore-2018-2024-com-variaveis-desagregadas-transformadas">Árvore 2018-2024 com variáveis desagregadas transformadas</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importancia-das-variaveis-modelos-com-definicao-de-hiperparametros-balanceamento-por-pesos-selecao-de-variaveis">Importância das Variáveis (Modelos com definição de hiperparâmetros, Balanceamento por Pesos, Seleção de Variáveis)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arvore-2018-2024-com-variaveis-desagregadas-e-com-poda">Árvore 2018-2024 com variáveis desagregadas e com poda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-e-conclusoes">Análise e Conclusões:</a></li>
 </ul>
   </nav></div>
