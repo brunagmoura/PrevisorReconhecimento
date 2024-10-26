@@ -1,0 +1,1169 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Variáveis agregadas (2010 a 2017) &#8212; Previsor de reconhecimento</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'arvoredecisao_modelo1_2010_2017';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Variáveis desagregadas (2010 a 2017)" href="arvoredecisao_modelo2_2010_2017.html" />
+    <link rel="prev" title="Pré processamento dos dados" href="pre_processamento.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="content.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/previsor_logo.png" class="logo__image only-light" alt="Previsor de reconhecimento - Home"/>
+    <img src="_static/previsor_logo.png" class="logo__image only-dark pst-js-only" alt="Previsor de reconhecimento - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dados.html">Base de dados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise exploratória</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="analise_exploratoria_preliminar.html">Análise preliminar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_registros_municipios.html">Municípios e desastres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_dados_ausentes_descricao.html">Dados ausentes (descrição)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_dados_ausentes_prejuizos_danos.html">Dados ausentes (danos e prejuízos)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_outliers.html">Análise outliers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pré processamento</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pre_processamento.html">Pré processamento dos dados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Árvore de decisão</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2022)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_conclusoes.html">Resultados dos Modelos de Árvores de Decisão</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="randomforest_base.html">Modelo base</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">XGBoost</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="xgboost_base.html">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_adicionais.html">Testes adicionais</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_conclusao.html">Resultados do modelo XGBoost</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise de Tópicos e Classificação de textos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bert_base.html">BERTopic</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/INRIA/scikit-learn-mooc/main?urlpath=tree/arvoredecisao_modelo1_2010_2017.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc/edit/main/arvoredecisao_modelo1_2010_2017.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc/issues/new?title=Issue%20on%20page%20%2Farvoredecisao_modelo1_2010_2017.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/arvoredecisao_modelo1_2010_2017.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Variáveis agregadas (2010 a 2017)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas-e-bases-de-dados">Bibliotecas e bases de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-base">Modelo base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-com-busca-de-hiperparametros-e-balanceamento-smote">Modelo com busca de hiperparâmetros e balanceamento SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-com-busca-de-hiperparametros-e-balanceamento-das-variaveis-target-por-pesos">Modelo com busca de hiperparâmetros e balanceamento das variáveis target por pesos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-com-busca-de-hiperparametros-balanceamento-das-variaveis-target-por-pesos-e-selecao-de-features">Modelo com busca de hiperparâmetros, balanceamento das variáveis target por pesos e seleção de features</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="variaveis-agregadas-2010-a-2017">
+<h1>Variáveis agregadas (2010 a 2017)<a class="headerlink" href="#variaveis-agregadas-2010-a-2017" title="Link to this heading">#</a></h1>
+<section id="bibliotecas-e-bases-de-dados">
+<h2>Bibliotecas e bases de dados<a class="headerlink" href="#bibliotecas-e-bases-de-dados" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar bibliotecas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">RobustScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">make_scorer</span>
+<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">plot_tree</span>
+<span class="kn">from</span> <span class="nn">treeinterpreter</span> <span class="kn">import</span> <span class="n">treeinterpreter</span> <span class="k">as</span> <span class="n">ti</span>
+<span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectFromModel</span>
+
+<span class="c1">#Estilizar conteúdo</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">estilo_tabelas</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">max_altura</span><span class="o">=</span><span class="s1">&#39;300px&#39;</span><span class="p">,</span> <span class="n">casas_decimais</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;thead th&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="s1">&#39;12px&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;text-align&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;border-bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;2px solid #007BFF&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="s1">&#39;10px&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;text-align&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;max-height&#39;</span><span class="p">,</span> <span class="s1">&#39;40px&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;white-space&#39;</span><span class="p">,</span> <span class="s1">&#39;nowrap&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;text-overflow&#39;</span><span class="p">,</span> <span class="s1">&#39;ellipsis&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;overflow&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;max-width&#39;</span><span class="p">,</span> <span class="s1">&#39;100px&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;tr:nth-child(odd)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;background-color&#39;</span><span class="p">,</span> <span class="s1">&#39;#ffffff&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;90%&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;margin-left&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;margin-right&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;border-collapse&#39;</span><span class="p">,</span> <span class="s1">&#39;collapse&#39;</span><span class="p">)]},</span>
+                <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;td, th&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;border&#39;</span><span class="p">,</span> <span class="s1">&#39;1px solid #666&#39;</span><span class="p">)]},</span>
+            <span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span>
+            <span class="o">**</span><span class="p">{</span><span class="s1">&#39;border-color&#39;</span><span class="p">:</span> <span class="s1">&#39;darkgray&#39;</span><span class="p">,</span> <span class="s1">&#39;border-style&#39;</span><span class="p">:</span> <span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="s1">&#39;border-width&#39;</span><span class="p">:</span> <span class="s1">&#39;1px&#39;</span><span class="p">}</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;style=&quot;height:auto; overflow:auto; max-height:</span><span class="si">{</span><span class="n">max_altura</span><span class="si">}</span><span class="s1">; display:block;&quot;&#39;</span>  
+        <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">precision</span><span class="o">=</span><span class="n">casas_decimais</span>  
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+
+<span class="n">object_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Protocolo_S2iD&#39;</span><span class="p">,</span> <span class="s1">&#39;Nome_Municipio&#39;</span><span class="p">,</span> <span class="s1">&#39;Sigla_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;regiao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Setores Censitários&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;DH_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;DM_Descricao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;DA_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;DA_Polui/cont da água&#39;</span><span class="p">,</span> <span class="s1">&#39;DA_Polui/cont do ar&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;DA_Polui/cont do solo&#39;</span><span class="p">,</span> <span class="s1">&#39;DA_Dimi/exauri hídrico&#39;</span><span class="p">,</span>
+                  <span class="s2">&quot;DA_Incêndi parques/APA&#39;s/APP&#39;s&quot;</span><span class="p">,</span> <span class="s1">&#39;PEPL_Descricao&#39;</span><span class="p">,</span> <span class="s1">&#39;PEPR_Descricao&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Categoria&#39;</span><span class="p">,</span> <span class="s1">&#39;Grupo&#39;</span><span class="p">,</span> <span class="s1">&#39;Subgrupo&#39;</span><span class="p">,</span> <span class="s1">&#39;Tipo&#39;</span><span class="p">,</span> <span class="s1">&#39;Subtipo&#39;</span><span class="p">]</span>
+
+<span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">object_columns</span><span class="p">}</span>
+
+<span class="n">df_eventos_2010_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/brunagmoura/PrevisorReconhecimento/refs/heads/main/df_eventos_2010_2017_modelo1.csv&quot;</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+<span class="c1"># Remover linhas com dados ausentes</span>
+
+<span class="n">df_eventos_2010_1</span> <span class="o">=</span> <span class="n">df_eventos_2010_1</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">estilo_tabelas</span><span class="p">(</span><span class="n">df_eventos_2010_1</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Remover registros em que todos os dados informados são 0</span>
+
+<span class="n">df_eventos_2010_1</span> <span class="o">=</span> <span class="n">df_eventos_2010_1</span><span class="p">[</span>
+    <span class="o">~</span><span class="p">((</span><span class="n">df_eventos_2010_1</span><span class="p">[</span><span class="s1">&#39;DH_total_danos_humanos&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
+      <span class="p">(</span><span class="n">df_eventos_2010_1</span><span class="p">[</span><span class="s1">&#39;DM_total_danos_materiais&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
+      <span class="p">(</span><span class="n">df_eventos_2010_1</span><span class="p">[</span><span class="s1">&#39;PEPL_total_publico&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
+      <span class="p">(</span><span class="n">df_eventos_2010_1</span><span class="p">[</span><span class="s1">&#39;PEPR_total_privado&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="modelo-base">
+<h2>Modelo base<a class="headerlink" href="#modelo-base" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dividir dados em treino e teste</span>
+<span class="n">X_modelo1_2010_2017</span><span class="p">,</span> <span class="n">y_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">df_eventos_2010_1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">df_eventos_2010_1</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span>
+
+<span class="n">X_train_modelo1_2010_2017</span><span class="p">,</span> <span class="n">X_test_modelo1_2010_2017</span><span class="p">,</span> <span class="n">y_train_modelo1_2010_2017</span><span class="p">,</span> <span class="n">y_test_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_modelo1_2010_2017</span><span class="p">,</span> <span class="n">y_modelo1_2010_2017</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Árvore de decisão</span>
+<span class="n">clf_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_modelo1_2010_2017</span><span class="p">,</span> <span class="n">y_train_modelo1_2010_2017</span><span class="p">)</span>
+
+<span class="c1"># Fazer predições</span>
+<span class="n">y_pred_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">clf_modelo1_2010_2017</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_modelo1_2010_2017</span><span class="p">)</span>
+
+<span class="c1"># Mostrar a árvore de decisão</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">clf_modelo1_2010_2017</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X_modelo1_2010_2017</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/5139cb65db03ebabe2a91a8110b582a2c13ae9266b04bf8af970e54284c113d8.png" src="_images/5139cb65db03ebabe2a91a8110b582a2c13ae9266b04bf8af970e54284c113d8.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gerar e imprimir o classification report</span>
+<span class="n">classification_report_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span>
+    <span class="n">y_test_modelo1_2010_2017</span><span class="p">,</span> 
+    <span class="n">y_pred_modelo1_2010_2017</span><span class="p">,</span> 
+    <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> 
+    <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Não reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Reconhecido&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification report variáveis agregadas 2010-2017: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report_modelo1_2010_2017</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification report variáveis agregadas 2010-2017: 
+                  precision    recall  f1-score   support
+
+Não reconhecido   0.714286  0.020747  0.040323       241
+    Reconhecido   0.884540  0.998895  0.938246      1810
+
+       accuracy                       0.883959      2051
+      macro avg   0.799413  0.509821  0.489284      2051
+   weighted avg   0.864535  0.883959  0.832737      2051
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usar o treeinterpreter para explicar uma previsão</span>
+<span class="n">instance_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">X_test_modelo1_2010_2017</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># Explicando a primeira instância do conjunto de teste</span>
+<span class="n">prediction_modelo1_2010_2017</span><span class="p">,</span> <span class="n">bias_modelo1_2010_2017</span><span class="p">,</span> <span class="n">contributions_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">ti</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">clf_modelo1_2010_2017</span><span class="p">,</span> <span class="n">instance_modelo1_2010_2017</span><span class="p">)</span>
+
+<span class="c1"># Criar DataFrame para mostrar a contribuição de cada característica</span>
+<span class="n">num_features_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">contributions_modelo1_2010_2017</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">feature_contributions_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Feature&#39;</span><span class="p">:</span> <span class="n">X_modelo1_2010_2017</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="n">num_features_modelo1_2010_2017</span><span class="p">],</span>  <span class="c1"># Ajustar nomes das features</span>
+    <span class="s1">&#39;Contribution&#39;</span><span class="p">:</span> <span class="n">contributions_modelo1_2010_2017</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Seleciona a coluna da classe positiva (1)</span>
+<span class="p">})</span>
+<span class="n">feature_contributions_modelo1_2010_2017</span><span class="p">[</span><span class="s1">&#39;Absolute Contribution&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature_contributions_modelo1_2010_2017</span><span class="p">[</span><span class="s1">&#39;Contribution&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+
+<span class="c1"># Ordenar as contribuições</span>
+<span class="n">feature_contributions_modelo1_2010_2017</span> <span class="o">=</span> <span class="n">feature_contributions_modelo1_2010_2017</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Absolute Contribution&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Mostrar a previsão, o valor de bias e as contribuições</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Previsão do modelo: </span><span class="si">{</span><span class="n">prediction_modelo1_2010_2017</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valor de bias (média): </span><span class="si">{</span><span class="n">bias_modelo1_2010_2017</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Contribuições das características:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">feature_contributions_modelo1_2010_2017</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Previsão do modelo: 0.8728
+Valor de bias (média): 0.8959
+
+Contribuições das características:
+                     Feature  Contribution  Absolute Contribution
+3         PEPR_total_privado     -0.053533               0.053533
+0     DH_total_danos_humanos      0.046818               0.046818
+54            Rendapercapita     -0.017810               0.017810
+40             COBRADE_14132      0.001504               0.001504
+2         PEPL_total_publico      0.000000               0.000000
+4        regiao_Centro-oeste      0.000000               0.000000
+31             COBRADE_13213      0.000000               0.000000
+32             COBRADE_13214      0.000000               0.000000
+33             COBRADE_13215      0.000000               0.000000
+34             COBRADE_13310      0.000000               0.000000
+35             COBRADE_13321      0.000000               0.000000
+36             COBRADE_13322      0.000000               0.000000
+37             COBRADE_14110      0.000000               0.000000
+38             COBRADE_14120      0.000000               0.000000
+39             COBRADE_14131      0.000000               0.000000
+41             COBRADE_14140      0.000000               0.000000
+42             COBRADE_15110      0.000000               0.000000
+43             COBRADE_15120      0.000000               0.000000
+44             COBRADE_15130      0.000000               0.000000
+45             COBRADE_15210      0.000000               0.000000
+46             COBRADE_15230      0.000000               0.000000
+47             COBRADE_22210      0.000000               0.000000
+48             COBRADE_22220      0.000000               0.000000
+49             COBRADE_23120      0.000000               0.000000
+50             COBRADE_24100      0.000000               0.000000
+51             COBRADE_24200      0.000000               0.000000
+52             COBRADE_25100      0.000000               0.000000
+53             COBRADE_25500      0.000000               0.000000
+30             COBRADE_13212      0.000000               0.000000
+29             COBRADE_13211      0.000000               0.000000
+28             COBRADE_13120      0.000000               0.000000
+15             COBRADE_11331      0.000000               0.000000
+5            regiao_Nordeste      0.000000               0.000000
+6               regiao_Norte      0.000000               0.000000
+7             regiao_Sudeste      0.000000               0.000000
+8                 regiao_Sul      0.000000               0.000000
+9              COBRADE_11110      0.000000               0.000000
+10             COBRADE_11120      0.000000               0.000000
+11             COBRADE_11311      0.000000               0.000000
+12             COBRADE_11312      0.000000               0.000000
+13             COBRADE_11313      0.000000               0.000000
+14             COBRADE_11321      0.000000               0.000000
+16             COBRADE_11332      0.000000               0.000000
+1   DM_total_danos_materiais      0.000000               0.000000
+17             COBRADE_11340      0.000000               0.000000
+18             COBRADE_11410      0.000000               0.000000
+19             COBRADE_11420      0.000000               0.000000
+20             COBRADE_11431      0.000000               0.000000
+21             COBRADE_11432      0.000000               0.000000
+22             COBRADE_11433      0.000000               0.000000
+23             COBRADE_12100      0.000000               0.000000
+24             COBRADE_12200      0.000000               0.000000
+25             COBRADE_12300      0.000000               0.000000
+26             COBRADE_13111      0.000000               0.000000
+27             COBRADE_13112      0.000000               0.000000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modelo-com-busca-de-hiperparametros-e-balanceamento-smote">
+<h2>Modelo com busca de hiperparâmetros e balanceamento SMOTE<a class="headerlink" href="#modelo-com-busca-de-hiperparametros-e-balanceamento-smote" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aplicar SMOTE para balanceamento</span>
+<span class="n">smote_balanceador</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Dividir dados em treino e teste</span>
+<span class="n">X_train_2010_2017_smote</span><span class="p">,</span> <span class="n">X_test_2010_2017_smote</span><span class="p">,</span> <span class="n">y_train_2010_2017_smote</span><span class="p">,</span> <span class="n">y_test_2010_2017_smote</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">df_eventos_2010_1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">df_eventos_2010_1</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Balancear as classes usando SMOTE</span>
+<span class="n">X_train_2010_2017_smote</span><span class="p">,</span> <span class="n">y_train_2010_2017_smote</span> <span class="o">=</span> <span class="n">smote_balanceador</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_train_2010_2017_smote</span><span class="p">,</span> <span class="n">y_train_2010_2017_smote</span><span class="p">)</span>
+
+<span class="c1"># Definir hiperparâmetros para a busca bayesiana</span>
+<span class="n">param_grid_bayes_smote</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;decisiontree__max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>  <span class="c1"># Profundidade máxima da árvore</span>
+    <span class="s1">&#39;decisiontree__min_samples_split&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>  <span class="c1"># Número mínimo de amostras para dividir um nó</span>
+    <span class="s1">&#39;decisiontree__min_samples_leaf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>  <span class="c1"># Número mínimo de amostras em uma folha</span>
+    <span class="s1">&#39;decisiontree__criterion&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span><span class="p">]</span>  <span class="c1"># Critério de divisão</span>
+<span class="p">}</span>
+
+<span class="c1"># Criar pipeline com RobustScaler e DecisionTreeClassifier</span>
+<span class="n">pipeline_tree_smote</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">RobustScaler</span><span class="p">()),</span>  <span class="c1"># Utilizando RobustScaler para padronização</span>
+    <span class="p">(</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="p">])</span>
+
+<span class="c1"># Definir o scorer como recall_score</span>
+<span class="n">scorer_smote</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">recall_score</span><span class="p">)</span>
+
+<span class="c1"># Realizar a busca bayesiana com validação cruzada usando recall como métrica</span>
+<span class="n">bayes_search_tree_smote</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
+    <span class="n">pipeline_tree_smote</span><span class="p">,</span>
+    <span class="n">search_spaces</span><span class="o">=</span><span class="n">param_grid_bayes_smote</span><span class="p">,</span>
+    <span class="n">n_iter</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="n">scorer_smote</span><span class="p">,</span>  <span class="c1"># Usando recall_score como métrica de avaliação</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Ajustar a busca bayesiana ao conjunto de treino balanceado com SMOTE</span>
+<span class="n">bayes_search_tree_smote</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_2010_2017_smote</span><span class="p">,</span> <span class="n">y_train_2010_2017_smote</span><span class="p">)</span>
+
+<span class="c1"># Melhor modelo encontrado</span>
+<span class="n">best_tree_model_smote</span> <span class="o">=</span> <span class="n">bayes_search_tree_smote</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="c1"># Exibir os melhores hiperparâmetros</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Melhores hiperparâmetros (SMOTE): </span><span class="si">{</span><span class="n">bayes_search_tree_smote</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fazer previsões com o conjunto de teste</span>
+<span class="n">y_pred_tree_smote</span> <span class="o">=</span> <span class="n">best_tree_model_smote</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_2010_2017_smote</span><span class="p">)</span>
+
+<span class="c1"># Relatório de classificação</span>
+<span class="n">classification_report_tree_smote</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span>
+    <span class="n">y_test_2010_2017_smote</span><span class="p">,</span> 
+    <span class="n">y_pred_tree_smote</span><span class="p">,</span> 
+    <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Não reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Reconhecido&#39;</span><span class="p">],</span> 
+    <span class="n">digits</span><span class="o">=</span><span class="mi">6</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Relatório de Classificação (SMOTE):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report_tree_smote</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melhores hiperparâmetros (SMOTE): OrderedDict([(&#39;decisiontree__criterion&#39;, &#39;entropy&#39;), (&#39;decisiontree__max_depth&#39;, 7), (&#39;decisiontree__min_samples_leaf&#39;, 6), (&#39;decisiontree__min_samples_split&#39;, 20)])
+Relatório de Classificação (SMOTE):
+                 precision    recall  f1-score   support
+
+Não reconhecido   0.187970  0.207469  0.197239       241
+    Reconhecido   0.892997  0.880663  0.886787      1810
+
+       accuracy                       0.801560      2051
+      macro avg   0.540484  0.544066  0.542013      2051
+   weighted avg   0.810154  0.801560  0.805763      2051
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modelo-com-busca-de-hiperparametros-e-balanceamento-das-variaveis-target-por-pesos">
+<h2>Modelo com busca de hiperparâmetros e balanceamento das variáveis target por pesos<a class="headerlink" href="#modelo-com-busca-de-hiperparametros-e-balanceamento-das-variaveis-target-por-pesos" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dividir dados em treino e teste (modelo com balanceamento)</span>
+<span class="n">X_train_2010_2017_balanceado</span><span class="p">,</span> <span class="n">X_test_2010_2017_balanceado</span><span class="p">,</span> <span class="n">y_train_2010_2017_balanceado</span><span class="p">,</span> <span class="n">y_test_2010_2017_balanceado</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">df_eventos_2010_1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">df_eventos_2010_1</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Calcular scale_pos_weight manualmente para balanceamento</span>
+<span class="n">scale_pos_weight_balanceado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_train_2010_2017_balanceado</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">y_train_2010_2017_balanceado</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Definir hiperparâmetros para a busca bayesiana</span>
+<span class="n">param_grid_bayes_balanceado</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;decisiontree__max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>  <span class="c1"># Profundidade máxima da árvore</span>
+    <span class="s1">&#39;decisiontree__min_samples_split&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>  <span class="c1"># Número mínimo de amostras para dividir um nó</span>
+    <span class="s1">&#39;decisiontree__min_samples_leaf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>  <span class="c1"># Número mínimo de amostras em uma folha</span>
+    <span class="s1">&#39;decisiontree__criterion&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span><span class="p">]</span>  <span class="c1"># Critério de divisão</span>
+<span class="p">}</span>
+
+<span class="c1"># Criar pipeline com RobustScaler e DecisionTreeClassifier</span>
+<span class="n">pipeline_tree_balanceado</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">RobustScaler</span><span class="p">()),</span>  <span class="c1"># Utilizando RobustScaler para padronização</span>
+    <span class="p">(</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="n">scale_pos_weight_balanceado</span><span class="p">}</span>  <span class="c1"># Balanceamento manual das classes</span>
+    <span class="p">))</span>
+<span class="p">])</span>
+
+<span class="c1"># Definir o scorer como recall_score</span>
+<span class="n">scorer_balanceado</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">recall_score</span><span class="p">)</span>
+
+<span class="c1"># Realizar a busca bayesiana com validação cruzada usando recall como métrica</span>
+<span class="n">bayes_search_tree_balanceado</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
+    <span class="n">pipeline_tree_balanceado</span><span class="p">,</span>
+    <span class="n">search_spaces</span><span class="o">=</span><span class="n">param_grid_bayes_balanceado</span><span class="p">,</span>
+    <span class="n">n_iter</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="n">scorer_balanceado</span><span class="p">,</span>  <span class="c1"># Usando recall_score como métrica de avaliação</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Ajustar a busca bayesiana ao conjunto de treino</span>
+<span class="n">bayes_search_tree_balanceado</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_2010_2017_balanceado</span><span class="p">,</span> <span class="n">y_train_2010_2017_balanceado</span><span class="p">)</span>
+
+<span class="c1"># Melhor modelo encontrado</span>
+<span class="n">best_tree_model_balanceado</span> <span class="o">=</span> <span class="n">bayes_search_tree_balanceado</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="c1"># Exibir os melhores hiperparâmetros</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Melhores hiperparâmetros (balanceado): </span><span class="si">{</span><span class="n">bayes_search_tree_balanceado</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fazer previsões com o conjunto de teste</span>
+<span class="n">y_pred_tree_balanceado</span> <span class="o">=</span> <span class="n">best_tree_model_balanceado</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_2010_2017_balanceado</span><span class="p">)</span>
+
+<span class="c1"># Mostrar a árvore de decisão do modelo com balanceamento</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span>
+    <span class="n">best_tree_model_balanceado</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">],</span>  <span class="c1"># Seleciona o DecisionTreeClassifier do pipeline</span>
+    <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
+    <span class="n">feature_names</span><span class="o">=</span><span class="n">X_train_2010_2017_balanceado</span><span class="o">.</span><span class="n">columns</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melhores hiperparâmetros (balanceado): OrderedDict([(&#39;decisiontree__criterion&#39;, &#39;entropy&#39;), (&#39;decisiontree__max_depth&#39;, 3), (&#39;decisiontree__min_samples_leaf&#39;, 2), (&#39;decisiontree__min_samples_split&#39;, 2)])
+</pre></div>
+</div>
+<img alt="_images/717c34775ad02698b895972cf4326097cb4cc9bcb5e0bd346ad08fd002984b10.png" src="_images/717c34775ad02698b895972cf4326097cb4cc9bcb5e0bd346ad08fd002984b10.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Relatório de classificação</span>
+<span class="n">classification_report_tree_balanceado</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span>
+    <span class="n">y_test_2010_2017_balanceado</span><span class="p">,</span> 
+    <span class="n">y_pred_tree_balanceado</span><span class="p">,</span> 
+    <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Não reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Reconhecido&#39;</span><span class="p">],</span> 
+    <span class="n">digits</span><span class="o">=</span><span class="mi">6</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Relatório de Classificação (balanceado pesos):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report_tree_balanceado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relatório de Classificação (balanceado pesos):
+                 precision    recall  f1-score   support
+
+Não reconhecido   0.000000  0.000000  0.000000       241
+    Reconhecido   0.882496  1.000000  0.937581      1810
+
+       accuracy                       0.882496      2051
+      macro avg   0.441248  0.500000  0.468790      2051
+   weighted avg   0.778800  0.882496  0.827412      2051
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modelo-com-busca-de-hiperparametros-balanceamento-das-variaveis-target-por-pesos-e-selecao-de-features">
+<h2>Modelo com busca de hiperparâmetros, balanceamento das variáveis target por pesos e seleção de features<a class="headerlink" href="#modelo-com-busca-de-hiperparametros-balanceamento-das-variaveis-target-por-pesos-e-selecao-de-features" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dividir dados em treino e teste (modelo com balanceamento)</span>
+<span class="n">X_train_2010_2017_balanceado_vars</span><span class="p">,</span> <span class="n">X_test_2010_2017_balanceado_vars</span><span class="p">,</span> <span class="n">y_train_2010_2017_balanceado_vars</span><span class="p">,</span> <span class="n">y_test_2010_2017_balanceado_vars</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">df_eventos_2010_1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">df_eventos_2010_1</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Calcular scale_pos_weight manualmente para balanceamento</span>
+<span class="n">scale_pos_weight_balanceado_vars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_train_2010_2017_balanceado_vars</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">y_train_2010_2017_balanceado_vars</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Criar modelo inicial para estimar importância das features</span>
+<span class="n">initial_tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="n">scale_pos_weight_balanceado_vars</span><span class="p">})</span>
+
+<span class="c1"># Treinar o modelo inicial</span>
+<span class="n">initial_tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_2010_2017_balanceado_vars</span><span class="p">,</span> <span class="n">y_train_2010_2017_balanceado_vars</span><span class="p">)</span>
+
+<span class="c1"># Obter a importância das features e calcular a média</span>
+<span class="n">feature_importances</span> <span class="o">=</span> <span class="n">initial_tree</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">mean_importance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)</span>
+
+<span class="c1"># Selecionar variáveis que têm importância acima da média</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">initial_tree</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">mean_importance</span><span class="p">,</span> <span class="n">prefit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train_2010_2017_selected_vars</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train_2010_2017_balanceado_vars</span><span class="p">)</span>
+<span class="n">X_test_2010_2017_selected_vars</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_2010_2017_balanceado_vars</span><span class="p">)</span>
+
+<span class="c1"># Definir hiperparâmetros para a busca bayesiana</span>
+<span class="n">param_grid_bayes_balanceado_vars</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;decisiontree__max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>  <span class="c1"># Profundidade máxima da árvore</span>
+    <span class="s1">&#39;decisiontree__min_samples_split&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>  <span class="c1"># Número mínimo de amostras para dividir um nó</span>
+    <span class="s1">&#39;decisiontree__min_samples_leaf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>  <span class="c1"># Número mínimo de amostras em uma folha</span>
+    <span class="s1">&#39;decisiontree__criterion&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span><span class="p">]</span>  <span class="c1"># Critério de divisão</span>
+<span class="p">}</span>
+
+<span class="c1"># Criar pipeline com RobustScaler e DecisionTreeClassifier</span>
+<span class="n">pipeline_tree_balanceado_vars</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">RobustScaler</span><span class="p">()),</span>  <span class="c1"># Utilizando RobustScaler para padronização</span>
+    <span class="p">(</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="n">scale_pos_weight_balanceado_vars</span><span class="p">}</span>  <span class="c1"># Balanceamento manual das classes</span>
+    <span class="p">))</span>
+<span class="p">])</span>
+
+<span class="c1"># Definir o scorer como recall_score</span>
+<span class="n">scorer_balanceado_vars</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">recall_score</span><span class="p">)</span>
+
+<span class="c1"># Realizar a busca bayesiana com validação cruzada usando recall como métrica</span>
+<span class="n">bayes_search_tree_balanceado_vars</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
+    <span class="n">pipeline_tree_balanceado_vars</span><span class="p">,</span>
+    <span class="n">search_spaces</span><span class="o">=</span><span class="n">param_grid_bayes_balanceado_vars</span><span class="p">,</span>
+    <span class="n">n_iter</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="n">scorer_balanceado_vars</span><span class="p">,</span>  <span class="c1"># Usando recall_score como métrica de avaliação</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Ajustar a busca bayesiana ao conjunto de treino balanceado com as variáveis selecionadas</span>
+<span class="n">bayes_search_tree_balanceado_vars</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_2010_2017_selected_vars</span><span class="p">,</span> <span class="n">y_train_2010_2017_balanceado_vars</span><span class="p">)</span>
+
+<span class="c1"># Melhor modelo encontrado</span>
+<span class="n">best_tree_model_balanceado_vars</span> <span class="o">=</span> <span class="n">bayes_search_tree_balanceado_vars</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="c1"># Exibir os melhores hiperparâmetros</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Melhores hiperparâmetros (balanceado com variáveis selecionadas): </span><span class="si">{</span><span class="n">bayes_search_tree_balanceado_vars</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fazer previsões com o conjunto de teste</span>
+<span class="n">y_pred_tree_balanceado_vars</span> <span class="o">=</span> <span class="n">best_tree_model_balanceado_vars</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_2010_2017_selected_vars</span><span class="p">)</span>
+
+<span class="c1"># Relatório de classificação</span>
+<span class="n">classification_report_tree_balanceado_vars</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span>
+    <span class="n">y_test_2010_2017_balanceado_vars</span><span class="p">,</span> 
+    <span class="n">y_pred_tree_balanceado_vars</span><span class="p">,</span> 
+    <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Não reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Reconhecido&#39;</span><span class="p">],</span> 
+    <span class="n">digits</span><span class="o">=</span><span class="mi">6</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Relatório de Classificação (balanceado com variáveis selecionadas):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report_tree_balanceado_vars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Melhores hiperparâmetros (balanceado com variáveis selecionadas): OrderedDict([(&#39;decisiontree__criterion&#39;, &#39;entropy&#39;), (&#39;decisiontree__max_depth&#39;, 3), (&#39;decisiontree__min_samples_leaf&#39;, 2), (&#39;decisiontree__min_samples_split&#39;, 2)])
+Relatório de Classificação (balanceado com variáveis selecionadas):
+                 precision    recall  f1-score   support
+
+Não reconhecido   0.000000  0.000000  0.000000       241
+    Reconhecido   0.882496  1.000000  0.937581      1810
+
+       accuracy                       0.882496      2051
+      macro avg   0.441248  0.500000  0.468790      2051
+   weighted avg   0.778800  0.882496  0.827412      2051
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span>
+    <span class="n">best_tree_model_balanceado_vars</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;decisiontree&#39;</span><span class="p">],</span>  <span class="c1"># Seleciona o DecisionTreeClassifier do pipeline</span>
+    <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
+    <span class="n">feature_names</span><span class="o">=</span><span class="n">X_train_2010_2017_balanceado_vars</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()]</span>  <span class="c1"># Nomes das features selecionadas</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b1616136b89ead0346d16ea0ecf08a58dae1edb368a44b2014dbbdc2cc4d6c03.png" src="_images/b1616136b89ead0346d16ea0ecf08a58dae1edb368a44b2014dbbdc2cc4d6c03.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pre_processamento.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pré processamento dos dados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="arvoredecisao_modelo2_2010_2017.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Variáveis desagregadas (2010 a 2017)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotecas-e-bases-de-dados">Bibliotecas e bases de dados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-base">Modelo base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-com-busca-de-hiperparametros-e-balanceamento-smote">Modelo com busca de hiperparâmetros e balanceamento SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-com-busca-de-hiperparametros-e-balanceamento-das-variaveis-target-por-pesos">Modelo com busca de hiperparâmetros e balanceamento das variáveis target por pesos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-com-busca-de-hiperparametros-balanceamento-das-variaveis-target-por-pesos-e-selecao-de-features">Modelo com busca de hiperparâmetros, balanceamento das variáveis target por pesos e seleção de features</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+  <div class="mooc_add">
+   <a href="https://www.fun-mooc.fr/en/courses/machine-learning-python-scikit-learn">Join the full MOOC for better learning!</a>
+  </div>
+  Brought to you under a <a href="https://github.com/INRIA/scikit-learn-mooc/blob/main/LICENSE">CC-BY License</a> by
+  <a href="https://learninglab.inria.fr">Inria Learning Lab</a>,
+  <a href="https://scikit-learn.fondation-inria.fr">scikit-learn @ La Fondation Inria</a>,
+  <a href="https://www.inria-academy.fr/formation/scikit-learn-la-boite-a-outils-de-lapprentissage-automatique/">Inria Academy</a>,
+  with many thanks to the <a href="https://scikit-learn.org">scikit-learn</a> community as a whole!
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

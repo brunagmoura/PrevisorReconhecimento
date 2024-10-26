@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Resultados dos Modelos de Árvores de Decisão &#8212; Previsor de reconhecimento</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'arvoredecisao_conclusoes';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modelo base" href="randomforest_base.html" />
+    <link rel="prev" title="Variáveis desagregadas (2018 a 2024)" href="arvoredecisao_modelo2_2018_2024.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="content.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/previsor_logo.png" class="logo__image only-light" alt="Previsor de reconhecimento - Home"/>
+    <img src="_static/previsor_logo.png" class="logo__image only-dark pst-js-only" alt="Previsor de reconhecimento - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dados.html">Base de dados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise exploratória</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="analise_exploratoria_preliminar.html">Análise preliminar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_registros_municipios.html">Municípios e desastres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_dados_ausentes_descricao.html">Dados ausentes (descrição)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_dados_ausentes_prejuizos_danos.html">Dados ausentes (danos e prejuízos)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analise_outliers.html">Análise outliers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pré processamento</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pre_processamento.html">Pré processamento dos dados</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Árvore de decisão</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2022)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Resultados dos Modelos de Árvores de Decisão</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="randomforest_base.html">Modelo base</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">XGBoost</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="xgboost_base.html">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_adicionais.html">Testes adicionais</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xgboost_conclusao.html">Resultados do modelo XGBoost</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise de Tópicos e Classificação de textos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bert_base.html">BERTopic</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc/edit/main/arvoredecisao_conclusoes.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/INRIA/scikit-learn-mooc/issues/new?title=Issue%20on%20page%20%2Farvoredecisao_conclusoes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/arvoredecisao_conclusoes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Resultados dos Modelos de Árvores de Decisão</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-de-dados-testados">Conjuntos de Dados Testados:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-analisadas">Métricas Analisadas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-de-modelos">Comparação de Modelos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2010-2017">Variáveis Agregadas (2010-2017)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2018-2024">Variáveis Agregadas (2018-2024)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2010-2017">Variáveis Desagregadas (2010-2017)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-e-conclusoes">Análise e Conclusões:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="resultados-dos-modelos-de-arvores-de-decisao">
+<h1>Resultados dos Modelos de Árvores de Decisão<a class="headerlink" href="#resultados-dos-modelos-de-arvores-de-decisao" title="Link to this heading">#</a></h1>
+<section id="conjuntos-de-dados-testados">
+<h2>Conjuntos de Dados Testados:<a class="headerlink" href="#conjuntos-de-dados-testados" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Features agregadas</strong> com eventos de 2010 a 2017.</p></li>
+<li><p><strong>Features agregadas</strong> com eventos de 2018 a 2024.</p></li>
+<li><p><strong>Features desagregadas</strong> com eventos de 2010 a 2017.</p></li>
+<li><p><strong>Features desagregadas</strong> com eventos de 2018 a 2024.</p></li>
+</ul>
+</section>
+<section id="metricas-analisadas">
+<h2>Métricas Analisadas:<a class="headerlink" href="#metricas-analisadas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Precision</strong>: Proporção de previsões positivas que realmente são positivas.</p></li>
+<li><p><strong>Recall</strong>: Proporção de casos positivos corretamente identificados.</p></li>
+<li><p><strong>F1 Score</strong>: Média harmônica entre precisão e recall.</p></li>
+<li><p><strong>Weighted Avg Recall</strong>: Recall ponderado considerando o desbalanceamento das classes.</p></li>
+</ul>
+</section>
+<section id="comparacao-de-modelos">
+<h2>Comparação de Modelos<a class="headerlink" href="#comparacao-de-modelos" title="Link to this heading">#</a></h2>
+<section id="variaveis-agregadas-2010-2017">
+<h3>Variáveis Agregadas (2010-2017)<a class="headerlink" href="#variaveis-agregadas-2010-2017" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Precision (Não Reconhecido)</p></th>
+<th class="head"><p>Recall (Não Reconhecido)</p></th>
+<th class="head"><p>F1-score (Não Reconhecido)</p></th>
+<th class="head"><p>Precision (Reconhecido)</p></th>
+<th class="head"><p>Recall (Reconhecido)</p></th>
+<th class="head"><p>F1-score (Reconhecido)</p></th>
+<th class="head"><p>Weighted Avg Recall</p></th>
+<th class="head"><p>Weighted F1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sem Balanceamento</p></td>
+<td><p>0.714286</p></td>
+<td><p>0.020747</p></td>
+<td><p>0.040323</p></td>
+<td><p>0.884540</p></td>
+<td><p>0.998895</p></td>
+<td><p>0.938246</p></td>
+<td><p>0.883959</p></td>
+<td><p>0.832737</p></td>
+</tr>
+<tr class="row-odd"><td><p>SMOTE</p></td>
+<td><p>0.187970</p></td>
+<td><p>0.207469</p></td>
+<td><p>0.197239</p></td>
+<td><p>0.892997</p></td>
+<td><p>0.880663</p></td>
+<td><p>0.886787</p></td>
+<td><p>0.801560</p></td>
+<td><p>0.805763</p></td>
+</tr>
+<tr class="row-even"><td><p>Balanceado por Pesos</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.882496</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.937581</p></td>
+<td><p><strong>0.882496</strong></p></td>
+<td><p>0.827412</p></td>
+</tr>
+<tr class="row-odd"><td><p>Balanceado com Variáveis Selecionadas</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.000000</p></td>
+<td><p>0.882496</p></td>
+<td><p>1.000000</p></td>
+<td><p>0.937581</p></td>
+<td><p><strong>0.882496</strong></p></td>
+<td><p>0.827412</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="variaveis-agregadas-2018-2024">
+<h3>Variáveis Agregadas (2018-2024)<a class="headerlink" href="#variaveis-agregadas-2018-2024" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Precision (Não Reconhecido)</p></th>
+<th class="head"><p>Recall (Não Reconhecido)</p></th>
+<th class="head"><p>F1-score (Não Reconhecido)</p></th>
+<th class="head"><p>Precision (Reconhecido)</p></th>
+<th class="head"><p>Recall (Reconhecido)</p></th>
+<th class="head"><p>F1-score (Reconhecido)</p></th>
+<th class="head"><p>Weighted Avg Recall</p></th>
+<th class="head"><p>Weighted F1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sem Balanceamento</p></td>
+<td><p>0.442308</p></td>
+<td><p>0.110048</p></td>
+<td><p>0.176245</p></td>
+<td><p>0.925241</p></td>
+<td><p>0.987559</p></td>
+<td><p>0.955385</p></td>
+<td><p><strong>0.915354</strong></p></td>
+<td><p>0.891275</p></td>
+</tr>
+<tr class="row-odd"><td><p>SMOTE</p></td>
+<td><p>0.279412</p></td>
+<td><p>0.272727</p></td>
+<td><p>0.276029</p></td>
+<td><p>0.934932</p></td>
+<td><p>0.936937</p></td>
+<td><p>0.935933</p></td>
+<td><p>0.882283</p></td>
+<td><p>0.881634</p></td>
+</tr>
+<tr class="row-even"><td><p>Balanceado por Pesos</p></td>
+<td><p>0.428571</p></td>
+<td><p>0.100478</p></td>
+<td><p>0.162791</p></td>
+<td><p>0.924528</p></td>
+<td><p>0.987988</p></td>
+<td><p>0.955205</p></td>
+<td><p><strong>0.914961</strong></p></td>
+<td><p>0.890003</p></td>
+</tr>
+<tr class="row-odd"><td><p>Balanceado com Variáveis Selecionadas</p></td>
+<td><p>0.391892</p></td>
+<td><p>0.138756</p></td>
+<td><p>0.204947</p></td>
+<td><p>0.927007</p></td>
+<td><p>0.980695</p></td>
+<td><p>0.953096</p></td>
+<td><p>0.911417</p></td>
+<td><p>0.891535</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="variaveis-desagregadas-2010-2017">
+<h3>Variáveis Desagregadas (2010-2017)<a class="headerlink" href="#variaveis-desagregadas-2010-2017" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Precision (Não Reconhecido)</p></th>
+<th class="head"><p>Recall (Não Reconhecido)</p></th>
+<th class="head"><p>F1-score (Não Reconhecido)</p></th>
+<th class="head"><p>Precision (Reconhecido)</p></th>
+<th class="head"><p>Recall (Reconhecido)</p></th>
+<th class="head"><p>F1-score (Reconhecido)</p></th>
+<th class="head"><p>Weighted Avg Recall</p></th>
+<th class="head"><p>Weighted F1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sem Balanceamento</p></td>
+<td><p>0.818182</p></td>
+<td><p>0.060403</p></td>
+<td><p>0.112500</p></td>
+<td><p>0.896831</p></td>
+<td><p>0.998359</p></td>
+<td><p>0.944876</p></td>
+<td><p>0.896199</p></td>
+<td><p>0.854215</p></td>
+</tr>
+<tr class="row-odd"><td><p>SMOTE</p></td>
+<td><p>0.336842</p></td>
+<td><p>0.214765</p></td>
+<td><p>0.262295</p></td>
+<td><p>0.908091</p></td>
+<td><p>0.948318</p></td>
+<td><p>0.927769</p></td>
+<td><p>0.868421</p></td>
+<td><p>0.855287</p></td>
+</tr>
+<tr class="row-even"><td><p>Balanceado por Pesos</p></td>
+<td><p>0.413043</p></td>
+<td><p>0.127517</p></td>
+<td><p>0.194872</p></td>
+<td><p>0.901664</p></td>
+<td><p>0.977851</p></td>
+<td><p>0.938213</p></td>
+<td><p><strong>0.885234</strong></p></td>
+<td><p>0.857250</p></td>
+</tr>
+<tr class="row-odd"><td><p>Balanceado com Variáveis Selecionadas</p></td>
+<td><p>0.413043</p></td>
+<td><p>0.127517</p></td>
+<td><p>0.194872</p></td>
+<td><p>0.901664</p></td>
+<td><p>0.977851</p></td>
+<td><p>0.938213</p></td>
+<td><p><strong>0.885234</strong></p></td>
+<td><p>0.857250</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="variaveis-desagregadas-2018-2024">
+<h3>Variáveis Desagregadas (2018-2024)<a class="headerlink" href="#variaveis-desagregadas-2018-2024" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Precision (Não Reconhecido)</p></th>
+<th class="head"><p>Recall (Não Reconhecido)</p></th>
+<th class="head"><p>F1-score (Não Reconhecido)</p></th>
+<th class="head"><p>Precision (Reconhecido)</p></th>
+<th class="head"><p>Recall (Reconhecido)</p></th>
+<th class="head"><p>F1-score (Reconhecido)</p></th>
+<th class="head"><p>Weighted Avg Recall</p></th>
+<th class="head"><p>Weighted F1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sem Balanceamento</p></td>
+<td><p>0.958333</p></td>
+<td><p>0.184000</p></td>
+<td><p>0.308725</p></td>
+<td><p>0.935032</p></td>
+<td><p>0.999319</p></td>
+<td><p>0.966107</p></td>
+<td><p><strong>0.935383</strong></p></td>
+<td><p>0.914556</p></td>
+</tr>
+<tr class="row-odd"><td><p>SMOTE</p></td>
+<td><p>0.319728</p></td>
+<td><p>0.376000</p></td>
+<td><p>0.345588</p></td>
+<td><p>0.946095</p></td>
+<td><p>0.931926</p></td>
+<td><p>0.938957</p></td>
+<td><p>0.888331</p></td>
+<td><p>0.892426</p></td>
+</tr>
+<tr class="row-even"><td><p>Balanceado por Pesos</p></td>
+<td><p>0.411215</p></td>
+<td><p>0.352000</p></td>
+<td><p>0.379310</p></td>
+<td><p>0.945528</p></td>
+<td><p>0.957114</p></td>
+<td><p>0.951286</p></td>
+<td><p>0.909661</p></td>
+<td><p>0.906432</p></td>
+</tr>
+<tr class="row-odd"><td><p>Balanceado com Variáveis Selecionadas</p></td>
+<td><p>0.405660</p></td>
+<td><p>0.344000</p></td>
+<td><p>0.372294</p></td>
+<td><p>0.944892</p></td>
+<td><p>0.957114</p></td>
+<td><p>0.950964</p></td>
+<td><p>0.909034</p></td>
+<td><p>0.905585</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="analise-e-conclusoes">
+<h2>Análise e Conclusões:<a class="headerlink" href="#analise-e-conclusoes" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Baixo Desempenho na Classe “Não Reconhecido”</strong>:</p>
+<ul class="simple">
+<li><p><strong>Em todos os casos</strong>, os modelos apresentaram dificuldades em prever corretamente a classe “Não Reconhecido” (baixo <em>recall</em>), especialmente com o balanceamento por pesos e seleção de variáveis.</p></li>
+<li><p>O <strong>SMOTE</strong> trouxe uma leve melhoria no <em>recall</em> para a classe “Não Reconhecido”, mas ainda assim, o desempenho nessa classe foi muito inferior ao da classe “Reconhecido”.</p></li>
+</ul>
+</li>
+<li><p><strong>Impacto do Balanceamento por Pesos</strong>:</p>
+<ul class="simple">
+<li><p>Nos modelos com <strong>variáveis selecionadas</strong>, o desempenho foi similar ao do modelo balanceado por pesos sem seleção de variáveis.</p></li>
+</ul>
+</li>
+<li><p><strong>Melhor Desempenho Geral com SMOTE</strong>:</p>
+<ul class="simple">
+<li><p>O <strong>SMOTE</strong> trouxe uma melhoria geral no desempenho para a classe “Não Reconhecido” em termos de <em>recall</em>, com um impacto menor nas outras métricas, tornando-se a técnica mais balanceada entre precisão e recall.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="arvoredecisao_modelo2_2018_2024.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Variáveis desagregadas (2018 a 2024)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="randomforest_base.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modelo base</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-de-dados-testados">Conjuntos de Dados Testados:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-analisadas">Métricas Analisadas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-de-modelos">Comparação de Modelos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2010-2017">Variáveis Agregadas (2010-2017)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-agregadas-2018-2024">Variáveis Agregadas (2018-2024)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2010-2017">Variáveis Desagregadas (2010-2017)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis-desagregadas-2018-2024">Variáveis Desagregadas (2018-2024)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-e-conclusoes">Análise e Conclusões:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+  <div class="mooc_add">
+   <a href="https://www.fun-mooc.fr/en/courses/machine-learning-python-scikit-learn">Join the full MOOC for better learning!</a>
+  </div>
+  Brought to you under a <a href="https://github.com/INRIA/scikit-learn-mooc/blob/main/LICENSE">CC-BY License</a> by
+  <a href="https://learninglab.inria.fr">Inria Learning Lab</a>,
+  <a href="https://scikit-learn.fondation-inria.fr">scikit-learn @ La Fondation Inria</a>,
+  <a href="https://www.inria-academy.fr/formation/scikit-learn-la-boite-a-outils-de-lapprentissage-automatique/">Inria Academy</a>,
+  with many thanks to the <a href="https://scikit-learn.org">scikit-learn</a> community as a whole!
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
