@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -178,11 +178,11 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="pre_processamento.html">Pré processamento dos dados</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Árvore de decisão</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Árvore de Decisão</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2022)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arvoredecisao_conclusoes.html">Resultados dos Modelos de Árvores de Decisão</a></li>
 </ul>
@@ -199,6 +199,10 @@
 <li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_conclusao.html">Resultados do modelo XGBoost</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise de Tópicos e Classificação de textos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bert_base.html">BERTopic</a></li>
 </ul>
 
     </div>
@@ -571,12 +575,12 @@
 </details>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_dbef3 thead th {
+#T_31737 thead th {
   font-size: 12px;
   text-align: center;
   border-bottom: 2px solid #007BFF;
 }
-#T_dbef3 td {
+#T_31737 td {
   font-size: 10px;
   text-align: center;
   max-height: 40px;
@@ -585,74 +589,74 @@
   overflow: hidden;
   max-width: 100px;
 }
-#T_dbef3 tr:nth-child(odd) {
+#T_31737 tr:nth-child(odd) {
   background-color: #ffffff;
 }
-#T_dbef3 table {
+#T_31737 table {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
 }
-#T_dbef3 td {
+#T_31737 td {
   border: 1px solid #666;
 }
-#T_dbef3  th {
+#T_31737  th {
   border: 1px solid #666;
 }
-#T_dbef3_row0_col0, #T_dbef3_row0_col1, #T_dbef3_row0_col2, #T_dbef3_row0_col3, #T_dbef3_row1_col0, #T_dbef3_row1_col1, #T_dbef3_row1_col2, #T_dbef3_row1_col3, #T_dbef3_row2_col0, #T_dbef3_row2_col1, #T_dbef3_row2_col2, #T_dbef3_row2_col3, #T_dbef3_row3_col0, #T_dbef3_row3_col1, #T_dbef3_row3_col2, #T_dbef3_row3_col3, #T_dbef3_row4_col0, #T_dbef3_row4_col1, #T_dbef3_row4_col2, #T_dbef3_row4_col3 {
+#T_31737_row0_col0, #T_31737_row0_col1, #T_31737_row0_col2, #T_31737_row0_col3, #T_31737_row1_col0, #T_31737_row1_col1, #T_31737_row1_col2, #T_31737_row1_col3, #T_31737_row2_col0, #T_31737_row2_col1, #T_31737_row2_col2, #T_31737_row2_col3, #T_31737_row3_col0, #T_31737_row3_col1, #T_31737_row3_col2, #T_31737_row3_col3, #T_31737_row4_col0, #T_31737_row4_col1, #T_31737_row4_col2, #T_31737_row4_col3 {
   border-color: darkgray;
   border-style: solid;
   border-width: 1px;
 }
 </style>
-<table id="T_dbef3" style="height:auto; overflow:auto; max-height:300px; display:block;">
+<table id="T_31737" style="height:auto; overflow:auto; max-height:300px; display:block;">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_dbef3_level0_col0" class="col_heading level0 col0" >Status</th>
-      <th id="T_dbef3_level0_col1" class="col_heading level0 col1" >DH_Descricao</th>
-      <th id="T_dbef3_level0_col2" class="col_heading level0 col2" >DM_Descricao</th>
-      <th id="T_dbef3_level0_col3" class="col_heading level0 col3" >DA_Descricao</th>
+      <th id="T_31737_level0_col0" class="col_heading level0 col0" >Status</th>
+      <th id="T_31737_level0_col1" class="col_heading level0 col1" >DH_Descricao</th>
+      <th id="T_31737_level0_col2" class="col_heading level0 col2" >DM_Descricao</th>
+      <th id="T_31737_level0_col3" class="col_heading level0 col3" >DA_Descricao</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_dbef3_level0_row0" class="row_heading level0 row0" >26253</th>
-      <td id="T_dbef3_row0_col0" class="data row0 col0" >1</td>
-      <td id="T_dbef3_row0_col1" class="data row0 col1" >A seca tem causado interrupções no fornecimento de água potável para a população dos núcleos urbanos e limitações severas no consumo de água nos domicílios situados na zona rural que precisam aguardar um tempo elevado para que a água acumule em cisterna em volume que seja possível bombear. _x000D_
+      <th id="T_31737_level0_row0" class="row_heading level0 row0" >26253</th>
+      <td id="T_31737_row0_col0" class="data row0 col0" >1</td>
+      <td id="T_31737_row0_col1" class="data row0 col1" >A seca tem causado interrupções no fornecimento de água potável para a população dos núcleos urbanos e limitações severas no consumo de água nos domicílios situados na zona rural que precisam aguardar um tempo elevado para que a água acumule em cisterna em volume que seja possível bombear. _x000D_
 _x000D_
 </td>
-      <td id="T_dbef3_row0_col2" class="data row0 col2" >nan</td>
-      <td id="T_dbef3_row0_col3" class="data row0 col3" >Redução dos cursos de água e pastagem provocado pela seca.</td>
+      <td id="T_31737_row0_col2" class="data row0 col2" >nan</td>
+      <td id="T_31737_row0_col3" class="data row0 col3" >Redução dos cursos de água e pastagem provocado pela seca.</td>
     </tr>
     <tr>
-      <th id="T_dbef3_level0_row1" class="row_heading level0 row1" >26254</th>
-      <td id="T_dbef3_row1_col0" class="data row1 col0" >1</td>
-      <td id="T_dbef3_row1_col1" class="data row1 col1" >Conforme laudo da assistência social, o desastre Tempestade Local/Convectiva - Vendaval atingiu o município em todo o seu território urbano e rural,  afetando diretamente 1.180 famílias, aproximadamente 4.716 pessoas, desse total, aproximadamente 30 pessoas ficaram desalojadas. Ainda dentro desse número de famílias 30 famílias foram diretamente afetadas, sendo aproximadamente 120 pessoas encontram-se em vulnerabilidade social. Todos os afetados tiveram danos em suas residências, em telhados, em muitas delas perdendo móveis, roupas e alimentos. Estradas no interior que ficaram sem condições seguras de trafegabilidade e/ou bloqueadas, conforme constatado pela engenharia. A tempestade que atingiu o município afetou as famílias também com a falta de energia elétrica e consequentemente de água, sendo restabelecida em todo o território do município somente no dia 02 de Janeiro.</td>
-      <td id="T_dbef3_row1_col2" class="data row1 col2" >Conforme laudo da engenharia o evento vendaval causou danos em aproximadamente 30 unidades habitacionais, 01 instalação pública de saúde, uma de ensino e ainda nas estradas rurais do município.</td>
-      <td id="T_dbef3_row1_col3" class="data row1 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pela quebra das telhas de fibrocimento e queda de árvores.</td>
+      <th id="T_31737_level0_row1" class="row_heading level0 row1" >26254</th>
+      <td id="T_31737_row1_col0" class="data row1 col0" >1</td>
+      <td id="T_31737_row1_col1" class="data row1 col1" >Conforme laudo da assistência social, o desastre Tempestade Local/Convectiva - Vendaval atingiu o município em todo o seu território urbano e rural,  afetando diretamente 1.180 famílias, aproximadamente 4.716 pessoas, desse total, aproximadamente 30 pessoas ficaram desalojadas. Ainda dentro desse número de famílias 30 famílias foram diretamente afetadas, sendo aproximadamente 120 pessoas encontram-se em vulnerabilidade social. Todos os afetados tiveram danos em suas residências, em telhados, em muitas delas perdendo móveis, roupas e alimentos. Estradas no interior que ficaram sem condições seguras de trafegabilidade e/ou bloqueadas, conforme constatado pela engenharia. A tempestade que atingiu o município afetou as famílias também com a falta de energia elétrica e consequentemente de água, sendo restabelecida em todo o território do município somente no dia 02 de Janeiro.</td>
+      <td id="T_31737_row1_col2" class="data row1 col2" >Conforme laudo da engenharia o evento vendaval causou danos em aproximadamente 30 unidades habitacionais, 01 instalação pública de saúde, uma de ensino e ainda nas estradas rurais do município.</td>
+      <td id="T_31737_row1_col3" class="data row1 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pela quebra das telhas de fibrocimento e queda de árvores.</td>
     </tr>
     <tr>
-      <th id="T_dbef3_level0_row2" class="row_heading level0 row2" >26255</th>
-      <td id="T_dbef3_row2_col0" class="data row2 col0" >1</td>
-      <td id="T_dbef3_row2_col1" class="data row2 col1" >Conforme laudo da assistência social, 20 famílias, 80 pessoas ficaram desalojadas devido destelhamento das suas residências, sendo que três moradias teve todo telhado arrancado, com tesouras e forro. No total foram 276 unidades habitacionais danificadas conforme laudo da engenharia. Ainda conforme laudo da Emater em anexo, houve prejuízos na pecuária que chegam ao valor de R$ 132.000,00. </td>
-      <td id="T_dbef3_row2_col2" class="data row2 col2" >Conforme laudo da engenharia foram danificadas 276 unidades habitacionais, 07 instalações públicas de ensino sofreram destelhamento devidos aos fortes ventos.</td>
-      <td id="T_dbef3_row2_col3" class="data row2 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pelas quebra das telhas de fibrocimento e quedas de inúmeras árvores.</td>
+      <th id="T_31737_level0_row2" class="row_heading level0 row2" >26255</th>
+      <td id="T_31737_row2_col0" class="data row2 col0" >1</td>
+      <td id="T_31737_row2_col1" class="data row2 col1" >Conforme laudo da assistência social, 20 famílias, 80 pessoas ficaram desalojadas devido destelhamento das suas residências, sendo que três moradias teve todo telhado arrancado, com tesouras e forro. No total foram 276 unidades habitacionais danificadas conforme laudo da engenharia. Ainda conforme laudo da Emater em anexo, houve prejuízos na pecuária que chegam ao valor de R$ 132.000,00. </td>
+      <td id="T_31737_row2_col2" class="data row2 col2" >Conforme laudo da engenharia foram danificadas 276 unidades habitacionais, 07 instalações públicas de ensino sofreram destelhamento devidos aos fortes ventos.</td>
+      <td id="T_31737_row2_col3" class="data row2 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pelas quebra das telhas de fibrocimento e quedas de inúmeras árvores.</td>
     </tr>
     <tr>
-      <th id="T_dbef3_level0_row3" class="row_heading level0 row3" >26256</th>
-      <td id="T_dbef3_row3_col0" class="data row3 col0" >1</td>
-      <td id="T_dbef3_row3_col1" class="data row3 col1" >As pessoas atingidas, tiveram os telhados de suas residências danificados, moveis molhados, sendo necessário cobrir com lonas, totalizando num total de 300 pessoas atingidas diretamente, de acordo com o laudo da assistência social.</td>
-      <td id="T_dbef3_row3_col2" class="data row3 col2" >De acordo com o laudo da engenharia civil, houve um total de 75 unidades habitacionais atingidas, totalizando um dano estimado de R$120.583,50. Além disso, foi registrado danos causados em prédios públicos, como postos de saúde, escolas, secretarias, totalizando um valor estimado de R$106.834,65.</td>
-      <td id="T_dbef3_row3_col3" class="data row3 col3" >nan</td>
+      <th id="T_31737_level0_row3" class="row_heading level0 row3" >26256</th>
+      <td id="T_31737_row3_col0" class="data row3 col0" >1</td>
+      <td id="T_31737_row3_col1" class="data row3 col1" >As pessoas atingidas, tiveram os telhados de suas residências danificados, moveis molhados, sendo necessário cobrir com lonas, totalizando num total de 300 pessoas atingidas diretamente, de acordo com o laudo da assistência social.</td>
+      <td id="T_31737_row3_col2" class="data row3 col2" >De acordo com o laudo da engenharia civil, houve um total de 75 unidades habitacionais atingidas, totalizando um dano estimado de R$120.583,50. Além disso, foi registrado danos causados em prédios públicos, como postos de saúde, escolas, secretarias, totalizando um valor estimado de R$106.834,65.</td>
+      <td id="T_31737_row3_col3" class="data row3 col3" >nan</td>
     </tr>
     <tr>
-      <th id="T_dbef3_level0_row4" class="row_heading level0 row4" >26257</th>
-      <td id="T_dbef3_row4_col0" class="data row4 col0" >1</td>
-      <td id="T_dbef3_row4_col1" class="data row4 col1" >Toda a população do Município foi afetada direta ou indiretamente pelo evento adverso do dia 29 de dezembro de 2023, devido aos fortes ventos em todo teritório do Município de Ubiretama, que causaram vários destelhamentos em residências e prédios públicos, queda de galhos e árvores sobre as vias municipais, assim dificultando a locomoção das pessoas, bem como interrupçao de fornecimento de energia elétrica, sendo que todo município de Ubiretama está sem energia elétrica até o momento, o que pode perdurar por vários dias inclusive. </td>
-      <td id="T_dbef3_row4_col2" class="data row4 col2" >Várias residências afetadas, causando um valor aproximado de R$ 10.000,00(dez mil reais), e a quadra de futebol society, que foi teve a cobertura totalmente destruída, em razão dos fortes ventos, causando um prejuízo aproximado de R$ 250.000,00(duzentos e cinquenta mil reais), de acordo com o Relatório do Engenheiro Civil. </td>
-      <td id="T_dbef3_row4_col3" class="data row4 col3" >nan</td>
+      <th id="T_31737_level0_row4" class="row_heading level0 row4" >26257</th>
+      <td id="T_31737_row4_col0" class="data row4 col0" >1</td>
+      <td id="T_31737_row4_col1" class="data row4 col1" >Toda a população do Município foi afetada direta ou indiretamente pelo evento adverso do dia 29 de dezembro de 2023, devido aos fortes ventos em todo teritório do Município de Ubiretama, que causaram vários destelhamentos em residências e prédios públicos, queda de galhos e árvores sobre as vias municipais, assim dificultando a locomoção das pessoas, bem como interrupçao de fornecimento de energia elétrica, sendo que todo município de Ubiretama está sem energia elétrica até o momento, o que pode perdurar por vários dias inclusive. </td>
+      <td id="T_31737_row4_col2" class="data row4 col2" >Várias residências afetadas, causando um valor aproximado de R$ 10.000,00(dez mil reais), e a quadra de futebol society, que foi teve a cobertura totalmente destruída, em razão dos fortes ventos, causando um prejuízo aproximado de R$ 250.000,00(duzentos e cinquenta mil reais), de acordo com o Relatório do Engenheiro Civil. </td>
+      <td id="T_31737_row4_col3" class="data row4 col3" >nan</td>
     </tr>
   </tbody>
 </table>
@@ -817,12 +821,12 @@ Name: count, dtype: int64
 
                  precision    recall  f1-score   support
 
-Não reconhecido   0.231105  0.420635  0.298311       378
-    Reconhecido   0.932491  0.851154  0.889968      3554
+Não reconhecido   0.231343  0.410053  0.295802       378
+    Reconhecido   0.931637  0.855093  0.891725      3554
 
-       accuracy                       0.809766      3932
-      macro avg   0.581798  0.635894  0.594140      3932
-   weighted avg   0.865064  0.809766  0.833089      3932
+       accuracy                       0.812309      3932
+      macro avg   0.581490  0.632573  0.593763      3932
+   weighted avg   0.864315  0.812309  0.834437      3932
 </pre></div>
 </div>
 </div>
@@ -946,12 +950,12 @@ Name: proportion, dtype: float64
 
                  precision    recall  f1-score   support
 
-Não reconhecido   0.244706  0.330159  0.281081       315
-    Reconhecido   0.909325  0.868281  0.888329      2437
+Não reconhecido   0.242630  0.339683  0.283069       315
+    Reconhecido   0.909996  0.862946  0.885847      2437
 
-       accuracy                       0.806686      2752
-      macro avg   0.577016  0.599220  0.584705      2752
-   weighted avg   0.833252  0.806686  0.818822      2752
+       accuracy                       0.803052      2752
+      macro avg   0.576313  0.601314  0.584458      2752
+   weighted avg   0.833608  0.803052  0.816851      2752
 </pre></div>
 </div>
 </div>
@@ -1073,12 +1077,12 @@ Name: proportion, dtype: float64
 
                  precision    recall  f1-score   support
 
-Não reconhecido   0.174419  0.386029  0.240275       272
-    Reconhecido   0.936113  0.831182  0.880533      2944
+Não reconhecido   0.173333  0.382353  0.238532       272
+    Reconhecido   0.935780  0.831522  0.880576      2944
 
        accuracy                       0.793532      3216
-      macro avg   0.555266  0.608606  0.560404      3216
-   weighted avg   0.871691  0.793532  0.826381      3216
+      macro avg   0.554557  0.606937  0.559554      3216
+   weighted avg   0.871294  0.793532  0.826273      3216
 </pre></div>
 </div>
 </div>
@@ -1173,34 +1177,34 @@ Não reconhecido   0.174419  0.386029  0.240275       272
     <tr>
       <th>0</th>
       <td>Humanos</td>
-      <td>0.932491</td>
-      <td>0.851154</td>
-      <td>0.889968</td>
-      <td>0.231105</td>
-      <td>0.420635</td>
-      <td>0.298311</td>
-      <td>0.809766</td>
+      <td>0.931637</td>
+      <td>0.855093</td>
+      <td>0.891725</td>
+      <td>0.231343</td>
+      <td>0.410053</td>
+      <td>0.295802</td>
+      <td>0.812309</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Materiais</td>
-      <td>0.909325</td>
-      <td>0.868281</td>
-      <td>0.888329</td>
-      <td>0.244706</td>
-      <td>0.330159</td>
-      <td>0.281081</td>
-      <td>0.806686</td>
+      <td>0.909996</td>
+      <td>0.862946</td>
+      <td>0.885847</td>
+      <td>0.242630</td>
+      <td>0.339683</td>
+      <td>0.283069</td>
+      <td>0.803052</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Ambiental</td>
-      <td>0.936113</td>
-      <td>0.831182</td>
-      <td>0.880533</td>
-      <td>0.174419</td>
-      <td>0.386029</td>
-      <td>0.240275</td>
+      <td>0.935780</td>
+      <td>0.831522</td>
+      <td>0.880576</td>
+      <td>0.173333</td>
+      <td>0.382353</td>
+      <td>0.238532</td>
       <td>0.793532</td>
     </tr>
   </tbody>
@@ -1244,7 +1248,7 @@ Não reconhecido   0.174419  0.386029  0.240275       272
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/e538704fc9a96f90aa0a8b4b3177dc8fcb146586802c8d437ac59effbfcac84d.png" src="_images/e538704fc9a96f90aa0a8b4b3177dc8fcb146586802c8d437ac59effbfcac84d.png" />
+<img alt="_images/1bdb15846e847db71b00e8ce66ec4ac593a9b14e8e163da0de7da91d603a352f.png" src="_images/1bdb15846e847db71b00e8ce66ec4ac593a9b14e8e163da0de7da91d603a352f.png" />
 </div>
 </div>
 </section>
