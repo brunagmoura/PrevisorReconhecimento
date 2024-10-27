@@ -19,7 +19,7 @@ parts:
   - file: pre_processamento
 - caption: Regressão logística
   chapters:
-  - file: reglog
+  - file: reglog_base_cv
   - file: reglog_conclusao
 - caption: Random Forest
   chapters:
