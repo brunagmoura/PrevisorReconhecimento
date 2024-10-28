@@ -19,11 +19,17 @@ parts:
   - file: pre_processamento
 - caption: Regressão logística
   chapters:
-  - file: reglog_base_cv
+  - file: reglog_base
+  - file: reglog_cv
+  - file: reglog_adicionais
   - file: reglog_conclusao
-- caption: Random Forest
+- caption: Árvore de decisão
   chapters:
-  - file: randomforest_base
+  - file: arvoredecisao_modelo1_2010_2017
+  - file: arvoredecisao_modelo1_2018_2024
+  - file: arvoredecisao_modelo2_2010_2017
+  - file: arvoredecisao_modelo2_2018_2024
+  - file: arvoredecisao_conclusoes
 - caption: XGBoost
   chapters:
   - file: xgboost_base
@@ -35,6 +41,6 @@ parts:
   - file: xgboost_conclusao
 - caption: Análise de Tópicos e Classificação de textos
   chapters:
-  - file: nlp_tfidf_base
-  - file: nlp_tfidf_oversampler
-  - file: nlp_tfidf_undersampler
+  - file: nlp_tfidf_sembalanceamento
+  - file: nlp_tfidf_class_balanced
+  - file: berto_conclusoes

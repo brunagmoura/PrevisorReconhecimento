@@ -3,122 +3,143 @@
 Com base nas especificidades identificadas na base de dados, foram realizados testes utilizando quatro conjuntos de dados distintos:
 
 1. Features agregadas com eventos ocorridos entre 2010 e 2017.
-2. Features agregadas com eventos ocorridos entre 2018 e 2024.
-3. Features desagregadas com eventos ocorridos entre 2010 e 2017.
+2. Features desagregadas com eventos ocorridos entre 2010 e 2017.
+3. Features agregadas com eventos ocorridos entre 2018 e 2024.
 4. Features desagregadas com eventos ocorridos entre 2018 e 2024.
 
 > **Nota**: Mais detalhes sobre o pré-processamento dos dados podem ser verificados no capítulo "Pré-processamento".
 
-## Tabela Comparativa dos Modelos (2010-2017)
+## Tabela Comparativa dos Modelos 
 
-| Métrica                  | Variáveis agregadas | Variáveis agregadas c/ SMOTE | Variáveis desagregadas | Variáveis desagregadas c/ SMOTE |
-|--------------------------|---------------------|------------------------------|------------------------|---------------------------------|
-| **Reconhecido**           |                     |                              |                        |                                 |
-| Precision                 | 0.913793            | **0.947808**                 | 0.915284               | 0.951181                        |
-| Recall                    | 0.986881            | 0.768515                     | 0.987220               | 0.771885                        |
-| F1-Score                  | 0.948932            | 0.848796                     | 0.949892               | 0.852205                        |
-| **Não Reconhecido**       |                     |                              |                        |                                 |
-| Precision                 | **0.465517**        | 0.211816                     | 0.375000               | 0.206667                        |
-| Recall                    | 0.109312            | 0.595142                     | 0.077419               | 0.600000                        |
-| F1-Score                  | 0.177049            | 0.312434                     | 0.128342               | 0.307438                        |
-| **Métricas gerais**       |                     |                              |                        |                                 |
-| Weighted Avg Precision    | 0.871370            | 0.878157                     | 0.866596               | 0.884088                        |
-| Weighted Avg Recall       | **0.903831**        | 0.752107                     | **0.905233**           | 0.756395                        |
-| Weighted Avg F1-Score     | **0.875884**        | 0.798037                     | **0.875857**           | 0.803112                        |
-| Total Support             | 2610                | 2610                         | 1720                   | 1720                            |
+Como forma de avaliar os modelos de regressão logística, usamos a métrica **'recall weighted average'**, ou média ponderada de recall (revocação). 
 
-### Análise Comparativa dos Modelos (2010-2017)
+Recall, também conhecido como sensibilidade ou taxa de verdadeiros positivos (TPR), mede a proporção de positivos reais que são corretamente identificados pelo modelo. Essa métrica destaca quão bem o modelo captura todas as instâncias relevantes, o que é crucial em cenários onde perder uma instância positiva (falso negativo) é mais crítico do que rotular incorretamente uma instância negativa como positiva (falso positivo). No contexto de desastres reportados, o não reconhecimento de um desastre legítimo (perder uma instância positiva) seria bastante crítico.
 
-- **Modelo sem SMOTE**:
-  - Weighted avg F1-score: **87,58%**
-  - Classe "Não reconhecido":
-    - Precision: 46,55%
-    - Recall: 10,93%
-    - F1-score: 17,70%
-  - O modelo apresenta alta precisão e recall para a classe majoritária, mas dificuldades em detectar a classe minoritária.
+Na classificação multiclasse, calcular uma única pontuação de recall pode ser desafiador devido às diferentes distribuições das classes. A **média ponderada de recall** aborda isso considerando o número de instâncias verdadeiras para cada classe, dando mais importância às classes com mais ocorrências. No conjunto de dados do reconhecimento de desastres, verificou-se que as classes estão desbalanceadas numa proporção aproximada de 10:1, onde a classe minoritária é a classe  de evento 'Não reconhecido'.
 
-- **Modelo com SMOTE**:
-  - Weighted avg F1-score: **79,80%**
-  - Classe "Não reconhecido":
-    - Precision: 21,18%
-    - Recall: 59,51%
-    - F1-score: 31,24%
-  - A aplicação do SMOTE melhora significativamente o recall da classe minoritária, mas reduz a precisão geral.
+### Resultados dos Modelos de Classificação - **Modelo base**
 
-- **Modelo com variáveis desagregadas e sem SMOTE**:
-  - Weighted avg F1-score: **87,58%**
-  - Classe "Não reconhecido":
-    - Precision: 37,50%
-    - Recall: 7,74%
-    - F1-score: 12,83%
-  - Embora o modelo tenha alta performance para a classe majoritária, o desempenho para a classe minoritária é baixo.
+O algoritmo de regressão logística foi aplicado nos 4 conjuntos de dados com os seguintes parâmetros:
 
-- **Modelo com variáveis desagregadas e com SMOTE**:
-  - Weighted avg F1-score: **80,31%**
-  - Classe "Não reconhecido":
-    - Precision: 20,67%
-    - Recall: 60,00%
-    - F1-score: 30,74%
-  - A remoção de variáveis correlacionadas com SMOTE melhorou o recall da classe minoritária, mas reduziu a precisão.
+* max_iter=1000, 
+* random_state=42, 
+* solver="liblinear", 
+* class_weight={0: 5, 1: 1} 
 
-### Conclusões
+A seguir, o resultado das métricas de avaliação:
 
-- **Impacto do SMOTE**: A aplicação do SMOTE melhorou a capacidade de detecção da classe "Não reconhecido", aumentando o recall e o F1-score dessa classe. No entanto, reduziu a precisão geral do modelo.
-- **Desempenho Geral**: Todos os modelos mantiveram um bom desempenho na classe majoritária "Reconhecido", com alta precisão e recall.
+### 2010-2017 Agregado
 
-## Tabela Comparativa dos Modelos (2018-2024)
+|                     | precision | recall    | f1-score | support |
+|---------------------|-----------|-----------|----------|---------|
+| **Não reconhecido** | 0.286     | 0.034     | 0.061    | 234     |
+| **Reconhecido**     | 0.912     | 0.992     | 0.950    | 2376    |
+| **accuracy**        |     0.906      | 0.906     | 0.906    | 2610    |
+| **macro avg**       | 0.599     | 0.513     | 0.506    | 2610    |
+| **weighted avg**    | 0.856     | **0.906** | 0.871    | 2610    |
 
-| Métrica                  | Variáveis agregadas | Variáveis agregadas c/ SMOTE | Variáveis desagregadas | Variáveis desagregadas c/ SMOTE |
-|--------------------------|---------------------|------------------------------|------------------------|---------------------------------|
-| **Reconhecido**           |                     |                              |                        |                                 |
-| Precision                 | 0.924403            | 0.947368                     | 0.933333               | **0.965458**                    |
-| Recall                    | 0.981697            | 0.726290                     | 0.992053               | 0.740397                        |
-| F1-Score                  | 0.952189            | 0.822227                     | 0.961798               | 0.838081                        |
-| **Não Reconhecido**       |                     |                              |                        |                                 |
-| Precision                 | 0.456790            | 0.168142                     | **0.760000**           | 0.211268                        |
-| Recall                    | 0.160870            | 0.578261                     | 0.262069               | 0.724138                        |
-| F1-Score                  | 0.237942            | 0.260529                     | 0.389744               | 0.327103                        |
-| **Métricas gerais**       |                     |                              |                        |                                 |
-| Weighted Avg Precision    | 0.883571            | 0.879327                     | 0.918147               | 0.899381                        |
-| Weighted Avg Recall       | **0.910023**        | 0.713364                     | **0.928097**           | 0.738973                        |
-| Weighted Avg F1-Score     | **0.889821**        | 0.773180                     | **0.911678**           | 0.793312                        |
-| Total Support             | 2634                | 2634                         | 1655                   | 1655                            |
+### 2010-2017 Desagregado
 
-### Análise Comparativa dos Modelos (2018-2024)
+|                     | precision | recall    | f1-score | support |
+|---------------------|-----------|-----------|----------|---------|
+| **Não reconhecido** | 0.167     | 0.028     | 0.048    | 144     |
+| **Reconhecido**     | 0.917     | 0.987     | 0.951    | 1576    |
+| **accuracy**        |   0.907        | 0.907     | 0.907    | 1720    |
+| **macro avg**       | 0.542     | 0.508     | 0.499    | 1720    |
+| **weighted avg**    | 0.855     | **0.907** | 0.875    | 1720    |
 
-- **Modelo sem SMOTE**:
-  - Weighted avg F1-score: **88,98%**
-  - Classe "Não reconhecido":
-    - Precision: 45,68%
-    - Recall: 16,09%
-    - F1-score: 23,79%
-  - O modelo apresenta bom desempenho para a classe majoritária, mas desempenho limitado para a classe minoritária.
+### 2018-2024 Agregado
 
-- **Modelo com SMOTE**:
-  - Weighted avg F1-score: **77,31%**
-  - Classe "Não reconhecido":
-    - Precision: 16,81%
-    - Recall: 57,83%
-    - F1-score: 26,05%
-  - O SMOTE melhora o recall da classe minoritária, mas afeta negativamente a precisão geral.
+|                     | precision | recall    | f1-score | support |
+|---------------------|-----------|-----------|----------|---------|
+| **Não reconhecido** | 0.750     | 0.056     | 0.103    | 216     |
+| **Reconhecido**     | 0.922     | 0.998     | 0.959    | 2418    |
+| **accuracy**        |      0.921     | 0.921     | 0.921    | 2634    |
+| **macro avg**       | 0.836     | 0.527     | 0.531    | 2634    |
+| **weighted avg**    | 0.908     | **0.921** | 0.889    | 2634    |
 
-- **Modelo com variáveis desagregadas e sem SMOTE**:
-  - Weighted avg F1-score: **91,16%**
-  - Classe "Não reconhecido":
-    - Precision: 76,00%
-    - Recall: 26,21%
-    - F1-score: 38,97%
-  - O modelo melhora significativamente a precisão da classe minoritária ao custo de uma redução no recall.
+### 2018-2024 Desagregado
 
-- **Modelo com variáveis desagregadas e com SMOTE**:
-  - Weighted avg F1-score: **79,33%**
-  - Classe "Não reconhecido":
-    - Precision: 21,13%
-    - Recall: 72,41%
-    - F1-score: 32,71%
-  - O SMOTE combinado com variáveis desagregadas melhora o recall da classe "Não reconhecido", mas com uma precisão menor.
+|                     | precision | recall    | f1-score | support |
+|---------------------|-----------|-----------|----------|---------|
+| **Não reconhecido** | 0.237     | 0.128     | 0.166    | 149     |
+| **Reconhecido**     | 0.917     | 0.959     | 0.938    | 1506    |
+| **accuracy**        |   0.885        | 0.885     | 0.885    | 1655    |
+| **macro avg**       | 0.577     | 0.544     | 0.552    | 1655    |
+| **weighted avg**    | 0.856     | **0.885** | 0.868    | 1655    |
 
-### Conclusões
+Nessa análise, o conjunto de dados 3 (2018 a 2024 - agregado) apresentou os melhores resultados, com o **recall weighted avg** de 92,1%, .
+Vale ressaltar que, mesmo para os conjuntos de dados com melhor resultado, a acurácia para a classe 'Não reconhecido' foi muito baixa (5,6%), conforme exemplificado nas matrizes de confusão abaixo:
 
-- **Impacto do SMOTE**: O SMOTE melhorou o desempenho de recall para a classe "Não reconhecido", especialmente em combinações com variáveis desagregadas. Contudo, reduziu a precisão geral.
-- **Desempenho Geral**: Assim como nos dados de 2010-2017, os modelos mostraram um bom desempenho na classe "Reconhecido", com alta precisão e recall.
+
+| ![Matriz de Confusão - 2010-2017 (desagregado)](../figures/reglog_matriz_confusao_2010_2017_desagregado.png) | ![Matriz de Confusão - 2018-2024 (agregado)](../figures/reglog_matriz_confusao_2018_2024_agregado.png) |
+|:------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------:|
+|                              Matriz de Confusão - Dados desagregados 2010-2017                               |                             Matriz de Confusão - Dados agregados 2018-2024                             |
+
+
+### Resultados dos Modelos de Classificação - **Modelo com hiperparâmetros**
+
+Já nesse análise, buscamos encontrar os melhores parâmetros para o algoritmo de regressão logística usando a técnica do *GridSearchCV*. Para cada conjunto de dados, foram usados 3 valores diferentes de CV cross-validation (número de folds) do *GridSearchCV* : 3, 5 e 10. 
+
+Os parâmetros e valores testados no algoritmo de regressão logística foram os seguintes:
+*  *class_weight*: ['balanced', {0: 5, 1: 1}, {0: 10, 1: 1}]
+* *C*: [0.01, 0.1, 1, 10, 100]
+* *penalty*: ["l2", "l1"]
+* *fit_intercept*: [True, False]
+* *tol*: [1e-4, 1e-3]
+
+A tabela a seguir detalha os melhores parâmetros encontrados com a busca por hiperparâmetros:
+
+
+Na tabela, a coluna **recall weighted avg** representa a métrica do melhor modelo encontrado pelo *GridSearchCV*. Verifica-se que, nessa análise, o conjunto de dados 4 atingiu o maior **recall weighted avg** com 90,45% de precisão.
+
+### Testes adicionais para o modelo 2018-2024 desagregado
+
+A partir dos resultados obtidos nos modelos treinados com os dados de 2018 a 2024, foram realizados testes adicionais com o objetivo de melhorar a matriz de confusão.
+
+Nesses testes adicionais, as seguintes variáveis foram agregadas:
+
+| Nova Variável                               | Agregação                                                                                         |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------|
+| DH_FERIDOS_ENFERMOS                         | DH_FERIDOS + DH_ENFERMOS                                                        |
+| DH_DESABRIGADOS_DESALOJADOS                 | DH_DESABRIGADOS + DH_DESALOJADOS                                               ||
+| DM_Uni_Habita_Danificadas_Destruidas        | DM_Uni Habita Danificadas + DM_Uni Habita Destruidas                           ||
+| DM_Inst_Saude_Danificadas_Destruidas        | DM_Inst Saúde Danificadas + DM_Inst Saúde Destruidas                           ||
+| DM_Inst_Ensino_Danificadas_Destruidas       | DM_Inst Ensino Danificadas + DM_Inst Ensino Destruidas                         | |
+| DM_Inst_Servicos_Danificadas_Destruidas     | DM_Inst Serviços Danificadas + DM_Inst Serviços Destruidas                     ||
+| DM_Inst_Comuni_Danificadas_Destruidas       | DM_Inst Comuni Danificadas + DM_Inst Comuni Destruidas                       | |
+| DM_Obras_Infra_Danificadas_Destruidas       | DM_Obras de Infra Danificadas + DM_Obras de Infra Destruidas                  | |
+
+Novas métricas foram analisadas nessa nova rodada de testes:
+
+- AUC-ROC (Área Sob a Curva ROC): Mede a capacidade do modelo em distinguir entre classes. Valores mais próximos de 1 indicam melhor desempenho.
+- AUC-PR (Área Sob a Curva de Precisão-Revocação): Similar ao AUC-ROC, mas é mais informativa em conjuntos de dados desbalanceados.
+
+Os resultados são apresentados a seguir:
+
+| Model                                                                                        | Accuracy (Train) | Accuracy (Test) | Recall (Train) | Recall (Test) | Precision | F1   | AUC-ROC | AUC-PR |
+|----------------------------------------------------------------------------------------------|------------------|-----------------|----------------|---------------|-----------|-------|---------|--------|
+| (1) Regressão Logística Base                                                                 | 0.901            | 0.898           | 0.982          | 0.981         | 0.914     | 0.946 | 0.723   | 0.957  |
+| (2) Regressão Logística com Hiperparâmetros e balanceamento por pesos                        | 0.857            | 0.854           | 0.917          | 0.916         | 0.923     | 0.920 | 0.520   | 0.917  |
+| (3) Regressão Logística com Hiperparâmetros, balanceamento por pesos e Features Selecionadas | 0.907        | 0.906           | 0.994          | 0.992         | 0.913     | 0.951 | 0.486   | 0.910  |
+| (4) Regressão Logística com Hiperparâmetros, balanceamento por pesos e Feature Engineering                                             | 0.855        | 0.854           | 0.912          | 0.911         | 0.927     | 0.919 | 0.522   | 0.910  |
+
+Matriz de confusão para os modelos (3) e (4)
+
+| ![Matriz de Confusão - Seleção de variáveis](../figures/reglog_confusao_feature_selecao.png) | ![Matriz de Confusão - Feature Engineering](../figures/reglog_confusao_feature_engenering.png) |
+|:--------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------:|
+|                           Matriz de Confusão - Seleção de features                           |                            Matriz de Confusão - Feature Engineering                            |
+
+Curva ROC para os modelos (3) e (4)
+
+| ![Curva ROC - Seleção de variáveis](../figures/reglog_ROC_feature_selecao.png) | ![Curva ROC - Feature Engineering](../figures/reglog_ROC_feature_engenering.png) |
+|:------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+|                        Curva ROC - Seleção de features                         |                git status         Curva ROC - Feature Engineering                |
+
+### Conclusão:
+
+Embora o modelo base já tenha apresentado um bom desempenho, a aplicação de técnicas de balanceamento e ajuste de variáveis pode refinar ainda mais a capacidade de prever corretamente os desastres que são ou não reconhecidos federalmente.
+
+O modelo com features selecionadas mostrou-se eficaz em melhorar o equilíbrio entre recall e precisão, enquanto o uso de feature engineering trouxe um aumento modesto, mas consistente, na precisão sem prejudicar significativamente o recall.
+
+Entre os modelos testados, o modelo com features selecionadas foi o que apresentou o melhor equilíbrio entre os resultados de treino e teste. Ele alcançou recall de 0.994 no treino e 0.992 no teste, o que indica uma melhor generalização sem overfitting. Isso sugere que a eliminação de variáveis irrelevantes ou redundantes permitiu ao modelo capturar de forma eficiente os padrões mais importantes, mantendo um bom desempenho em dados novos e reduzindo discrepâncias entre o treinamento e a avaliação.

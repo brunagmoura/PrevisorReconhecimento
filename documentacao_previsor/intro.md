@@ -38,11 +38,3 @@ Fluxo para o reconhecimento federal de ECP e SE
 Conforme ilustrado na imagem acima, a análise do processo passa por diferentes níveis de avaliação, envolvendo o analista, coordenador, diretor e, por fim, o secretário, que decide pelo reconhecimento ou indeferimento do Estado de Calamidade Pública (ECP) ou da Situação de Emergência (SE).
 
 Nesse contexto, a aplicação de técnicas de machine learning pode contribuir para agilizar a análise, reduzindo custos e aumentando a eficiência do processo de tomada de decisão.
-
-## Base de dados
-
-A base de dados utilizada neste projeto foi extraída de diversas fontes de dados.
-
-A tabela a seguir apresenta a origem de cada variável e a sua descrição.
-
-

@@ -6,6 +6,8 @@
 - **Features desagregadas** com eventos de 2010 a 2017.
 - **Features desagregadas** com eventos de 2018 a 2024.
 
+> **Nota**: Mais detalhes sobre o pré-processamento dos dados podem ser verificados no capítulo "Pré-processamento".
+
 ## Métricas Analisadas:
 - **Precision**: Proporção de previsões positivas que realmente são positivas.
 - **Recall**: Proporção de casos positivos corretamente identificados.

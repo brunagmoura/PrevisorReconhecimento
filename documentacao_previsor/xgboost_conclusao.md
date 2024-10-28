@@ -95,13 +95,13 @@ Os resultados são apresentados a seguir:
 | (4) XGBoost com Hiperparâmetros, balanceamento por pesos e Feature Engineering   | 0.945          | 0.933         | 0.999        | 0.997       | 0.934     | 0.964 | 0.846   | 0.978  |
 
 
-Matriz de confusão para os modelos (2) e (3)
+Matriz de confusão para os modelos (3) e (4)
 
 | ![Matriz de Confusão - Seleção de variáveis](../figures/xgboost_confusao_features_selecionadas.png) | ![Matriz de Confusão - Feature Engineering](../figures/xgboost_confusao_feature_engenering.png) |
 |:---------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------:|
 |                              Matriz de Confusão - Seleção de features                               | Matriz de Confusão - Feature Engineering |
 
-Curva ROC para os modelos (2) e (3)
+Curva ROC para os modelos (3) e (4)
 
 | ![Curva ROC - Seleção de variáveis](../figures/xgboost_ROC_features_selecionadas.png) | ![Curva ROC - Feature Engineering](../figures/xgboost_ROC_features_engenering.png) |
 |:-------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
