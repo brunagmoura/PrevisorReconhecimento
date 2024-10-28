@@ -180,16 +180,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Regressão logística</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="reglog_baseline.html">Modelo “base”</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_base.html">Modelos base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_cv.html">Modelos base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reglog_conclusao.html">Resultados da Regressão Logística</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="randomforest_base.html">Modelo base</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">XGBoost</span></p>
 <ul class="current nav bd-sidenav">
@@ -200,6 +194,11 @@
 <li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_conclusao.html">Resultados do modelo XGBoost</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise de Tópicos e Classificação de textos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_sembalanceamento.html">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_class_balanced.html">Modelo base</a></li>
 </ul>
 
     </div>
@@ -254,7 +253,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/INRIA/scikit-learn-mooc/main?urlpath=tree/xgboost_modelo1_2018_2024.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/brunagmoura/PrevisorReconhecimento/main?urlpath=tree/xgboost_modelo1_2018_2024.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +284,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc" target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +301,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc/edit/main/xgboost_modelo1_2018_2024.ipynb" target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento/edit/main/xgboost_modelo1_2018_2024.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -319,7 +318,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc/issues/new?title=Issue%20on%20page%20%2Fxgboost_modelo1_2018_2024.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento/issues/new?title=Issue%20on%20page%20%2Fxgboost_modelo1_2018_2024.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -740,7 +739,7 @@ Name: count, dtype: int64
 <span class="n">y_pred_xgb</span> <span class="o">=</span> <span class="n">best_xgb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_2018_2024_modelo1</span><span class="p">)</span>
 
 <span class="c1"># Relatório de classificação</span>
-<span class="n">classification_report_xgb</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_2018_2024_modelo1</span><span class="p">,</span> <span class="n">y_pred_xgb</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Não reconhecido&#39;</span><span class="p">])</span>
+<span class="n">classification_report_xgb</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test_2018_2024_modelo1</span><span class="p">,</span> <span class="n">y_pred_xgb</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Não reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Reconhecido&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Classification report para XGBoost: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report_xgb</span><span class="p">)</span>
 </pre></div>
@@ -770,7 +769,7 @@ Não reconhecido   0.600000  0.120603  0.200837       199
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">best_xgb_model</span><span class="p">,</span> <span class="n">X_test_2018_2024_modelo1</span><span class="p">,</span> <span class="n">y_test_2018_2024_modelo1</span><span class="p">,</span> <span class="n">values_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Não reconhecido&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">best_xgb_model</span><span class="p">,</span> <span class="n">X_test_2018_2024_modelo1</span><span class="p">,</span> <span class="n">y_test_2018_2024_modelo1</span><span class="p">,</span> <span class="n">values_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Não reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Reconhecido&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -863,7 +862,7 @@ Não reconhecido   0.600000  0.120603  0.200837       199
 
 <span class="c1"># Relatório de classificação</span>
 <span class="n">classification_report_xgb_smote</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span>
-    <span class="n">y_test_smote</span><span class="p">,</span> <span class="n">y_pred_xgb_smote</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Não reconhecido&#39;</span><span class="p">]</span>
+    <span class="n">y_test_smote</span><span class="p">,</span> <span class="n">y_pred_xgb_smote</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Não reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Reconhecido&#39;</span><span class="p">]</span>
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Classification report para XGBoost com SMOTE: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -896,7 +895,7 @@ Não reconhecido   0.526882  0.246231  0.335616       199
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">bayes_search_xgb_smote</span><span class="p">,</span> <span class="n">X_test_smote</span><span class="p">,</span> <span class="n">y_test_smote</span><span class="p">,</span> 
-                                      <span class="n">values_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Não reconhecido&#39;</span><span class="p">])</span>
+                                      <span class="n">values_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Não reconhecido&#39;</span><span class="p">,</span> <span class="s1">&#39;Reconhecido&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -915,7 +914,12 @@ Não reconhecido   0.526882  0.246231  0.335616       199
 <p>Avaliação das variáveis de importância de acordo com o modelo com Smote, que apresentou o maior f1-score.</p>
 <section id="feature-importance">
 <h3>Feature importance<a class="headerlink" href="#feature-importance" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajustar o melhor modelo encontrado (depois da busca bayesiana)</span>
 <span class="n">best_xgb_model_smote</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;xgb&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_smote</span><span class="p">,</span> <span class="n">y_train_smote</span><span class="p">)</span>
@@ -939,6 +943,7 @@ Não reconhecido   0.526882  0.246231  0.335616       199
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 #T_d722a thead th {
@@ -1360,14 +1365,11 @@ By The Jupyter Book community
     
 <div class="extra_footer">
   <div>
-  <div class="mooc_add">
-   <a href="https://www.fun-mooc.fr/en/courses/machine-learning-python-scikit-learn">Join the full MOOC for better learning!</a>
-  </div>
-  Brought to you under a <a href="https://github.com/INRIA/scikit-learn-mooc/blob/main/LICENSE">CC-BY License</a> by
-  <a href="https://learninglab.inria.fr">Inria Learning Lab</a>,
-  <a href="https://scikit-learn.fondation-inria.fr">scikit-learn @ La Fondation Inria</a>,
-  <a href="https://www.inria-academy.fr/formation/scikit-learn-la-boite-a-outils-de-lapprentissage-automatique/">Inria Academy</a>,
-  with many thanks to the <a href="https://scikit-learn.org">scikit-learn</a> community as a whole!
+  <h2>Resultados dos testes do previsor de reconhecimento federal de desastres</h2>
+  <p>Os testes realizados para a construção deste previsor foram fundamentais para refinar a capacidade de previsão e melhorar o desempenho do modelo. 
+  Para saber mais sobre o projeto, você pode consultar o capítulo inicial, onde explicamos detalhadamente a metodologia e os dados utilizados.</p>
+  
+  <p>Agradecemos especialmente à Enap pela realização do bootcamp em machine learning, que proporcionou o conhecimento necessário para o desenvolvimento deste trabalho.</p>
 </div>
 
 </div>

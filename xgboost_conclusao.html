@@ -65,6 +65,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modelo base" href="nlp_tfidf_sembalanceamento.html" />
     <link rel="prev" title="Testes adicionais" href="xgboost_adicionais.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,16 +180,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Regressão logística</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="reglog_baseline.html">Modelo “base”</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_base.html">Modelos base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_cv.html">Modelos base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reglog_conclusao.html">Resultados da Regressão Logística</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="randomforest_base.html">Modelo base</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">XGBoost</span></p>
 <ul class="current nav bd-sidenav">
@@ -199,6 +194,11 @@
 <li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Resultados do modelo XGBoost</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise de Tópicos e Classificação de textos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_sembalanceamento.html">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_class_balanced.html">Modelo base</a></li>
 </ul>
 
     </div>
@@ -253,7 +253,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc" target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -270,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc/edit/main/xgboost_conclusao.md" target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento/edit/main/xgboost_conclusao.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -287,7 +287,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc/issues/new?title=Issue%20on%20page%20%2Fxgboost_conclusao.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento/issues/new?title=Issue%20on%20page%20%2Fxgboost_conclusao.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -713,7 +713,7 @@
 </tbody>
 </table>
 </div>
-<p>Matriz de confusão para os modelos (2) e (3)</p>
+<p>Matriz de confusão para os modelos (3) e (4)</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><img alt="Matriz de Confusão - Seleção de variáveis" src="_images/xgboost_confusao_features_selecionadas.png" /></p></th>
@@ -727,7 +727,7 @@
 </tbody>
 </table>
 </div>
-<p>Curva ROC para os modelos (2) e (3)</p>
+<p>Curva ROC para os modelos (3) e (4)</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><img alt="Curva ROC - Seleção de variáveis" src="_images/xgboost_ROC_features_selecionadas.png" /></p></th>
@@ -834,6 +834,15 @@ Modelos com acurácia de treino muito superior à de teste podem estar sofrendo 
         <p class="prev-next-title">Testes adicionais</p>
       </div>
     </a>
+    <a class="right-next"
+       href="nlp_tfidf_sembalanceamento.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modelo base</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -902,14 +911,11 @@ By The Jupyter Book community
     
 <div class="extra_footer">
   <div>
-  <div class="mooc_add">
-   <a href="https://www.fun-mooc.fr/en/courses/machine-learning-python-scikit-learn">Join the full MOOC for better learning!</a>
-  </div>
-  Brought to you under a <a href="https://github.com/INRIA/scikit-learn-mooc/blob/main/LICENSE">CC-BY License</a> by
-  <a href="https://learninglab.inria.fr">Inria Learning Lab</a>,
-  <a href="https://scikit-learn.fondation-inria.fr">scikit-learn @ La Fondation Inria</a>,
-  <a href="https://www.inria-academy.fr/formation/scikit-learn-la-boite-a-outils-de-lapprentissage-automatique/">Inria Academy</a>,
-  with many thanks to the <a href="https://scikit-learn.org">scikit-learn</a> community as a whole!
+  <h2>Resultados dos testes do previsor de reconhecimento federal de desastres</h2>
+  <p>Os testes realizados para a construção deste previsor foram fundamentais para refinar a capacidade de previsão e melhorar o desempenho do modelo. 
+  Para saber mais sobre o projeto, você pode consultar o capítulo inicial, onde explicamos detalhadamente a metodologia e os dados utilizados.</p>
+  
+  <p>Agradecemos especialmente à Enap pela realização do bootcamp em machine learning, que proporcionou o conhecimento necessário para o desenvolvimento deste trabalho.</p>
 </div>
 
 </div>

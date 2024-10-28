@@ -65,8 +65,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Modelo base" href="randomforest_base.html" />
-    <link rel="prev" title="Variáveis desagregadas (2018 a 2024)" href="reglog_modelo2_2018_2024.html" />
+    <link rel="next" title="Modelo base" href="xgboost_base.html" />
+    <link rel="prev" title="Testes adicionais" href="reglog_adicionais.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -180,16 +180,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Regressão logística</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="reglog_baseline.html">Modelo “base”</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_base.html">Modelos base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_cv.html">Modelos base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Resultados da Regressão Logística</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="randomforest_base.html">Modelo base</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">XGBoost</span></p>
 <ul class="nav bd-sidenav">
@@ -200,6 +194,11 @@
 <li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_conclusao.html">Resultados do modelo XGBoost</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise de Tópicos e Classificação de textos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_sembalanceamento.html">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_class_balanced.html">Modelo base</a></li>
 </ul>
 
     </div>
@@ -254,7 +253,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc" target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -271,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc/edit/main/reglog_conclusao.md" target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento/edit/main/reglog_conclusao.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,7 +287,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc/issues/new?title=Issue%20on%20page%20%2Freglog_conclusao.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento/issues/new?title=Issue%20on%20page%20%2Freglog_conclusao.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,14 +403,15 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2010-2017">Tabela Comparativa dos Modelos (2010-2017)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2010-2017">Análise Comparativa dos Modelos (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2018-2024">Tabela Comparativa dos Modelos (2018-2024)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2018-2024">Análise Comparativa dos Modelos (2018-2024)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusões</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos">Tabela Comparativa dos Modelos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-dos-modelos-de-classificacao-modelo-base">Resultados dos Modelos de Classificação - <strong>Modelo base</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregado">2010-2017 Agregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desagregado">2010-2017 Desagregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2018-2024 Agregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2018-2024 Desagregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-dos-modelos-de-classificacao-modelo-com-hiperparametros">Resultados dos Modelos de Classificação - <strong>Modelo com hiperparâmetros</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testes-adicionais-para-o-modelo-2018-2024-desagregado">Testes adicionais para o modelo 2018-2024 desagregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusao">Conclusão:</a></li>
 </ul>
 </li>
 </ul>
@@ -430,327 +430,377 @@
 <p>Com base nas especificidades identificadas na base de dados, foram realizados testes utilizando quatro conjuntos de dados distintos:</p>
 <ol class="arabic simple">
 <li><p>Features agregadas com eventos ocorridos entre 2010 e 2017.</p></li>
-<li><p>Features agregadas com eventos ocorridos entre 2018 e 2024.</p></li>
 <li><p>Features desagregadas com eventos ocorridos entre 2010 e 2017.</p></li>
+<li><p>Features agregadas com eventos ocorridos entre 2018 e 2024.</p></li>
 <li><p>Features desagregadas com eventos ocorridos entre 2018 e 2024.</p></li>
 </ol>
 <blockquote>
 <div><p><strong>Nota</strong>: Mais detalhes sobre o pré-processamento dos dados podem ser verificados no capítulo “Pré-processamento”.</p>
 </div></blockquote>
-<section id="tabela-comparativa-dos-modelos-2010-2017">
-<h2>Tabela Comparativa dos Modelos (2010-2017)<a class="headerlink" href="#tabela-comparativa-dos-modelos-2010-2017" title="Link to this heading">#</a></h2>
+<section id="tabela-comparativa-dos-modelos">
+<h2>Tabela Comparativa dos Modelos<a class="headerlink" href="#tabela-comparativa-dos-modelos" title="Link to this heading">#</a></h2>
+<p>Como forma de avaliar os modelos de regressão logística, usamos a métrica <strong>‘recall weighted average’</strong>, ou média ponderada de recall (revocação).</p>
+<p>Recall, também conhecido como sensibilidade ou taxa de verdadeiros positivos (TPR), mede a proporção de positivos reais que são corretamente identificados pelo modelo. Essa métrica destaca quão bem o modelo captura todas as instâncias relevantes, o que é crucial em cenários onde perder uma instância positiva (falso negativo) é mais crítico do que rotular incorretamente uma instância negativa como positiva (falso positivo). No contexto de desastres reportados, o não reconhecimento de um desastre legítimo (perder uma instância positiva) seria bastante crítico.</p>
+<p>Na classificação multiclasse, calcular uma única pontuação de recall pode ser desafiador devido às diferentes distribuições das classes. A <strong>média ponderada de recall</strong> aborda isso considerando o número de instâncias verdadeiras para cada classe, dando mais importância às classes com mais ocorrências. No conjunto de dados do reconhecimento de desastres, verificou-se que as classes estão desbalanceadas numa proporção aproximada de 10:1, onde a classe minoritária é a classe  de evento ‘Não reconhecido’.</p>
+<section id="resultados-dos-modelos-de-classificacao-modelo-base">
+<h3>Resultados dos Modelos de Classificação - <strong>Modelo base</strong><a class="headerlink" href="#resultados-dos-modelos-de-classificacao-modelo-base" title="Link to this heading">#</a></h3>
+<p>O algoritmo de regressão logística foi aplicado nos 4 conjuntos de dados com os seguintes parâmetros:</p>
+<ul class="simple">
+<li><p>max_iter=1000,</p></li>
+<li><p>random_state=42,</p></li>
+<li><p>solver=”liblinear”,</p></li>
+<li><p>class_weight={0: 5, 1: 1}</p></li>
+</ul>
+<p>A seguir, o resultado das métricas de avaliação:</p>
+</section>
+<section id="agregado">
+<h3>2010-2017 Agregado<a class="headerlink" href="#agregado" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Métrica</p></th>
-<th class="head"><p>Variáveis agregadas</p></th>
-<th class="head"><p>Variáveis agregadas c/ SMOTE</p></th>
-<th class="head"><p>Variáveis desagregadas</p></th>
-<th class="head"><p>Variáveis desagregadas c/ SMOTE</p></th>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>precision</p></th>
+<th class="head"><p>recall</p></th>
+<th class="head"><p>f1-score</p></th>
+<th class="head"><p>support</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>Reconhecido</strong></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><strong>Não reconhecido</strong></p></td>
+<td><p>0.286</p></td>
+<td><p>0.034</p></td>
+<td><p>0.061</p></td>
+<td><p>234</p></td>
 </tr>
-<tr class="row-odd"><td><p>Precision</p></td>
-<td><p>0.913793</p></td>
-<td><p><strong>0.947808</strong></p></td>
-<td><p>0.915284</p></td>
-<td><p>0.951181</p></td>
+<tr class="row-odd"><td><p><strong>Reconhecido</strong></p></td>
+<td><p>0.912</p></td>
+<td><p>0.992</p></td>
+<td><p>0.950</p></td>
+<td><p>2376</p></td>
 </tr>
-<tr class="row-even"><td><p>Recall</p></td>
-<td><p>0.986881</p></td>
-<td><p>0.768515</p></td>
-<td><p>0.987220</p></td>
-<td><p>0.771885</p></td>
-</tr>
-<tr class="row-odd"><td><p>F1-Score</p></td>
-<td><p>0.948932</p></td>
-<td><p>0.848796</p></td>
-<td><p>0.949892</p></td>
-<td><p>0.852205</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Não Reconhecido</strong></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Precision</p></td>
-<td><p><strong>0.465517</strong></p></td>
-<td><p>0.211816</p></td>
-<td><p>0.375000</p></td>
-<td><p>0.206667</p></td>
-</tr>
-<tr class="row-even"><td><p>Recall</p></td>
-<td><p>0.109312</p></td>
-<td><p>0.595142</p></td>
-<td><p>0.077419</p></td>
-<td><p>0.600000</p></td>
-</tr>
-<tr class="row-odd"><td><p>F1-Score</p></td>
-<td><p>0.177049</p></td>
-<td><p>0.312434</p></td>
-<td><p>0.128342</p></td>
-<td><p>0.307438</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Métricas gerais</strong></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Weighted Avg Precision</p></td>
-<td><p>0.871370</p></td>
-<td><p>0.878157</p></td>
-<td><p>0.866596</p></td>
-<td><p>0.884088</p></td>
-</tr>
-<tr class="row-even"><td><p>Weighted Avg Recall</p></td>
-<td><p><strong>0.903831</strong></p></td>
-<td><p>0.752107</p></td>
-<td><p><strong>0.905233</strong></p></td>
-<td><p>0.756395</p></td>
-</tr>
-<tr class="row-odd"><td><p>Weighted Avg F1-Score</p></td>
-<td><p><strong>0.875884</strong></p></td>
-<td><p>0.798037</p></td>
-<td><p><strong>0.875857</strong></p></td>
-<td><p>0.803112</p></td>
-</tr>
-<tr class="row-even"><td><p>Total Support</p></td>
+<tr class="row-even"><td><p><strong>accuracy</strong></p></td>
+<td><p>0.906</p></td>
+<td><p>0.906</p></td>
+<td><p>0.906</p></td>
 <td><p>2610</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>macro avg</strong></p></td>
+<td><p>0.599</p></td>
+<td><p>0.513</p></td>
+<td><p>0.506</p></td>
 <td><p>2610</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>weighted avg</strong></p></td>
+<td><p>0.856</p></td>
+<td><p><strong>0.906</strong></p></td>
+<td><p>0.871</p></td>
+<td><p>2610</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="desagregado">
+<h3>2010-2017 Desagregado<a class="headerlink" href="#desagregado" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>precision</p></th>
+<th class="head"><p>recall</p></th>
+<th class="head"><p>f1-score</p></th>
+<th class="head"><p>support</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Não reconhecido</strong></p></td>
+<td><p>0.167</p></td>
+<td><p>0.028</p></td>
+<td><p>0.048</p></td>
+<td><p>144</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Reconhecido</strong></p></td>
+<td><p>0.917</p></td>
+<td><p>0.987</p></td>
+<td><p>0.951</p></td>
+<td><p>1576</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>accuracy</strong></p></td>
+<td><p>0.907</p></td>
+<td><p>0.907</p></td>
+<td><p>0.907</p></td>
 <td><p>1720</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>macro avg</strong></p></td>
+<td><p>0.542</p></td>
+<td><p>0.508</p></td>
+<td><p>0.499</p></td>
+<td><p>1720</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>weighted avg</strong></p></td>
+<td><p>0.855</p></td>
+<td><p><strong>0.907</strong></p></td>
+<td><p>0.875</p></td>
 <td><p>1720</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<section id="analise-comparativa-dos-modelos-2010-2017">
-<h3>Análise Comparativa dos Modelos (2010-2017)<a class="headerlink" href="#analise-comparativa-dos-modelos-2010-2017" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Modelo sem SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>87,58%</strong></p></li>
-<li><p>Classe “Não reconhecido”:</p>
-<ul>
-<li><p>Precision: 46,55%</p></li>
-<li><p>Recall: 10,93%</p></li>
-<li><p>F1-score: 17,70%</p></li>
-</ul>
-</li>
-<li><p>O modelo apresenta alta precisão e recall para a classe majoritária, mas dificuldades em detectar a classe minoritária.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>79,80%</strong></p></li>
-<li><p>Classe “Não reconhecido”:</p>
-<ul>
-<li><p>Precision: 21,18%</p></li>
-<li><p>Recall: 59,51%</p></li>
-<li><p>F1-score: 31,24%</p></li>
-</ul>
-</li>
-<li><p>A aplicação do SMOTE melhora significativamente o recall da classe minoritária, mas reduz a precisão geral.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com variáveis desagregadas e sem SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>87,58%</strong></p></li>
-<li><p>Classe “Não reconhecido”:</p>
-<ul>
-<li><p>Precision: 37,50%</p></li>
-<li><p>Recall: 7,74%</p></li>
-<li><p>F1-score: 12,83%</p></li>
-</ul>
-</li>
-<li><p>Embora o modelo tenha alta performance para a classe majoritária, o desempenho para a classe minoritária é baixo.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com variáveis desagregadas e com SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>80,31%</strong></p></li>
-<li><p>Classe “Não reconhecido”:</p>
-<ul>
-<li><p>Precision: 20,67%</p></li>
-<li><p>Recall: 60,00%</p></li>
-<li><p>F1-score: 30,74%</p></li>
-</ul>
-</li>
-<li><p>A remoção de variáveis correlacionadas com SMOTE melhorou o recall da classe minoritária, mas reduziu a precisão.</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="conclusoes">
-<h3>Conclusões<a class="headerlink" href="#conclusoes" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Impacto do SMOTE</strong>: A aplicação do SMOTE melhorou a capacidade de detecção da classe “Não reconhecido”, aumentando o recall e o F1-score dessa classe. No entanto, reduziu a precisão geral do modelo.</p></li>
-<li><p><strong>Desempenho Geral</strong>: Todos os modelos mantiveram um bom desempenho na classe majoritária “Reconhecido”, com alta precisão e recall.</p></li>
-</ul>
-</section>
-</section>
-<section id="tabela-comparativa-dos-modelos-2018-2024">
-<h2>Tabela Comparativa dos Modelos (2018-2024)<a class="headerlink" href="#tabela-comparativa-dos-modelos-2018-2024" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Métrica</p></th>
-<th class="head"><p>Variáveis agregadas</p></th>
-<th class="head"><p>Variáveis agregadas c/ SMOTE</p></th>
-<th class="head"><p>Variáveis desagregadas</p></th>
-<th class="head"><p>Variáveis desagregadas c/ SMOTE</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Reconhecido</strong></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Precision</p></td>
-<td><p>0.924403</p></td>
-<td><p>0.947368</p></td>
-<td><p>0.933333</p></td>
-<td><p><strong>0.965458</strong></p></td>
-</tr>
-<tr class="row-even"><td><p>Recall</p></td>
-<td><p>0.981697</p></td>
-<td><p>0.726290</p></td>
-<td><p>0.992053</p></td>
-<td><p>0.740397</p></td>
-</tr>
-<tr class="row-odd"><td><p>F1-Score</p></td>
-<td><p>0.952189</p></td>
-<td><p>0.822227</p></td>
-<td><p>0.961798</p></td>
-<td><p>0.838081</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Não Reconhecido</strong></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Precision</p></td>
-<td><p>0.456790</p></td>
-<td><p>0.168142</p></td>
-<td><p><strong>0.760000</strong></p></td>
-<td><p>0.211268</p></td>
-</tr>
-<tr class="row-even"><td><p>Recall</p></td>
-<td><p>0.160870</p></td>
-<td><p>0.578261</p></td>
-<td><p>0.262069</p></td>
-<td><p>0.724138</p></td>
-</tr>
-<tr class="row-odd"><td><p>F1-Score</p></td>
-<td><p>0.237942</p></td>
-<td><p>0.260529</p></td>
-<td><p>0.389744</p></td>
-<td><p>0.327103</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Métricas gerais</strong></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>Weighted Avg Precision</p></td>
-<td><p>0.883571</p></td>
-<td><p>0.879327</p></td>
-<td><p>0.918147</p></td>
-<td><p>0.899381</p></td>
-</tr>
-<tr class="row-even"><td><p>Weighted Avg Recall</p></td>
-<td><p><strong>0.910023</strong></p></td>
-<td><p>0.713364</p></td>
-<td><p><strong>0.928097</strong></p></td>
-<td><p>0.738973</p></td>
-</tr>
-<tr class="row-odd"><td><p>Weighted Avg F1-Score</p></td>
-<td><p><strong>0.889821</strong></p></td>
-<td><p>0.773180</p></td>
-<td><p><strong>0.911678</strong></p></td>
-<td><p>0.793312</p></td>
-</tr>
-<tr class="row-even"><td><p>Total Support</p></td>
-<td><p>2634</p></td>
-<td><p>2634</p></td>
-<td><p>1655</p></td>
-<td><p>1655</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<section id="analise-comparativa-dos-modelos-2018-2024">
-<h3>Análise Comparativa dos Modelos (2018-2024)<a class="headerlink" href="#analise-comparativa-dos-modelos-2018-2024" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Modelo sem SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>88,98%</strong></p></li>
-<li><p>Classe “Não reconhecido”:</p>
-<ul>
-<li><p>Precision: 45,68%</p></li>
-<li><p>Recall: 16,09%</p></li>
-<li><p>F1-score: 23,79%</p></li>
-</ul>
-</li>
-<li><p>O modelo apresenta bom desempenho para a classe majoritária, mas desempenho limitado para a classe minoritária.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>77,31%</strong></p></li>
-<li><p>Classe “Não reconhecido”:</p>
-<ul>
-<li><p>Precision: 16,81%</p></li>
-<li><p>Recall: 57,83%</p></li>
-<li><p>F1-score: 26,05%</p></li>
-</ul>
-</li>
-<li><p>O SMOTE melhora o recall da classe minoritária, mas afeta negativamente a precisão geral.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com variáveis desagregadas e sem SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>91,16%</strong></p></li>
-<li><p>Classe “Não reconhecido”:</p>
-<ul>
-<li><p>Precision: 76,00%</p></li>
-<li><p>Recall: 26,21%</p></li>
-<li><p>F1-score: 38,97%</p></li>
-</ul>
-</li>
-<li><p>O modelo melhora significativamente a precisão da classe minoritária ao custo de uma redução no recall.</p></li>
-</ul>
-</li>
-<li><p><strong>Modelo com variáveis desagregadas e com SMOTE</strong>:</p>
-<ul>
-<li><p>Weighted avg F1-score: <strong>79,33%</strong></p></li>
-<li><p>Classe “Não reconhecido”:</p>
-<ul>
-<li><p>Precision: 21,13%</p></li>
-<li><p>Recall: 72,41%</p></li>
-<li><p>F1-score: 32,71%</p></li>
-</ul>
-</li>
-<li><p>O SMOTE combinado com variáveis desagregadas melhora o recall da classe “Não reconhecido”, mas com uma precisão menor.</p></li>
-</ul>
-</li>
-</ul>
 </section>
 <section id="id1">
-<h3>Conclusões<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3>2018-2024 Agregado<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>precision</p></th>
+<th class="head"><p>recall</p></th>
+<th class="head"><p>f1-score</p></th>
+<th class="head"><p>support</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Não reconhecido</strong></p></td>
+<td><p>0.750</p></td>
+<td><p>0.056</p></td>
+<td><p>0.103</p></td>
+<td><p>216</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Reconhecido</strong></p></td>
+<td><p>0.922</p></td>
+<td><p>0.998</p></td>
+<td><p>0.959</p></td>
+<td><p>2418</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>accuracy</strong></p></td>
+<td><p>0.921</p></td>
+<td><p>0.921</p></td>
+<td><p>0.921</p></td>
+<td><p>2634</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>macro avg</strong></p></td>
+<td><p>0.836</p></td>
+<td><p>0.527</p></td>
+<td><p>0.531</p></td>
+<td><p>2634</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>weighted avg</strong></p></td>
+<td><p>0.908</p></td>
+<td><p><strong>0.921</strong></p></td>
+<td><p>0.889</p></td>
+<td><p>2634</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id2">
+<h3>2018-2024 Desagregado<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>precision</p></th>
+<th class="head"><p>recall</p></th>
+<th class="head"><p>f1-score</p></th>
+<th class="head"><p>support</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Não reconhecido</strong></p></td>
+<td><p>0.237</p></td>
+<td><p>0.128</p></td>
+<td><p>0.166</p></td>
+<td><p>149</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Reconhecido</strong></p></td>
+<td><p>0.917</p></td>
+<td><p>0.959</p></td>
+<td><p>0.938</p></td>
+<td><p>1506</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>accuracy</strong></p></td>
+<td><p>0.885</p></td>
+<td><p>0.885</p></td>
+<td><p>0.885</p></td>
+<td><p>1655</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>macro avg</strong></p></td>
+<td><p>0.577</p></td>
+<td><p>0.544</p></td>
+<td><p>0.552</p></td>
+<td><p>1655</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>weighted avg</strong></p></td>
+<td><p>0.856</p></td>
+<td><p><strong>0.885</strong></p></td>
+<td><p>0.868</p></td>
+<td><p>1655</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Nessa análise, o conjunto de dados 3 (2018 a 2024 - agregado) apresentou os melhores resultados, com o <strong>recall weighted avg</strong> de 92,1%, .
+Vale ressaltar que, mesmo para os conjuntos de dados com melhor resultado, a acurácia para a classe ‘Não reconhecido’ foi muito baixa (5,6%), conforme exemplificado nas matrizes de confusão abaixo:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="Matriz de Confusão - 2010-2017 (desagregado)" src="_images/reglog_matriz_confusao_2010_2017_desagregado.png" /></p></th>
+<th class="head text-center"><p><img alt="Matriz de Confusão - 2018-2024 (agregado)" src="_images/reglog_matriz_confusao_2018_2024_agregado.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Matriz de Confusão - Dados desagregados 2010-2017</p></td>
+<td class="text-center"><p>Matriz de Confusão - Dados agregados 2018-2024</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="resultados-dos-modelos-de-classificacao-modelo-com-hiperparametros">
+<h3>Resultados dos Modelos de Classificação - <strong>Modelo com hiperparâmetros</strong><a class="headerlink" href="#resultados-dos-modelos-de-classificacao-modelo-com-hiperparametros" title="Link to this heading">#</a></h3>
+<p>Já nesse análise, buscamos encontrar os melhores parâmetros para o algoritmo de regressão logística usando a técnica do <em>GridSearchCV</em>. Para cada conjunto de dados, foram usados 3 valores diferentes de CV cross-validation (número de folds) do <em>GridSearchCV</em> : 3, 5 e 10.</p>
+<p>Os parâmetros e valores testados no algoritmo de regressão logística foram os seguintes:</p>
 <ul class="simple">
-<li><p><strong>Impacto do SMOTE</strong>: O SMOTE melhorou o desempenho de recall para a classe “Não reconhecido”, especialmente em combinações com variáveis desagregadas. Contudo, reduziu a precisão geral.</p></li>
-<li><p><strong>Desempenho Geral</strong>: Assim como nos dados de 2010-2017, os modelos mostraram um bom desempenho na classe “Reconhecido”, com alta precisão e recall.</p></li>
+<li><p><em>class_weight</em>: [‘balanced’, {0: 5, 1: 1}, {0: 10, 1: 1}]</p></li>
+<li><p><em>C</em>: [0.01, 0.1, 1, 10, 100]</p></li>
+<li><p><em>penalty</em>: [“l2”, “l1”]</p></li>
+<li><p><em>fit_intercept</em>: [True, False]</p></li>
+<li><p><em>tol</em>: [1e-4, 1e-3]</p></li>
 </ul>
+<p>A tabela a seguir detalha os melhores parâmetros encontrados com a busca por hiperparâmetros:</p>
+<p>Na tabela, a coluna <strong>recall weighted avg</strong> representa a métrica do melhor modelo encontrado pelo <em>GridSearchCV</em>. Verifica-se que, nessa análise, o conjunto de dados 4 atingiu o maior <strong>recall weighted avg</strong> com 90,45% de precisão.</p>
+</section>
+<section id="testes-adicionais-para-o-modelo-2018-2024-desagregado">
+<h3>Testes adicionais para o modelo 2018-2024 desagregado<a class="headerlink" href="#testes-adicionais-para-o-modelo-2018-2024-desagregado" title="Link to this heading">#</a></h3>
+<p>A partir dos resultados obtidos nos modelos treinados com os dados de 2018 a 2024, foram realizados testes adicionais com o objetivo de melhorar a matriz de confusão.</p>
+<p>Nesses testes adicionais, as seguintes variáveis foram agregadas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nova Variável</p></th>
+<th class="head"><p>Agregação</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DH_FERIDOS_ENFERMOS</p></td>
+<td><p>DH_FERIDOS + DH_ENFERMOS</p></td>
+</tr>
+<tr class="row-odd"><td><p>DH_DESABRIGADOS_DESALOJADOS</p></td>
+<td><p>DH_DESABRIGADOS + DH_DESALOJADOS</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Uni_Habita_Danificadas_Destruidas</p></td>
+<td><p>DM_Uni Habita Danificadas + DM_Uni Habita Destruidas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst_Saude_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Saúde Danificadas + DM_Inst Saúde Destruidas</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst_Ensino_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Ensino Danificadas + DM_Inst Ensino Destruidas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Inst_Servicos_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Serviços Danificadas + DM_Inst Serviços Destruidas</p></td>
+</tr>
+<tr class="row-even"><td><p>DM_Inst_Comuni_Danificadas_Destruidas</p></td>
+<td><p>DM_Inst Comuni Danificadas + DM_Inst Comuni Destruidas</p></td>
+</tr>
+<tr class="row-odd"><td><p>DM_Obras_Infra_Danificadas_Destruidas</p></td>
+<td><p>DM_Obras de Infra Danificadas + DM_Obras de Infra Destruidas</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Novas métricas foram analisadas nessa nova rodada de testes:</p>
+<ul class="simple">
+<li><p>AUC-ROC (Área Sob a Curva ROC): Mede a capacidade do modelo em distinguir entre classes. Valores mais próximos de 1 indicam melhor desempenho.</p></li>
+<li><p>AUC-PR (Área Sob a Curva de Precisão-Revocação): Similar ao AUC-ROC, mas é mais informativa em conjuntos de dados desbalanceados.</p></li>
+</ul>
+<p>Os resultados são apresentados a seguir:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Accuracy (Train)</p></th>
+<th class="head"><p>Accuracy (Test)</p></th>
+<th class="head"><p>Recall (Train)</p></th>
+<th class="head"><p>Recall (Test)</p></th>
+<th class="head"><p>Precision</p></th>
+<th class="head"><p>F1</p></th>
+<th class="head"><p>AUC-ROC</p></th>
+<th class="head"><p>AUC-PR</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(1) Regressão Logística Base</p></td>
+<td><p>0.901</p></td>
+<td><p>0.898</p></td>
+<td><p>0.982</p></td>
+<td><p>0.981</p></td>
+<td><p>0.914</p></td>
+<td><p>0.946</p></td>
+<td><p>0.723</p></td>
+<td><p>0.957</p></td>
+</tr>
+<tr class="row-odd"><td><p>(2) Regressão Logística com Hiperparâmetros e balanceamento por pesos</p></td>
+<td><p>0.857</p></td>
+<td><p>0.854</p></td>
+<td><p>0.917</p></td>
+<td><p>0.916</p></td>
+<td><p>0.923</p></td>
+<td><p>0.920</p></td>
+<td><p>0.520</p></td>
+<td><p>0.917</p></td>
+</tr>
+<tr class="row-even"><td><p>(3) Regressão Logística com Hiperparâmetros, balanceamento por pesos e Features Selecionadas</p></td>
+<td><p>0.907</p></td>
+<td><p>0.906</p></td>
+<td><p>0.994</p></td>
+<td><p>0.992</p></td>
+<td><p>0.913</p></td>
+<td><p>0.951</p></td>
+<td><p>0.486</p></td>
+<td><p>0.910</p></td>
+</tr>
+<tr class="row-odd"><td><p>(4) Regressão Logística com Hiperparâmetros, balanceamento por pesos e Feature Engineering</p></td>
+<td><p>0.855</p></td>
+<td><p>0.854</p></td>
+<td><p>0.912</p></td>
+<td><p>0.911</p></td>
+<td><p>0.927</p></td>
+<td><p>0.919</p></td>
+<td><p>0.522</p></td>
+<td><p>0.910</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Matriz de confusão para os modelos (3) e (4)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="Matriz de Confusão - Seleção de variáveis" src="_images/reglog_confusao_feature_selecao.png" /></p></th>
+<th class="head text-center"><p><img alt="Matriz de Confusão - Feature Engineering" src="_images/reglog_confusao_feature_engenering.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Matriz de Confusão - Seleção de features</p></td>
+<td class="text-center"><p>Matriz de Confusão - Feature Engineering</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Curva ROC para os modelos (3) e (4)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="Curva ROC - Seleção de variáveis" src="_images/reglog_ROC_feature_selecao.png" /></p></th>
+<th class="head text-center"><p><img alt="Curva ROC - Feature Engineering" src="_images/reglog_ROC_feature_engenering.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Curva ROC - Seleção de features</p></td>
+<td class="text-center"><p>git status         Curva ROC - Feature Engineering</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="conclusao">
+<h3>Conclusão:<a class="headerlink" href="#conclusao" title="Link to this heading">#</a></h3>
+<p>Embora o modelo base já tenha apresentado um bom desempenho, a aplicação de técnicas de balanceamento e ajuste de variáveis pode refinar ainda mais a capacidade de prever corretamente os desastres que são ou não reconhecidos federalmente.</p>
+<p>O modelo com features selecionadas mostrou-se eficaz em melhorar o equilíbrio entre recall e precisão, enquanto o uso de feature engineering trouxe um aumento modesto, mas consistente, na precisão sem prejudicar significativamente o recall.</p>
+<p>Entre os modelos testados, o modelo com features selecionadas foi o que apresentou o melhor equilíbrio entre os resultados de treino e teste. Ele alcançou recall de 0.994 no treino e 0.992 no teste, o que indica uma melhor generalização sem overfitting. Isso sugere que a eliminação de variáveis irrelevantes ou redundantes permitiu ao modelo capturar de forma eficiente os padrões mais importantes, mantendo um bom desempenho em dados novos e reduzindo discrepâncias entre o treinamento e a avaliação.</p>
 </section>
 </section>
 </section>
@@ -786,16 +836,16 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="reglog_modelo2_2018_2024.html"
+       href="reglog_adicionais.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Variáveis desagregadas (2018 a 2024)</p>
+        <p class="prev-next-title">Testes adicionais</p>
       </div>
     </a>
     <a class="right-next"
-       href="randomforest_base.html"
+       href="xgboost_base.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -820,14 +870,15 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2010-2017">Tabela Comparativa dos Modelos (2010-2017)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2010-2017">Análise Comparativa dos Modelos (2010-2017)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusoes">Conclusões</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos-2018-2024">Tabela Comparativa dos Modelos (2018-2024)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analise-comparativa-dos-modelos-2018-2024">Análise Comparativa dos Modelos (2018-2024)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusões</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabela-comparativa-dos-modelos">Tabela Comparativa dos Modelos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-dos-modelos-de-classificacao-modelo-base">Resultados dos Modelos de Classificação - <strong>Modelo base</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregado">2010-2017 Agregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desagregado">2010-2017 Desagregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2018-2024 Agregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2018-2024 Desagregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-dos-modelos-de-classificacao-modelo-com-hiperparametros">Resultados dos Modelos de Classificação - <strong>Modelo com hiperparâmetros</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testes-adicionais-para-o-modelo-2018-2024-desagregado">Testes adicionais para o modelo 2018-2024 desagregado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusao">Conclusão:</a></li>
 </ul>
 </li>
 </ul>
@@ -869,14 +920,11 @@ By The Jupyter Book community
     
 <div class="extra_footer">
   <div>
-  <div class="mooc_add">
-   <a href="https://www.fun-mooc.fr/en/courses/machine-learning-python-scikit-learn">Join the full MOOC for better learning!</a>
-  </div>
-  Brought to you under a <a href="https://github.com/INRIA/scikit-learn-mooc/blob/main/LICENSE">CC-BY License</a> by
-  <a href="https://learninglab.inria.fr">Inria Learning Lab</a>,
-  <a href="https://scikit-learn.fondation-inria.fr">scikit-learn @ La Fondation Inria</a>,
-  <a href="https://www.inria-academy.fr/formation/scikit-learn-la-boite-a-outils-de-lapprentissage-automatique/">Inria Academy</a>,
-  with many thanks to the <a href="https://scikit-learn.org">scikit-learn</a> community as a whole!
+  <h2>Resultados dos testes do previsor de reconhecimento federal de desastres</h2>
+  <p>Os testes realizados para a construção deste previsor foram fundamentais para refinar a capacidade de previsão e melhorar o desempenho do modelo. 
+  Para saber mais sobre o projeto, você pode consultar o capítulo inicial, onde explicamos detalhadamente a metodologia e os dados utilizados.</p>
+  
+  <p>Agradecemos especialmente à Enap pela realização do bootcamp em machine learning, que proporcionou o conhecimento necessário para o desenvolvimento deste trabalho.</p>
 </div>
 
 </div>

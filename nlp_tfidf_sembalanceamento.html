@@ -65,6 +65,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modelo base" href="nlp_tfidf_class_balanced.html" />
+    <link rel="prev" title="Resultados do modelo XGBoost" href="xgboost_conclusao.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -115,8 +117,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -180,16 +180,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Regressão logística</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="reglog_baseline.html">Modelo “base”</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_base.html">Modelos base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_cv.html">Modelos base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reglog_conclusao.html">Resultados da Regressão Logística</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="randomforest_base.html">Modelo base</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">XGBoost</span></p>
 <ul class="nav bd-sidenav">
@@ -200,6 +194,11 @@
 <li class="toctree-l1"><a class="reference internal" href="xgboost_modelo2_2018_2024.html">Variáveis agregadas (2018 a 2024)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xgboost_conclusao.html">Resultados do modelo XGBoost</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise de Tópicos e Classificação de textos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelo base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_class_balanced.html">Modelo base</a></li>
 </ul>
 
     </div>
@@ -254,7 +253,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/INRIA/scikit-learn-mooc/main?urlpath=tree/nlp_tfidf_sembalanceamento.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/brunagmoura/PrevisorReconhecimento/main?urlpath=tree/nlp_tfidf_sembalanceamento.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +284,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc" target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +301,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc/edit/main/nlp_tfidf_sembalanceamento.ipynb" target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento/edit/main/nlp_tfidf_sembalanceamento.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -319,7 +318,7 @@
       
       
       
-      <li><a href="https://github.com/INRIA/scikit-learn-mooc/issues/new?title=Issue%20on%20page%20%2Fnlp_tfidf_sembalanceamento.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/brunagmoura/PrevisorReconhecimento/issues/new?title=Issue%20on%20page%20%2Fnlp_tfidf_sembalanceamento.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -572,12 +571,12 @@
 </details>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_da1fb thead th {
+#T_36701 thead th {
   font-size: 12px;
   text-align: center;
   border-bottom: 2px solid #007BFF;
 }
-#T_da1fb td {
+#T_36701 td {
   font-size: 10px;
   text-align: center;
   max-height: 40px;
@@ -586,74 +585,74 @@
   overflow: hidden;
   max-width: 100px;
 }
-#T_da1fb tr:nth-child(odd) {
+#T_36701 tr:nth-child(odd) {
   background-color: #ffffff;
 }
-#T_da1fb table {
+#T_36701 table {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
 }
-#T_da1fb td {
+#T_36701 td {
   border: 1px solid #666;
 }
-#T_da1fb  th {
+#T_36701  th {
   border: 1px solid #666;
 }
-#T_da1fb_row0_col0, #T_da1fb_row0_col1, #T_da1fb_row0_col2, #T_da1fb_row0_col3, #T_da1fb_row1_col0, #T_da1fb_row1_col1, #T_da1fb_row1_col2, #T_da1fb_row1_col3, #T_da1fb_row2_col0, #T_da1fb_row2_col1, #T_da1fb_row2_col2, #T_da1fb_row2_col3, #T_da1fb_row3_col0, #T_da1fb_row3_col1, #T_da1fb_row3_col2, #T_da1fb_row3_col3, #T_da1fb_row4_col0, #T_da1fb_row4_col1, #T_da1fb_row4_col2, #T_da1fb_row4_col3 {
+#T_36701_row0_col0, #T_36701_row0_col1, #T_36701_row0_col2, #T_36701_row0_col3, #T_36701_row1_col0, #T_36701_row1_col1, #T_36701_row1_col2, #T_36701_row1_col3, #T_36701_row2_col0, #T_36701_row2_col1, #T_36701_row2_col2, #T_36701_row2_col3, #T_36701_row3_col0, #T_36701_row3_col1, #T_36701_row3_col2, #T_36701_row3_col3, #T_36701_row4_col0, #T_36701_row4_col1, #T_36701_row4_col2, #T_36701_row4_col3 {
   border-color: darkgray;
   border-style: solid;
   border-width: 1px;
 }
 </style>
-<table id="T_da1fb" style="height:auto; overflow:auto; max-height:300px; display:block;">
+<table id="T_36701" style="height:auto; overflow:auto; max-height:300px; display:block;">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_da1fb_level0_col0" class="col_heading level0 col0" >Status</th>
-      <th id="T_da1fb_level0_col1" class="col_heading level0 col1" >DH_Descricao</th>
-      <th id="T_da1fb_level0_col2" class="col_heading level0 col2" >DM_Descricao</th>
-      <th id="T_da1fb_level0_col3" class="col_heading level0 col3" >DA_Descricao</th>
+      <th id="T_36701_level0_col0" class="col_heading level0 col0" >Status</th>
+      <th id="T_36701_level0_col1" class="col_heading level0 col1" >DH_Descricao</th>
+      <th id="T_36701_level0_col2" class="col_heading level0 col2" >DM_Descricao</th>
+      <th id="T_36701_level0_col3" class="col_heading level0 col3" >DA_Descricao</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_da1fb_level0_row0" class="row_heading level0 row0" >26253</th>
-      <td id="T_da1fb_row0_col0" class="data row0 col0" >1</td>
-      <td id="T_da1fb_row0_col1" class="data row0 col1" >A seca tem causado interrupções no fornecimento de água potável para a população dos núcleos urbanos e limitações severas no consumo de água nos domicílios situados na zona rural que precisam aguardar um tempo elevado para que a água acumule em cisterna em volume que seja possível bombear. _x000D_
+      <th id="T_36701_level0_row0" class="row_heading level0 row0" >26253</th>
+      <td id="T_36701_row0_col0" class="data row0 col0" >1</td>
+      <td id="T_36701_row0_col1" class="data row0 col1" >A seca tem causado interrupções no fornecimento de água potável para a população dos núcleos urbanos e limitações severas no consumo de água nos domicílios situados na zona rural que precisam aguardar um tempo elevado para que a água acumule em cisterna em volume que seja possível bombear. _x000D_
 _x000D_
 </td>
-      <td id="T_da1fb_row0_col2" class="data row0 col2" >nan</td>
-      <td id="T_da1fb_row0_col3" class="data row0 col3" >Redução dos cursos de água e pastagem provocado pela seca.</td>
+      <td id="T_36701_row0_col2" class="data row0 col2" >nan</td>
+      <td id="T_36701_row0_col3" class="data row0 col3" >Redução dos cursos de água e pastagem provocado pela seca.</td>
     </tr>
     <tr>
-      <th id="T_da1fb_level0_row1" class="row_heading level0 row1" >26254</th>
-      <td id="T_da1fb_row1_col0" class="data row1 col0" >1</td>
-      <td id="T_da1fb_row1_col1" class="data row1 col1" >Conforme laudo da assistência social, o desastre Tempestade Local/Convectiva - Vendaval atingiu o município em todo o seu território urbano e rural,  afetando diretamente 1.180 famílias, aproximadamente 4.716 pessoas, desse total, aproximadamente 30 pessoas ficaram desalojadas. Ainda dentro desse número de famílias 30 famílias foram diretamente afetadas, sendo aproximadamente 120 pessoas encontram-se em vulnerabilidade social. Todos os afetados tiveram danos em suas residências, em telhados, em muitas delas perdendo móveis, roupas e alimentos. Estradas no interior que ficaram sem condições seguras de trafegabilidade e/ou bloqueadas, conforme constatado pela engenharia. A tempestade que atingiu o município afetou as famílias também com a falta de energia elétrica e consequentemente de água, sendo restabelecida em todo o território do município somente no dia 02 de Janeiro.</td>
-      <td id="T_da1fb_row1_col2" class="data row1 col2" >Conforme laudo da engenharia o evento vendaval causou danos em aproximadamente 30 unidades habitacionais, 01 instalação pública de saúde, uma de ensino e ainda nas estradas rurais do município.</td>
-      <td id="T_da1fb_row1_col3" class="data row1 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pela quebra das telhas de fibrocimento e queda de árvores.</td>
+      <th id="T_36701_level0_row1" class="row_heading level0 row1" >26254</th>
+      <td id="T_36701_row1_col0" class="data row1 col0" >1</td>
+      <td id="T_36701_row1_col1" class="data row1 col1" >Conforme laudo da assistência social, o desastre Tempestade Local/Convectiva - Vendaval atingiu o município em todo o seu território urbano e rural,  afetando diretamente 1.180 famílias, aproximadamente 4.716 pessoas, desse total, aproximadamente 30 pessoas ficaram desalojadas. Ainda dentro desse número de famílias 30 famílias foram diretamente afetadas, sendo aproximadamente 120 pessoas encontram-se em vulnerabilidade social. Todos os afetados tiveram danos em suas residências, em telhados, em muitas delas perdendo móveis, roupas e alimentos. Estradas no interior que ficaram sem condições seguras de trafegabilidade e/ou bloqueadas, conforme constatado pela engenharia. A tempestade que atingiu o município afetou as famílias também com a falta de energia elétrica e consequentemente de água, sendo restabelecida em todo o território do município somente no dia 02 de Janeiro.</td>
+      <td id="T_36701_row1_col2" class="data row1 col2" >Conforme laudo da engenharia o evento vendaval causou danos em aproximadamente 30 unidades habitacionais, 01 instalação pública de saúde, uma de ensino e ainda nas estradas rurais do município.</td>
+      <td id="T_36701_row1_col3" class="data row1 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pela quebra das telhas de fibrocimento e queda de árvores.</td>
     </tr>
     <tr>
-      <th id="T_da1fb_level0_row2" class="row_heading level0 row2" >26255</th>
-      <td id="T_da1fb_row2_col0" class="data row2 col0" >1</td>
-      <td id="T_da1fb_row2_col1" class="data row2 col1" >Conforme laudo da assistência social, 20 famílias, 80 pessoas ficaram desalojadas devido destelhamento das suas residências, sendo que três moradias teve todo telhado arrancado, com tesouras e forro. No total foram 276 unidades habitacionais danificadas conforme laudo da engenharia. Ainda conforme laudo da Emater em anexo, houve prejuízos na pecuária que chegam ao valor de R$ 132.000,00. </td>
-      <td id="T_da1fb_row2_col2" class="data row2 col2" >Conforme laudo da engenharia foram danificadas 276 unidades habitacionais, 07 instalações públicas de ensino sofreram destelhamento devidos aos fortes ventos.</td>
-      <td id="T_da1fb_row2_col3" class="data row2 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pelas quebra das telhas de fibrocimento e quedas de inúmeras árvores.</td>
+      <th id="T_36701_level0_row2" class="row_heading level0 row2" >26255</th>
+      <td id="T_36701_row2_col0" class="data row2 col0" >1</td>
+      <td id="T_36701_row2_col1" class="data row2 col1" >Conforme laudo da assistência social, 20 famílias, 80 pessoas ficaram desalojadas devido destelhamento das suas residências, sendo que três moradias teve todo telhado arrancado, com tesouras e forro. No total foram 276 unidades habitacionais danificadas conforme laudo da engenharia. Ainda conforme laudo da Emater em anexo, houve prejuízos na pecuária que chegam ao valor de R$ 132.000,00. </td>
+      <td id="T_36701_row2_col2" class="data row2 col2" >Conforme laudo da engenharia foram danificadas 276 unidades habitacionais, 07 instalações públicas de ensino sofreram destelhamento devidos aos fortes ventos.</td>
+      <td id="T_36701_row2_col3" class="data row2 col3" >Os danos ambientais recorrem da grande quantidade de lixo produzido pelas quebra das telhas de fibrocimento e quedas de inúmeras árvores.</td>
     </tr>
     <tr>
-      <th id="T_da1fb_level0_row3" class="row_heading level0 row3" >26256</th>
-      <td id="T_da1fb_row3_col0" class="data row3 col0" >1</td>
-      <td id="T_da1fb_row3_col1" class="data row3 col1" >As pessoas atingidas, tiveram os telhados de suas residências danificados, moveis molhados, sendo necessário cobrir com lonas, totalizando num total de 300 pessoas atingidas diretamente, de acordo com o laudo da assistência social.</td>
-      <td id="T_da1fb_row3_col2" class="data row3 col2" >De acordo com o laudo da engenharia civil, houve um total de 75 unidades habitacionais atingidas, totalizando um dano estimado de R$120.583,50. Além disso, foi registrado danos causados em prédios públicos, como postos de saúde, escolas, secretarias, totalizando um valor estimado de R$106.834,65.</td>
-      <td id="T_da1fb_row3_col3" class="data row3 col3" >nan</td>
+      <th id="T_36701_level0_row3" class="row_heading level0 row3" >26256</th>
+      <td id="T_36701_row3_col0" class="data row3 col0" >1</td>
+      <td id="T_36701_row3_col1" class="data row3 col1" >As pessoas atingidas, tiveram os telhados de suas residências danificados, moveis molhados, sendo necessário cobrir com lonas, totalizando num total de 300 pessoas atingidas diretamente, de acordo com o laudo da assistência social.</td>
+      <td id="T_36701_row3_col2" class="data row3 col2" >De acordo com o laudo da engenharia civil, houve um total de 75 unidades habitacionais atingidas, totalizando um dano estimado de R$120.583,50. Além disso, foi registrado danos causados em prédios públicos, como postos de saúde, escolas, secretarias, totalizando um valor estimado de R$106.834,65.</td>
+      <td id="T_36701_row3_col3" class="data row3 col3" >nan</td>
     </tr>
     <tr>
-      <th id="T_da1fb_level0_row4" class="row_heading level0 row4" >26257</th>
-      <td id="T_da1fb_row4_col0" class="data row4 col0" >1</td>
-      <td id="T_da1fb_row4_col1" class="data row4 col1" >Toda a população do Município foi afetada direta ou indiretamente pelo evento adverso do dia 29 de dezembro de 2023, devido aos fortes ventos em todo teritório do Município de Ubiretama, que causaram vários destelhamentos em residências e prédios públicos, queda de galhos e árvores sobre as vias municipais, assim dificultando a locomoção das pessoas, bem como interrupçao de fornecimento de energia elétrica, sendo que todo município de Ubiretama está sem energia elétrica até o momento, o que pode perdurar por vários dias inclusive. </td>
-      <td id="T_da1fb_row4_col2" class="data row4 col2" >Várias residências afetadas, causando um valor aproximado de R$ 10.000,00(dez mil reais), e a quadra de futebol society, que foi teve a cobertura totalmente destruída, em razão dos fortes ventos, causando um prejuízo aproximado de R$ 250.000,00(duzentos e cinquenta mil reais), de acordo com o Relatório do Engenheiro Civil. </td>
-      <td id="T_da1fb_row4_col3" class="data row4 col3" >nan</td>
+      <th id="T_36701_level0_row4" class="row_heading level0 row4" >26257</th>
+      <td id="T_36701_row4_col0" class="data row4 col0" >1</td>
+      <td id="T_36701_row4_col1" class="data row4 col1" >Toda a população do Município foi afetada direta ou indiretamente pelo evento adverso do dia 29 de dezembro de 2023, devido aos fortes ventos em todo teritório do Município de Ubiretama, que causaram vários destelhamentos em residências e prédios públicos, queda de galhos e árvores sobre as vias municipais, assim dificultando a locomoção das pessoas, bem como interrupçao de fornecimento de energia elétrica, sendo que todo município de Ubiretama está sem energia elétrica até o momento, o que pode perdurar por vários dias inclusive. </td>
+      <td id="T_36701_row4_col2" class="data row4 col2" >Várias residências afetadas, causando um valor aproximado de R$ 10.000,00(dez mil reais), e a quadra de futebol society, que foi teve a cobertura totalmente destruída, em razão dos fortes ventos, causando um prejuízo aproximado de R$ 250.000,00(duzentos e cinquenta mil reais), de acordo com o Relatório do Engenheiro Civil. </td>
+      <td id="T_36701_row4_col3" class="data row4 col3" >nan</td>
     </tr>
   </tbody>
 </table>
@@ -798,7 +797,7 @@ Name: count, dtype: int64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline_humanos</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
     <span class="p">(</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))),</span>
-    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log_loss&#39;</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log_loss&#39;</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)),</span>
 <span class="p">])</span>
 
 <span class="n">classificador_humanos</span> <span class="o">=</span> <span class="n">pipeline_humanos</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_humanos</span><span class="p">,</span> <span class="n">y_train_humanos</span><span class="p">)</span>
@@ -818,12 +817,12 @@ Name: count, dtype: int64
 
                  precision    recall  f1-score   support
 
-Não reconhecido   0.240945  0.404762  0.302073       378
-    Reconhecido   0.931756  0.864378  0.896803      3554
+Não reconhecido   0.666667  0.010582  0.020833       378
+    Reconhecido   0.904738  0.999437  0.949733      3554
 
-       accuracy                       0.820193      3932
-      macro avg   0.586351  0.634570  0.599438      3932
-   weighted avg   0.865345  0.820193  0.839629      3932
+       accuracy                       0.904374      3932
+      macro avg   0.785702  0.505010  0.485283      3932
+   weighted avg   0.881851  0.904374  0.860434      3932
 </pre></div>
 </div>
 </div>
@@ -927,7 +926,7 @@ Name: proportion, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline_materiais</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
     <span class="p">(</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))),</span>
-    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log_loss&#39;</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log_loss&#39;</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)),</span>
 <span class="p">])</span>
 
 <span class="n">classificador_materiais</span> <span class="o">=</span> <span class="n">pipeline_materiais</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_materiais</span><span class="p">,</span> <span class="n">y_train_materiais</span><span class="p">)</span>
@@ -947,12 +946,12 @@ Name: proportion, dtype: float64
 
                  precision    recall  f1-score   support
 
-Não reconhecido   0.242494  0.333333  0.280749       315
-    Reconhecido   0.909444  0.865408  0.886880      2437
+Não reconhecido   1.000000  0.003175  0.006329       315
+    Reconhecido   0.885860  1.000000  0.939476      2437
 
-       accuracy                       0.804506      2752
-      macro avg   0.575969  0.599371  0.583814      2752
-   weighted avg   0.833103  0.804506  0.817501      2752
+       accuracy                       0.885901      2752
+      macro avg   0.942930  0.501587  0.472902      2752
+   weighted avg   0.898924  0.885901  0.832666      2752
 </pre></div>
 </div>
 </div>
@@ -1054,7 +1053,7 @@ Name: proportion, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline_ambiental</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
     <span class="p">(</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))),</span>
-    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log_loss&#39;</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log_loss&#39;</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)),</span>
 <span class="p">])</span>
 
 <span class="n">classificador_ambiental</span> <span class="o">=</span> <span class="n">pipeline_ambiental</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_ambiental</span><span class="p">,</span> <span class="n">y_train_ambiental</span><span class="p">)</span>
@@ -1074,12 +1073,12 @@ Name: proportion, dtype: float64
 
                  precision    recall  f1-score   support
 
-Não reconhecido   0.179732  0.345588  0.236478       272
-    Reconhecido   0.933903  0.854280  0.892319      2944
+Não reconhecido   1.000000  0.033088  0.064057       272
+    Reconhecido   0.917992  1.000000  0.957243      2944
 
-       accuracy                       0.811256      3216
-      macro avg   0.556818  0.599934  0.564398      3216
-   weighted avg   0.870117  0.811256  0.836850      3216
+       accuracy                       0.918221      3216
+      macro avg   0.958996  0.516544  0.510650      3216
+   weighted avg   0.924928  0.918221  0.881700      3216
 </pre></div>
 </div>
 </div>
@@ -1174,35 +1173,35 @@ Não reconhecido   0.179732  0.345588  0.236478       272
     <tr>
       <th>0</th>
       <td>Humanos</td>
-      <td>0.931756</td>
-      <td>0.864378</td>
-      <td>0.896803</td>
-      <td>0.240945</td>
-      <td>0.404762</td>
-      <td>0.302073</td>
-      <td>0.820193</td>
+      <td>0.904738</td>
+      <td>0.999437</td>
+      <td>0.949733</td>
+      <td>0.666667</td>
+      <td>0.010582</td>
+      <td>0.020833</td>
+      <td>0.904374</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Materiais</td>
-      <td>0.909444</td>
-      <td>0.865408</td>
-      <td>0.886880</td>
-      <td>0.242494</td>
-      <td>0.333333</td>
-      <td>0.280749</td>
-      <td>0.804506</td>
+      <td>0.885860</td>
+      <td>1.000000</td>
+      <td>0.939476</td>
+      <td>1.000000</td>
+      <td>0.003175</td>
+      <td>0.006329</td>
+      <td>0.885901</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Ambiental</td>
-      <td>0.933903</td>
-      <td>0.854280</td>
-      <td>0.892319</td>
-      <td>0.179732</td>
-      <td>0.345588</td>
-      <td>0.236478</td>
-      <td>0.811256</td>
+      <td>0.917992</td>
+      <td>1.000000</td>
+      <td>0.957243</td>
+      <td>1.000000</td>
+      <td>0.033088</td>
+      <td>0.064057</td>
+      <td>0.918221</td>
     </tr>
   </tbody>
 </table>
@@ -1245,7 +1244,7 @@ Não reconhecido   0.179732  0.345588  0.236478       272
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/79dc72b25c49435e906fdbfb3550dfa8540cfb826ea5f38b9fa67f7ba23ce8e1.png" src="_images/79dc72b25c49435e906fdbfb3550dfa8540cfb826ea5f38b9fa67f7ba23ce8e1.png" />
+<img alt="_images/9fd5af23fc2bf5a794d2efb3963e816cbdb936296a583845356e2a29107fb2b3.png" src="_images/9fd5af23fc2bf5a794d2efb3963e816cbdb936296a583845356e2a29107fb2b3.png" />
 </div>
 </div>
 </section>
@@ -1282,6 +1281,24 @@ Não reconhecido   0.179732  0.345588  0.236478       272
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="xgboost_conclusao.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Resultados do modelo XGBoost</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nlp_tfidf_class_balanced.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modelo base</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1365,14 +1382,11 @@ By The Jupyter Book community
     
 <div class="extra_footer">
   <div>
-  <div class="mooc_add">
-   <a href="https://www.fun-mooc.fr/en/courses/machine-learning-python-scikit-learn">Join the full MOOC for better learning!</a>
-  </div>
-  Brought to you under a <a href="https://github.com/INRIA/scikit-learn-mooc/blob/main/LICENSE">CC-BY License</a> by
-  <a href="https://learninglab.inria.fr">Inria Learning Lab</a>,
-  <a href="https://scikit-learn.fondation-inria.fr">scikit-learn @ La Fondation Inria</a>,
-  <a href="https://www.inria-academy.fr/formation/scikit-learn-la-boite-a-outils-de-lapprentissage-automatique/">Inria Academy</a>,
-  with many thanks to the <a href="https://scikit-learn.org">scikit-learn</a> community as a whole!
+  <h2>Resultados dos testes do previsor de reconhecimento federal de desastres</h2>
+  <p>Os testes realizados para a construção deste previsor foram fundamentais para refinar a capacidade de previsão e melhorar o desempenho do modelo. 
+  Para saber mais sobre o projeto, você pode consultar o capítulo inicial, onde explicamos detalhadamente a metodologia e os dados utilizados.</p>
+  
+  <p>Agradecemos especialmente à Enap pela realização do bootcamp em machine learning, que proporcionou o conhecimento necessário para o desenvolvimento deste trabalho.</p>
 </div>
 
 </div>
