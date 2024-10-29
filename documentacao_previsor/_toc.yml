@@ -30,6 +30,13 @@ parts:
   - file: arvoredecisao_modelo2_2010_2017
   - file: arvoredecisao_modelo2_2018_2024
   - file: arvoredecisao_conclusoes
+- caption: Random Forest
+  chapters:
+  - file: randomforest_base
+  - file: randomforest_modelo1_2010_2017
+  - file: randomforest_modelo1_2018_2024
+  - file: randomforest_modelo2_2010_2017
+  - file: randomforest_modelo2_2018_2024
 - caption: XGBoost
   chapters:
   - file: xgboost_base
@@ -43,4 +50,4 @@ parts:
   chapters:
   - file: nlp_tfidf_sembalanceamento
   - file: nlp_tfidf_class_balanced
-  - file: berto_conclusoes
+  - file: bert_conclusoes
