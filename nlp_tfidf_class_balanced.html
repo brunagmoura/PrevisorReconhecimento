@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Modelo base &#8212; Previsor de reconhecimento</title>
+    <title>Modelo com balanceamento &#8212; Previsor de reconhecimento</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -65,6 +65,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Resultados BERTopics" href="bert_conclusoes.html" />
     <link rel="prev" title="Modelo base" href="nlp_tfidf_sembalanceamento.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,9 +181,27 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Regressão logística</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="reglog_base.html">Modelos base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reglog_cv.html">Modelos base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reglog_cv.html">Experimentos com cross validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reglog_adicionais.html">Testes adicionais</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reglog_conclusao.html">Resultados da Regressão Logística</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Árvore de decisão</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo1_2010_2017.html">Variáveis agregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo1_2018_2024.html">Variáveis agregadas (2018 a 2022)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2010_2017.html">Variáveis desagregadas (2010 a 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_modelo2_2018_2024.html">Variáveis desagregadas (2018 a 2024)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arvoredecisao_conclusoes.html">Resultados dos Modelos de Árvores de Decisão</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random Forest</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="randomforest_base.html">Árvore de Decisão e Floresta Aleatória</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="randomforest_modelo1_2010_2017.html">Floresta Aleatória</a></li>
+<li class="toctree-l1"><a class="reference internal" href="randomforest_modelo1_2018_2024.html">Floresta Aleatória</a></li>
+<li class="toctree-l1"><a class="reference internal" href="randomforest_modelo2_2010_2017.html">Floresta Aleatória</a></li>
+<li class="toctree-l1"><a class="reference internal" href="randomforest_modelo2_2018_2024.html">Floresta Aleatória</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">XGBoost</span></p>
 <ul class="nav bd-sidenav">
@@ -197,7 +216,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Análise de Tópicos e Classificação de textos</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="nlp_tfidf_sembalanceamento.html">Modelo base</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelo base</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelo com balanceamento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bert_conclusoes.html">Resultados BERTopics</a></li>
 </ul>
 
     </div>
@@ -423,7 +443,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Modelo base</h1>
+    <h1>Modelo com balanceamento</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -471,8 +491,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="modelo-base">
-<h1>Modelo base<a class="headerlink" href="#modelo-base" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="modelo-com-balanceamento">
+<h1>Modelo com balanceamento<a class="headerlink" href="#modelo-com-balanceamento" title="Link to this heading">#</a></h1>
 <section id="bibliotecas">
 <h2>Bibliotecas<a class="headerlink" href="#bibliotecas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-cell docutils container">
@@ -1288,6 +1308,15 @@ Não reconhecido   0.171233  0.367647  0.233645       272
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Modelo base</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="bert_conclusoes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Resultados BERTopics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
